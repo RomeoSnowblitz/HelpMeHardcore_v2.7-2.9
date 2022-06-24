@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "locket",
+  "pattern": [
+    "iGi",
+    "GMG",
+    "iGi"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "M": {
+      "item": "minecraft:dragon_breath"
+    }
+  },
+  "result": {
+    "item": "hmh2:amethyst_locket",
+    "count": 1
+  }
+}

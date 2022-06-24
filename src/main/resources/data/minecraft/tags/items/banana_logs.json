@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:banana_log",
+    "hmh2:banana_wood",
+    "hmh2:stripped_banana_log",
+    "hmh2:stripped_banana_wood"
+  ]
+}

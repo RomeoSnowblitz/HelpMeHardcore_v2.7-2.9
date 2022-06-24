@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Take in the Heat"
+        },
+        "description": {
+            "text": "The Pumice sucked up a lot of Lava, but now what? Your going to need to make a Freezer to Cool the Lava, then Pumice will become reusable"
+        },
+        "icon": {
+            "item": "hmh2:hot_pumice"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "hot_pumice": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:hot_pumice"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "hot_pumice"
+        ]
+    ],
+    "parent": "hmh2:mining/earthy_sponge"
+}

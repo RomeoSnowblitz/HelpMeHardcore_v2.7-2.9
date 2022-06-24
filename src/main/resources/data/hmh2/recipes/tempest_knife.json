@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:cutlass"
+  },
+  "result": "hmh2:tempest_knife",
+  "count": 1
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hmh2:block"
+    }
+  ],
+  "result": {
+    "item": "hmh2:item",
+    "count": 4
+  }
+}

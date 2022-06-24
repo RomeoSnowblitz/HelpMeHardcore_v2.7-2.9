@@ -1,0 +1,11 @@
+{
+  "type": "hmh2:cheese_press",
+  "ingredients": [
+    {
+      "item": "hmh2:cheese"
+    }
+  ],
+  "output": {
+    "item": "hmh2:cheese_slice"
+  }
+}

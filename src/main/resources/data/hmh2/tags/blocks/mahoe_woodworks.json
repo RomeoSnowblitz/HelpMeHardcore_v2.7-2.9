@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:mahoe_slab",
+    "hmh2:mahoe_stairs",
+    "hmh2:mahoe_door",
+    "hmh2:mahoe_trapdoor",
+    "hmh2:mahoe_button",
+    "hmh2:mahoe_pressure_plate",
+    "hmh2:mahoe_fence",
+    "hmh2:mahoe_fence_gate"
+  ]
+}

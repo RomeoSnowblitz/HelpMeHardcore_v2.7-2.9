@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:banana_pressure_plate",
+    "hmh2:cherry_pressure_plate",
+    "hmh2:jacaranda_pressure_plate",
+    "hmh2:mahoe_pressure_plate",
+    "hmh2:mango_pressure_plate",
+    "hmh2:willow_pressure_plate",
+    "minecraft:oak_pressure_plate",
+    "minecraft:spruce_pressure_plate",
+    "minecraft:birch_pressure_plate",
+    "minecraft:jungle_pressure_plate",
+    "minecraft:acacia_pressure_plate",
+    "minecraft:dark_oak_pressure_plate",
+    "minecraft:crimson_pressure_plate",
+    "minecraft:warped_pressure_plate"
+  ]
+}

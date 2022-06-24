@@ -1,0 +1,14 @@
+{
+  "type": "hmh2:ice_cream_maker",
+  "ingredients": [
+    {
+      "item": "hmh2:chocolate_milk"
+    },
+    {
+      "item": "hmh2:cone"
+    }
+  ],
+  "output": {
+    "item": "hmh2:chocolate_ice_cream"
+  }
+}

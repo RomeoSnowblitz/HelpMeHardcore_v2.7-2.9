@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hmh2:block/beef_slab"
+    },
+    "type=double": {
+      "model": "hmh2:block/beef_block"
+    },
+    "type=top": {
+      "model": "hmh2:block/beef_slab_top"
+    }
+  }
+}

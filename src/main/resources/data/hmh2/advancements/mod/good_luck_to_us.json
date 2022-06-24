@@ -1,0 +1,33 @@
+{
+    "display": {
+        "title": {
+            "text": "Good Luck To Us"
+        },
+        "description": {
+            "text": "Eat A Mod Food Item. There are many extra foods that are in this mod to help you stay alive and keep moving."
+        },
+        "icon": {
+            "item": "hmh2:blueberries"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "mod foods": {
+            "trigger": "minecraft:consume_item",
+            "conditions": {
+                "item": {
+                    "tag": "hmh2:mod_food"
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "mod foods"
+        ]
+    ],
+    "parent": "hmh2:mod/root"
+}

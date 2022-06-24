@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+    "i",
+    "I"
+  ],
+  "key": {
+    "i": {
+      "item": "hmh2:titanium_ingot"
+    },
+    "I": {
+      "item": "hmh2:hellstone"
+    }
+  },
+  "result": {
+    "item": "hmh2:heartstealer",
+    "count": 1
+  }
+}

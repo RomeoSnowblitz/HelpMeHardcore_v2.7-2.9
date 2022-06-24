@@ -1,0 +1,11 @@
+{
+  "type": "hmh2:freezer",
+  "ingredients": [
+    {
+      "item": "minecraft:packed_ice"
+    }
+  ],
+  "output": {
+    "item": "minecraft:blue_ice"
+  }
+}

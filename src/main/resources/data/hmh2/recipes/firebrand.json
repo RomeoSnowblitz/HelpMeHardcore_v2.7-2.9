@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "cc",
+    "cR",
+    " R"
+  ],
+  "key": {
+    "c": {
+      "item": "hmh2:bronze_ingot"
+    },
+    "R": {
+      "item": "hmh2:hellstone"
+    }
+  },
+  "result": {
+    "item": "hmh2:firebrand",
+    "count": 1
+  }
+}

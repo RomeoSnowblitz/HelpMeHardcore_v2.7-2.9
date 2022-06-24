@@ -1,0 +1,43 @@
+{
+    "display": {
+        "title": {
+            "text": "The Coldest Block"
+        },
+        "description": {
+            "text": "Think of the opposite of a furnace, This freezer will require coolants, instead of coals, It can make ice colder, and make pumice reusable"
+        },
+        "icon": {
+            "item": "hmh2:freezer"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "freezer": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:freezer"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "freezer"
+        ]
+    ],
+    "rewards": {
+        "loot": [
+            "hmh2:chests/totem_reward"
+        ],
+        "experience": 100
+    },
+    "parent": "hmh2:mining/take_in_the_heat"
+}

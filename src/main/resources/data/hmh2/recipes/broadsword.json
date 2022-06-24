@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " ii",
+    "iii",
+    "/i "
+  ],
+  "key": {
+    "i": {
+      "tag": "hmh2:mod_irons"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "hmh2:broadsword",
+    "count": 1
+  }
+}

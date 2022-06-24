@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    " i ",
+    "iii"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "i": {
+      "tag": "hmh2:mod_irons"
+    }
+  },
+  "result": {
+    "item": "minecraft:anvil"
+  }
+}

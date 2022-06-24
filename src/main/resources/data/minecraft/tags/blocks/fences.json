@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:banana_fence",
+    "hmh2:cherry_fence",
+    "hmh2:jacaranda_fence",
+    "hmh2:mango_fence",
+    "hmh2:mahoe_fence",
+    "hmh2:willow_fence",
+    "minecraft:nether_brick_fence",
+    "minecraft:crimson_fence",
+    "minecraft:warped_fence",
+    "minecraft:oak_fence",
+    "minecraft:birch_fence",
+    "minecraft:spruce_fence",
+    "minecraft:jungle_fence",
+    "minecraft:acacia_fence",
+    "minecraft:dark_oak_fence",
+  ]
+}

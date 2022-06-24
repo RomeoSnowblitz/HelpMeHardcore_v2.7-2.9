@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:banana_stairs",
+    "hmh2:cherry_stairs",
+    "hmh2:jacaranda_stairs",
+    "hmh2:mahoe_stairs",
+    "hmh2:mango_stairs",
+    "hmh2:willow_stairs",
+    "minecraft:oak_stairs",
+    "minecraft:spruce_stairs",
+    "minecraft:birch_stairs",
+    "minecraft:jungle_stairs",
+    "minecraft:acacia_stairs",
+    "minecraft:dark_oak_stairs",
+    "minecraft:crimson_stairs",
+    "minecraft:warped_stairs"
+  ]
+}

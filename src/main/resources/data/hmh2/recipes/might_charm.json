@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "charms",
+  "pattern": [
+    "ENE",
+    "CSD",
+    " B "
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:milk_bucket"
+    },
+    "C": {
+      "item": "hmh2:amulet_of_bro_you_gotta_try_this"
+    },
+    "D": {
+      "item": "hmh2:amulet_of_gluttony"
+    },
+    "E": {
+      "item": "hmh2:ender_shard"
+    },
+    "N": {
+      "item": "minecraft:nether_wart"
+    },
+    "S": {
+      "item": "minecraft:fermented_spider_eye"
+    }
+  },
+  "result": {
+    "item": "hmh2:might_charm",
+    "count": 1
+  }
+}

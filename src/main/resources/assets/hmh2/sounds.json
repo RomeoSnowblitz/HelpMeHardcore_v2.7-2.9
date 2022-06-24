@@ -1,0 +1,31 @@
+{
+  "cal_scream": {
+    "subtitle": "Scream",
+    "sounds": [
+      "hmh2:cal_scream"
+    ]
+  },
+  "vapor_moan": {
+    "subtitle": "I don't know what I just heard?",
+    "sounds": [
+      "hmh2:vapor_moan"
+    ]
+  },
+  "ore_scream_hit": {
+  "subtitle": "hmh2.ore_scream_hit",
+  "sounds": [
+    "hmh2:ore_scream_hit"
+  ]},
+  "ore_scream_place": {
+    "subtitle": "hmh2.ore_scream_place",
+    "sounds": [
+      "hmh2:ore_scream_place"
+    ]
+  },
+  "ore_scream_step": {
+    "subtitle": "help_me_hardcore.ore_scream_step",
+    "sounds": [
+      "hmh2:ore_scream_step"
+    ]
+  }
+}

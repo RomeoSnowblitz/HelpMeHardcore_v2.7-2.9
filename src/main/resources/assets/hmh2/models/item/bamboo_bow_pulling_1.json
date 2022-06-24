@@ -1,0 +1,6 @@
+{
+  "parent": "hmh2:item/bamboo_bow",
+  "textures": {
+    "layer0": "hmh2:item/bamboo_bow_pulling_1"
+  }
+}

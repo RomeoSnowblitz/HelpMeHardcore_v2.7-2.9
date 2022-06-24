@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:bread_knife"
+  },
+  "result": "hmh2:cutlass",
+  "count": 1
+}

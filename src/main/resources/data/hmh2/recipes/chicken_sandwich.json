@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:sliced_bread"
+    },
+    "X": {
+      "item": "minecraft:cooked_chicken"
+    }
+  },
+  "result": {
+    "item": "hmh2:chicken_sandwich"
+  }
+}

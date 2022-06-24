@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Earthy Sponge"
+        },
+        "description": {
+            "text": "Deep Underground There is a Good Chance to find Pumice, It's most commonly used as a 'Lava Sponge' It's really fun :O"
+        },
+        "icon": {
+            "item": "hmh2:pumice"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "pumice": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:pumice"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "pumice"
+        ]
+    ],
+    "parent": "hmh2:mining/root"
+}

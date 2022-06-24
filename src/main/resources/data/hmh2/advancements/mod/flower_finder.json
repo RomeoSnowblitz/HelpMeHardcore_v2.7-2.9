@@ -1,0 +1,39 @@
+{
+    "display": {
+        "title": {
+            "text": "Flower Finder"
+        },
+        "description": {
+            "text": "Roses are back! there are also 2 other mod flowers, Pick one up and see what kind of dye it makes"
+        },
+        "icon": {
+            "item": "hmh2:rose"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "flowers": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:rose",
+                            "hmh2:blue_spider_lily",
+                            "hmh2:wolfsbane"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "flowers"
+        ]
+    ],
+    "parent": "hmh2:mod/root"
+}

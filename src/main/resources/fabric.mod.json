@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "hmh2",
+  "version": "${version}",
+
+  "name": "Tutorial Mod",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "romeosnowblitz"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/"
+  },
+
+  "license": "MIT",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.romeosnowblitz.hmh2.Hmh2"
+    ],
+    "client": [
+      "net.romeosnowblitz.hmh2.Hmh2ClientMod"
+    ]
+  },
+  "mixins": [
+    "hmh2.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #",
+    "/ "
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:bread_knife"
+    },
+    "/": {
+      "item": "hmh2:battlestaff"
+    }
+  },
+  "result": {
+    "item": "hmh2:glaive",
+    "count": 1
+  }
+}

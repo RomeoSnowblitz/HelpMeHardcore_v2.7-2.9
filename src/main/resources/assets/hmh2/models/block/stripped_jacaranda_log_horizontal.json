@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column_horizontal",
+  "textures": {
+    "end": "hmh2:block/stripped_jacaranda_log_top",
+    "side": "hmh2:block/stripped_jacaranda_log"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:willow_slab",
+    "hmh2:willow_stairs",
+    "hmh2:willow_door",
+    "hmh2:willow_trapdoor",
+    "hmh2:willow_button",
+    "hmh2:willow_pressure_plate",
+    "hmh2:willow_fence",
+    "hmh2:willow_fence_gate"
+  ]
+}

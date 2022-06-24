@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "hmh2:block/cheese_press_bottom",
+    "up": "hmh2:block/cheese_press_top",
+    "north": "hmh2:block/cheese_press_side",
+    "east": "hmh2:block/cheese_press_side",
+    "south": "hmh2:block/cheese_press_side",
+    "west": "hmh2:block/cheese_press_side",
+    "particle": "hmh2:block/cheese_press_top"
+  }
+}

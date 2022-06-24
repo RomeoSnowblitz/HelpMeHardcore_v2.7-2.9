@@ -1,0 +1,31 @@
+{
+    "display": {
+        "title": {
+            "text": "Watch Your Step"
+        },
+        "description": {
+            "text": "This was a hidden Advancement, meaning that you couldn't see it until after it was completed. It appears that you have stepped on Poison Grass, it only spawns in the plains, and is obtainable with shears."
+        },
+        "icon": {
+            "item": "hmh2:poison_grass"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "C Grass": {
+            "trigger": "minecraft:enter_block",
+            "conditions": {
+                "block": "hmh2:poison_grass"
+            }
+        }
+    },
+    "requirements": [
+        [
+            "C Grass"
+        ]
+    ],
+    "parent": "hmh2:mod/root"
+}

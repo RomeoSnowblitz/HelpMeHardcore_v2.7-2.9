@@ -1,0 +1,11 @@
+{
+  "type": "hmh2:freezer",
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "output": {
+    "item": "minecraft:ice"
+  }
+}

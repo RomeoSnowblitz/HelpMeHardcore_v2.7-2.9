@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:heavy_cream"
+  },
+  "result": "hmh2:butter",
+  "count": 1
+}

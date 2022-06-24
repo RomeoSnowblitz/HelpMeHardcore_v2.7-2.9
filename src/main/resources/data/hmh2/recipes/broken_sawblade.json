@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " #S",
+    "#S#",
+    "/# "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:chain"
+    },
+    "S": {
+      "item": "hmh2:tin_ingot"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "hmh2:broken_sawblade",
+    "count": 1
+  }
+}

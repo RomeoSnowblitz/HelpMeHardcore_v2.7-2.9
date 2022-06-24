@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=false": { "model": "hmh2:block/willow_pressure_plate" },
+    "powered=true": { "model": "hmh2:block/willow_pressure_plate_down" }
+  }
+}

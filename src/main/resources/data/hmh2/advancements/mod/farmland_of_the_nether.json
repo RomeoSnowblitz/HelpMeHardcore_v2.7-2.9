@@ -1,0 +1,48 @@
+{
+    "parent": "hmh2:mod/midas_seeds",
+    "criteria": {
+        "gold_on": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:midas_seeds"
+                    ]
+                },
+                "location": {
+                    "block": {
+                        "blocks": [
+                            "hmh2:crimson_farmland"
+                        ]
+                    }
+                }
+            },
+            "trigger": "minecraft:item_used_on_block"
+        }
+    },
+    "display": {
+        "announce_to_chat": true,
+        "description": {
+            "text": "Since Midas seeds are an ore, not a plant they are going to need a different farmland. In the Nether You can use a Mod Hoe to Till Nylium into Farmland. and it requires Lava instead of Water to keep the Farmland Hydrated. To complete this Advancement Plants some Midas Seeds on this new Hot Farmland"
+        },
+        "frame": "challenge",
+        "hidden": false,
+        "icon": {
+            "item": "hmh2:crimson_farmland"
+        },
+        "show_toast": false,
+        "title": {
+            "text": "Farmland of the Nether"
+        }
+    },
+    "requirements": [
+        [
+            "gold_on"
+        ]
+    ],
+    "rewards": {
+        "loot": [
+            "hmh2:chests/totem_reward"
+        ],
+        "experience": 100
+    }
+}

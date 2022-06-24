@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "hmh2:broadsword"
+  },
+  "addition": {
+    "item": "hmh2:ender_ingot"
+  },
+  "result": {
+    "item": "hmh2:obsidian_claymore"
+  }
+}

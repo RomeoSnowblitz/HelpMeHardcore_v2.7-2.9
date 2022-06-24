@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:banana_trapdoor",
+    "hmh2:cherry_trapdoor",
+    "hmh2:jacaranda_trapdoor",
+    "hmh2:mahoe_trapdoor",
+    "hmh2:mango_trapdoor",
+    "hmh2:willow_trapdoor",
+    "minecraft:acacia_trapdoor",
+    "minecraft:birch_trapdoor",
+    "minecraft:dark_oak_trapdoor",
+    "minecraft:jungle_trapdoor",
+    "minecraft:oak_trapdoor",
+    "minecraft:spruce_trapdoor",
+    "minecraft:crimson_trapdoor",
+    "minecraft:warped_trapdoor"
+  ]
+}

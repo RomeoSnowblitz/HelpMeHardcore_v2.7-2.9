@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hmh2:heated_oil_bucket"
+    }
+  ],
+  "result": {
+    "item": "hmh2:oil_ball",
+    "count": 16
+  }
+}

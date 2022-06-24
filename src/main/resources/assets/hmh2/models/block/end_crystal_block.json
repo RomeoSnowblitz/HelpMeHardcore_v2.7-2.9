@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "hmh2:block/endcrystal_m",
+    "up": "hmh2:block/endcrystal_g",
+    "north": "hmh2:block/endcrystal_j",
+    "east": "hmh2:block/endcrystal_a",
+    "south": "hmh2:block/endcrystal_n",
+    "west": "hmh2:block/endcrystal_o",
+    "particle": "hmh2:block/endcrystal_m"
+  }
+}

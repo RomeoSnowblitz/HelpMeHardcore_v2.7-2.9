@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:banana_slab",
+    "hmh2:banana_stairs",
+    "hmh2:banana_door",
+    "hmh2:banana_trapdoor",
+    "hmh2:banana_button",
+    "hmh2:banana_pressure_plate",
+    "hmh2:banana_fence",
+    "hmh2:banana_fence_gate"
+  ]
+}

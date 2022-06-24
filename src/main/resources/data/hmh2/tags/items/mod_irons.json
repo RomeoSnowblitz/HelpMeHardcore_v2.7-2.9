@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:iron_ingot",
+    "hmh2:platinum_ingot",
+    "hmh2:silver_ingot",
+    "hmh2:tin_ingot",
+    "hmh2:titanium_ingot"
+  ]
+}

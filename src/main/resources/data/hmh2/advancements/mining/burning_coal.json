@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Burning Coal"
+        },
+        "description": {
+            "text": "Scattered throughout the Nether, you can find Hellstone, An amazing Fuel source an can make an armor set along with the famous Hellstone Pickaxe"
+        },
+        "icon": {
+            "item": "hmh2:hellstone_block"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "hellstone": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:hellstone"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "hellstone"
+        ]
+    ],
+    "parent": "hmh2:mining/root"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i ",
+    "Ii"
+  ],
+  "key": {
+    "i": {
+      "tag": "hmh2:mod_irons"
+    },
+    "I": {
+      "item": "hmh2:claymore"
+    }
+  },
+  "result": {
+    "item": "hmh2:great_axeblade",
+    "count": 1
+  }
+}

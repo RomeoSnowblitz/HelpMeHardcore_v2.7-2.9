@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "locket",
+  "pattern": [
+    "iGi",
+    "GMG",
+    "iGi"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "minecraft:diamond"
+    },
+    "M": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "result": {
+    "item": "hmh2:diamond_locket",
+    "count": 1
+  }
+}

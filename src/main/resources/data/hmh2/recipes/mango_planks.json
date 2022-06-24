@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "minecraft:mango_logs"
+    }
+  ],
+  "result": {
+    "item": "hmh2:mango_planks",
+    "count": 4
+  }
+}

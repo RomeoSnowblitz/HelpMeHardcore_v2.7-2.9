@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Portable Autosmelter"
+        },
+        "description": {
+            "text": "This Pickaxe can save you a lot of burning resources, all you need to do is break an ore, and you'll obtain it's ingot"
+        },
+        "icon": {
+            "item": "hmh2:hellstone_pickaxe"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "hellstone_pickaxe": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:hellstone_pickaxe"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "hellstone_pickaxe"
+        ]
+    ],
+    "parent": "hmh2:mining/burning_coal"
+}

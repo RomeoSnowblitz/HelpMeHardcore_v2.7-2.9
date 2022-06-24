@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:jacaranda_log"
+    }
+  },
+  "result": {
+    "item": "hmh2:jacaranda_wood",
+    "count": 3
+  }
+}

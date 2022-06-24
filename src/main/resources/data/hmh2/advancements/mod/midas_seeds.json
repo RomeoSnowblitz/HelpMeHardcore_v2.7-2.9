@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Midas Seeds                                                                                       "
+        },
+        "description": {
+            "text": "A rare seed touched by midas himself. These rare Seeds are only found in Jungle Temples, and Bastion Remnants. Legend says that seeds can plant an infinite source of Gold! Good Luck on your Search :)"
+        },
+        "icon": {
+            "item": "hmh2:midas_seeds"
+        },
+        "frame": "task",
+        "show_toast": false,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "The Golden Crop": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:midas_seeds"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "The Golden Crop"
+        ]
+    ],
+    "parent": "hmh2:mod/remember_to_brush"
+}

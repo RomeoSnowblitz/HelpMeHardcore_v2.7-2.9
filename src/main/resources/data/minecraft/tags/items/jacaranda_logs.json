@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:jacaranda_log",
+    "hmh2:jacaranda_wood",
+    "hmh2:stripped_jacaranda_log",
+    "hmh2:stripped_jacaranda_wood"
+  ]
+}

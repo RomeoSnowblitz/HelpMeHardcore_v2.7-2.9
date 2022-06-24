@@ -1,0 +1,6 @@
+{
+  "parent": "block/button_inventory",
+  "textures": {
+    "texture": "hmh2:block/cherry_planks"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "helmet",
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:scute"
+    }
+  },
+  "result": {
+    "item": "minecraft:turtle_helmet"
+  }
+}

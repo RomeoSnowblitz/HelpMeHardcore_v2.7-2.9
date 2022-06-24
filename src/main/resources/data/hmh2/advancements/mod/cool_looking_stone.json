@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Cool Looking Stone"
+        },
+        "description": {
+            "text": "Marble is a common black stone found close to the surface, Some things in this mod have their purpose only for decoration, Let's see if we can find some :)"
+        },
+        "icon": {
+            "item": "hmh2:marble"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "marble": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:marble"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "marble"
+        ]
+    ],
+    "parent": "hmh2:mod/root"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:dragon_breath"
+    },
+    {
+      "item": "hmh2:quaerite_fragment"
+    }
+  ],
+  "result": {
+    "item": "hmh2:ender_shard",
+    "count": 1
+  }
+}

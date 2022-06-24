@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom",
+  "textures": {
+    "top": "hmh2:block/mahoe_door_top",
+    "bottom": "hmh2:block/mahoe_door_bottom"
+  }
+}

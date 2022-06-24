@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:beef_slab"
+    }
+  },
+  "result": {
+    "item": "hmh2:beef_block",
+    "count": 1
+  }
+}

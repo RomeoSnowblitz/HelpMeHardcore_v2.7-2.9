@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+    "g",
+    "/"
+  ],
+  "key": {
+    "i": {
+      "item": "hmh2:silver_ingot"
+    },
+    "g": {
+      "item": "hmh2:titanium_ingot"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "hmh2:claymore",
+    "count": 1
+  }
+}

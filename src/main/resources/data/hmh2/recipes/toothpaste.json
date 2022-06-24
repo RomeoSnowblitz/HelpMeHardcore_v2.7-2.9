@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hmh2:ashes"
+    },
+    {
+      "item": "hmh2:burnt_eggshell"
+    },
+    {
+      "item": "hmh2:cow_hoof_powder"
+    },
+    {
+      "item": "hmh2:pumice"
+    }
+  ],
+  "result": {
+    "item": "hmh2:toothpaste",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:copper_ingot"
+  },
+  "addition": {
+    "item": "hmh2:tin_ingot"
+  },
+  "result": {
+    "item": "hmh2:bronze_ingot"
+  }
+}

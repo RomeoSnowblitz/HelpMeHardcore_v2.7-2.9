@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:raw_chicken_nugget"
+    }
+  },
+  "result": {
+    "item": "minecraft:chicken",
+    "count": 1
+  }
+}

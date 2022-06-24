@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "minecraft:mahoe_logs"
+    }
+  ],
+  "result": {
+    "item": "hmh2:mahoe_planks",
+    "count": 4
+  }
+}

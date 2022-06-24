@@ -1,0 +1,11 @@
+{
+  "type": "hmh2:freezer",
+  "ingredients": [
+    {
+      "item": "hmh2:hot_pumice"
+    }
+  ],
+  "output": {
+    "item": "hmh2:pumice"
+  }
+}

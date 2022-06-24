@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "hmh2:block/jacaranda_planks",
+    "top": "hmh2:block/jacaranda_planks",
+    "side": "hmh2:block/jacaranda_planks"
+  }
+}

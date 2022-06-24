@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "minecraft:jacaranda_logs"
+    }
+  ],
+  "result": {
+    "item": "hmh2:jacaranda_planks",
+    "count": 4
+  }
+}

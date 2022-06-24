@@ -1,0 +1,8 @@
+{
+  "parent": "hmh2:block/template_crimson_farmland",
+  "textures": {
+    "dirt": "minecraft:block/crimson_nylium_side",
+    "bottom": "minecraft:block/netherrack",
+    "top": "hmh2:block/crimson_farmland_moist"
+  }
+}

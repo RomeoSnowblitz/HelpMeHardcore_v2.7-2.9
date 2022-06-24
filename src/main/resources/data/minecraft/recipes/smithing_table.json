@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "@@",
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "@": {
+      "tag": "hmh2:mod_irons"
+    }
+  },
+  "result": {
+    "item": "minecraft:smithing_table"
+  }
+}

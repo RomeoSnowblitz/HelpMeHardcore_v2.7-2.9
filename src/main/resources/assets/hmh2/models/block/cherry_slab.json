@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "hmh2:block/cherry_planks",
+    "top": "hmh2:block/cherry_planks",
+    "side": "hmh2:block/cherry_planks"
+  }
+}

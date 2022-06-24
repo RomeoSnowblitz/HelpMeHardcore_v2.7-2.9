@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hmh2:wolfsbane"
+    }
+  ],
+  "result": {
+    "item": "hmh2:violet_dye",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hmh2:blue_spider_lily"
+    }
+  ],
+  "result": {
+    "item": "hmh2:ultramarine_dye",
+    "count": 1
+  }
+}

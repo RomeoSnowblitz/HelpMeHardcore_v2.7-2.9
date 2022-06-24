@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:cyan_dye"
+    },
+    {
+      "item": "hmh2:new_green_dye"
+    }
+  ],
+  "result": {
+    "item": "hmh2:spring_green_dye",
+    "count": 2
+  }
+}

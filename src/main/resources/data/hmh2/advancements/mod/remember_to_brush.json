@@ -1,0 +1,35 @@
+{
+    "display": {
+        "title": {
+            "text": "Remember to Brush                                                                                 "
+        },
+        "description": {
+            "text": "Toothpaste? we need 4 ingredients: Ashes can be made by burning wheat in a furnace, your also going to burn an egg to get the burnt eggshells. Killing a cow may drop a cow hoof, which can be cut into cow hoof powder in a stonecutter. Lastly you'll need some Pumice which is found deep underground"
+        },
+        "icon": {
+            "item": "hmh2:toothpaste"
+        },
+        "frame": "task",
+        "show_toast": false,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "eat_the_paste": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:toothpaste"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        }
+    },
+    "requirements": [
+        [
+            "eat_the_paste"
+        ]
+    ],
+    "parent": "hmh2:mod/good_luck_to_us"
+}

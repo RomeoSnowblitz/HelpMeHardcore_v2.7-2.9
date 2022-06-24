@@ -1,0 +1,40 @@
+{
+    "display": {
+        "title": {
+            "text": "Brick Extension"
+        },
+        "description": {
+            "text": "Minecraft is known for it's fair share of bricks, in this mod you can make bricks out og Andesite, Diorite, And Granite with their polished variants, you can also make snow bricks. Let's make some bricks to get a better look at how nice they are"
+        },
+        "icon": {
+            "item": "hmh2:granite_bricks"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "bricks": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:andesite_bricks",
+                            "hmh2:diorite_bricks",
+                            "hmh2:granite_bricks",
+                            "hmh2:snow_bricks"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "bricks"
+        ]
+    ],
+    "parent": "hmh2:mod/cool_looking_stone"
+}

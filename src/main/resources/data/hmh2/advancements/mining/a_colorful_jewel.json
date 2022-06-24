@@ -1,0 +1,59 @@
+{
+    "display": {
+        "title": {
+            "text": "A Colorful Jewel"
+        },
+        "description": {
+            "text": "Jewels are the root to some powerful tools of magic, commonly used for Amulets and Charms, each have their own benefit to the player, with the right materials let's try and make a locket (Check your recipes table for 'Locket')"
+        },
+        "icon": {
+            "item": "hmh2:tormaline"
+        },
+        "frame": "goal",
+        "show_toast": false,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "jewel": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:amber",
+                            "hmh2:andalusite",
+                            "hmh2:aquamarine",
+                            "hmh2:citrine",
+                            "hmh2:diopside",
+                            "hmh2:garnet",
+                            "hmh2:hessonite",
+                            "hmh2:malichite",
+                            "hmh2:moonstone",
+                            "hmh2:opal",
+                            "hmh2:peridot",
+                            "hmh2:prehnite",
+                            "hmh2:ruby",
+                            "hmh2:sapphire",
+                            "hmh2:smoky_quartz",
+                            "hmh2:spessarite",
+                            "hmh2:sphene",
+                            "hmh2:spinel",
+                            "hmh2:tanzanite",
+                            "hmh2:topaz",
+                            "hmh2:tormaline",
+                            "hmh2:tsavorite",
+                            "hmh2:zircon"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "jewel"
+        ]
+    ],
+    "parent": "hmh2:mining/root"
+}

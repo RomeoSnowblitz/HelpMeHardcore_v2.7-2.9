@@ -1,0 +1,35 @@
+{
+    "display": {
+        "title": {
+            "text": "A New Set of Clothes"
+        },
+        "description": {
+            "text": "Making armor may be a good source of protection, however some materials have a perk. A perk is when you receive a status effect for wearing a full set of armor of the same material, note that not all armor materials have a perk, so be on the lookout"
+        },
+        "icon": {
+            "item": "hmh2:life_chestplate"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "O Armor": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "hmh2:mod_armor"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "O Armor"
+        ]
+    ],
+    "parent": "hmh2:mining/a_heartfelt_connection"
+}

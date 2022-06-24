@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather_boots",
+    "minecraft:leather_leggings",
+    "minecraft:leather_chestplate",
+    "minecraft:leather_helmet",
+    "hmh2:fur_boots",
+    "hmh2:fur_leggings",
+    "hmh2:fur_chestplate",
+    "hmh2:fur_helmet",
+    "minecraft:leather_horse_armor"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ii",
+    "ii"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:chicken"
+    }
+  },
+  "result": {
+    "item": "hmh2:raw_chicken_block",
+    "count": 1
+  }
+}

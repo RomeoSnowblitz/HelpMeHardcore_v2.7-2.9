@@ -1,0 +1,6 @@
+{
+  "parent": "block/leaves",
+  "textures": {
+    "all": "hmh2:block/willow_leaves"
+  }
+}

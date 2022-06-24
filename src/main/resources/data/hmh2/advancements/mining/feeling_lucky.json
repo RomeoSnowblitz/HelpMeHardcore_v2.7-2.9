@@ -1,0 +1,43 @@
+{
+    "display": {
+        "title": {
+            "text": "Feeling Lucky"
+        },
+        "description": {
+            "text": "Underground There is a Good Chance to find Lucky Ore, They Drop Lucky Pieces, and are used to craft two things"
+        },
+        "icon": {
+            "item": "hmh2:lucky_piece"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "O Lucky Piece": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:lucky_piece"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "O Lucky Piece"
+        ]
+    ],
+    "rewards": {
+        "loot": [
+            "hmh2:chests/lucky_reward"
+        ],
+        "experience": 100
+    },
+    "parent": "hmh2:mining/root"
+}

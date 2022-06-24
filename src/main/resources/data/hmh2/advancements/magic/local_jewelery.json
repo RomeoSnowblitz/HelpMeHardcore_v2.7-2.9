@@ -1,0 +1,35 @@
+{
+    "display": {
+        "title": {
+            "text": "Local Jewelery"
+        },
+        "description": {
+            "text": "Make a Locket"
+        },
+        "icon": {
+            "item": "hmh2:diamond_locket"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "O locket": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "minecraft:lockets"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "O locket"
+        ]
+    ],
+    "parent": "hmh2:more_ore"
+}

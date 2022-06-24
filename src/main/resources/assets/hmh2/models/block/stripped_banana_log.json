@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "hmh2:block/stripped_banana_log_top",
+    "side": "hmh2:block/stripped_banana_log"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:rose_wool"
+    }
+  },
+  "result": {
+    "item": "hmh2:rose_carpet",
+    "count": 3
+  }
+}

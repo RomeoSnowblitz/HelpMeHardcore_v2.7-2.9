@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "hmh2:block/bamboo_log_top",
+    "up": "hmh2:block/bamboo_log_top",
+    "north": "hmh2:block/bamboo_log",
+    "east": "hmh2:block/bamboo_log",
+    "south": "hmh2:block/bamboo_log",
+    "west": "hmh2:block/bamboo_log",
+    "particle": "hmh2:block/bamboo_log"
+  }
+}

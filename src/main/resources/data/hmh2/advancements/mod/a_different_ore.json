@@ -1,0 +1,64 @@
+{
+    "display": {
+        "title": {
+            "text": "A Different Ore"
+        },
+        "description": {
+            "text": "In this Mod There are More than 50 types of Ores, some provide food, and some can be used as an iron substitute, but the rarest are Jewels, we can learn about them when you find some :)"
+        },
+        "icon": {
+            "item": "hmh2:deepslate_silver_ore"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "drops": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:raw_platinum",
+                            "hmh2:raw_silver",
+                            "hmh2:raw_tin",
+                            "hmh2:raw_titanium",
+                            "hmh2:graphite",
+                            "hmh2:amber",
+                            "hmh2:andalusite",
+                            "hmh2:aquamarine",
+                            "hmh2:citrine",
+                            "hmh2:diopside",
+                            "hmh2:garnet",
+                            "hmh2:hessonite",
+                            "hmh2:malichite",
+                            "hmh2:moonstone",
+                            "hmh2:opal",
+                            "hmh2:peridot",
+                            "hmh2:prehnite",
+                            "hmh2:ruby",
+                            "hmh2:sapphire",
+                            "hmh2:smoky_quartz",
+                            "hmh2:spessarite",
+                            "hmh2:sphene",
+                            "hmh2:spinel",
+                            "hmh2:tanzanite",
+                            "hmh2:topaz",
+                            "hmh2:tormaline",
+                            "hmh2:tsavorite",
+                            "hmh2:zircon"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "drops"
+        ]
+    ],
+    "parent": "hmh2:mod/brick_extension"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:ender_shard"
+  },
+  "result": "hmh2:ender_dust",
+  "count": 4
+}

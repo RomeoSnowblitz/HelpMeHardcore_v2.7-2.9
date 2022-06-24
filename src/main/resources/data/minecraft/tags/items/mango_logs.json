@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:mango_log",
+    "hmh2:mango_wood",
+    "hmh2:stripped_mango_log",
+    "hmh2:stripped_mango_wood"
+  ]
+}

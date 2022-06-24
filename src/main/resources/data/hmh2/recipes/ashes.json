@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:wheat"
+  },
+  "result": "hmh2:ashes",
+  "experience": 0.35,
+  "cookingtime": 200
+}

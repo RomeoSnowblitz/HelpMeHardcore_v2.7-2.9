@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "mod_stripped_wood",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:stripped_mango_log"
+    }
+  },
+  "result": {
+    "item": "hmh2:stripped_mango_wood",
+    "count": 3
+  }
+}

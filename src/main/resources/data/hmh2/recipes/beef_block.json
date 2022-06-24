@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ii",
+    "ii"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:cooked_beef"
+    }
+  },
+  "result": {
+    "item": "hmh2:beef_block",
+    "count": 1
+  }
+}

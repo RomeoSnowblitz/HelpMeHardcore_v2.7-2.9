@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "chestplate",
+  "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "hmh2:banana_peel"
+    }
+  },
+  "result": {
+    "item": "hmh2:banana_chestplate"
+  }
+}

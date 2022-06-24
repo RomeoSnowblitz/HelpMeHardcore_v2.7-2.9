@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "hmh2:sickel"
+  },
+  "addition": {
+    "item": "hmh2:poison_sac"
+  },
+  "result": {
+    "item": "hmh2:nightmares_bite"
+  }
+}

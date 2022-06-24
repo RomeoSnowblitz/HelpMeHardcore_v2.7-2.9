@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "hmh2:block/freezer_bottom",
+    "up": "hmh2:block/freezer_top",
+    "north": "hmh2:block/freezer_side",
+    "east": "hmh2:block/freezer_side",
+    "south": "hmh2:block/freezer_side",
+    "west": "hmh2:block/freezer_side",
+    "particle": "hmh2:block/freezer_top"
+  }
+}

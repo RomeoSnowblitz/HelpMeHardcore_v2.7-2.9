@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "hmh2:block/deepslate_malichite_ore"
+  }
+}

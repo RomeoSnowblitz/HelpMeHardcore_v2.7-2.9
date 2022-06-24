@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:bread"
+    }
+  },
+  "result": {
+    "item": "hmh2:sliced_bread",
+    "count": 3
+  }
+}

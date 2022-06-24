@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:banana_log",
+    "hmh2:banana_wood",
+    "hmh2:stripped_banana_log",
+    "hmh2:stripped_banana_wood",
+    "hmh2:cherry_log",
+    "hmh2:cherry_wood",
+    "hmh2:stripped_cherry_log",
+    "hmh2:stripped_cherry_wood",
+    "hmh2:jacaranda_log",
+    "hmh2:jacaranda_wood",
+    "hmh2:stripped_jacaranda_log",
+    "hmh2:stripped_jacaranda_wood",
+    "hmh2:mahoe_log",
+    "hmh2:mahoe_wood",
+    "hmh2:stripped_mahoe_log",
+    "hmh2:stripped_mahoe_wood",
+    "hmh2:mango_log",
+    "hmh2:mango_wood",
+    "hmh2:stripped_mango_log",
+    "hmh2:stripped_mango_wood",
+    "hmh2:willow_log",
+    "hmh2:willow_wood",
+    "hmh2:stripped_willow_log",
+    "hmh2:stripped_willow_wood"
+  ]
+}

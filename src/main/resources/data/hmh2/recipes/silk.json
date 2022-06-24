@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:string"
+    }
+  ],
+  "result": {
+    "item": "hmh2:silk",
+    "count": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "I",
+    "C"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:chocolate_milk"
+    },
+    "I": {
+      "item": "minecraft:ice"
+    },
+    "C": {
+      "item": "hmh2:cone"
+    }
+  },
+  "result": {
+    "item": "hmh2:chocolate_ice_cream",
+    "count": 1
+  }
+}

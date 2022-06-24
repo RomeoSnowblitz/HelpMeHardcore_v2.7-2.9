@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:cherry_slab",
+    "hmh2:cherry_stairs",
+    "hmh2:cherry_door",
+    "hmh2:cherry_trapdoor",
+    "hmh2:cherry_button",
+    "hmh2:cherry_pressure_plate",
+    "hmh2:cherry_fence",
+    "hmh2:cherry_fence_gate"
+  ]
+}

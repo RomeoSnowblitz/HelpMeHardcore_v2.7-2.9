@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "A Heartfelt Connection"
+        },
+        "description": {
+            "text": "Underground There is a Good Chance to find Life Ore, They Drop Hearts, which can be used to eat for an extra boost in a life threatening situation, They can also be used to make Life Armor"
+        },
+        "icon": {
+            "item": "hmh2:heart"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "heart": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:heart"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "heart"
+        ]
+    ],
+    "parent": "hmh2:mining/root"
+}

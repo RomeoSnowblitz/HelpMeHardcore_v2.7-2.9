@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hmh2:bananas"
+    }
+  ],
+  "result": {
+    "item": "hmh2:banana_peel",
+    "count": 1
+  }
+}

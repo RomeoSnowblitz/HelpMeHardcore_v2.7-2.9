@@ -1,0 +1,48 @@
+{
+    "display": {
+        "title": {
+            "text": "This Looks Different"
+        },
+        "description": {
+            "text": "You have started a new journey with this new  mod. These Advancements Should be able to guide you on your quest for  how this mod Works. It has all kinds of things both powerful and fun. Check the description of the other advancements to find out what you can do next!"
+        },
+        "icon": {
+            "item": "hmh2:block"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false,
+        "background": "hmh2:textures/gui/advancements/backgrounds/diorite_bricks.png"
+    },
+    "criteria": {
+        "C Grass": {
+            "trigger": "minecraft:enter_block",
+            "conditions": {
+                "block": "hmh2:poison_grass"
+            }
+        },
+        "O log": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "hmh2:mod_wood"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "O log",
+            "C Grass"
+        ]
+    ],
+    "rewards": {
+        "loot": [
+            "hmh2:blocks/block"
+        ],
+        "experience": 100
+    }
+}

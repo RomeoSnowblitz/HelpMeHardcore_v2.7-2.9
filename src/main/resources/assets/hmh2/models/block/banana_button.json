@@ -1,0 +1,6 @@
+{
+  "parent": "block/button",
+  "textures": {
+    "texture": "hmh2:block/banana_planks"
+  }
+}

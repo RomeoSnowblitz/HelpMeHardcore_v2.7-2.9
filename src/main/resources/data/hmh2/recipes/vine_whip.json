@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  #",
+    " /#",
+    "/ #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:vine"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "hmh2:vine_whip",
+    "count": 1
+  }
+}

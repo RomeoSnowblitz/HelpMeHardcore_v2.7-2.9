@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "pickaxe",
+  "pattern": [
+    "XXX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "hmh2:banana_peel"
+    }
+  },
+  "result": {
+    "item": "hmh2:banana_pickaxe"
+  }
+}

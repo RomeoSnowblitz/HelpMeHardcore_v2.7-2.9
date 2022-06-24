@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:banana_button",
+    "hmh2:cherry_button",
+    "hmh2:jacaranda_button",
+    "hmh2:mahoe_button",
+    "hmh2:mango_button",
+    "hmh2:willow_button",
+    "minecraft:oak_button",
+    "minecraft:spruce_button",
+    "minecraft:birch_button",
+    "minecraft:jungle_button",
+    "minecraft:acacia_button",
+    "minecraft:dark_oak_button",
+    "minecraft:crimson_button",
+    "minecraft:warped_button"
+  ]
+}

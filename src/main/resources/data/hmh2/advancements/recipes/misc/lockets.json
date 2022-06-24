@@ -1,0 +1,64 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hmh2:amber_locket",
+      "hmh2:amethyst_locket",
+      "hmh2:andalusite_locket",
+      "hmh2:aquamarine_locket",
+      "hmh2:charcoal_locket",
+      "hmh2:citrine_locket",
+      "hmh2:copper_locket",
+      "hmh2:coal_locket",
+      "hmh2:diamond_locket",
+      "hmh2:diopside_locket",
+      "hmh2:emerald_locket",
+      "hmh2:flint_locket",
+      "hmh2:garnet_locket",
+      "hmh2:gold_locket",
+      "hmh2:hessonite_locket",
+      "hmh2:iron_locket",
+      "hmh2:lapis_locket",
+      "hmh2:malichite_locket",
+      "hmh2:moonstone_locket",
+      "hmh2:opal_locket",
+      "hmh2:peridot_locket",
+      "hmh2:prehnite_locket",
+      "hmh2:spessarite_locket",
+      "hmh2:ruby_locket",
+      "hmh2:sapphire_locket",
+      "hmh2:smoky_quartz_locket",
+      "hmh2:sphene_locket",
+      "hmh2:spinel_locket",
+      "hmh2:tanzanite_locket",
+      "hmh2:topaz_locket",
+      "hmh2:tormaline_locket",
+      "hmh2:tsavorite_locket",
+      "hmh2:zircon_locket"
+    ]
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:added_jewels"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hmh2:lockets"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item",
+      "has_the_recipe"
+    ]
+  ]
+}

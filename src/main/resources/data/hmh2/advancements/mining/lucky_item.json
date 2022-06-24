@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Lucky Item"
+        },
+        "description": {
+            "text": "Lucky Item can be crafted with 4 lucky pieces (2x2), and drop a random Vanilla Item"
+        },
+        "icon": {
+            "item": "hmh2:lucky_item"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "O Lucky Piece": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:lucky_item"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "O Lucky Piece"
+        ]
+    ],
+    "parent": "hmh2:mining/feeling_lucky"
+}

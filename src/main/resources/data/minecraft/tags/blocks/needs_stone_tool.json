@@ -1,0 +1,27 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:chicken_block",
+    "hmh2:raw_chicken_block",
+    "hmh2:chicken_nugget_block",
+    "hmh2:raw_chicken_nugget_block",
+    "hmh2:chicken_slab",
+    "hmh2:raw_chicken_slab",
+    "hmh2:snow_bricks",
+    "hmh2:andesite_bricks",
+    "hmh2:diorite_bricks",
+    "hmh2:granite_bricks",
+    "hmh2:pumice",
+    "hmh2:marble",
+    "hmh2:salt_block",
+    "hmh2:lucky_block",
+    "hmh2:lucky_item",
+    "hmh2:lucky_ore",
+    "hmh2:raw_platinum_block",
+    "hmh2:raw_titanium_block",
+    "hmh2:deepslate_silver_ore",
+    "hmh2:silver_ore",
+    "hmh2:deepslate_tin_ore",
+    "hmh2:tin_ore"
+  ]
+}

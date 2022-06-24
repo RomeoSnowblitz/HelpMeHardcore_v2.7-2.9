@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "M"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:snowball"
+    },
+    "M": {
+      "item": "minecraft:milk_bucket"
+    }
+  },
+  "result": {
+    "item": "hmh2:frozen_milk",
+    "count": 1
+  }
+}

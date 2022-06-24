@@ -1,0 +1,41 @@
+{
+    "display": {
+        "title": {
+            "text": "Colors to Die For"
+        },
+        "description": {
+            "text": "It seems as there are 5 Mod Dyes, yet 3 mod flowers... I guess it's a good thing to rely on the crafting recipes given me to tell me how to make something even if I forget, or wonder what else I can make"
+        },
+        "icon": {
+            "item": "hmh2:spring_green_dye"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "dyes": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:rose_dye",
+                            "hmh2:ultramarine_dye",
+                            "hmh2:new_green_dye",
+                            "hmh2:spring_green_dye",
+                            "hmh2:violet_dye"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "dyes"
+        ]
+    ],
+    "parent": "hmh2:mod/flower_finder"
+}

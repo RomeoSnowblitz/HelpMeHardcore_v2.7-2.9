@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_button",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:jacaranda_planks"
+    }
+  },
+  "result": {
+    "item": "hmh2:jacaranda_button",
+    "count": 1
+  }
+}

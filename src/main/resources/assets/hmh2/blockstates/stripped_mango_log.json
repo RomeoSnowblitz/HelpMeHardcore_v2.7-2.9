@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "hmh2:block/stripped_mango_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "hmh2:block/stripped_mango_log"
+    },
+    "axis=z": {
+      "model": "hmh2:block/stripped_mango_log_horizontal",
+      "x": 90
+    }
+  }
+}

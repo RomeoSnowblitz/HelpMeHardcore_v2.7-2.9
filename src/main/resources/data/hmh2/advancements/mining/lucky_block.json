@@ -1,0 +1,37 @@
+{
+    "display": {
+        "title": {
+            "text": "Lucky Block"
+        },
+        "description": {
+            "text": "Lucky Block can be crafted with 9 lucky pieces, and drop a random Vanilla Block"
+        },
+        "icon": {
+            "item": "hmh2:lucky_block"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "O Lucky Piece": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:lucky_block"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "O Lucky Piece"
+        ]
+    ],
+    "parent": "hmh2:mining/feeling_lucky"
+}
