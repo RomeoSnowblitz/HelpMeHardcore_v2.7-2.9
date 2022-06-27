@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:fight_charm",
+    "hmh2:light_charm",
+    "hmh2:might_charm",
+    "hmh2:sight_charm"
+  ]
+}

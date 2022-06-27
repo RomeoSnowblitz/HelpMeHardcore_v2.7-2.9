@@ -1,0 +1,44 @@
+{
+    "display": {
+        "title": {
+            "text": "Truly A One Man Band"
+        },
+        "description": {
+            "text": "The Final and Most Powerful Charm, The Knight Charm. This takes away all negative effects from a player, to obtain it you'll have to have made the 4 base charms and mix them into mix charms, and putting the right mix charms will create the Knight Charm."
+        },
+        "icon": {
+            "item": "hmh2:knight_charm"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "hellstone": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:knight_charm"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "hellstone"
+        ]
+    ],
+    "rewards": {
+        "loot": [
+            "hmh2:chests/totem_reward"
+        ],
+        "experience": 100
+    },
+    "parent": "hmh2:magic/mix_charms"
+
+}

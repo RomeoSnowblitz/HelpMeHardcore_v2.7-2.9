@@ -1,13 +1,13 @@
 {
     "display": {
         "title": {
-            "text": "Local Jewelery"
+            "text": "A Pro From A Con"
         },
         "description": {
-            "text": "You Have a Jewel in your inventory, you now have unlocked all the recipes for Lockets, Let's make one and wield it's power"
+            "text": "So you'll notice that some charms just give you bad effects, so what do you do with them? They are used for something much more powerful, having a 'bad amulet' can unlock a Charm recipe which prevents you from getting an effect"
         },
         "icon": {
-            "item": "hmh2:diamond_locket"
+            "item": "hmh2:sight_charm"
         },
         "frame": "task",
         "show_toast": true,
@@ -15,12 +15,12 @@
         "hidden": false
     },
     "criteria": {
-        "O locket": {
+        "O Amulet": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "tag": "minecraft:lockets"
+                        "tag": "hmh2:charms"
                     }
                 ]
             }
@@ -28,8 +28,8 @@
     },
     "requirements": [
         [
-            "O locket"
+            "O Amulet"
         ]
     ],
-    "parent": "hmh2:magic/root"
+    "parent": "hmh2:magic/amulet"
 }

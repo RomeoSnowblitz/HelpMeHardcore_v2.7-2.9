@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:flight_charm",
+    "hmh2:slight_charm",
+    "hmh2:alight_charm",
+    "hmh2:blight_charm",
+    "hmh2:bright_charm",
+    "hmh2:fright_charm"
+  ]
+}

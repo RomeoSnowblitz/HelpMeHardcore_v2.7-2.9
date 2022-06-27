@@ -1,10 +1,10 @@
 {
     "display": {
         "title": {
-            "text": "Make Good Choices"
+            "text": "With Jewelery Comes Fashion"
         },
         "description": {
-            "text": "Obtain an Amulet"
+            "text": "You wield a great power at the grasp of your hands, to use it You'll need 4 chains and the locket to craft an amulet, These have what's called the Power of Three. Clicking on a block you get all three levels, however hitting an entity, If it amulet is a positive effect you get 2 level and the target gets one, and if it is a negative effect the target gets 2 levels and you get one"
         },
         "icon": {
             "item": "hmh2:amulet_of_bro_you_gotta_try_this"
@@ -12,7 +12,7 @@
         "frame": "task",
         "show_toast": true,
         "announce_to_chat": true,
-        "hidden": true
+        "hidden": false
     },
     "criteria": {
         "O Amulet": {
@@ -31,5 +31,5 @@
             "O Amulet"
         ]
     ],
-    "parent": "hmh2:local_jewelery"
+    "parent": "hmh2:magic/local_jewelery"
 }

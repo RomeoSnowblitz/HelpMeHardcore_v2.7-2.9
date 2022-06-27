@@ -17,10 +17,7 @@ import net.romeosnowblitz.hmh2.entity.ModEntities;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.item.custom.GrannyLotion;
 import net.romeosnowblitz.hmh2.item.custom.amulets.*;
-import net.romeosnowblitz.hmh2.item.custom.charms.FightCharmItem;
-import net.romeosnowblitz.hmh2.item.custom.charms.LightCharmItem;
-import net.romeosnowblitz.hmh2.item.custom.charms.MightCharmItem;
-import net.romeosnowblitz.hmh2.item.custom.charms.SightCharmItem;
+import net.romeosnowblitz.hmh2.item.custom.charms.*;
 import net.romeosnowblitz.hmh2.item.custom.perks.FullEmeraldPerk;
 import net.romeosnowblitz.hmh2.item.custom.perks.FullHeartPerk;
 import net.romeosnowblitz.hmh2.item.custom.perks.FullHellstonePerk;
@@ -272,6 +269,13 @@ public class ModItems {
     public static final Item LIGHT_CHARM = registerItem("light_charm", new LightCharmItem(new FabricItemSettings().group(ModItemGroup.ITEM)));
     public static final Item MIGHT_CHARM = registerItem("might_charm", new MightCharmItem(new FabricItemSettings().group(ModItemGroup.ITEM)));
     public static final Item SIGHT_CHARM = registerItem("sight_charm", new SightCharmItem(new FabricItemSettings().group(ModItemGroup.ITEM)));
+    public static final Item FLIGHT_CHARM = registerItem("flight_charm", new FlightCharmItem(new FabricItemSettings().group(ModItemGroup.ITEM)));
+    public static final Item SLIGHT_CHARM = registerItem("slight_charm", new SlightCharmItem(new FabricItemSettings().group(ModItemGroup.ITEM)));
+    public static final Item ALIGHT_CHARM = registerItem("alight_charm", new AlightCharmItem(new FabricItemSettings().group(ModItemGroup.ITEM)));
+    public static final Item BLIGHT_CHARM = registerItem("blight_charm", new BlightCharmItem(new FabricItemSettings().group(ModItemGroup.ITEM)));
+    public static final Item BRIGHT_CHARM = registerItem("bright_charm", new BrightCharmItem(new FabricItemSettings().group(ModItemGroup.ITEM)));
+    public static final Item FRIGHT_CHARM = registerItem("fright_charm", new FrightCharmItem(new FabricItemSettings().group(ModItemGroup.ITEM)));
+    public static final Item KNIGHT_CHARM = registerItem("knight_charm", new KnightCharmItem(new FabricItemSettings().group(ModItemGroup.ITEM)));
 
     //Lockets
     public static final Item AMBER_LOCKET = registerItem("amber_locket", new Item(new FabricItemSettings().group(ModItemGroup.ITEM)));
