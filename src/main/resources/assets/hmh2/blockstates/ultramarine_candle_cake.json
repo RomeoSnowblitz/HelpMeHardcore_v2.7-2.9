@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "hmh2:block/ultramarine_candle_cake"
+    },
+    "lit=true": {
+      "model": "hmh2:block/ultramarine_candle_cake_lit"
+    }
+  }
+}

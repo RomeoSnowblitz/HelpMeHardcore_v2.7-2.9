@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:raw_iron"
+  },
+  "result": "hmh2:iron_dust",
+  "count": 4
+}

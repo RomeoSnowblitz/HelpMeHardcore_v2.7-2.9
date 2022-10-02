@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "hmh2:raw_silver"
+  },
+  "result": "hmh2:silver_ingot",
+  "experience": 0.35,
+  "cookingtime": 100
+}

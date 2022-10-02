@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:hessonite"
+  },
+  "result": "hmh2:hessonite_dust",
+  "count": 4
+}

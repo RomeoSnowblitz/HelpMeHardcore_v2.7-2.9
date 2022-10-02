@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "hmh2:raw_chicken_block"
+  },
+  "result": "hmh2:chicken_block",
+  "experience": 1.4,
+  "cookingtime": 400
+}

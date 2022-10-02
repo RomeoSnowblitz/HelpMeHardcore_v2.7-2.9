@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:cork_oak_slab",
+    "hmh2:cork_oak_stairs",
+    "hmh2:cork_oak_door",
+    "hmh2:cork_oak_trapdoor",
+    "hmh2:cork_oak_button",
+    "hmh2:cork_oak_pressure_plate",
+    "hmh2:cork_oak_fence",
+    "hmh2:cork_oak_fence_gate"
+  ]
+}

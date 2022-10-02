@@ -190,7 +190,7 @@ public class PenguinEntity extends TameableEntity implements IAnimatable {
     }
 
     public boolean canBeLeashedBy(PlayerEntity player) {
-        return false;
+        return true;
     }
 
     @Override

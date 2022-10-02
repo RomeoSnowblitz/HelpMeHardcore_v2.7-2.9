@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "hmh2:block/cork_oak_sapling"
+  }
+}

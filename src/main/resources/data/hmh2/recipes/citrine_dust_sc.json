@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:citrine"
+  },
+  "result": "hmh2:citrine_dust",
+  "count": 4
+}

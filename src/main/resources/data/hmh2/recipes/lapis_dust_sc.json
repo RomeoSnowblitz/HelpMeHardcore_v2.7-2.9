@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "result": "hmh2:lapis_dust",
+  "count": 4
+}

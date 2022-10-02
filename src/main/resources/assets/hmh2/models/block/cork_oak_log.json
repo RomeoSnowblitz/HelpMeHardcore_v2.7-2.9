@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "hmh2:block/cork_oak_log_top",
+    "side": "hmh2:block/cork_oak_log"
+  }
+}

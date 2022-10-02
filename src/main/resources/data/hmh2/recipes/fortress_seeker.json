@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:ender_pearl"
+    },
+    {
+      "item": "hmh2:hellstone"
+    }
+  ],
+  "result": {
+    "item": "hmh2:fortress_seeker",
+    "count": 1
+  }
+}

@@ -32,6 +32,20 @@
               "name": "hmh2:amber"
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantment": "minecraft:fortune",
+              "formula": "minecraft:ore_drops",
+              "function": "minecraft:apply_bonus"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "hmh2:amber"
         }
       ]
     }

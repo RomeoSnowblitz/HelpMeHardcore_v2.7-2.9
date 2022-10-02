@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_candle",
+  "textures": {
+    "all": "hmh2:block/rose_candle_lit",
+    "particle": "hmh2:block/rose_candle_lit"
+  }
+}

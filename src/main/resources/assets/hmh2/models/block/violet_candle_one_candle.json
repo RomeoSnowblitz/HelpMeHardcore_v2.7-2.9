@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_candle",
+  "textures": {
+    "all": "hmh2:block/violet_candle",
+    "particle": "hmh2:block/violet_candle"
+  }
+}

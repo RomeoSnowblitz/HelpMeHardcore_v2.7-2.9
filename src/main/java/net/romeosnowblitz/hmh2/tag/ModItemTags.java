@@ -8,20 +8,14 @@ import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-/*
-
-    This was made for a Custom Fuel Type,
-    I ended up finding an easier solution,
-    But I still wanted to keep this file :)
-
- */
-
 public class ModItemTags extends ItemTagProvider {
     public ModItemTags(DataGenerator root, BlockTagProvider blockTagsProvider) {
         super(root, blockTagsProvider);
     }
 
-    public static final TagKey<Item> COOLANTS = ModItemTags.register("coolants");
+    public static final TagKey<Item> FUEL_ONE_HUNDRED = ModItemTags.register("fuel_one_hundred");
+    public static final TagKey<Item> FUEL_THREE_HUNDRED = ModItemTags.register("fuel_three_hundred");
+    public static final TagKey<Item> FUEL_SIXTEEN_THOUSAND = ModItemTags.register("fuel_sixteen_thousand");
 
     private static TagKey<Item> register(String id) {
         return TagKey.of(Registry.ITEM_KEY, new Identifier(id));

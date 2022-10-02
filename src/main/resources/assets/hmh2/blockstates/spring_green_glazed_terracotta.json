@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "hmh2:block/spring_green_glazed_terracotta",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "hmh2:block/spring_green_glazed_terracotta",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "hmh2:block/spring_green_glazed_terracotta"
+    },
+    "facing=west": {
+      "model": "hmh2:block/spring_green_glazed_terracotta",
+      "y": 90
+    }
+  }
+}

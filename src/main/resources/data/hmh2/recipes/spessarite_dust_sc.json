@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:spessarite"
+  },
+  "result": "hmh2:spessarite_dust",
+  "count": 4
+}
