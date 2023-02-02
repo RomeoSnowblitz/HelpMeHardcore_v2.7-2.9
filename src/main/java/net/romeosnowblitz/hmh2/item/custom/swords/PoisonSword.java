@@ -13,7 +13,7 @@ public class PoisonSword extends SwordItem {
     }
 
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 1));
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 200, 1));
         return super.postHit(stack, target, attacker);
     }
 

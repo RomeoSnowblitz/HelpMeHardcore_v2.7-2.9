@@ -1,9 +1,6 @@
 package net.romeosnowblitz.hmh2.block.custom.farm;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.mob.RavagerEntity;
 import net.minecraft.item.ItemConvertible;
@@ -48,7 +45,7 @@ public class ModCropBlock extends CropBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(ModBlocks.CRIMSON_FARMLAND);
+        return floor.isOf(ModBlocks.CRIMSON_FARMLAND) || floor.isOf(ModBlocks.WARPED_FARMLAND) || super.canPlantOnTop(floor, world, pos);
     }
 
     public IntProperty getAgeProperty() {
@@ -121,9 +118,8 @@ public class ModCropBlock extends CropBlock {
         return new ItemStack(this.getSeedsItem());
     }
 
-    @Override
-    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
-        return !this.isMature(state);
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+        return (Integer)state.get(AGE) < 3;
     }
 
     @Override

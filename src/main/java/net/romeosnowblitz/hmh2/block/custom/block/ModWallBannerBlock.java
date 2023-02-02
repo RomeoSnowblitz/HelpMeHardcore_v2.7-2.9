@@ -3,7 +3,6 @@ package net.romeosnowblitz.hmh2.block.custom.block;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import net.minecraft.block.*;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
@@ -16,7 +15,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-import net.romeosnowblitz.hmh2.item.custom.ModDyeColor;
+import net.romeosnowblitz.hmh2.item.custom.dyes.ModDyeColor;
 
 import java.util.Map;
 

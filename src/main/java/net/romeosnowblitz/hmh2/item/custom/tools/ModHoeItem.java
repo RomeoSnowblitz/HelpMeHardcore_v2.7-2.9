@@ -25,6 +25,7 @@ public class ModHoeItem extends HoeItem {
 
     protected static final Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> TILLING_ACTIONS = Maps.newHashMap(ImmutableMap.of(
             Blocks.CRIMSON_NYLIUM, Pair.of(HoeItem::canTillFarmland, HoeItem.createTillAction(ModBlocks.CRIMSON_FARMLAND.getDefaultState())),
+            Blocks.WARPED_NYLIUM, Pair.of(HoeItem::canTillFarmland, HoeItem.createTillAction(ModBlocks.WARPED_FARMLAND.getDefaultState())),
             Blocks.DIRT_PATH, Pair.of(HoeItem::canTillFarmland, HoeItem.createTillAction(Blocks.FARMLAND.getDefaultState())),
             Blocks.GRASS_BLOCK, Pair.of(HoeItem::canTillFarmland, HoeItem.createTillAction(Blocks.FARMLAND.getDefaultState())),
             Blocks.DIRT, Pair.of(HoeItem::canTillFarmland, HoeItem.createTillAction(Blocks.FARMLAND.getDefaultState())),

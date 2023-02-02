@@ -1,6 +1,5 @@
 package net.romeosnowblitz.hmh2.block.entity;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.*;
 import net.minecraft.block.enums.Attachment;
@@ -30,7 +29,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
-import net.romeosnowblitz.hmh2.block.ModBlocks;
 import org.jetbrains.annotations.Nullable;
 
 public class ModBellBlock extends BlockWithEntity {

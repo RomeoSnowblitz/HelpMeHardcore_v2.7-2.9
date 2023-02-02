@@ -9,6 +9,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.world.World;
 
 
 public class AbsorptionAmuletItem extends Item {
@@ -17,11 +20,12 @@ public class AbsorptionAmuletItem extends Item {
         super(settings);
     }
 
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        PlayerEntity playerEntity = context.getPlayer();
-        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION,200,2));
-        context.getStack().damage(1, playerEntity, p -> p.sendToolBreakStatus(context.getHand()));
-        return super.useOnBlock(context);
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        if(!world.isClient() && hand == Hand.MAIN_HAND){
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION,200,2));
+            user.getMainHandStack().damage(1, user, p -> p.sendToolBreakStatus(hand));
+        }
+        return super.use(world, user, hand);
     }
 
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {

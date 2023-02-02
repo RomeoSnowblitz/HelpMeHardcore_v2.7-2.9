@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "hmh2:mango_placed",
+    "features": [
+      {
+        "chance": 1.0,
+        "feature": "hmh2:mango_placed"
+      }
+    ]
+  }
+}

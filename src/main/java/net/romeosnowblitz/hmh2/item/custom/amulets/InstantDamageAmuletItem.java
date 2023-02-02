@@ -18,12 +18,12 @@ public class InstantDamageAmuletItem extends Item {
         super(settings);
     }
 
-    @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        PlayerEntity playerEntity = context.getPlayer();
-        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE,200,2));
-        context.getStack().damage(1, playerEntity, p -> p.sendToolBreakStatus(context.getHand()));
-        return super.useOnBlock(context);
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        if(!world.isClient() && hand == Hand.MAIN_HAND){
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE,200,2));
+            user.getMainHandStack().damage(1, user, p -> p.sendToolBreakStatus(hand));
+        }
+        return super.use(world, user, hand);
     }
 
     @Override

@@ -9,23 +9,25 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.world.World;
 
 public class FrightCharmItem extends Item {
     public FrightCharmItem(Settings settings) {
         super(settings);
     }
 
-    @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        PlayerEntity playerEntity = context.getPlayer();
-        playerEntity.removeStatusEffect(StatusEffects.POISON);
-        playerEntity.removeStatusEffect(StatusEffects.WITHER);
-        playerEntity.removeStatusEffect(StatusEffects.BLINDNESS);
-        playerEntity.removeStatusEffect(StatusEffects.DARKNESS);
-        playerEntity.removeStatusEffect(StatusEffects.WEAKNESS);
-        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.LUCK,1200,4));
-        context.getStack().damage(1, playerEntity, p -> p.sendToolBreakStatus(context.getHand()));
-        return super.useOnBlock(context);
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        if(!world.isClient() && hand == Hand.MAIN_HAND){
+            user.removeStatusEffect(StatusEffects.POISON);
+            user.removeStatusEffect(StatusEffects.WITHER);
+            user.removeStatusEffect(StatusEffects.BLINDNESS);
+            user.removeStatusEffect(StatusEffects.DARKNESS);
+            user.removeStatusEffect(StatusEffects.WEAKNESS);
+            user.getMainHandStack().damage(10, user, p -> p.sendToolBreakStatus(hand));
+        }
+        return super.use(world, user, hand);
     }
 
     @Override
@@ -42,7 +44,7 @@ public class FrightCharmItem extends Item {
         target.removeStatusEffect(StatusEffects.WEAKNESS);
         attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.LUCK, 1200, 4));
         target.addStatusEffect(new StatusEffectInstance(StatusEffects.LUCK, 1200, 4));
-        stack.damage(1, attacker, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+        stack.damage(20, attacker, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         return super.postHit(stack, target, attacker);
     }
 }

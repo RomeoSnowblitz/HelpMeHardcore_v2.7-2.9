@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "hmh2:chocolate_milk_flowing",
-    "hmh2:chocolate_milk_still"
+    "hmh2:chocolate_milk_still",
+    "hmh2:honey_flowing",
+    "hmh2:honey_still"
   ]
 }

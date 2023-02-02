@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "hmh2:mod_composter",
     "hmh2:cork_block",
     "hmh2:freezer",
     "hmh2:cheese_press",
@@ -35,6 +36,11 @@
     "hmh2:cherry_fence_gate",
     "hmh2:cherry_wall_sign",
     "hmh2:cherry_sign",
+    "hmh2:cork_oak_log",
+    "hmh2:cork_oak_planks",
+    "hmh2:cork_oak_wood",
+    "hmh2:stripped_cork_oak_log",
+    "hmh2:stripped_cork_oak_wood",
     "hmh2:cork_oak_slab",
     "hmh2:cork_oak_stairs",
     "hmh2:cork_oak_door",

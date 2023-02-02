@@ -22,9 +22,10 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.tag.TagKey;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.TagKey;
 import net.romeosnowblitz.hmh2.block.entity.ModAbstractFurnaceBlockEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -112,7 +113,7 @@ public final class ModFuelRegistryImpl implements FuelRegistry {
 			int time = tagCookTimes.getInt(tag);
 
 			if (time <= 0) {
-				for (RegistryEntry<Item> key : Registry.ITEM.iterateEntries(tag)) {
+				for (RegistryEntry<Item> key : Registries.ITEM.iterateEntries(tag)) {
 					final Item item = key.value();
 					map.remove(item);
 				}

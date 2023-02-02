@@ -1,5 +1,6 @@
 package net.romeosnowblitz.hmh2.block.custom.block;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CobwebBlock;
 import net.minecraft.entity.Entity;
@@ -7,7 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class ModCobwebBlock extends CobwebBlock {
+public class ModCobwebBlock extends Block {
     public ModCobwebBlock(Settings settings) {
         super(settings);
     }

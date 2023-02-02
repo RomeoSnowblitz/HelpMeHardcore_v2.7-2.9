@@ -14,6 +14,9 @@ public enum ModArmorMaterial implements ArmorMaterial {
     BANANA("banana", 5, new int[]{1, 2, 3, 1}, 100, SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 0.0F, 0.0F, () -> {
         return Ingredient.ofItems(ModItems.BANANA_PEEL);
     }),
+    BEE("bee", 15, new int[]{3, 6, 8, 3}, 30, SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 1.0F, 0.1F, () -> {
+        return Ingredient.ofItems(Items.HONEYCOMB);
+    }),
     BONE("bone", 15, new int[]{2, 5, 6, 2}, 13, SoundEvents.BLOCK_DRIPSTONE_BLOCK_BREAK, 3.0F, 0.0F, () -> {
         return Ingredient.ofItems(ModItems.FUR_PELT);
     }),

@@ -11,11 +11,11 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
-import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
@@ -126,6 +126,11 @@ public abstract class HeatedOilFluid extends FlowableFluid {
             builder.add(LEVEL);
         }
 
+        @Override
+        protected boolean isInfinite(World world) {
+            return false;
+        }
+
         public int getLevel(FluidState state) {
             return (Integer)state.get(LEVEL);
         }
@@ -136,6 +141,11 @@ public abstract class HeatedOilFluid extends FlowableFluid {
     }
 
     public static class Still extends HeatedOilFluid {
+
+        @Override
+        protected boolean isInfinite(World world) {
+            return false;
+        }
 
         public int getLevel(FluidState state) {
             return 4;

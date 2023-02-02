@@ -15,7 +15,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-import net.romeosnowblitz.hmh2.item.custom.ModDyeColor;
+import net.romeosnowblitz.hmh2.item.custom.dyes.ModDyeColor;
 
 import java.util.Map;
 

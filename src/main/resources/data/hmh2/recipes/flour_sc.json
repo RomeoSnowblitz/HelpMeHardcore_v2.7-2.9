@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:wheat"
+  },
+  "result": "hmh2:flour",
+  "count": 3
+}

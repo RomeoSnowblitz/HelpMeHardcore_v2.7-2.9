@@ -22,6 +22,9 @@
     ],
     "client": [
       "net.romeosnowblitz.hmh2.Hmh2ClientMod"
+    ],
+    "fabric-datagen": [
+      "net.romeosnowblitz.hmh2.datagen.ModDataGeneration"
     ]
   },
   "mixins": [

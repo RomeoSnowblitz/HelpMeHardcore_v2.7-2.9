@@ -4,9 +4,9 @@
   "package": "net.romeosnowblitz.hmh2.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BlockEntityTypeMixin",
     "BrewingRecipeRegistryMixin",
-    "SignTypeAccessor",
-    "BlockEntityTypeMixin"
+    "SignTypeAccessor"
   ],
   "client": [
     "ExampleMixin"

@@ -10,10 +10,8 @@ import net.minecraft.client.render.RenderLayer;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.block.MagicBlocks;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
-import net.romeosnowblitz.hmh2.entity.ModEntities;
-import net.romeosnowblitz.hmh2.entity.client.PenguinRenderer;
-import net.romeosnowblitz.hmh2.entity.client.RaccoonRenderer;
-import net.romeosnowblitz.hmh2.entity.client.ShadowCreatureRenderer;
+import net.romeosnowblitz.hmh2.entity.MobEntities;
+import net.romeosnowblitz.hmh2.entity.client.*;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.screen.*;
 import net.romeosnowblitz.hmh2.util.ModModelPredicateProvider;
@@ -74,6 +72,8 @@ public class Hmh2ClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.XRAY, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MIDAS_TOUCH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROYAL_JELLY, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ICED_BUCKET, RenderLayer.getTranslucent());
 
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.BANANA_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.BANANA_LEAVES, RenderLayer.getCutout());
@@ -109,17 +109,20 @@ public class Hmh2ClientMod implements ClientModInitializer {
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.CHOCOLATE_MILK_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x976746));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HEATED_OIL_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x423b2f));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HEATED_OIL_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x423b2f));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HONEY_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xdd760f));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HONEY_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xdd760f));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.OIL_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x423b2f));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.OIL_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x423b2f));
 
-        EntityRendererRegistry.register(ModEntities.PENGUIN, PenguinRenderer::new);
-        EntityRendererRegistry.register(ModEntities.RACCOON, RaccoonRenderer::new);
-        EntityRendererRegistry.register(ModEntities.SHADOW_CREATURE, ShadowCreatureRenderer::new);
+        EntityRendererRegistry.register(MobEntities.PENGUIN, PenguinRenderer::new);
+        EntityRendererRegistry.register(MobEntities.QUEEN_BEE, QueenBeeRenderer::new);
+        EntityRendererRegistry.register(MobEntities.SHADOW_CREATURE, ShadowCreatureRenderer::new);
+        EntityRendererRegistry.register(MobEntities.SOLDIER_BEE, SoldierBeeRenderer::new);
+        EntityRendererRegistry.register(MobEntities.THE_GREAT_HUNGER, TheGreatHungerRenderer::new);
 
         ScreenRegistry.register(ModScreenHandlers.BACKPACK_SCREEN_HANDLER, BackpackScreen::new);
         ScreenRegistry.register(ModScreenHandlers.CHEESE_PRESS_SCREEN_HANDLER, CheesePressScreen::new);
         ScreenRegistry.register(ModScreenHandlers.FREEZER_SCREEN_HANDLER, FreezerScreen::new);
-        ScreenRegistry.register(ModScreenHandlers.ICE_CREAM_MAKER_SCREEN_HANDLER, IceCreamMakerScreen::new);
 
     }
 }
