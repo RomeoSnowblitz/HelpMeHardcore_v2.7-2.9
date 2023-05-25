@@ -12,7 +12,7 @@ import net.minecraft.screen.slot.Slot;
 import net.romeosnowblitz.hmh2.screen.slot.ModFuelSlot;
 import net.romeosnowblitz.hmh2.screen.slot.ModResultSlot;
 
-
+/*
 public class CheesePressScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
@@ -109,3 +109,5 @@ public class CheesePressScreenHandler extends ScreenHandler {
         }
     }
 }
+
+ */

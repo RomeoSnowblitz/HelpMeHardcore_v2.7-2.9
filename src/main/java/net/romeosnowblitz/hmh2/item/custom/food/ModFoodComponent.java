@@ -80,32 +80,32 @@ public class ModFoodComponent {
         private boolean snack;
         private final List<Pair<StatusEffectInstance, Float>> statusEffects = Lists.newArrayList();
 
-        public ModFoodComponent.Builder hunger(int hunger) {
+        public Builder hunger(int hunger) {
             this.hunger = hunger;
             return this;
         }
 
-        public ModFoodComponent.Builder saturationModifier(float saturationModifier) {
+        public Builder saturationModifier(float saturationModifier) {
             this.saturationModifier = saturationModifier;
             return this;
         }
 
-        public ModFoodComponent.Builder meat() {
+        public Builder meat() {
             this.meat = true;
             return this;
         }
 
-        public ModFoodComponent.Builder alwaysEdible() {
+        public Builder alwaysEdible() {
             this.alwaysEdible = true;
             return this;
         }
 
-        public ModFoodComponent.Builder snack() {
+        public Builder snack() {
             this.snack = true;
             return this;
         }
 
-        public ModFoodComponent.Builder statusEffect(StatusEffectInstance effect, float chance) {
+        public Builder statusEffect(StatusEffectInstance effect, float chance) {
             this.statusEffects.add(Pair.of(effect, Float.valueOf(chance)));
             return this;
         }
@@ -114,7 +114,7 @@ public class ModFoodComponent {
             return new ModFoodComponent(this.hunger, this.saturationModifier, this.meat, this.alwaysEdible, this.snack, this.statusEffects);
         }
 
-        public ModFoodComponent.Builder addStatusEffect(StatusEffectInstance effect) {
+        public Builder addStatusEffect(StatusEffectInstance effect) {
             return this.addStatusEffect(effect);
         }
 

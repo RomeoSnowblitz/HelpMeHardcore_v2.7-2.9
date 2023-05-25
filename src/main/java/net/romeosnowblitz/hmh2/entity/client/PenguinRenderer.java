@@ -8,7 +8,6 @@ import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.entity.mob.PenguinEntity;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-
 import javax.annotation.Nullable;
 
 public class PenguinRenderer extends GeoEntityRenderer<PenguinEntity> {

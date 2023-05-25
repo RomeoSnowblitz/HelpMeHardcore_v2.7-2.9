@@ -1,7 +1,9 @@
 package net.romeosnowblitz.hmh2.entity.mob;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -24,14 +26,11 @@ import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.Animation;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 
 public class ShadowCreatureEntity extends HostileEntity implements GeoEntity {
-    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
+    private final AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
 
     public ShadowCreatureEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
@@ -54,10 +53,10 @@ public class ShadowCreatureEntity extends HostileEntity implements GeoEntity {
         this.goalSelector.add(4, new LookAroundGoal(this));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
         this.goalSelector.add(1, new AttackGoal(this));
-        this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, true).setMaxTimeWithoutVisibility(300));
+        this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true).setMaxTimeWithoutVisibility(300));
     }
 
-    private PlayState predicate(software.bernie.geckolib.core.animation.AnimationState animationState) {
+    private PlayState predicate(AnimationState animationState) {
         if(animationState.isMoving()) {
             animationState.getController().setAnimation(RawAnimation.begin().then("animation.shadow_creature.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
@@ -77,7 +76,6 @@ public class ShadowCreatureEntity extends HostileEntity implements GeoEntity {
         if (!super.tryAttack(target)) {
             return false;
         }
-        ItemStack itemStack = null;
         LivingEntity livingEntity = getTarget();
         StatusEffectInstance statusEffectInstance = livingEntity.getStatusEffect(CustomEffects.HEALTH_SHRINKAGE);
         if (target instanceof LivingEntity) {
@@ -89,7 +87,7 @@ public class ShadowCreatureEntity extends HostileEntity implements GeoEntity {
                 --i;
             }
             i = MathHelper.clamp(i, 0, 20);
-            StatusEffectInstance statusEffectInstance2 = new StatusEffectInstance(CustomEffects.HEALTH_SHRINKAGE, 120000, i, false, false, true);
+            StatusEffectInstance statusEffectInstance2 = new StatusEffectInstance(CustomEffects.HEALTH_SHRINKAGE, -1, i, false, false, true);
             if (!this.world.getGameRules().getBoolean(GameRules.DISABLE_RAIDS)) {
                 livingEntity.addStatusEffect(statusEffectInstance2);
             }

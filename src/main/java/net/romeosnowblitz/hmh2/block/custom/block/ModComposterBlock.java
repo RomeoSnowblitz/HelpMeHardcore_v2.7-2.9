@@ -2,7 +2,10 @@ package net.romeosnowblitz.hmh2.block.custom.block;
 
 import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.InventoryProvider;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -348,9 +351,9 @@ public class ModComposterBlock extends Block implements InventoryProvider {
     public SidedInventory getInventory(BlockState state, WorldAccess world, BlockPos pos) {
         int i = (Integer)state.get(LEVEL);
         if (i == 8) {
-            return new ModComposterBlock.FullModComposterInventory(state, world, pos, new ItemStack(Items.BONE_MEAL));
+            return new FullModComposterInventory(state, world, pos, new ItemStack(Items.BONE_MEAL));
         } else {
-            return (SidedInventory)(i < 7 ? new ModComposterBlock.ModComposterInventory(state, world, pos) : new ModComposterBlock.DummyInventory());
+            return (SidedInventory)(i < 7 ? new ModComposterInventory(state, world, pos) : new DummyInventory());
         }
     }
 

@@ -1,7 +1,7 @@
 {
 
   "item.hmh2.disc_fragment": "Disc Fragment",
-
+  "item.hmh2.revival_stone": "Revival Stone",
 
   "item.hmh2.fortress_seeker": "Fortress Seeker",
   "item.hmh2.granny_lotion": "Granny Lotion",
@@ -128,6 +128,8 @@
   "item.hmh2.banana_sapling": "Banana Sapling",
   "item.hmh2.mango_sapling": "Mango Sapling",
   "item.hmh2.midas_seeds": "Midas Seeds",
+  "item.hmh2.ender_corn_seeds": "Ender Corn Seeds",
+  "item.hmh2.ender_corn": "Ender Corn",
 
   "item.hmh2.apple_juice": "Apple Juice",
   "item.hmh2.apple_pie": "Apple Pie",
@@ -147,6 +149,7 @@
   "item.hmh2.chicken_sandwich": "Chicken Sandwich",
   "item.hmh2.chocolate_ice_cream": "Chocolate Ice Cream",
   "item.hmh2.chocolate_milk": "Chocolate Milk",
+  "item.hmh2.endchilada": "Endchilada",
   "item.hmh2.light_toast": "Light Toast",
   "item.hmh2.golden_salmon": "Golden Salmon",
   "item.hmh2.mango": "Mango",
@@ -161,6 +164,7 @@
   "item.hmh2.strawberry_pie": "Strawberry Pie",
   "item.hmh2.toothpaste": "Toothpaste",
   "item.hmh2.toast": "Toast",
+  "item.hmh2.tortilla": "Tortilla",
 
   "item.hmh2.banana_helmet": "Banana Helmet",
   "item.hmh2.banana_chestplate": "Banana Chestplate",
@@ -274,6 +278,8 @@
   "item.hmh2.bright_charm": "Bright Charm",
   "item.hmh2.fright_charm": "Fright Charm",
   "item.hmh2.knight_charm": "Knight Charm",
+
+  "item.hmh2.absorption_fluid": "Absorption Fluid",
 
   "item.hmh2.amulet_of_acceleration": "Amulet of Acceleration",
   "item.hmh2.amulet_of_antigravity": "Amulet of Antigravity",
@@ -533,12 +539,19 @@
   "entity.hmh2.shadow_creature": "Shadow Creature",
   "item.hmh2.the_great_hunger_spawn_egg": "The Great Hunger Spawn Egg",
   "entity.hmh2.the_great_hunger": "The Great Hunger",
+  "entity.hmh2.hellmite": "Nethermite",
+  "entity.hmh2.magmite": "Magmite",
+  "entity.hmh2.sculkmite": "Sculkmite",
+  "entity.hmh2.cal": "Cal",
 
   "block.hmh2.cheese_press": "Cheese Press",
   "block.hmh2.freezer": "Freezer",
   "block.hmh2.mod_composter": "Composter",
 
   "block.hmh2.infested_honeycomb_block": "Infested Honeycomb Block",
+  "block.hmh2.infested_netherrack_block": "Infested Netherrack Block",
+  "block.hmh2.infested_magma_block": "Infested Magma Block",
+  "block.hmh2.infested_sculk_block": "Infested Sculk Block",
 
   "block.hmh2.andesite_bricks": "Andesite Bricks",
   "block.hmh2.block": "Block",
@@ -554,6 +567,7 @@
 
   "block.hmh2.crimson_farmland": "Crimson Farmland",
   "block.hmh2.warped_farmland": "Warped Farmland",
+  "block.hmh2.carved_melon": "Carved Melon",
 
   "block.hmh2.poison_grass": "Poison Grass",
   "block.hmh2.blue_spider_lily": "Blue Spider Lily",
@@ -860,8 +874,6 @@
   "block.hmh2.beef_slab": "Steak Slab",
   "block.hmh2.raw_beef_block": "Raw Beef Block",
   "block.hmh2.raw_beef_slab": "Raw Beef Slab",
-
-  "sounds.hmh2.ore_screaming.ogg": "Ore Screams",
 
   "entity.minecraft.villager.mysterious_alchemist": "Mysterious Alchemist",
 

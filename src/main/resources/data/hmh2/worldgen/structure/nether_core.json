@@ -1,5 +1,5 @@
 {
-  // The base structure class to use for the behavior of the structure. (Like extra terrain checks and such)
+  //The base structure class to use for the behavior of the structure. (Like extra terrain checks and such)
   "type": "minecraft:jigsaw",
 
   // the path to the template pool json file to use

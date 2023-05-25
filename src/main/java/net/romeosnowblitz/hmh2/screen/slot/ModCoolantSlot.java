@@ -4,8 +4,8 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.screen.slot.Slot;
-import net.romeosnowblitz.hmh2.block.entity.ModAbstractFurnaceBlockEntity;
 
+/*
 public class ModCoolantSlot extends Slot {
     public ModCoolantSlot(Inventory inventory, int index, int x, int y) {
         super(inventory, index, x, y);
@@ -25,3 +25,5 @@ public class ModCoolantSlot extends Slot {
         return stack.isOf(Items.BUCKET);
     }
 }
+
+ */

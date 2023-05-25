@@ -46,7 +46,7 @@ public class ModPistonBlock extends FacingBlock {
     protected static final VoxelShape EXTENDED_DOWN_SHAPE = Block.createCuboidShape(0.0, 4.0, 0.0, 16.0, 16.0, 16.0);
     private final boolean gluey;
 
-    public ModPistonBlock(boolean gluey, AbstractBlock.Settings settings) {
+    public ModPistonBlock(boolean gluey, Settings settings) {
         super(settings);
         this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(EXTENDED, false));
         this.gluey = gluey;

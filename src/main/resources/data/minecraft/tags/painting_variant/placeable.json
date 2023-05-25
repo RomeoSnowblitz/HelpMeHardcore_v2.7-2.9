@@ -1,5 +1,12 @@
 {
   "values": [
+    "hmh2:igloo",
+    "hmh2:horse",
+    "hmh2:sfive_cals_area",
+    "hmh2:sfive_cals_house",
+    "hmh2:sfive_romeos_farm",
+    "hmh2:dk_face",
+    "hmh2:animate",
     "minecraft:kebab",
     "minecraft:aztec",
     "minecraft:alban",
@@ -25,12 +32,6 @@
     "minecraft:pigscene",
     "minecraft:burning_skull",
     "minecraft:skeleton",
-    "minecraft:donkey_kong",
-    "hmh2:igloo",
-    "hmh2:horse",
-    "hmh2:sfive_cals_area",
-    "hmh2:sfive_cals_house",
-    "hmh2:sfive_romeos_farm",
-    "hmh2:dk_face"
+    "minecraft:donkey_kong"
   ]
 }

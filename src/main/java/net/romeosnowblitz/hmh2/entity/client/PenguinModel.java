@@ -4,7 +4,6 @@ import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.entity.mob.PenguinEntity;
 import software.bernie.geckolib.model.GeoModel;
-import software.bernie.geckolib.model.data.EntityModelData;
 
 public class PenguinModel extends GeoModel<PenguinEntity> {
 

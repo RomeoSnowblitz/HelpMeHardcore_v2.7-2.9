@@ -19,12 +19,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.entity.ModBlockEntities;
 import net.romeosnowblitz.hmh2.item.inventory.ImplementedInventory;
-import net.romeosnowblitz.hmh2.recipe.CheesePressRecipe;
-import net.romeosnowblitz.hmh2.screen.CheesePressScreenHandler;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
+/*
 public class CheesePressBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory =
             DefaultedList.ofSize(3, ItemStack.EMPTY);
@@ -181,3 +180,5 @@ public class CheesePressBlockEntity extends BlockEntity implements NamedScreenHa
         return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
     }
 }
+
+ */

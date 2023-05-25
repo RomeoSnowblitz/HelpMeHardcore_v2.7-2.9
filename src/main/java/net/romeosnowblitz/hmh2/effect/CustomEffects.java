@@ -4,12 +4,17 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 
+import java.util.Optional;
+import java.util.function.Supplier;
+
 public class CustomEffects {
+
     public static StatusEffect ANCHORED;
     public static StatusEffect CONDUIT_FAILURE;
     public static StatusEffect DOLPHINS_CURSE;
@@ -52,7 +57,8 @@ public class CustomEffects {
     }
     public static StatusEffect registerKindlingStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new KindlingEffect(StatusEffectCategory.HARMFUL, 1485372));
+                new KindlingEffect(StatusEffectCategory.HARMFUL, 1485372).setFactorCalculationDataSupplier(()
+                        -> new StatusEffectInstance.FactorCalculationData(22)));
     }
     public static StatusEffect registerLunarWolfPerceptionStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),

@@ -1,7 +1,6 @@
 package net.romeosnowblitz.hmh2.entity.mob;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -22,6 +21,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
 import net.romeosnowblitz.hmh2.item.ModItems;
@@ -70,7 +70,6 @@ public class PenguinEntity extends TameableEntity implements GeoEntity {
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
         this.goalSelector.add(4, new LookAroundGoal(this));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
-
         this.targetSelector.add(1, new AnimalMateGoal(this, 1.0));
     }
 
@@ -202,4 +201,8 @@ public class PenguinEntity extends TameableEntity implements GeoEntity {
         this.dataTracker.startTracking(SITTING, false);
     }
 
+    @Override
+    public EntityView method_48926() {
+        return null;
+    }
 }

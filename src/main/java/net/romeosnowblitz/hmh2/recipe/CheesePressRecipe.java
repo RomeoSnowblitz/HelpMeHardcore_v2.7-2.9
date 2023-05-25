@@ -6,11 +6,13 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.*;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
+/*
 public class CheesePressRecipe implements Recipe<SimpleInventory> {
     private final Identifier id;
     private final ItemStack output;
@@ -32,8 +34,8 @@ public class CheesePressRecipe implements Recipe<SimpleInventory> {
     }
 
     @Override
-    public ItemStack craft(SimpleInventory inventory) {
-        return output;
+    public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager registryManager) {
+        return getOutput(registryManager);
     }
 
     @Override
@@ -42,8 +44,8 @@ public class CheesePressRecipe implements Recipe<SimpleInventory> {
     }
 
     @Override
-    public ItemStack getOutput() {
-        return output.copy();
+    public ItemStack getOutput(DynamicRegistryManager registryManager) {
+        return getOutput(registryManager);
     }
 
     @Override
@@ -108,3 +110,5 @@ public class CheesePressRecipe implements Recipe<SimpleInventory> {
         }
     }
 }
+
+ */

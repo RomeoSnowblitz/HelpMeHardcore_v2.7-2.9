@@ -8,8 +8,12 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
-import net.romeosnowblitz.hmh2.item.custom.amulets.*;
-import net.romeosnowblitz.hmh2.item.custom.charms.*;
+import net.romeosnowblitz.hmh2.fluid.ModFluids;
+import net.romeosnowblitz.hmh2.item.custom.magic.amulets.*;
+import net.romeosnowblitz.hmh2.item.custom.magic.charms.*;
+import net.romeosnowblitz.hmh2.item.custom.magic.fluids.*;
+
+import static net.minecraft.item.Items.BUCKET;
 
 public class MagicItems {
 
@@ -121,7 +125,39 @@ public class MagicItems {
     public static final Item FRIGHT_CHARM = registerItem("fright_charm", new FrightCharmItem(new FabricItemSettings()));
     public static final Item KNIGHT_CHARM = registerItem("knight_charm", new KnightCharmItem(new FabricItemSettings()));
 
-
+    public static final Item ABSORPTION_FLUID = registerItem("absorption_fluid", new AbsorptionBucket(ModFluids.ABSORPTION_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item BAD_LUCK_FLUID = registerItem("bad_luck_fluid", new BadLuckBucket(ModFluids.BAD_LUCK_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item BAD_OMEN_FLUID = registerItem("bad_omen_fluid", new BadOmenBucket(ModFluids.BAD_OMEN_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item BLINDNESS_FLUID = registerItem("blindness_fluid", new BlindnessBucket(ModFluids.BLINDNESS_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item CONDUIT_POWER_FLUID = registerItem("conduit_power_fluid", new ConduitPowerBucket(ModFluids.CONDUIT_POWER_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item DARKNESS_FLUID = registerItem("darkness_fluid", new DarknessBucket(ModFluids.DARKNESS_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item DOLPHINS_GRACE_FLUID = registerItem("dolphins_grace_fluid", new DolphinsGraceBucket(ModFluids.DOLPHINS_GRACE_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item FIRE_IMMUNITY_FLUID = registerItem("fire_immunity_fluid", new FireImmunityBucket(ModFluids.FIRE_IMMUNITY_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item GLOWING_FLUID = registerItem("glowing_fluid", new GlowingBucket(ModFluids.GLOWING_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item HASTE_FLUID = registerItem("haste_fluid", new HasteBucket(ModFluids.HASTE_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item HEALTH_BOOST_FLUID = registerItem("health_boost_fluid", new HealthBoostBucket(ModFluids.HEALTH_BOOST_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item HUNGER_FLUID = registerItem("hunger_fluid", new HungerBucket(ModFluids.HUNGER_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item INSTANT_DAMAGE_FLUID = registerItem("instant_damage_fluid", new InstantDamageBucket(ModFluids.INSTANT_DAMAGE_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item INSTANT_HEALTH_FLUID = registerItem("instant_health_fluid", new InstantHealthBucket(ModFluids.INSTANT_HEALTH_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item INVISIBILITY_FLUID = registerItem("invisibility_fluid", new InvisibilityBucket(ModFluids.INVISIBILITY_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item JUMP_BOOST_FLUID = registerItem("jump_boost_fluid", new JumpBoostBucket(ModFluids.JUMP_BOOST_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item LEVITATION_FLUID = registerItem("levitation_fluid", new LeveitationBucket(ModFluids.LEVITATION_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item LUCK_FLUID = registerItem("luck_fluid", new LuckBucket(ModFluids.LUCK_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item MINING_FATIGUE_FLUID = registerItem("mining_fatigue_fluid", new MiningFatigueBucket(ModFluids.MINING_FATIGUE_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item NAUSEA_FLUID = registerItem("nausea_fluid", new NauseaBucket(ModFluids.NAUSEA_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item NIGHT_VISION_FLUID = registerItem("night_vision_fluid", new NightVisionBucket(ModFluids.NIGHT_VISION_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item POISON_FLUID = registerItem("poison_fluid", new PoisonBucket(ModFluids.POISON_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item REGENERATION_FLUID = registerItem("regeneration_fluid", new RegenerationBucket(ModFluids.REGENERATION_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item RESISTANCE_FLUID = registerItem("resistance_fluid", new ResistanceBucket(ModFluids.RESISTANCE_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item SATURATION_FLUID = registerItem("saturation_fluid", new SaturationBucket(ModFluids.SATURATION_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item SLOW_FALLING_FLUID = registerItem("slow_falling_fluid", new SlowFallingBucket(ModFluids.SLOW_FALLING_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item SLOWNESS_FLUID = registerItem("slowness_fluid", new SlownessBucket(ModFluids.SLOWNESS_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item SPEED_FLUID = registerItem("speed_fluid", new SpeedBucket(ModFluids.SPEED_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item STRENGTH_FLUID = registerItem("strength_fluid", new StrengthBucket(ModFluids.STRENGTH_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item VILLAGE_HERO_FLUID = registerItem("village_hero_fluid", new VillageHeroBucket(ModFluids.VILLAGE_HERO_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item WATER_BREATHING_FLUID = registerItem("water_breathing_fluid", new WaterBreathingBucket(ModFluids.WATER_BREATHING_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item WEAKNESS_FLUID = registerItem("weakness_fluid", new WeaknessBucket(ModFluids.WEAKNESS_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
+    public static final Item WITHER_FLUID = registerItem("wither_fluid", new WitherBucket(ModFluids.WITHER_FLUID_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
 
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), item);
@@ -218,6 +254,39 @@ public class MagicItems {
         addToItemGroup(ModItemGroup.MAGIC, BRIGHT_CHARM);
         addToItemGroup(ModItemGroup.MAGIC, FRIGHT_CHARM);
         addToItemGroup(ModItemGroup.MAGIC, KNIGHT_CHARM);
+        addToItemGroup(ModItemGroup.MAGIC, ABSORPTION_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, BAD_LUCK_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, BAD_OMEN_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, BLINDNESS_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, CONDUIT_POWER_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, DARKNESS_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, DOLPHINS_GRACE_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, FIRE_IMMUNITY_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, GLOWING_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, HASTE_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, HEALTH_BOOST_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, HUNGER_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, INSTANT_DAMAGE_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, INSTANT_HEALTH_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, INVISIBILITY_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, JUMP_BOOST_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, LEVITATION_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, LUCK_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, MINING_FATIGUE_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, NAUSEA_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, NIGHT_VISION_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, POISON_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, REGENERATION_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, RESISTANCE_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, SATURATION_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, SLOW_FALLING_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, SLOWNESS_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, SPEED_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, STRENGTH_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, VILLAGE_HERO_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, WATER_BREATHING_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, WEAKNESS_FLUID);
+        addToItemGroup(ModItemGroup.MAGIC, WITHER_FLUID);
     }
 
     public static void addToItemGroup(ItemGroup group, Item item){

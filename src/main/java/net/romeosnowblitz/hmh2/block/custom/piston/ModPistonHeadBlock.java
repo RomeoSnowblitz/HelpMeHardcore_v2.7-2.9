@@ -76,7 +76,7 @@ public class ModPistonHeadBlock extends FacingBlock {
         return VoxelShapes.union(EAST_HEAD_SHAPE, shortHead ? SHORT_EAST_ARM_SHAPE : EAST_ARM_SHAPE);
     }
 
-    public ModPistonHeadBlock(AbstractBlock.Settings settings) {
+    public ModPistonHeadBlock(Settings settings) {
         super(settings);
         this.setDefaultState((BlockState)((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(TYPE, ModPistonType.DEFAULT)).with(SHORT, false));
     }

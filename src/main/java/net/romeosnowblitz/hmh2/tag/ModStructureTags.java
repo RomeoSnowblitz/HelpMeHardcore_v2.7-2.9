@@ -1,6 +1,5 @@
 package net.romeosnowblitz.hmh2.tag;
 
-import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;

@@ -10,6 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.MagicBlocks;
+import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import net.romeosnowblitz.hmh2.item.ModItems;
 import net.romeosnowblitz.hmh2.mixin.BrewingRecipeRegistryMixin;
 
@@ -123,6 +124,7 @@ public class ModPotions {
     public static Potion registerWitherPotion(String name) {return Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, name), new Potion(new StatusEffectInstance(StatusEffects.WITHER, 1280, 0)));}
     public static Potion registerLongWitherPotion(String name) {return Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, name), new Potion(new StatusEffectInstance(StatusEffects.WITHER, 2560, 0)));}
     public static Potion registerStrongWitherPotion(String name) {return Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, name), new Potion(new StatusEffectInstance(StatusEffects.WITHER, 640, 1)));}
+
 
     public static void registerPotions() {
         HASTE_POTION = registerHastePotion("haste_potion");

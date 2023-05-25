@@ -4,7 +4,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.ai.control.MoveControl;
-import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
+import net.minecraft.entity.ai.goal.Goal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
@@ -15,8 +18,10 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.*;
-import net.minecraft.entity.passive.*;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.SpellcastingIllagerEntity;
+import net.minecraft.entity.passive.IronGolemEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
@@ -30,7 +35,9 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
 import net.romeosnowblitz.hmh2.item.ModItems;
@@ -56,7 +63,7 @@ public class QueenBeeEntity extends SpellcastingIllagerEntity implements GeoEnti
 
     public QueenBeeEntity(EntityType<? extends SpellcastingIllagerEntity> entityType, World world) {
         super(entityType, world);
-        this.moveControl = new QueenBeeEntity.QueenBeeMoveControl(this);
+        this.moveControl = new QueenBeeMoveControl(this);
     }
 
     @Override
@@ -92,9 +99,9 @@ public class QueenBeeEntity extends SpellcastingIllagerEntity implements GeoEnti
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new MeleeAttackGoal(this, 4, false));
-        this.goalSelector.add(5, new QueenBeeEntity.SummonVexGoal());
-        this.goalSelector.add(1, new QueenBeeEntity.ChargeTargetGoal());
-        this.goalSelector.add(2, new QueenBeeEntity.LookAtTargetGoal());
+        this.goalSelector.add(5, new SummonVexGoal());
+        this.goalSelector.add(1, new ChargeTargetGoal());
+        this.goalSelector.add(2, new LookAtTargetGoal());
         this.targetSelector.add(1, new ActiveTargetGoal<IronGolemEntity>((MobEntity)this, IronGolemEntity.class, true));
         this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, true));
 
@@ -214,13 +221,13 @@ public class QueenBeeEntity extends SpellcastingIllagerEntity implements GeoEnti
 
         @Override
         public void tick() {
-            if (this.state != MoveControl.State.MOVE_TO) {
+            if (this.state != State.MOVE_TO) {
                 return;
             }
             Vec3d vec3d = new Vec3d(this.targetX - QueenBeeEntity.this.getX(), this.targetY - QueenBeeEntity.this.getY(), this.targetZ - QueenBeeEntity.this.getZ());
             double d = vec3d.length();
             if (d < QueenBeeEntity.this.getBoundingBox().getAverageSideLength()) {
-                this.state = MoveControl.State.WAIT;
+                this.state = State.WAIT;
                 QueenBeeEntity.this.setVelocity(QueenBeeEntity.this.getVelocity().multiply(0.5));
             } else {
                 QueenBeeEntity.this.setVelocity(QueenBeeEntity.this.getVelocity().add(vec3d.multiply(this.speed * 0.05 / d)));
@@ -242,13 +249,13 @@ public class QueenBeeEntity extends SpellcastingIllagerEntity implements GeoEnti
 class ChargeTargetGoal
         extends Goal {
     public ChargeTargetGoal() {
-        this.setControls(EnumSet.of(Goal.Control.MOVE));
+        this.setControls(EnumSet.of(Control.MOVE));
     }
 
     @Override
     public boolean canStart() {
         LivingEntity livingEntity = QueenBeeEntity.this.getTarget();
-        if (livingEntity != null && livingEntity.isAlive() && !QueenBeeEntity.this.getMoveControl().isMoving() && QueenBeeEntity.this.random.nextInt(QueenBeeEntity.ChargeTargetGoal.toGoalTicks(7)) == 0) {
+        if (livingEntity != null && livingEntity.isAlive() && !QueenBeeEntity.this.getMoveControl().isMoving() && QueenBeeEntity.this.random.nextInt(ChargeTargetGoal.toGoalTicks(7)) == 0) {
             return QueenBeeEntity.this.squaredDistanceTo(livingEntity) > 4.0;
         }
         return false;
@@ -332,12 +339,12 @@ class ChargeTargetGoal
     class LookAtTargetGoal
             extends Goal {
         public LookAtTargetGoal() {
-            this.setControls(EnumSet.of(Goal.Control.MOVE));
+            this.setControls(EnumSet.of(Control.MOVE));
         }
 
         @Override
         public boolean canStart() {
-            return !QueenBeeEntity.this.getMoveControl().isMoving() && QueenBeeEntity.this.random.nextInt(QueenBeeEntity.LookAtTargetGoal.toGoalTicks(7)) == 0;
+            return !QueenBeeEntity.this.getMoveControl().isMoving() && QueenBeeEntity.this.random.nextInt(LookAtTargetGoal.toGoalTicks(7)) == 0;
         }
 
         @Override
@@ -361,7 +368,7 @@ class ChargeTargetGoal
     }
 
     class SummonVexGoal
-            extends SpellcastingIllagerEntity.CastSpellGoal {
+            extends CastSpellGoal {
         private final TargetPredicate closeQueenBeePredicate = TargetPredicate.createNonAttackable().setBaseMaxDistance(16.0).ignoreVisibility().ignoreDistanceScalingFactor();
 
         SummonVexGoal() {
@@ -404,7 +411,7 @@ class ChargeTargetGoal
         }
 
         @Override
-        protected SpellcastingIllagerEntity.Spell getSpell() {
+        protected Spell getSpell() {
             return Spell.SUMMON_VEX;
         }
     }

@@ -1,6 +1,8 @@
 package net.romeosnowblitz.hmh2.block.custom.block;
 
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FlowerBlock;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -12,12 +14,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 
 public class PoisonGrass extends FlowerBlock {
-    public PoisonGrass(StatusEffect effect, AbstractBlock.Settings settings) {
+    public PoisonGrass(StatusEffect effect, Settings settings) {
         super(effect, 8, settings);
     }
 
@@ -39,7 +40,7 @@ public class PoisonGrass extends FlowerBlock {
         if (world.isClient || world.getDifficulty() == Difficulty.PEACEFUL) {
             return;
         }
-        if (entity instanceof LivingEntity && !(livingEntity = (LivingEntity)entity).isInvulnerableTo(DamageSource.WITHER)) {
+        if (entity instanceof LivingEntity && !(livingEntity = (LivingEntity)entity).isInvulnerableTo(world.getDamageSources().wither())) {
             livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 40));
         }
     }

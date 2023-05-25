@@ -7,6 +7,7 @@ import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.entity.mob.SoldierBeeEntity;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+
 import javax.annotation.Nullable;
 
 public class SoldierBeeRenderer extends GeoEntityRenderer<SoldierBeeEntity> {

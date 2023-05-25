@@ -1,7 +1,10 @@
 package net.romeosnowblitz.hmh2.block.custom.block;
 
 import com.google.common.collect.Maps;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
@@ -24,7 +27,7 @@ public class ModBannerBlock extends ModAbstractBannerBlock{
     private static final Map<ModDyeColor, Block> COLORED_BANNERS = Maps.newHashMap();
     private static final VoxelShape SHAPE = Block.createCuboidShape(4.0, 0.0, 4.0, 12.0, 16.0, 12.0);
 
-    public ModBannerBlock(ModDyeColor dyeColor, AbstractBlock.Settings settings) {
+    public ModBannerBlock(ModDyeColor dyeColor, Settings settings) {
         super(dyeColor, settings);
         this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(ROTATION, 0));
         COLORED_BANNERS.put(dyeColor, this);

@@ -3,13 +3,11 @@ package net.romeosnowblitz.hmh2.util;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.VillagerProfession;
-import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
 import net.romeosnowblitz.hmh2.entity.mob.*;
@@ -21,7 +19,6 @@ import static net.romeosnowblitz.hmh2.util.MysteriousAlchemistTrades.registerMys
 public class ModRegistries {
 
     public static void registerModStuffs() {
-        registerModFuels();
         registerStrippables();
         registerFlammableBlock();
         registerCustomTrades();
@@ -29,10 +26,7 @@ public class ModRegistries {
         registerMysteriousAlchemistTrades();
     }
 
-    public static void registerModFuels() {
-        System.out.println("Now registering Fuels for " + Hmh2.MOD_ID);
-        FuelRegistry registry = FuelRegistry.INSTANCE;
-    }
+
 
     public static void registerStrippables(){
         StrippableBlockRegistry.register(WoodworkBlocks.BANANA_LOG, WoodworkBlocks.STRIPPED_BANANA_LOG);
@@ -54,7 +48,10 @@ public class ModRegistries {
     private static void registerFlammableBlock() {
         FlammableBlockRegistry instance = FlammableBlockRegistry.getDefaultInstance();
 
-        instance.add(WoodworkBlocks.BANANA_LOG, 5, 5); instance.add(WoodworkBlocks.STRIPPED_BANANA_LOG, 5, 5);instance.add(WoodworkBlocks.BANANA_WOOD, 5, 5);
+        //FlattenableBlockRegistry.register(Blocks.STONE, Blocks.DIRT_PATH.getDefaultState());
+        //OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.BEEF_BLOCK, ModBlocks.CHICKEN_BLOCK);
+        //OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.ANDESITE_BRICKS, ModBlocks.DIORITE_BRICKS);
+        instance.add(WoodworkBlocks.BANANA_LOG, 5, 5);instance.add(WoodworkBlocks.STRIPPED_BANANA_LOG, 5, 5);instance.add(WoodworkBlocks.BANANA_WOOD, 5, 5);
         instance.add(WoodworkBlocks.STRIPPED_BANANA_WOOD, 5, 5); instance.add(WoodworkBlocks.BANANA_PLANKS, 5, 20); instance.add(WoodworkBlocks.BANANA_LEAVES, 30, 60);
         instance.add(WoodworkBlocks.CHERRY_LOG, 5, 5); instance.add(WoodworkBlocks.STRIPPED_CHERRY_LOG, 5, 5);instance.add(WoodworkBlocks.CHERRY_WOOD, 5, 5);
         instance.add(WoodworkBlocks.STRIPPED_CHERRY_WOOD, 5, 5); instance.add(WoodworkBlocks.CHERRY_PLANKS, 5, 20); instance.add(WoodworkBlocks.CHERRY_LEAVES, 30, 60);
@@ -91,27 +88,22 @@ public class ModRegistries {
                             new ItemStack(ModItems.ORANGE, 4),
                             8,2,0.02f));
                 });
+
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH,2,
-                factories -> {
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 10),
-                            new ItemStack(WarfareItems.CUTLASS, 1),
-                            8, 4, 0.0f));
-                });
+                factories -> factories.add((entity, random) -> new TradeOffer(
+                        new ItemStack(Items.EMERALD, 10),
+                        new ItemStack(WarfareItems.CUTLASS, 1),
+                        8, 4, 0.0f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH,3,
-                factories -> {
-                    factories.add((entity, random) -> new TradeOffer(
+                factories -> factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 15),
                             new ItemStack(WarfareItems.SICKEL, 1),
-                            8, 4, 0.0f));
-                });
+                            8, 4, 0.0f)));
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.SHEPHERD,5,
-                factories -> {
-                    factories.add((entity, random) -> new TradeOffer(
+                factories -> factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 20),
                             new ItemStack(WarfareItems.SHEER_DAGGER, 1),
-                            8, 4, 0.0f));
-                });
+                            8, 4, 0.0f)));
     }
 
 
@@ -121,6 +113,10 @@ public class ModRegistries {
         FabricDefaultAttributeRegistry.register(MobEntities.SHADOW_CREATURE, ShadowCreatureEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(MobEntities.SOLDIER_BEE, SoldierBeeEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(MobEntities.THE_GREAT_HUNGER, TheGreatHungerEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(MobEntities.HELLMITE, HellmiteEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(MobEntities.MAGMITE, MagmiteEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(MobEntities.CAL, CalEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(MobEntities.SCULKMITE, SculkmiteEntity.setAttributes());
     }
 
 

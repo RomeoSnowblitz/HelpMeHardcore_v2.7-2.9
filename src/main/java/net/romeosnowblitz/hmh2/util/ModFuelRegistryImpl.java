@@ -23,16 +23,15 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
-import net.romeosnowblitz.hmh2.block.entity.ModAbstractFurnaceBlockEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.IdentityHashMap;
 import java.util.Map;
 
+/*
 // TODO: Clamp values to 32767 (+ add hook for mods which extend the limit to disable the check?)
 public final class ModFuelRegistryImpl implements FuelRegistry {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ModFuelRegistryImpl.class);
@@ -139,3 +138,5 @@ public final class ModFuelRegistryImpl implements FuelRegistry {
 		fuelTimeCache = null;
 	}
 }
+
+ */

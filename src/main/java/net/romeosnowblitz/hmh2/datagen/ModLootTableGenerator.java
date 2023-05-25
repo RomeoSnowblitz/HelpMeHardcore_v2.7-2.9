@@ -11,7 +11,10 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        addDrop(ModBlocks.HELLSTONE_BRICKS);
+        addDrop(
+                ModBlocks.HELLSTONE_BRICKS,
+                ModBlocks.CARVED_MELON
+        );
     }
 
 }

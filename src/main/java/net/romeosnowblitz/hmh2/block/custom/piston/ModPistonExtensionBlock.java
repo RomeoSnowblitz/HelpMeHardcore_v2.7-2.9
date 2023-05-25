@@ -4,6 +4,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.entity.PistonBlockEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -19,6 +20,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Position;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -34,7 +36,7 @@ public class ModPistonExtensionBlock extends BlockWithEntity {
     public static final DirectionProperty FACING = ModPistonHeadBlock.FACING;
     public static final EnumProperty<ModPistonType> TYPE = ModPistonHeadBlock.TYPE;
 
-    public ModPistonExtensionBlock(AbstractBlock.Settings settings) {
+    public ModPistonExtensionBlock(Settings settings) {
         super(settings);
         this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(TYPE, ModPistonType.DEFAULT));
     }
@@ -86,11 +88,8 @@ public class ModPistonExtensionBlock extends BlockWithEntity {
 
     @Override
     public List<ItemStack> getDroppedStacks(BlockState state, LootContext.Builder builder) {
-        ModPistonBlockEntity pistonBlockEntity = this.getPistonBlockEntity(builder.getWorld(), new BlockPos(builder.get(LootContextParameters.ORIGIN)));
-        if (pistonBlockEntity == null) {
-            return Collections.emptyList();
-        }
-        return pistonBlockEntity.getPushedBlock().getDroppedStacks(builder);
+        ModPistonBlockEntity pistonBlockEntity = this.getPistonBlockEntity(builder.getWorld(), BlockPos.ofFloored((Position)builder.get(LootContextParameters.ORIGIN)));
+        return pistonBlockEntity == null ? Collections.emptyList() : pistonBlockEntity.getPushedBlock().getDroppedStacks(builder);
     }
 
     @Override

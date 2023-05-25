@@ -14,7 +14,7 @@ import net.romeosnowblitz.hmh2.block.ModBlocks;
 
 import java.util.LinkedList;
 
-public class LavaSponge extends SpongeBlock {
+public class LavaSponge extends Block {
     public static final int field_31250 = 6;
     public static final int field_31251 = 64;
 

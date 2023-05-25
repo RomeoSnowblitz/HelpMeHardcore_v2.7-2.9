@@ -82,7 +82,7 @@ public class StrawberryBushBlock extends SweetBerryBushBlock {
                 double d = Math.abs(entity.getX() - entity.lastRenderX);
                 double e = Math.abs(entity.getZ() - entity.lastRenderZ);
                 if (d >= (double)0.003f || e >= (double)0.003f) {
-                    entity.damage(DamageSource.SWEET_BERRY_BUSH, 1.0f);
+                    entity.damage(world.getDamageSources().sweetBerryBush(), 1.0f);
                 }
             }
         }

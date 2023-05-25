@@ -1,9 +1,15 @@
 package net.romeosnowblitz.hmh2.entity.mob;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MovementType;
 import net.minecraft.entity.ai.control.MoveControl;
-import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
+import net.minecraft.entity.ai.goal.Goal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -46,7 +52,7 @@ public class SoldierBeeEntity extends HostileEntity implements GeoEntity {
 
     public SoldierBeeEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.moveControl = new SoldierBeeEntity.SoldierBeeMoveControl(this);
+        this.moveControl = new SoldierBeeMoveControl(this);
     }
 
     @Override
@@ -76,8 +82,8 @@ public class SoldierBeeEntity extends HostileEntity implements GeoEntity {
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new MeleeAttackGoal(this, 4, false));
-        this.goalSelector.add(1, new SoldierBeeEntity.ChargeTargetGoal());
-        this.goalSelector.add(2, new SoldierBeeEntity.LookAtTargetGoal());
+        this.goalSelector.add(1, new ChargeTargetGoal());
+        this.goalSelector.add(2, new LookAtTargetGoal());
         this.targetSelector.add(1, new ActiveTargetGoal<IronGolemEntity>((MobEntity)this, IronGolemEntity.class, true));
         this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, true));
     }
@@ -105,13 +111,13 @@ public class SoldierBeeEntity extends HostileEntity implements GeoEntity {
 
         @Override
         public void tick() {
-            if (this.state != MoveControl.State.MOVE_TO) {
+            if (this.state != State.MOVE_TO) {
                 return;
             }
             Vec3d vec3d = new Vec3d(this.targetX - SoldierBeeEntity.this.getX(), this.targetY - SoldierBeeEntity.this.getY(), this.targetZ - SoldierBeeEntity.this.getZ());
             double d = vec3d.length();
             if (d < SoldierBeeEntity.this.getBoundingBox().getAverageSideLength()) {
-                this.state = MoveControl.State.WAIT;
+                this.state = State.WAIT;
                 SoldierBeeEntity.this.setVelocity(SoldierBeeEntity.this.getVelocity().multiply(0.5));
             } else {
                 SoldierBeeEntity.this.setVelocity(SoldierBeeEntity.this.getVelocity().add(vec3d.multiply(this.speed * 0.05 / d)));
@@ -187,13 +193,13 @@ public class SoldierBeeEntity extends HostileEntity implements GeoEntity {
     class ChargeTargetGoal
             extends Goal {
         public ChargeTargetGoal() {
-            this.setControls(EnumSet.of(Goal.Control.MOVE));
+            this.setControls(EnumSet.of(Control.MOVE));
         }
 
         @Override
         public boolean canStart() {
             LivingEntity livingEntity = SoldierBeeEntity.this.getTarget();
-            if (livingEntity != null && livingEntity.isAlive() && !SoldierBeeEntity.this.getMoveControl().isMoving() && SoldierBeeEntity.this.random.nextInt(SoldierBeeEntity.ChargeTargetGoal.toGoalTicks(7)) == 0) {
+            if (livingEntity != null && livingEntity.isAlive() && !SoldierBeeEntity.this.getMoveControl().isMoving() && SoldierBeeEntity.this.random.nextInt(ChargeTargetGoal.toGoalTicks(7)) == 0) {
                 return SoldierBeeEntity.this.squaredDistanceTo(livingEntity) > 4.0;
             }
             return false;
@@ -247,12 +253,12 @@ public class SoldierBeeEntity extends HostileEntity implements GeoEntity {
     class LookAtTargetGoal
             extends Goal {
         public LookAtTargetGoal() {
-            this.setControls(EnumSet.of(Goal.Control.MOVE));
+            this.setControls(EnumSet.of(Control.MOVE));
         }
 
         @Override
         public boolean canStart() {
-            return !SoldierBeeEntity.this.getMoveControl().isMoving() && SoldierBeeEntity.this.random.nextInt(SoldierBeeEntity.LookAtTargetGoal.toGoalTicks(7)) == 0;
+            return !SoldierBeeEntity.this.getMoveControl().isMoving() && SoldierBeeEntity.this.random.nextInt(LookAtTargetGoal.toGoalTicks(7)) == 0;
         }
 
         @Override

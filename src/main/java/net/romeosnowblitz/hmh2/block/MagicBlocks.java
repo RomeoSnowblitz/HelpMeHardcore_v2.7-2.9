@@ -15,7 +15,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.BlockView;
 import net.romeosnowblitz.hmh2.Hmh2;
-import net.romeosnowblitz.hmh2.block.custom.wire.magic_dust.*;
+import net.romeosnowblitz.hmh2.block.custom.magic.magic_dust.*;
+import net.romeosnowblitz.hmh2.block.custom.magic.magic_fluid.*;
+import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.item.ModItemGroup;
 
 public class MagicBlocks {
@@ -103,6 +105,41 @@ public class MagicBlocks {
     public static final Block GOLD_DUST = resisterBlock("gold_dust", new GoldDust(FabricBlockSettings.of(Material.DECORATION).nonOpaque().breakInstantly()), ModItemGroup.MAGIC);
     public static final Block IRON_DUST = resisterBlock("iron_dust", new IronDust(FabricBlockSettings.of(Material.DECORATION).nonOpaque().breakInstantly()), ModItemGroup.MAGIC);
     public static final Block LAPIS_DUST = resisterBlock("lapis_dust", new LapisDust(FabricBlockSettings.of(Material.DECORATION).nonOpaque().breakInstantly()), ModItemGroup.MAGIC);
+
+    public static final Block ABSORPTION_FLUID_BLOCK = registerBlockWithoutBlockItem("absorption_fluid_block", new AbsorptionFluidBlock(ModFluids.ABSORPTION_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block BAD_LUCK_FLUID_BLOCK = registerBlockWithoutBlockItem("bad_luck_fluid_block", new BadLuckFluidBlock(ModFluids.BAD_LUCK_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block BAD_OMEN_FLUID_BLOCK = registerBlockWithoutBlockItem("bad_omen_fluid_block", new BadOmenFluidBlock(ModFluids.BAD_OMEN_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block BLINDNESS_FLUID_BLOCK = registerBlockWithoutBlockItem("blindness_fluid_block", new BlindnessFluidBlock(ModFluids.BLINDNESS_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block CONDUIT_POWER_FLUID_BLOCK = registerBlockWithoutBlockItem("conduit_power_fluid_block", new ConduitPowerFluidBlock(ModFluids.CONDUIT_POWER_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block DARKNESS_FLUID_BLOCK = registerBlockWithoutBlockItem("darkness_fluid_block", new DarknessFluidBlock(ModFluids.DARKNESS_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block DOLPHINS_GRACE_FLUID_BLOCK = registerBlockWithoutBlockItem("dolphins_grace_fluid_block", new DolphinsGraceFluidBlock(ModFluids.DOLPHINS_GRACE_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block FIRE_IMMUNITY_FLUID_BLOCK = registerBlockWithoutBlockItem("fire_immunity_fluid_block", new FireImmunityFluidBlock(ModFluids.FIRE_IMMUNITY_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block GLOWING_FLUID_BLOCK = registerBlockWithoutBlockItem("glowing_fluid_block", new GlowingFluidBlock(ModFluids.GLOWING_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block HASTE_FLUID_BLOCK = registerBlockWithoutBlockItem("haste_fluid_block", new HasteFluidBlock(ModFluids.HASTE_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block HEALTH_BOOST_FLUID_BLOCK = registerBlockWithoutBlockItem("health_boost_fluid_block", new HealthBoostFluidBlock(ModFluids.HEALTH_BOOST_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block HUNGER_FLUID_BLOCK = registerBlockWithoutBlockItem("hunger_fluid_block", new HungerFluidBlock(ModFluids.HUNGER_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block INSTANT_DAMAGE_FLUID_BLOCK = registerBlockWithoutBlockItem("instant_damage_fluid_block", new InstantDamageFluidBlock(ModFluids.INSTANT_DAMAGE_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block INSTANT_HEALTH_FLUID_BLOCK = registerBlockWithoutBlockItem("instant_health_fluid_block", new InstantHealthFluidBlock(ModFluids.INSTANT_HEALTH_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block INVISIBILITY_FLUID_BLOCK = registerBlockWithoutBlockItem("invisibility_fluid_block", new InvisibilityFluidBlock(ModFluids.INVISIBILITY_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block JUMP_BOOST_FLUID_BLOCK = registerBlockWithoutBlockItem("jump_boost_fluid_block", new JumpBoostFluidBlock(ModFluids.JUMP_BOOST_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block LEVITATION_FLUID_BLOCK = registerBlockWithoutBlockItem("levitation_fluid_block", new LevitationFluidBlock(ModFluids.LEVITATION_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block LUCK_FLUID_BLOCK = registerBlockWithoutBlockItem("luck_fluid_block", new LuckFluidBlock(ModFluids.LUCK_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block MINING_FATIGUE_FLUID_BLOCK = registerBlockWithoutBlockItem("mining_fatigue_fluid_block", new MiningFatigueFluidBlock(ModFluids.MINING_FATIGUE_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block NAUSEA_FLUID_BLOCK = registerBlockWithoutBlockItem("nausea_fluid_block", new NauseaFluidBlock(ModFluids.NAUSEA_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block NIGHT_VISION_FLUID_BLOCK = registerBlockWithoutBlockItem("night_vision_fluid_block", new NightVisionFluidBlock(ModFluids.NIGHT_VISION_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block POISON_FLUID_BLOCK = registerBlockWithoutBlockItem("poison_fluid_block", new PoisonFluidBlock(ModFluids.POISON_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block REGENERATION_FLUID_BLOCK = registerBlockWithoutBlockItem("regeneration_fluid_block", new RegenerationFluidBlock(ModFluids.REGENERATION_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block RESISTANCE_FLUID_BLOCK = registerBlockWithoutBlockItem("resistance_fluid_block", new ResistanceFluidBlock(ModFluids.RESISTANCE_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block SATURATION_FLUID_BLOCK = registerBlockWithoutBlockItem("saturation_fluid_block", new SaturationFluidBlock(ModFluids.SATURATION_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block SLOW_FALLING_FLUID_BLOCK = registerBlockWithoutBlockItem("slow_falling_fluid_block", new SlowFallingFluidBlock(ModFluids.SLOW_FALLING_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block SLOWNESS_FLUID_BLOCK = registerBlockWithoutBlockItem("slowness_fluid_block", new SlownessFluidBlock(ModFluids.SLOWNESS_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block SPEED_FLUID_BLOCK = registerBlockWithoutBlockItem("speed_fluid_block", new SpeedFluidBlock(ModFluids.SPEED_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block STRENGTH_FLUID_BLOCK = registerBlockWithoutBlockItem("strength_fluid_block", new StrengthFluidBlock(ModFluids.STRENGTH_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block VILLAGE_HERO_FLUID_BLOCK = registerBlockWithoutBlockItem("village_hero_fluid_block", new VillageHeroFluidBlock(ModFluids.VILLAGE_HERO_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block WATER_BREATHING_FLUID_BLOCK = registerBlockWithoutBlockItem("water_breathing_fluid_block", new WaterBreathingFluidBlock(ModFluids.WATER_BREATHING_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block WEAKNESS_FLUID_BLOCK = registerBlockWithoutBlockItem("weakness_fluid_block", new WeaknessFluidBlock(ModFluids.WEAKNESS_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+    public static final Block WITHER_FLUID_BLOCK = registerBlockWithoutBlockItem("wither_fluid_block", new WitherFluidBlock(ModFluids.WITHER_FLUID_STILL, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()), ModItemGroup.MAGIC);
+
 
     private static Boolean always(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) {
         return true;

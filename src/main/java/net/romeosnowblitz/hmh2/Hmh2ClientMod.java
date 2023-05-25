@@ -7,13 +7,14 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
-import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.block.MagicBlocks;
+import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
 import net.romeosnowblitz.hmh2.entity.client.*;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
-import net.romeosnowblitz.hmh2.screen.*;
+import net.romeosnowblitz.hmh2.screen.BackpackScreen;
+import net.romeosnowblitz.hmh2.screen.ModScreenHandlers;
 import net.romeosnowblitz.hmh2.util.ModModelPredicateProvider;
 
 public class Hmh2ClientMod implements ClientModInitializer {
@@ -72,6 +73,7 @@ public class Hmh2ClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.XRAY, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MIDAS_TOUCH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ENDER_CORN_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROYAL_JELLY, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ICED_BUCKET, RenderLayer.getTranslucent());
 
@@ -113,16 +115,88 @@ public class Hmh2ClientMod implements ClientModInitializer {
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HONEY_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xdd760f));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.OIL_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x423b2f));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.OIL_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x423b2f));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.ABSORPTION_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x2552A5));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.ABSORPTION_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x2552A5));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.BAD_LUCK_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xC0A44D));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.BAD_LUCK_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xC0A44D));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.BAD_OMEN_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x0b6138));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.BAD_OMEN_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x0b6138));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.BLINDNESS_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x1F1F23 ));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.BLINDNESS_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x1F1F23 ));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.CONDUIT_POWER_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x1DC2D1));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.CONDUIT_POWER_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x1DC2D1));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.DARKNESS_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x292721));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.DARKNESS_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x292721));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.DOLPHINS_GRACE_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x88A3BE));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.DOLPHINS_GRACE_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x88A3BE));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.FIRE_IMMUNITY_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xE49A3A));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.FIRE_IMMUNITY_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xE49A3A));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.GLOWING_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x94A061));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.GLOWING_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x94A061 ));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HASTE_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xD9C043));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HASTE_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xD9C043));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HEALTH_BOOST_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xF87D23));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HEALTH_BOOST_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xF87D23));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HUNGER_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x587653));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HUNGER_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x587653));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.INSTANT_DAMAGE_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x430A09));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.INSTANT_DAMAGE_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x430A09));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.INSTANT_HEALTH_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xF82423));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.INSTANT_HEALTH_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xF82423));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.INVISIBILITY_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x7F8392));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.INVISIBILITY_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x7F8392));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.JUMP_BOOST_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x22FF4C));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.JUMP_BOOST_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x22FF4C));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.LEVITATION_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xCEFFFF));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.LEVITATION_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xCEFFFF));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.LUCK_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x339900));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.LUCK_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x339900));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.MINING_FATIGUE_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x4A4217));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.MINING_FATIGUE_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x4A4217));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.NAUSEA_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x551D4A));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.NAUSEA_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x551D4A));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.NIGHT_VISION_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x1F1FA1));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.NIGHT_VISION_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x1F1FA1));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.POISON_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x4E9331));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.POISON_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x4E9331));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.REGENERATION_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xCD5CAB));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.REGENERATION_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xCD5CAB));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.RESISTANCE_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x99453A));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.RESISTANCE_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x99453A));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.SATURATION_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xF82421));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.SATURATION_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xF82421));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.SLOW_FALLING_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xFFEFD1));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.SLOW_FALLING_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xFFEFD1));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.SLOWNESS_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x5A6C81));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.SLOWNESS_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x5A6C81));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.SPEED_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x7CAFC6));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.SPEED_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x7CAFC6));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STRENGTH_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x932423));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STRENGTH_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x932423));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.VILLAGE_HERO_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x44FF44));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.VILLAGE_HERO_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x44FF44));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.WATER_BREATHING_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x2E5299));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.WATER_BREATHING_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x2E5299));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.WEAKNESS_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x484D48));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.WEAKNESS_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x484D48));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.WITHER_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x352A27));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.WITHER_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x352A27));
 
         EntityRendererRegistry.register(MobEntities.PENGUIN, PenguinRenderer::new);
         EntityRendererRegistry.register(MobEntities.QUEEN_BEE, QueenBeeRenderer::new);
         EntityRendererRegistry.register(MobEntities.SHADOW_CREATURE, ShadowCreatureRenderer::new);
         EntityRendererRegistry.register(MobEntities.SOLDIER_BEE, SoldierBeeRenderer::new);
         EntityRendererRegistry.register(MobEntities.THE_GREAT_HUNGER, TheGreatHungerRenderer::new);
+        EntityRendererRegistry.register(MobEntities.HELLMITE, HellmiteRenderer::new);
+        EntityRendererRegistry.register(MobEntities.MAGMITE, MagmiteRenderer::new);
+        EntityRendererRegistry.register(MobEntities.CAL, CalRenderer::new);
+        EntityRendererRegistry.register(MobEntities.SCULKMITE, SculkmiteRenderer::new);
 
         ScreenRegistry.register(ModScreenHandlers.BACKPACK_SCREEN_HANDLER, BackpackScreen::new);
+        /*
         ScreenRegistry.register(ModScreenHandlers.CHEESE_PRESS_SCREEN_HANDLER, CheesePressScreen::new);
         ScreenRegistry.register(ModScreenHandlers.FREEZER_SCREEN_HANDLER, FreezerScreen::new);
+         */
 
     }
 }

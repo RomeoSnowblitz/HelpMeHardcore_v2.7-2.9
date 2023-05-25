@@ -62,7 +62,7 @@ public class CrimsonFarmlandBlock extends Block {
 
 
     @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, net.minecraft.util.math.random.Random random) {
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (!state.canPlaceAt(world, pos)) {
             CrimsonFarmlandBlock.setToNylium(state, world, pos);
         }

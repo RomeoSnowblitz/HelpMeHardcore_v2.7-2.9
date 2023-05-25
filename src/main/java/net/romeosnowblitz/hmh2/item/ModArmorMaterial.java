@@ -1,6 +1,7 @@
 package net.romeosnowblitz.hmh2.item;
 
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
@@ -63,6 +64,16 @@ public enum ModArmorMaterial implements ArmorMaterial {
 
     public int getProtectionAmount(EquipmentSlot slot) {
         return this.protectionAmounts[slot.getEntitySlotId()];
+    }
+
+    @Override
+    public int getDurability(ArmorItem.Type type) {
+        return 0;
+    }
+
+    @Override
+    public int getProtection(ArmorItem.Type type) {
+        return 0;
     }
 
     public int getEnchantability() {

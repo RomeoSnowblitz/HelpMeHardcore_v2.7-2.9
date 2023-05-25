@@ -5,8 +5,9 @@ import net.minecraft.block.*;
 import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.block.pattern.BlockPatternBuilder;
 import net.minecraft.block.pattern.CachedBlockPosition;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.Equipment;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.Wearable;
 import net.minecraft.predicate.block.BlockStatePredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.StateManager;
@@ -24,14 +25,14 @@ import net.romeosnowblitz.hmh2.entity.mob.SoldierBeeEntity;
 import java.util.function.Predicate;
 
 public class QueenBeeSummonBlock extends HorizontalFacingBlock
-        implements Wearable {
+        implements Equipment {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     private BlockPattern soldierBeePattern;
     private BlockPattern queenBeePattern;
     private static final Predicate<BlockState> IS_GOLEM_HEAD_PREDICATE = state -> state != null && (state.isOf(ModBlocks.HONEY_HIVE));
 
-    public QueenBeeSummonBlock(AbstractBlock.Settings settings) {
+    public QueenBeeSummonBlock(Settings settings) {
         super(settings);
         this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH));
     }
@@ -96,7 +97,7 @@ public class QueenBeeSummonBlock extends HorizontalFacingBlock
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
+        return (BlockState)this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override
@@ -116,5 +117,10 @@ public class QueenBeeSummonBlock extends HorizontalFacingBlock
             this.queenBeePattern = BlockPatternBuilder.start().aisle("^", "#", "#", "#").where('^', CachedBlockPosition.matchesBlockState(IS_GOLEM_HEAD_PREDICATE)).where('#', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(ModBlocks.ROYAL_JELLY))).where('~', CachedBlockPosition.matchesBlockState(MaterialPredicate.create(Material.AIR))).build();
         }
         return this.queenBeePattern;
+    }
+
+    @Override
+    public EquipmentSlot getSlotType() {
+        return EquipmentSlot.HEAD;
     }
 }

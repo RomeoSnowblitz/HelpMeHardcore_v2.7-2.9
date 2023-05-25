@@ -1,6 +1,5 @@
 package net.romeosnowblitz.hmh2.block.custom.block;
 
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
@@ -17,7 +16,7 @@ public class ModAbstractBannerBlock
         extends BlockWithEntity {
     private final ModDyeColor color;
 
-    protected ModAbstractBannerBlock(ModDyeColor color, AbstractBlock.Settings settings) {
+    protected ModAbstractBannerBlock(ModDyeColor color, Settings settings) {
         super(settings);
         this.color = color;
     }

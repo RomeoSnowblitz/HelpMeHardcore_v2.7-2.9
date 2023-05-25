@@ -1,6 +1,7 @@
 package net.romeosnowblitz.hmh2.block.custom.block;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.state.StateManager;
@@ -15,7 +16,7 @@ public class CustomLightBlock extends Block {
     public static final IntProperty LEVEL_15 = Properties.LEVEL_15;
     public static final ToIntFunction<BlockState> STATE_TO_LUMINANCE = state -> state.get(LEVEL_15);
 
-    public CustomLightBlock(AbstractBlock.Settings settings) {
+    public CustomLightBlock(Settings settings) {
         super(settings);
         this.setDefaultState((this.stateManager.getDefaultState()).with(LEVEL_15, 15));
     }

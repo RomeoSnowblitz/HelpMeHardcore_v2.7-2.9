@@ -1,9 +1,10 @@
 package net.romeosnowblitz.hmh2.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.*;
+import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.Models;
 import net.romeosnowblitz.hmh2.block.MagicBlocks;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
@@ -14,14 +15,6 @@ public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput dataOutput) {
         super(dataOutput);
     }
-
-    /*
-    List of things to figure out for data gen
-    Tested:
-    Dusts, Logs, Buttons, Fences, Pressure Plates, Saplings, Signs, Slabs, Stairs, Trapdoors, Flowers...
-    Testing:
-    Charcoal ore
-     */
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
@@ -93,6 +86,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.HOT_PUMICE);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.ICED_BUCKET);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.INFESTED_HONEYCOMB_BLOCK);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.INFESTED_NETHERRACK_BLOCK);
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.INFESTED_MAGMA_BLOCK);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.LIFE_ORE);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.LIMESTONE);
         blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.LUCKY_BLOCK);

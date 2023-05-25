@@ -13,6 +13,7 @@ public class ModPaintings {
     public static final PaintingVariant SFIVE_CALS_AREA = registerPainting("sfive_cals_area", new PaintingVariant(128, 64));
     public static final PaintingVariant SFIVE_CALS_HOUSE = registerPainting("sfive_cals_house", new PaintingVariant(32, 32));
     public static final PaintingVariant DK_FACE = registerPainting("dk_face", new PaintingVariant(64, 64));
+    public static final PaintingVariant ANIMATE = registerPainting("animate", new PaintingVariant(16, 16));
 
     private static PaintingVariant registerPainting(String name, PaintingVariant paintingVariant) {
         return Registry.register(Registries.PAINTING_VARIANT, new Identifier(Hmh2.MOD_ID, name), paintingVariant);

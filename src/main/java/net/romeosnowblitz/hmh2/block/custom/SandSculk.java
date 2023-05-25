@@ -1,8 +1,10 @@
 package net.romeosnowblitz.hmh2.block.custom;
 
 import com.google.common.collect.Lists;
-import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.SpongeBlock;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -34,13 +36,13 @@ public class SandSculk extends SpongeBlock {
     }
 
     protected void update(World world, BlockPos pos) {
-        if (this.absorbLava(world, pos)) {
+        if (this.absorbSouls(world, pos)) {
             world.setBlockState(pos, Blocks.SOUL_SOIL.getDefaultState(), Block.NOTIFY_LISTENERS);
             world.syncWorldEvent(WorldEvents.BLOCK_BROKEN, pos, Block.getRawIdFromState(Blocks.WATER.getDefaultState()));
         }
     }
 
-    private boolean absorbLava(World world, BlockPos pos) {
+    private boolean absorbSouls(World world, BlockPos pos) {
         LinkedList<Pair<BlockPos, Integer>> queue = Lists.newLinkedList();
         queue.add(new Pair<BlockPos, Integer>(pos, 0));
         int i = 0;

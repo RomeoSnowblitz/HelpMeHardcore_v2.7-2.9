@@ -9,11 +9,6 @@
           "type": "minecraft:item",
           "name": "hmh2:end_crystal_block"
         }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
       ]
     }
   ]

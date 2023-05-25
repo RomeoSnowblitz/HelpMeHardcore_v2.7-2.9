@@ -1,7 +1,9 @@
 package net.romeosnowblitz.hmh2.entity.mob;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -27,6 +29,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
@@ -136,7 +139,7 @@ public class TheGreatHungerEntity extends TameableEntity implements GeoEntity, A
 
     @Override
     public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(DamageSource.mob(this), (int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE));
+        boolean bl = target.damage(world.getDamageSources().mobAttack(this), (int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE));
         if (bl) {this.applyDamageEffects(this, target);}return bl;
     }
 
@@ -180,5 +183,10 @@ public class TheGreatHungerEntity extends TameableEntity implements GeoEntity, A
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return MobEntities.THE_GREAT_HUNGER.create(world);
+    }
+
+    @Override
+    public EntityView method_48926() {
+        return null;
     }
 }

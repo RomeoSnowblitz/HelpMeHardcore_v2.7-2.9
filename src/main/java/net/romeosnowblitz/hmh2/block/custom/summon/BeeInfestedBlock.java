@@ -2,7 +2,6 @@ package net.romeosnowblitz.hmh2.block.custom.summon;
 
 import com.google.common.collect.Maps;
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BeehiveBlockEntity;
@@ -10,7 +9,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.mob.SilverfishEntity;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -59,7 +57,7 @@ public class BeeInfestedBlock extends Block {
         }
     }
 
-    public BeeInfestedBlock(Block regularBlock, AbstractBlock.Settings settings) {
+    public BeeInfestedBlock(Block regularBlock, Settings settings) {
         super(settings.hardness(regularBlock.getHardness() / 2.0f).resistance(0.75f));
         this.regularBlock = regularBlock;
         REGULAR_TO_BEE_INFESTED_BLOCK.put(regularBlock, this);

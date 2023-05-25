@@ -3,6 +3,7 @@ package net.romeosnowblitz.hmh2.entity.block;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -18,17 +19,33 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.entity.ModBlockEntities;
 import net.romeosnowblitz.hmh2.item.inventory.ImplementedInventory;
-import net.romeosnowblitz.hmh2.recipe.FreezerRecipe;
-import net.romeosnowblitz.hmh2.screen.FreezerScreenHandler;
-import net.romeosnowblitz.hmh2.util.ModFuelRegistry;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
+    /*
 public class FreezerBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
-    private final DefaultedList<ItemStack> inventory =
-            DefaultedList.ofSize(3, ItemStack.EMPTY);
+    public FreezerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+        super(type, pos, state);
+    }
 
+    @Override
+    public Text getDisplayName() {
+        return null;
+    }
+
+    @Nullable
+    @Override
+    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        return null;
+    }
+
+    @Override
+    public DefaultedList<ItemStack> getItems() {
+        return null;
+    }
+    /*
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
@@ -180,4 +197,5 @@ public class FreezerBlockEntity extends BlockEntity implements NamedScreenHandle
     private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
         return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
     }
-}
+ }
+     */
