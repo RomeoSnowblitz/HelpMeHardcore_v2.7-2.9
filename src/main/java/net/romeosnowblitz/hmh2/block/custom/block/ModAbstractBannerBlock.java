@@ -1,9 +1,7 @@
 package net.romeosnowblitz.hmh2.block.custom.block;
 
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
-import net.minecraft.block.entity.BannerBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.LivingEntity;
@@ -11,14 +9,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.romeosnowblitz.hmh2.item.custom.ModDyeColor;
+import net.romeosnowblitz.hmh2.item.custom.dyes.ModDyeColor;
 import org.jetbrains.annotations.Nullable;
 
 public class ModAbstractBannerBlock
         extends BlockWithEntity {
     private final ModDyeColor color;
 
-    protected ModAbstractBannerBlock(ModDyeColor color, AbstractBlock.Settings settings) {
+    protected ModAbstractBannerBlock(ModDyeColor color, Settings settings) {
         super(settings);
         this.color = color;
     }

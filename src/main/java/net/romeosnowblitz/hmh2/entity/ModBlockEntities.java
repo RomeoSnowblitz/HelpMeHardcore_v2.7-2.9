@@ -2,24 +2,33 @@ package net.romeosnowblitz.hmh2.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
+import net.romeosnowblitz.hmh2.block.custom.piston.ModPistonBlockEntity;
+import net.romeosnowblitz.hmh2.block.entity.ModBellBlockEntity;
+import net.romeosnowblitz.hmh2.entity.block.BackpackEntity;
 
 public class ModBlockEntities {
+    public static BlockEntityType<ModPistonBlockEntity> MOD_PISTON;
+    public static BlockEntityType<ModBellBlockEntity> MOD_BELL;
+    /*
     public static BlockEntityType<CheesePressBlockEntity> CHEESE_PRESS;
     public static BlockEntityType<FreezerBlockEntity> FREEZER;
-    public static BlockEntityType<IceCreamMakerBlockEntity> ICE_CREAM_MAKER;
+
+     */
     public static BlockEntityType<BackpackEntity> BACKPACK;
 
-
     public static void registerAllBlockEntities() {
+        MOD_PISTON = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "piston"), FabricBlockEntityTypeBuilder.create(ModPistonBlockEntity::new, ModBlocks.MOD_MOVING_PISTON).build(null));
+        MOD_BELL = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "bell"), FabricBlockEntityTypeBuilder.create(ModBellBlockEntity::new, ModBlocks.MOD_BELL).build(null));
+        /*
+        CHEESE_PRESS = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "cheese_press"), FabricBlockEntityTypeBuilder.create(CheesePressBlockEntity::new, ModBlocks.CHEESE_PRESS).build(null));
+        FREEZER = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "freezer"), FabricBlockEntityTypeBuilder.create(FreezerBlockEntity::new, ModBlocks.FREEZER).build(null));
 
-        CHEESE_PRESS = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "cheese_press"), FabricBlockEntityTypeBuilder.create(CheesePressBlockEntity::new, ModBlocks.CHEESE_PRESS).build(null));
-        FREEZER = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "freezer"), FabricBlockEntityTypeBuilder.create(FreezerBlockEntity::new, ModBlocks.FREEZER).build(null));
-        ICE_CREAM_MAKER = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "ice_cream_maker"), FabricBlockEntityTypeBuilder.create(IceCreamMakerBlockEntity::new, ModBlocks.ICE_CREAM_MAKER).build(null));
-        BACKPACK = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "backpack"), FabricBlockEntityTypeBuilder.create(BackpackEntity::new, ModBlocks.BACKPACK).build(null));
-
+         */
+        BACKPACK = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "backpack"), FabricBlockEntityTypeBuilder.create(BackpackEntity::new, ModBlocks.BACKPACK).build(null));
     }
 }

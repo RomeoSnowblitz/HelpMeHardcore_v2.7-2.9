@@ -25,6 +25,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.romeosnowblitz.hmh2.item.ModItems;
 
 import java.util.Random;
@@ -81,7 +82,7 @@ public class BlueberryBushBlock extends SweetBerryBushBlock {
                 double d = Math.abs(entity.getX() - entity.lastRenderX);
                 double e = Math.abs(entity.getZ() - entity.lastRenderZ);
                 if (d >= (double)0.003f || e >= (double)0.003f) {
-                    entity.damage(DamageSource.SWEET_BERRY_BUSH, 1.0f);
+                    entity.damage(world.getDamageSources().sweetBerryBush(), 1.0f);
                 }
             }
         }
@@ -111,8 +112,8 @@ public class BlueberryBushBlock extends SweetBerryBushBlock {
         }
 
         @Override
-        public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
-            return state.get(AGE) < 3;
+        public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+            return (Integer)state.get(AGE) < 3;
         }
 
         public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {

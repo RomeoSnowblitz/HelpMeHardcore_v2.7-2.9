@@ -29,23 +29,23 @@
             },
             {
               "type": "minecraft:item",
+              "functions": [
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops",
+                  "function": "minecraft:apply_bonus"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ],
+              "name": "hmh2:peridot"
+            },
+            {
+              "type": "minecraft:item",
               "name": "hmh2:peridot"
             }
           ]
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:ore_drops",
-              "function": "minecraft:apply_bonus"
-            },
-            {
-              "function": "minecraft:explosion_decay"
-            }
-          ],
-          "name": "hmh2:peridot"
         }
       ]
     }

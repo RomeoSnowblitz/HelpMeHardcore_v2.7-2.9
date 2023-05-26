@@ -3,12 +3,8 @@ package net.romeosnowblitz.hmh2.block.custom.block;
 import com.google.common.collect.Lists;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.fluid.FluidState;
-import net.minecraft.tag.FluidTags;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -18,7 +14,7 @@ import net.romeosnowblitz.hmh2.block.ModBlocks;
 
 import java.util.LinkedList;
 
-public class LavaSponge extends SpongeBlock {
+public class LavaSponge extends Block {
     public static final int field_31250 = 6;
     public static final int field_31251 = 64;
 
@@ -86,6 +82,4 @@ public class LavaSponge extends SpongeBlock {
         }
         return i > 0;
     }
-
-
 }

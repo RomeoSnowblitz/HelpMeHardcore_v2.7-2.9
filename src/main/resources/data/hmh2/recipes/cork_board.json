@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "oo",
+    "oo"
+  ],
+  "key": {
+    "o": {
+      "item": "hmh2:cork"
+    }
+  },
+  "result": {
+    "item": "minecraft:item_frame",
+    "count": 1
+  }
+}

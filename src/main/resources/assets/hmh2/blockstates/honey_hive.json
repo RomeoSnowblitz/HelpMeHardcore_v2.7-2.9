@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "hmh2:block/honey_hive",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "hmh2:block/honey_hive"
+    },
+    "facing=south": {
+      "model": "hmh2:block/honey_hive",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "hmh2:block/honey_hive",
+      "y": 270
+    }
+  }
+}

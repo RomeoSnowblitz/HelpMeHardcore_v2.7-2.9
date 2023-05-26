@@ -6,12 +6,50 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.*;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
+/*
 public class FreezerRecipe implements Recipe<SimpleInventory> {
+
+    @Override
+    public boolean matches(SimpleInventory inventory, World world) {
+        return false;
+    }
+
+    @Override
+    public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager registryManager) {
+        return null;
+    }
+
+    @Override
+    public boolean fits(int width, int height) {
+        return false;
+    }
+
+    @Override
+    public ItemStack getOutput(DynamicRegistryManager registryManager) {
+        return null;
+    }
+
+    @Override
+    public Identifier getId() {
+        return null;
+    }
+
+    @Override
+    public RecipeSerializer<?> getSerializer() {
+        return null;
+    }
+
+    @Override
+    public RecipeType<?> getType() {
+        return null;
+    }
+    /*
     private final Identifier id;
     private final ItemStack output;
     private final DefaultedList<Ingredient> recipeItems;
@@ -32,8 +70,8 @@ public class FreezerRecipe implements Recipe<SimpleInventory> {
     }
 
     @Override
-    public ItemStack craft(SimpleInventory inventory) {
-        return output;
+    public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager registryManager) {
+        return getOutput(registryManager);
     }
 
     @Override
@@ -42,8 +80,8 @@ public class FreezerRecipe implements Recipe<SimpleInventory> {
     }
 
     @Override
-    public ItemStack getOutput() {
-        return output.copy();
+    public ItemStack getOutput(DynamicRegistryManager registryManager) {
+        return getOutput(registryManager);
     }
 
     @Override
@@ -108,3 +146,4 @@ public class FreezerRecipe implements Recipe<SimpleInventory> {
         }
     }
 }
+     */

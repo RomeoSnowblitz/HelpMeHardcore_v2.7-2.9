@@ -2,13 +2,10 @@ package net.romeosnowblitz.hmh2.entity.client;
 
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
-import net.romeosnowblitz.hmh2.entity.custom.PenguinEntity;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.processor.IBone;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
-import software.bernie.geckolib3.model.provider.data.EntityModelData;
+import net.romeosnowblitz.hmh2.entity.mob.PenguinEntity;
+import software.bernie.geckolib.model.GeoModel;
 
-public class PenguinModel extends AnimatedGeoModel<PenguinEntity> {
+public class PenguinModel extends GeoModel<PenguinEntity> {
 
     @Override
     public Identifier getModelResource(PenguinEntity object) {
@@ -25,6 +22,8 @@ public class PenguinModel extends AnimatedGeoModel<PenguinEntity> {
         return new Identifier(Hmh2.MOD_ID, "animations/penguin.animation.json");
     }
 
+    /*
+    This is for The head to turn to the player
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public void setLivingAnimations(PenguinEntity entity, Integer uniqueID, AnimationEvent customPredicate) {
@@ -37,4 +36,6 @@ public class PenguinModel extends AnimatedGeoModel<PenguinEntity> {
             head.setRotationY(extraData.netHeadYaw * ((float) Math.PI / 180F));
         }
     }
+
+     */
 }

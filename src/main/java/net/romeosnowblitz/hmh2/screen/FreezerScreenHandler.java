@@ -9,10 +9,9 @@ import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
-import net.romeosnowblitz.hmh2.screen.slot.ModCoolantSlot;
 import net.romeosnowblitz.hmh2.screen.slot.ModResultSlot;
 
-
+/*
 public class FreezerScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
@@ -71,7 +70,7 @@ public class FreezerScreenHandler extends ScreenHandler {
     }
 
     @Override
-    public ItemStack transferSlot(PlayerEntity player, int invSlot) {
+    public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(invSlot);
         if (slot != null && slot.hasStack()) {
@@ -109,3 +108,5 @@ public class FreezerScreenHandler extends ScreenHandler {
         }
     }
 }
+
+ */

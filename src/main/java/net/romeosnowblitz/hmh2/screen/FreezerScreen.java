@@ -9,7 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 
-
+/*
 public class FreezerScreen extends HandledScreen<FreezerScreenHandler> {
     private static final Identifier TEXTURE =
             new Identifier(Hmh2.MOD_ID, "textures/gui/freezer_gui.png");
@@ -26,7 +26,7 @@ public class FreezerScreen extends HandledScreen<FreezerScreenHandler> {
 
     @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
@@ -49,3 +49,5 @@ public class FreezerScreen extends HandledScreen<FreezerScreenHandler> {
         drawMouseoverTooltip(matrices, mouseX, mouseY);
     }
 }
+
+ */

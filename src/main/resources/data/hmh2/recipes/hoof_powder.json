@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:hoof"
+  },
+  "result": "hmh2:hoof_powder",
+  "count": 4
+}

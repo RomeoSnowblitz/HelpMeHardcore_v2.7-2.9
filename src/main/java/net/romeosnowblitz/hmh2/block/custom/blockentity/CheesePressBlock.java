@@ -17,11 +17,10 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.romeosnowblitz.hmh2.entity.CheesePressBlockEntity;
 import net.romeosnowblitz.hmh2.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
-
+/*
 public class CheesePressBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
@@ -32,7 +31,7 @@ public class CheesePressBlock extends BlockWithEntity implements BlockEntityProv
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
+        return (BlockState)this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override
@@ -88,3 +87,5 @@ public class CheesePressBlock extends BlockWithEntity implements BlockEntityProv
         return checkType(type, ModBlockEntities.CHEESE_PRESS, CheesePressBlockEntity::tick);
     }
 }
+
+ */

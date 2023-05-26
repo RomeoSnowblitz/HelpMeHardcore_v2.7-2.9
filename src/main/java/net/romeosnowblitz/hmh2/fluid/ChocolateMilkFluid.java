@@ -1,36 +1,30 @@
 package net.romeosnowblitz.hmh2.fluid;
 
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FluidBlock;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.sound.SoundCategory;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
-import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.*;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
-import java.util.Random;
 
 public abstract class ChocolateMilkFluid extends FlowableFluid {
 
@@ -44,35 +38,11 @@ public abstract class ChocolateMilkFluid extends FlowableFluid {
         return ModItems.CHOCOLATE_MILK;
     }
 
-    public void randomDisplayTick(World world, BlockPos pos, FluidState state, Random random) {
-        if (!state.isStill() && !(Boolean)state.get(FALLING)) {
-            if (random.nextInt(128) == 0) {
-                world.playSound((double)pos.getX() + 0.5D,
-                        (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D,
-                        SoundEvents.BLOCK_WATER_AMBIENT, SoundCategory.BLOCKS,
-                        random.nextFloat() * 0.25F + 0.75F, random.nextFloat() + 0.1F,
-                        false);
-            }
-        } else if (random.nextInt(10) == 0) {
-            world.addParticle(ParticleTypes.UNDERWATER, (double)pos.getX() + random.nextDouble(),
-                    (double)pos.getY() + random.nextDouble(),
-                    (double)pos.getZ() + random.nextDouble(),
-                    0.0D, 0.0D, 0.0D);
-        }
-
-    }
-    
-
 
     @Nullable
     public ParticleEffect getParticle() {
         return ParticleTypes.DRIPPING_WATER;
     }
-
-    protected boolean isInfinite() {
-        return true;
-    }
-
 
     protected void beforeBreakingBlock(WorldAccess world, BlockPos pos, BlockState state) {
         BlockEntity blockEntity = state.hasBlockEntity() ? world.getBlockEntity(pos) : null;
@@ -118,6 +88,11 @@ public abstract class ChocolateMilkFluid extends FlowableFluid {
             builder.add(LEVEL);
         }
 
+        @Override
+        protected boolean isInfinite(World world) {
+            return false;
+        }
+
         public int getLevel(FluidState state) {
             return (Integer)state.get(LEVEL);
         }
@@ -128,6 +103,11 @@ public abstract class ChocolateMilkFluid extends FlowableFluid {
     }
 
     public static class Still extends ChocolateMilkFluid {
+
+        @Override
+        protected boolean isInfinite(World world) {
+            return false;
+        }
 
         public int getLevel(FluidState state) {
             return 8;

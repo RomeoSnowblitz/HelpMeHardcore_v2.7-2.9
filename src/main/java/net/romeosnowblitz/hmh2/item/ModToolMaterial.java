@@ -29,7 +29,7 @@ public enum ModToolMaterial implements ToolMaterial {
         return Ingredient.ofItems(ModItems.HELLSTONE);}),
     MOD_GOLD(4, 906, 1.0F, -1.0F, 30, () -> {
         return Ingredient.ofItems(Items.GOLD_INGOT);}),
-    MOD_IRON(4, 906, 1.0F, -1.0F, 30, () -> {
+    MOD_IRON(4, 906, 6.0F, -1.0F, 30, () -> {
         return Ingredient.ofItems(Items.IRON_INGOT);}),
     MYSTERIOUS_DEBRIS(4, 906, 1.0F, -1.0F, 30, () -> {
         return Ingredient.ofItems(ModItems.MYSTERIOUS_CYAN_DEBRIS);}),

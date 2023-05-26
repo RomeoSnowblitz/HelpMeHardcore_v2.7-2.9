@@ -48,7 +48,7 @@ public class ModCropBlock extends CropBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(ModBlocks.CRIMSON_FARMLAND);
+        return floor.isOf(ModBlocks.CRIMSON_FARMLAND) || floor.isOf(ModBlocks.WARPED_FARMLAND) || super.canPlantOnTop(floor, world, pos);
     }
 
     public IntProperty getAgeProperty() {
@@ -121,18 +121,17 @@ public class ModCropBlock extends CropBlock {
         return new ItemStack(this.getSeedsItem());
     }
 
-    @Override
-    public boolean isFertilizable(BlockView world, BlockPos pos, BlockState state, boolean isClient) {
-        return !this.isMature(state);
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+        return (Integer)state.get(AGE) < 3;
     }
 
     @Override
-    public boolean canGrow(World world, net.minecraft.util.math.random.Random random, BlockPos pos, BlockState state) {
+    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public void grow(ServerWorld world, net.minecraft.util.math.random.Random random, BlockPos pos, BlockState state) {
+    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         this.applyGrowth(world, pos, state);
     }
 

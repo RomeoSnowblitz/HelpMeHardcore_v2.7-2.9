@@ -25,27 +25,27 @@
                   }
                 }
               ],
-              "name": "hmh2:deepslate_tormaline_ore"
+              "name": "hmh2:deepslate_topaz_ore"
             },
             {
               "type": "minecraft:item",
-              "name": "hmh2:tormaline"
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:ore_drops",
-              "function": "minecraft:apply_bonus"
+              "functions": [
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops",
+                  "function": "minecraft:apply_bonus"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ],
+              "name": "hmh2:topaz"
             },
             {
-              "function": "minecraft:explosion_decay"
+              "type": "minecraft:item",
+              "name": "hmh2:topaz"
             }
-          ],
-          "name": "hmh2:tormaline"
+          ]
         }
       ]
     }

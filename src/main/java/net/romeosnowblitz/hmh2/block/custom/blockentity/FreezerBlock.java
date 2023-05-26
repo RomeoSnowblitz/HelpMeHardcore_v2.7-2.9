@@ -17,12 +17,11 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.romeosnowblitz.hmh2.entity.FreezerBlockEntity;
 import net.romeosnowblitz.hmh2.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 
-
+/*
 
 public class FreezerBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
@@ -34,7 +33,7 @@ public class FreezerBlock extends BlockWithEntity implements BlockEntityProvider
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
+        return (BlockState)this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override
@@ -90,3 +89,4 @@ public class FreezerBlock extends BlockWithEntity implements BlockEntityProvider
         return checkType(type, ModBlockEntities.FREEZER, FreezerBlockEntity::tick);
     }
 }
+ */

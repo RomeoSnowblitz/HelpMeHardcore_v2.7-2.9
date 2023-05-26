@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "hmh2:tempest_knife"
-  },
-  "result": "hmh2:soul_knife",
-  "count": 1
-}

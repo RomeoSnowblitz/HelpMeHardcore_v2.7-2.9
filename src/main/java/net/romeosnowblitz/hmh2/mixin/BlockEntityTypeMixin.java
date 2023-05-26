@@ -4,7 +4,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.SignBlock;
 import net.minecraft.block.WallSignBlock;
 import net.minecraft.block.entity.BlockEntityType;
-import net.romeosnowblitz.hmh2.block.custom.blockentity.Backpack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -19,5 +18,6 @@ public class BlockEntityTypeMixin {
             info.setReturnValue(true);
         }
     }
+
 
 }

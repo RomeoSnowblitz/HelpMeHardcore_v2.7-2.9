@@ -2,8 +2,6 @@ package net.romeosnowblitz.hmh2.block.custom.blockentity;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -17,9 +15,7 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.romeosnowblitz.hmh2.entity.BackpackEntity;
-import net.romeosnowblitz.hmh2.entity.FreezerBlockEntity;
-import net.romeosnowblitz.hmh2.entity.ModBlockEntities;
+import net.romeosnowblitz.hmh2.entity.block.BackpackEntity;
 import org.jetbrains.annotations.Nullable;
 
 
@@ -33,7 +29,7 @@ public class Backpack extends BlockWithEntity implements BlockEntityProvider {
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
+        return (BlockState)this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override
