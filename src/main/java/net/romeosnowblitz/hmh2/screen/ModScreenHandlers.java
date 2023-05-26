@@ -1,23 +1,25 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry
- *  net.minecraft.class_2960
- *  net.minecraft.class_3917
- */
 package net.romeosnowblitz.hmh2.screen;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
-import net.minecraft.class_2960;
-import net.minecraft.class_3917;
-import net.romeosnowblitz.hmh2.screen.BackpackScreenHandler;
+import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.util.Identifier;
+import net.romeosnowblitz.hmh2.Hmh2;
 
 public class ModScreenHandlers {
-    public static class_3917<BackpackScreenHandler> BACKPACK_SCREEN_HANDLER;
+    public static ScreenHandlerType<BackpackScreenHandler> BACKPACK_SCREEN_HANDLER;
+    /*
+    public static ScreenHandlerType<CheesePressScreenHandler> CHEESE_PRESS_SCREEN_HANDLER;
+    public static ScreenHandlerType<FreezerScreenHandler> FREEZER_SCREEN_HANDLER;
 
-    public static void registerAllScreenHandlers() {
-        BACKPACK_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple((class_2960)new class_2960("hmh2", "backpack"), BackpackScreenHandler::new);
+     */
+
+    public static void registerAllScreenHandlers(){
+        BACKPACK_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Hmh2.MOD_ID, "backpack"), BackpackScreenHandler::new);
+        /*
+        CHEESE_PRESS_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Hmh2.MOD_ID, "cheese_press"), CheesePressScreenHandler::new);
+        FREEZER_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Hmh2.MOD_ID, "freezer"), FreezerScreenHandler::new);
+
+         */
     }
-}
 
+}

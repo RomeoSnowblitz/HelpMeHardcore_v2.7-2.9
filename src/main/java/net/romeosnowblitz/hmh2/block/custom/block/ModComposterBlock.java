@@ -1,521 +1,467 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  it.unimi.dsi.fastutil.objects.Object2FloatMap
- *  it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap
- *  net.minecraft.class_10
- *  net.minecraft.class_1268
- *  net.minecraft.class_1269
- *  net.minecraft.class_1277
- *  net.minecraft.class_1278
- *  net.minecraft.class_1297
- *  net.minecraft.class_1542
- *  net.minecraft.class_156
- *  net.minecraft.class_1657
- *  net.minecraft.class_1799
- *  net.minecraft.class_1802
- *  net.minecraft.class_1922
- *  net.minecraft.class_1935
- *  net.minecraft.class_1936
- *  net.minecraft.class_1937
- *  net.minecraft.class_2248
- *  net.minecraft.class_2338
- *  net.minecraft.class_2350
- *  net.minecraft.class_2350$class_2351
- *  net.minecraft.class_2394
- *  net.minecraft.class_2398
- *  net.minecraft.class_247
- *  net.minecraft.class_259
- *  net.minecraft.class_265
- *  net.minecraft.class_2680
- *  net.minecraft.class_2689$class_2690
- *  net.minecraft.class_2741
- *  net.minecraft.class_2758
- *  net.minecraft.class_2769
- *  net.minecraft.class_3218
- *  net.minecraft.class_3417
- *  net.minecraft.class_3419
- *  net.minecraft.class_3468
- *  net.minecraft.class_3726
- *  net.minecraft.class_3954
- *  net.minecraft.class_3965
- *  net.minecraft.class_4970$class_2251
- *  net.minecraft.class_5819
- *  org.jetbrains.annotations.Nullable
- */
 package net.romeosnowblitz.hmh2.block.custom.block;
 
 import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
-import net.minecraft.class_10;
-import net.minecraft.class_1268;
-import net.minecraft.class_1269;
-import net.minecraft.class_1277;
-import net.minecraft.class_1278;
-import net.minecraft.class_1297;
-import net.minecraft.class_1542;
-import net.minecraft.class_156;
-import net.minecraft.class_1657;
-import net.minecraft.class_1799;
-import net.minecraft.class_1802;
-import net.minecraft.class_1922;
-import net.minecraft.class_1935;
-import net.minecraft.class_1936;
-import net.minecraft.class_1937;
-import net.minecraft.class_2248;
-import net.minecraft.class_2338;
-import net.minecraft.class_2350;
-import net.minecraft.class_2394;
-import net.minecraft.class_2398;
-import net.minecraft.class_247;
-import net.minecraft.class_259;
-import net.minecraft.class_265;
-import net.minecraft.class_2680;
-import net.minecraft.class_2689;
-import net.minecraft.class_2741;
-import net.minecraft.class_2758;
-import net.minecraft.class_2769;
-import net.minecraft.class_3218;
-import net.minecraft.class_3417;
-import net.minecraft.class_3419;
-import net.minecraft.class_3468;
-import net.minecraft.class_3726;
-import net.minecraft.class_3954;
-import net.minecraft.class_3965;
-import net.minecraft.class_4970;
-import net.minecraft.class_5819;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.InventoryProvider;
+import net.minecraft.block.ShapeContext;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.SidedInventory;
+import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
+import net.minecraft.state.property.Property;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.Util;
+import net.minecraft.util.function.BooleanBiFunction;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
 import net.romeosnowblitz.hmh2.item.ModItems;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
 import org.jetbrains.annotations.Nullable;
 
-public class ModComposterBlock
-extends class_2248
-implements class_3954 {
+public class ModComposterBlock extends Block implements InventoryProvider {
     public static final int MAX_LEVEL = 8;
     public static final int field_31072 = 0;
     public static final int field_31073 = 7;
-    public static final class_2758 LEVEL = class_2741.field_17586;
-    public static final Object2FloatMap<class_1935> ITEM_TO_LEVEL_INCREASE_CHANCE = new Object2FloatOpenHashMap();
+    public static final IntProperty LEVEL;
+    public static final Object2FloatMap<ItemConvertible> ITEM_TO_LEVEL_INCREASE_CHANCE;
     private static final int field_31074 = 2;
-    private static final class_265 RAYCAST_SHAPE = class_259.method_1077();
-    private static final class_265[] LEVEL_TO_COLLISION_SHAPE = (class_265[])class_156.method_654((Object)new class_265[9], shapes -> {
-        for (int i = 0; i < 8; ++i) {
-            shapes[i] = class_259.method_1072((class_265)RAYCAST_SHAPE, (class_265)class_2248.method_9541((double)2.0, (double)Math.max(2, 1 + i * 2), (double)2.0, (double)14.0, (double)16.0, (double)14.0), (class_247)class_247.field_16886);
-        }
-        shapes[8] = shapes[7];
-    });
+    private static final VoxelShape RAYCAST_SHAPE;
+    private static final VoxelShape[] LEVEL_TO_COLLISION_SHAPE;
 
     public static void registerDefaultCompostableItems() {
-        ITEM_TO_LEVEL_INCREASE_CHANCE.defaultReturnValue(-1.0f);
-        float f = 0.3f;
-        float g = 0.5f;
-        float h = 0.65f;
-        float i = 0.85f;
-        float j = 1.0f;
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)ModItems.BURNT_EGGSHELL);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)ModItems.BURNT_TOAST);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)ModItems.HOOF_POWDER);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)ModItems.CHEESE_SLICE);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)ModItems.RENNET);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)ModItems.FLOUR);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)ModItems.BUTTER);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.BANANA_SAPLING);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.CHERRY_SAPLING);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.CORK_OAK_SAPLING);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.JACARANDA_SAPLING);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.MAHOE_SAPLING);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.MANGO_SAPLING);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.WILLOW_SAPLING);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.BANANA_LEAVES);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.CHERRY_LEAVES);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.CORK_OAK_LEAVES);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.JACARANDA_LEAVES);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.MAHOE_LEAVES);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.MANGO_LEAVES);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)WoodworkBlocks.WILLOW_LEAVES);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17506);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17503);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17504);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17508);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17507);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17505);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_28648);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_37511);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17535);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17536);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17537);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17538);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17539);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17540);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_37508);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_8309);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_8551);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_8602);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)ModBlocks.POISON_GRASS);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_17532);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_8188);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_8706);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_8158);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_16998);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_28659);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_8317);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_28653);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_28658);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_28656);
-        ModComposterBlock.registerCompostableItem(0.3f, (class_1935)class_1802.field_37513);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)ModItems.BANANA_PEEL);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)ModItems.BANANA_PEEL);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)ModItems.SLICED_BREAD);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)ModItems.LIGHT_TOAST);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)class_1802.field_17533);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)class_1802.field_8256);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)class_1802.field_28649);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)class_1802.field_17520);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)class_1802.field_17531);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)class_1802.field_17523);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)class_1802.field_21991);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)class_1802.field_21992);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)class_1802.field_23070);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)class_1802.field_8497);
-        ModComposterBlock.registerCompostableItem(0.5f, (class_1935)class_1802.field_28409);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModItems.CORK);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModItems.BANANAS);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModItems.BLUEBERRIES);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModItems.CHEESE);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModItems.CHERRIES);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModItems.CONE);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModItems.TOAST);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModItems.MANGO);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModItems.ORANGE);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModItems.STRAWBERRIES);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModBlocks.BLUE_SPIDER_LILY);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModBlocks.ROSE);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)ModBlocks.WOLFSBANE);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17498);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17524);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17518);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17519);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17522);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_8279);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_8186);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_8179);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_8116);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_8567);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_8861);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17516);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17517);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17521);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_21987);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_21988);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_8790);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_21989);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_21990);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_22017);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_8491);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_8880);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17499);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17500);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17501);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17502);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17509);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17510);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17511);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17512);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17513);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17514);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17515);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_8471);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17525);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17526);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17527);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_17529);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_8561);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_28652);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_28650);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_28654);
-        ModComposterBlock.registerCompostableItem(0.65f, (class_1935)class_1802.field_28657);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)ModItems.CHOCOLATE_ICE_CREAM);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)ModItems.BLUEBERRY_JAM);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)ModItems.STRAWBERRY_JAM);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)ModItems.BUTTERED_TOAST);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)class_1802.field_17528);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)class_1802.field_8506);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)class_1802.field_8682);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)class_1802.field_8182);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)class_1802.field_22008);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)class_1802.field_28651);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)class_1802.field_8229);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)class_1802.field_8512);
-        ModComposterBlock.registerCompostableItem(0.85f, (class_1935)class_1802.field_8423);
-        ModComposterBlock.registerCompostableItem(1.0f, (class_1935)WarfareItems.BANANA_HELMET);
-        ModComposterBlock.registerCompostableItem(1.0f, (class_1935)WarfareItems.BANANA_CHESTPLATE);
-        ModComposterBlock.registerCompostableItem(1.0f, (class_1935)WarfareItems.BANANA_LEGGINGS);
-        ModComposterBlock.registerCompostableItem(1.0f, (class_1935)WarfareItems.BANANA_BOOTS);
-        ModComposterBlock.registerCompostableItem(1.0f, (class_1935)WarfareItems.BANANA_HORSE_ARMOR);
-        ModComposterBlock.registerCompostableItem(1.0f, (class_1935)WarfareItems.BANANA_PICKAXE);
-        ModComposterBlock.registerCompostableItem(1.0f, (class_1935)ModBlocks.PEAT);
-        ModComposterBlock.registerCompostableItem(1.0f, (class_1935)ModBlocks.CORK_BLOCK);
-        ModComposterBlock.registerCompostableItem(1.0f, (class_1935)ModBlocks.BAMBOO_BLOCK);
-        ModComposterBlock.registerCompostableItem(1.0f, (class_1935)class_1802.field_17534);
-        ModComposterBlock.registerCompostableItem(1.0f, (class_1935)class_1802.field_8741);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.defaultReturnValue(-1.0F);
+        float f = 0.3F;
+        float g = 0.5F;
+        float h = 0.65F;
+        float i = 0.85F;
+        float j = 1.0F;
+        registerCompostableItem(0.3F, ModItems.BURNT_EGGSHELL);
+        registerCompostableItem(0.3F, ModItems.BURNT_TOAST);
+        registerCompostableItem(0.3F, ModItems.HOOF_POWDER);
+        registerCompostableItem(0.3F, ModItems.CHEESE_SLICE);
+        registerCompostableItem(0.3F, ModItems.RENNET);
+        registerCompostableItem(0.3F, ModItems.FLOUR);
+        registerCompostableItem(0.3F, ModItems.BUTTER);
+        registerCompostableItem(0.3F, WoodworkBlocks.BANANA_SAPLING);
+        registerCompostableItem(0.3F, WoodworkBlocks.CHERRY_SAPLING);
+        registerCompostableItem(0.3F, WoodworkBlocks.CORK_OAK_SAPLING);
+        registerCompostableItem(0.3F, WoodworkBlocks.JACARANDA_SAPLING);
+        registerCompostableItem(0.3F, WoodworkBlocks.MAHOE_SAPLING);
+        registerCompostableItem(0.3F, WoodworkBlocks.MANGO_SAPLING);
+        registerCompostableItem(0.3F, WoodworkBlocks.WILLOW_SAPLING);
+        registerCompostableItem(0.3F, WoodworkBlocks.BANANA_LEAVES);
+        registerCompostableItem(0.3F, WoodworkBlocks.CHERRY_LEAVES);
+        registerCompostableItem(0.3F, WoodworkBlocks.CORK_OAK_LEAVES);
+        registerCompostableItem(0.3F, WoodworkBlocks.JACARANDA_LEAVES);
+        registerCompostableItem(0.3F, WoodworkBlocks.MAHOE_LEAVES);
+        registerCompostableItem(0.3F, WoodworkBlocks.MANGO_LEAVES);
+        registerCompostableItem(0.3F, WoodworkBlocks.WILLOW_LEAVES);
+        registerCompostableItem(0.3F, Items.JUNGLE_LEAVES);
+        registerCompostableItem(0.3F, Items.OAK_LEAVES);
+        registerCompostableItem(0.3F, Items.SPRUCE_LEAVES);
+        registerCompostableItem(0.3F, Items.DARK_OAK_LEAVES);
+        registerCompostableItem(0.3F, Items.ACACIA_LEAVES);
+        registerCompostableItem(0.3F, Items.BIRCH_LEAVES);
+        registerCompostableItem(0.3F, Items.AZALEA_LEAVES);
+        registerCompostableItem(0.3F, Items.MANGROVE_LEAVES);
+        registerCompostableItem(0.3F, Items.OAK_SAPLING);
+        registerCompostableItem(0.3F, Items.SPRUCE_SAPLING);
+        registerCompostableItem(0.3F, Items.BIRCH_SAPLING);
+        registerCompostableItem(0.3F, Items.JUNGLE_SAPLING);
+        registerCompostableItem(0.3F, Items.ACACIA_SAPLING);
+        registerCompostableItem(0.3F, Items.DARK_OAK_SAPLING);
+        registerCompostableItem(0.3F, Items.MANGROVE_PROPAGULE);
+        registerCompostableItem(0.3F, Items.BEETROOT_SEEDS);
+        registerCompostableItem(0.3F, Items.DRIED_KELP);
+        registerCompostableItem(0.3F, Items.GRASS);
+        registerCompostableItem(0.3F, ModBlocks.POISON_GRASS);
+        registerCompostableItem(0.3F, Items.KELP);
+        registerCompostableItem(0.3F, Items.MELON_SEEDS);
+        registerCompostableItem(0.3F, Items.PUMPKIN_SEEDS);
+        registerCompostableItem(0.3F, Items.SEAGRASS);
+        registerCompostableItem(0.3F, Items.SWEET_BERRIES);
+        registerCompostableItem(0.3F, Items.GLOW_BERRIES);
+        registerCompostableItem(0.3F, Items.WHEAT_SEEDS);
+        registerCompostableItem(0.3F, Items.MOSS_CARPET);
+        registerCompostableItem(0.3F, Items.SMALL_DRIPLEAF);
+        registerCompostableItem(0.3F, Items.HANGING_ROOTS);
+        registerCompostableItem(0.3F, Items.MANGROVE_ROOTS);
+        registerCompostableItem(0.5F, ModItems.BANANA_PEEL);
+        registerCompostableItem(0.5F, ModItems.BANANA_PEEL);
+        registerCompostableItem(0.5F, ModItems.SLICED_BREAD);
+        registerCompostableItem(0.5F, ModItems.LIGHT_TOAST);
+        registerCompostableItem(0.5F, Items.DRIED_KELP_BLOCK);
+        registerCompostableItem(0.5F, Items.TALL_GRASS);
+        registerCompostableItem(0.5F, Items.FLOWERING_AZALEA_LEAVES);
+        registerCompostableItem(0.5F, Items.CACTUS);
+        registerCompostableItem(0.5F, Items.SUGAR_CANE);
+        registerCompostableItem(0.5F, Items.VINE);
+        registerCompostableItem(0.5F, Items.NETHER_SPROUTS);
+        registerCompostableItem(0.5F, Items.WEEPING_VINES);
+        registerCompostableItem(0.5F, Items.TWISTING_VINES);
+        registerCompostableItem(0.5F, Items.MELON_SLICE);
+        registerCompostableItem(0.5F, Items.GLOW_LICHEN);
+        registerCompostableItem(0.65F, ModItems.CORK);
+        registerCompostableItem(0.65F, ModItems.BANANAS);
+        registerCompostableItem(0.65F, ModItems.BLUEBERRIES);
+        registerCompostableItem(0.65F, ModItems.CHEESE);
+        registerCompostableItem(0.65F, ModItems.CHERRIES);
+        registerCompostableItem(0.65F, ModItems.CONE);
+        registerCompostableItem(0.65F, ModItems.TOAST);
+        registerCompostableItem(0.65F, ModItems.MANGO);
+        registerCompostableItem(0.65F, ModItems.ORANGE);
+        registerCompostableItem(0.65F, ModItems.STRAWBERRIES);
+        registerCompostableItem(0.65F, ModBlocks.BLUE_SPIDER_LILY);
+        registerCompostableItem(0.65F, ModBlocks.ROSE);
+        registerCompostableItem(0.65F, ModBlocks.WOLFSBANE);
+        registerCompostableItem(0.65F, Items.SEA_PICKLE);
+        registerCompostableItem(0.65F, Items.LILY_PAD);
+        registerCompostableItem(0.65F, Items.PUMPKIN);
+        registerCompostableItem(0.65F, Items.CARVED_PUMPKIN);
+        registerCompostableItem(0.65F, Items.MELON);
+        registerCompostableItem(0.65F, Items.APPLE);
+        registerCompostableItem(0.65F, Items.BEETROOT);
+        registerCompostableItem(0.65F, Items.CARROT);
+        registerCompostableItem(0.65F, Items.COCOA_BEANS);
+        registerCompostableItem(0.65F, Items.POTATO);
+        registerCompostableItem(0.65F, Items.WHEAT);
+        registerCompostableItem(0.65F, Items.BROWN_MUSHROOM);
+        registerCompostableItem(0.65F, Items.RED_MUSHROOM);
+        registerCompostableItem(0.65F, Items.MUSHROOM_STEM);
+        registerCompostableItem(0.65F, Items.CRIMSON_FUNGUS);
+        registerCompostableItem(0.65F, Items.WARPED_FUNGUS);
+        registerCompostableItem(0.65F, Items.NETHER_WART);
+        registerCompostableItem(0.65F, Items.CRIMSON_ROOTS);
+        registerCompostableItem(0.65F, Items.WARPED_ROOTS);
+        registerCompostableItem(0.65F, Items.SHROOMLIGHT);
+        registerCompostableItem(0.65F, Items.DANDELION);
+        registerCompostableItem(0.65F, Items.POPPY);
+        registerCompostableItem(0.65F, Items.BLUE_ORCHID);
+        registerCompostableItem(0.65F, Items.ALLIUM);
+        registerCompostableItem(0.65F, Items.AZURE_BLUET);
+        registerCompostableItem(0.65F, Items.RED_TULIP);
+        registerCompostableItem(0.65F, Items.ORANGE_TULIP);
+        registerCompostableItem(0.65F, Items.WHITE_TULIP);
+        registerCompostableItem(0.65F, Items.PINK_TULIP);
+        registerCompostableItem(0.65F, Items.OXEYE_DAISY);
+        registerCompostableItem(0.65F, Items.CORNFLOWER);
+        registerCompostableItem(0.65F, Items.LILY_OF_THE_VALLEY);
+        registerCompostableItem(0.65F, Items.WITHER_ROSE);
+        registerCompostableItem(0.65F, Items.FERN);
+        registerCompostableItem(0.65F, Items.SUNFLOWER);
+        registerCompostableItem(0.65F, Items.LILAC);
+        registerCompostableItem(0.65F, Items.ROSE_BUSH);
+        registerCompostableItem(0.65F, Items.PEONY);
+        registerCompostableItem(0.65F, Items.LARGE_FERN);
+        registerCompostableItem(0.65F, Items.SPORE_BLOSSOM);
+        registerCompostableItem(0.65F, Items.AZALEA);
+        registerCompostableItem(0.65F, Items.MOSS_BLOCK);
+        registerCompostableItem(0.65F, Items.BIG_DRIPLEAF);
+        registerCompostableItem(0.85F, ModItems.CHOCOLATE_ICE_CREAM);
+        registerCompostableItem(0.85F, ModItems.BLUEBERRY_JAM);
+        registerCompostableItem(0.85F, ModItems.STRAWBERRY_JAM);
+        registerCompostableItem(0.85F, ModItems.BUTTERED_TOAST);
+        registerCompostableItem(0.85F, Items.HAY_BLOCK);
+        registerCompostableItem(0.85F, Items.BROWN_MUSHROOM_BLOCK);
+        registerCompostableItem(0.85F, Items.RED_MUSHROOM_BLOCK);
+        registerCompostableItem(0.85F, Items.NETHER_WART_BLOCK);
+        registerCompostableItem(0.85F, Items.WARPED_WART_BLOCK);
+        registerCompostableItem(0.85F, Items.FLOWERING_AZALEA);
+        registerCompostableItem(0.85F, Items.BREAD);
+        registerCompostableItem(0.85F, Items.BAKED_POTATO);
+        registerCompostableItem(0.85F, Items.COOKIE);
+        registerCompostableItem(1.0F, WarfareItems.BANANA_HELMET);
+        registerCompostableItem(1.0F, WarfareItems.BANANA_CHESTPLATE);
+        registerCompostableItem(1.0F, WarfareItems.BANANA_LEGGINGS);
+        registerCompostableItem(1.0F, WarfareItems.BANANA_BOOTS);
+        registerCompostableItem(1.0F, WarfareItems.BANANA_HORSE_ARMOR);
+        registerCompostableItem(1.0F, WarfareItems.BANANA_PICKAXE);
+        registerCompostableItem(1.0F, ModBlocks.PEAT);
+        registerCompostableItem(1.0F, ModBlocks.CORK_BLOCK);
+        registerCompostableItem(1.0F, ModBlocks.BAMBOO_BLOCK);
+        registerCompostableItem(1.0F, Items.CAKE);
+        registerCompostableItem(1.0F, Items.PUMPKIN_PIE);
     }
 
-    private static void registerCompostableItem(float levelIncreaseChance, class_1935 item) {
-        ITEM_TO_LEVEL_INCREASE_CHANCE.put((Object)item.method_8389(), levelIncreaseChance);
+    private static void registerCompostableItem(float levelIncreaseChance, ItemConvertible item) {
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(item.asItem(), levelIncreaseChance);
     }
 
-    public ModComposterBlock(class_4970.class_2251 settings) {
+    public ModComposterBlock(Settings settings) {
         super(settings);
-        this.method_9590((class_2680)((class_2680)this.field_10647.method_11664()).method_11657((class_2769)LEVEL, (Comparable)Integer.valueOf(0)));
+        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(LEVEL, 0));
     }
 
-    public static void playEffects(class_1937 world, class_2338 pos, boolean fill) {
-        class_2680 blockState = world.method_8320(pos);
-        world.method_45446(pos, fill ? class_3417.field_17608 : class_3417.field_17607, class_3419.field_15245, 1.0f, 1.0f, false);
-        double d = blockState.method_26218((class_1922)world, pos).method_1102(class_2350.class_2351.field_11052, 0.5, 0.5) + 0.03125;
-        double e = 0.13125f;
-        double f = 0.7375f;
-        class_5819 random = world.method_8409();
-        for (int i = 0; i < 10; ++i) {
-            double g = random.method_43059() * 0.02;
-            double h = random.method_43059() * 0.02;
-            double j = random.method_43059() * 0.02;
-            world.method_8406((class_2394)class_2398.field_17741, (double)pos.method_10263() + (double)0.13125f + (double)0.7375f * (double)random.method_43057(), (double)pos.method_10264() + d + (double)random.method_43057() * (1.0 - d), (double)pos.method_10260() + (double)0.13125f + (double)0.7375f * (double)random.method_43057(), g, h, j);
+    public static void playEffects(World world, BlockPos pos, boolean fill) {
+        BlockState blockState = world.getBlockState(pos);
+        world.playSoundAtBlockCenter(pos, fill ? SoundEvents.BLOCK_COMPOSTER_FILL_SUCCESS : SoundEvents.BLOCK_COMPOSTER_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+        double d = blockState.getOutlineShape(world, pos).getEndingCoord(Direction.Axis.Y, 0.5D, 0.5D) + 0.03125D;
+        double e = 0.13124999403953552D;
+        double f = 0.737500011920929D;
+        Random random = world.getRandom();
+
+        for(int i = 0; i < 10; ++i) {
+            double g = random.nextGaussian() * 0.02D;
+            double h = random.nextGaussian() * 0.02D;
+            double j = random.nextGaussian() * 0.02D;
+            world.addParticle(ParticleTypes.COMPOSTER, (double)pos.getX() + 0.13124999403953552D + 0.737500011920929D * (double)random.nextFloat(), (double)pos.getY() + d + (double)random.nextFloat() * (1.0D - d), (double)pos.getZ() + 0.13124999403953552D + 0.737500011920929D * (double)random.nextFloat(), g, h, j);
         }
+
     }
 
-    public class_265 method_9530(class_2680 state, class_1922 world, class_2338 pos, class_3726 context) {
-        return LEVEL_TO_COLLISION_SHAPE[(Integer)state.method_11654((class_2769)LEVEL)];
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return LEVEL_TO_COLLISION_SHAPE[(Integer)state.get(LEVEL)];
     }
 
-    public class_265 method_9584(class_2680 state, class_1922 world, class_2338 pos) {
+    public VoxelShape getRaycastShape(BlockState state, BlockView world, BlockPos pos) {
         return RAYCAST_SHAPE;
     }
 
-    public class_265 method_9549(class_2680 state, class_1922 world, class_2338 pos, class_3726 context) {
+    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return LEVEL_TO_COLLISION_SHAPE[0];
     }
 
-    public void method_9615(class_2680 state, class_1937 world, class_2338 pos, class_2680 oldState, boolean notify) {
-        if ((Integer)state.method_11654((class_2769)LEVEL) == 7) {
-            world.method_39279(pos, state.method_26204(), 20);
+    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+        if ((Integer)state.get(LEVEL) == 7) {
+            world.scheduleBlockTick(pos, state.getBlock(), 20);
         }
+
     }
 
-    public class_1269 method_9534(class_2680 state, class_1937 world, class_2338 pos, class_1657 player, class_1268 hand, class_3965 hit) {
-        int i = (Integer)state.method_11654((class_2769)LEVEL);
-        class_1799 itemStack = player.method_5998(hand);
-        if (i < 8 && ITEM_TO_LEVEL_INCREASE_CHANCE.containsKey((Object)itemStack.method_7909())) {
-            if (i < 7 && !world.field_9236) {
-                class_2680 blockState = ModComposterBlock.addToModComposter(state, (class_1936)world, pos, itemStack);
-                world.method_20290(1500, pos, state != blockState ? 1 : 0);
-                player.method_7259(class_3468.field_15372.method_14956((Object)itemStack.method_7909()));
-                if (!player.method_31549().field_7477) {
-                    itemStack.method_7934(1);
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        int i = (Integer)state.get(LEVEL);
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (i < 8 && ITEM_TO_LEVEL_INCREASE_CHANCE.containsKey(itemStack.getItem())) {
+            if (i < 7 && !world.isClient) {
+                BlockState blockState = addToModComposter(state, world, pos, itemStack);
+                world.syncWorldEvent(1500, pos, state != blockState ? 1 : 0);
+                player.incrementStat(Stats.USED.getOrCreateStat(itemStack.getItem()));
+                if (!player.getAbilities().creativeMode) {
+                    itemStack.decrement(1);
                 }
             }
-            return class_1269.method_29236((boolean)world.field_9236);
+
+            return ActionResult.success(world.isClient);
+        } else if (i == 8) {
+            emptyFullModComposter(state, world, pos);
+            return ActionResult.success(world.isClient);
+        } else {
+            return ActionResult.PASS;
         }
-        if (i == 8) {
-            ModComposterBlock.emptyFullModComposter(state, world, pos);
-            return class_1269.method_29236((boolean)world.field_9236);
-        }
-        return class_1269.field_5811;
     }
 
-    public static class_2680 compost(class_2680 state, class_3218 world, class_1799 stack, class_2338 pos) {
-        int i = (Integer)state.method_11654((class_2769)LEVEL);
-        if (i < 7 && ITEM_TO_LEVEL_INCREASE_CHANCE.containsKey((Object)stack.method_7909())) {
-            class_2680 blockState = ModComposterBlock.addToModComposter(state, (class_1936)world, pos, stack);
-            stack.method_7934(1);
+    public static BlockState compost(BlockState state, ServerWorld world, ItemStack stack, BlockPos pos) {
+        int i = (Integer)state.get(LEVEL);
+        if (i < 7 && ITEM_TO_LEVEL_INCREASE_CHANCE.containsKey(stack.getItem())) {
+            BlockState blockState = addToModComposter(state, world, pos, stack);
+            stack.decrement(1);
             return blockState;
-        }
-        return state;
-    }
-
-    public static class_2680 emptyFullModComposter(class_2680 state, class_1937 world, class_2338 pos) {
-        if (!world.field_9236) {
-            float f = 0.7f;
-            double d = (double)(world.field_9229.method_43057() * 0.7f) + (double)0.15f;
-            double e = (double)(world.field_9229.method_43057() * 0.7f) + 0.06000000238418579 + 0.6;
-            double g = (double)(world.field_9229.method_43057() * 0.7f) + (double)0.15f;
-            class_1542 itemEntity = new class_1542(world, (double)pos.method_10263() + d, (double)pos.method_10264() + e, (double)pos.method_10260() + g, new class_1799((class_1935)class_1802.field_8324));
-            itemEntity.method_6988();
-            world.method_8649((class_1297)itemEntity);
-        }
-        class_2680 blockState = ModComposterBlock.emptyModComposter(state, (class_1936)world, pos);
-        world.method_8396((class_1657)null, pos, class_3417.field_17606, class_3419.field_15245, 1.0f, 1.0f);
-        return blockState;
-    }
-
-    static class_2680 emptyModComposter(class_2680 state, class_1936 world, class_2338 pos) {
-        class_2680 blockState = (class_2680)state.method_11657((class_2769)LEVEL, (Comparable)Integer.valueOf(0));
-        world.method_8652(pos, blockState, 3);
-        return blockState;
-    }
-
-    static class_2680 addToModComposter(class_2680 state, class_1936 world, class_2338 pos, class_1799 item) {
-        int i = (Integer)state.method_11654((class_2769)LEVEL);
-        float f = ITEM_TO_LEVEL_INCREASE_CHANCE.getFloat((Object)item.method_7909());
-        if (!(i == 0 && f > 0.0f || world.method_8409().method_43058() < (double)f)) {
+        } else {
             return state;
         }
-        int j = i + 1;
-        class_2680 blockState = (class_2680)state.method_11657((class_2769)LEVEL, (Comparable)Integer.valueOf(j));
-        world.method_8652(pos, blockState, 3);
-        if (j == 7) {
-            world.method_39279(pos, state.method_26204(), 20);
+    }
+
+    public static BlockState emptyFullModComposter(BlockState state, World world, BlockPos pos) {
+        if (!world.isClient) {
+            float f = 0.7F;
+            double d = (double)(world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
+            double e = (double)(world.random.nextFloat() * 0.7F) + 0.06000000238418579D + 0.6D;
+            double g = (double)(world.random.nextFloat() * 0.7F) + 0.15000000596046448D;
+            ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + d, (double)pos.getY() + e, (double)pos.getZ() + g, new ItemStack(Items.BONE_MEAL));
+            itemEntity.setToDefaultPickupDelay();
+            world.spawnEntity(itemEntity);
         }
+
+        BlockState blockState = emptyModComposter(state, world, pos);
+        world.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_COMPOSTER_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
         return blockState;
     }
 
-    public void method_9588(class_2680 state, class_3218 world, class_2338 pos, class_5819 random) {
-        if ((Integer)state.method_11654((class_2769)LEVEL) == 7) {
-            world.method_8652(pos, (class_2680)state.method_28493((class_2769)LEVEL), 3);
-            world.method_8396((class_1657)null, pos, class_3417.field_17609, class_3419.field_15245, 1.0f, 1.0f);
+    static BlockState emptyModComposter(BlockState state, WorldAccess world, BlockPos pos) {
+        BlockState blockState = (BlockState)state.with(LEVEL, 0);
+        world.setBlockState(pos, blockState, 3);
+        return blockState;
+    }
+
+    static BlockState addToModComposter(BlockState state, WorldAccess world, BlockPos pos, ItemStack item) {
+        int i = (Integer)state.get(LEVEL);
+        float f = ITEM_TO_LEVEL_INCREASE_CHANCE.getFloat(item.getItem());
+        if ((i != 0 || !(f > 0.0F)) && !(world.getRandom().nextDouble() < (double)f)) {
+            return state;
+        } else {
+            int j = i + 1;
+            BlockState blockState = (BlockState)state.with(LEVEL, j);
+            world.setBlockState(pos, blockState, 3);
+            if (j == 7) {
+                world.scheduleBlockTick(pos, state.getBlock(), 20);
+            }
+
+            return blockState;
         }
     }
 
-    public boolean method_9498(class_2680 state) {
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+        if ((Integer)state.get(LEVEL) == 7) {
+            world.setBlockState(pos, (BlockState)state.cycle(LEVEL), 3);
+            world.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_COMPOSTER_READY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        }
+
+    }
+
+    public boolean hasComparatorOutput(BlockState state) {
         return true;
     }
 
-    public int method_9572(class_2680 state, class_1937 world, class_2338 pos) {
-        return (Integer)state.method_11654((class_2769)LEVEL);
+    public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
+        return (Integer)state.get(LEVEL);
     }
 
-    protected void method_9515(class_2689.class_2690<class_2248, class_2680> builder) {
-        builder.method_11667(new class_2769[]{LEVEL});
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(new Property[]{LEVEL});
     }
 
-    public boolean method_9516(class_2680 state, class_1922 world, class_2338 pos, class_10 type) {
+    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
         return false;
     }
 
-    public class_1278 method_17680(class_2680 state, class_1936 world, class_2338 pos) {
-        int i = (Integer)state.method_11654((class_2769)LEVEL);
+    public SidedInventory getInventory(BlockState state, WorldAccess world, BlockPos pos) {
+        int i = (Integer)state.get(LEVEL);
         if (i == 8) {
-            return new FullModComposterInventory(state, world, pos, new class_1799((class_1935)class_1802.field_8324));
+            return new FullModComposterInventory(state, world, pos, new ItemStack(Items.BONE_MEAL));
+        } else {
+            return (SidedInventory)(i < 7 ? new ModComposterInventory(state, world, pos) : new DummyInventory());
         }
-        return (class_1278)(i < 7 ? new ModComposterInventory(state, world, pos) : new DummyInventory());
     }
 
-    static class FullModComposterInventory
-    extends class_1277
-    implements class_1278 {
-        private final class_2680 state;
-        private final class_1936 world;
-        private final class_2338 pos;
+    static {
+        LEVEL = Properties.LEVEL_8;
+        ITEM_TO_LEVEL_INCREASE_CHANCE = new Object2FloatOpenHashMap();
+        RAYCAST_SHAPE = VoxelShapes.fullCube();
+        LEVEL_TO_COLLISION_SHAPE = (VoxelShape[]) Util.make(new VoxelShape[9], (shapes) -> {
+            for(int i = 0; i < 8; ++i) {
+                shapes[i] = VoxelShapes.combineAndSimplify(RAYCAST_SHAPE, Block.createCuboidShape(2.0D, (double)Math.max(2, 1 + i * 2), 2.0D, 14.0D, 16.0D, 14.0D), BooleanBiFunction.ONLY_FIRST);
+            }
+
+            shapes[8] = shapes[7];
+        });
+    }
+
+    static class FullModComposterInventory extends SimpleInventory implements SidedInventory {
+        private final BlockState state;
+        private final WorldAccess world;
+        private final BlockPos pos;
         private boolean dirty;
 
-        public FullModComposterInventory(class_2680 state, class_1936 world, class_2338 pos, class_1799 outputItem) {
-            super(new class_1799[]{outputItem});
+        public FullModComposterInventory(BlockState state, WorldAccess world, BlockPos pos, ItemStack outputItem) {
+            super(new ItemStack[]{outputItem});
             this.state = state;
             this.world = world;
             this.pos = pos;
         }
 
-        public int method_5444() {
+        public int getMaxCountPerStack() {
             return 1;
         }
 
-        public int[] method_5494(class_2350 side) {
-            int[] nArray;
-            if (side == class_2350.field_11033) {
-                int[] nArray2 = new int[1];
-                nArray = nArray2;
-                nArray2[0] = 0;
-            } else {
-                nArray = new int[]{};
-            }
-            return nArray;
+        public int[] getAvailableSlots(Direction side) {
+            return side == Direction.DOWN ? new int[]{0} : new int[0];
         }
 
-        public boolean method_5492(int slot, class_1799 stack, @Nullable class_2350 dir) {
+        public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
             return false;
         }
 
-        public boolean method_5493(int slot, class_1799 stack, class_2350 dir) {
-            return !this.dirty && dir == class_2350.field_11033 && stack.method_31574(class_1802.field_8324);
+        public boolean canExtract(int slot, ItemStack stack, Direction dir) {
+            return !this.dirty && dir == Direction.DOWN && stack.isOf(Items.BONE_MEAL);
         }
 
-        public void method_5431() {
+        public void markDirty() {
             ModComposterBlock.emptyModComposter(this.state, this.world, this.pos);
             this.dirty = true;
         }
     }
 
-    static class ModComposterInventory
-    extends class_1277
-    implements class_1278 {
-        private final class_2680 state;
-        private final class_1936 world;
-        private final class_2338 pos;
+    static class ModComposterInventory extends SimpleInventory implements SidedInventory {
+        private final BlockState state;
+        private final WorldAccess world;
+        private final BlockPos pos;
         private boolean dirty;
 
-        public ModComposterInventory(class_2680 state, class_1936 world, class_2338 pos) {
+        public ModComposterInventory(BlockState state, WorldAccess world, BlockPos pos) {
             super(1);
             this.state = state;
             this.world = world;
             this.pos = pos;
         }
 
-        public int method_5444() {
+        public int getMaxCountPerStack() {
             return 1;
         }
 
-        public int[] method_5494(class_2350 side) {
-            int[] nArray;
-            if (side == class_2350.field_11036) {
-                int[] nArray2 = new int[1];
-                nArray = nArray2;
-                nArray2[0] = 0;
-            } else {
-                nArray = new int[]{};
-            }
-            return nArray;
+        public int[] getAvailableSlots(Direction side) {
+            return side == Direction.UP ? new int[]{0} : new int[0];
         }
 
-        public boolean method_5492(int slot, class_1799 stack, @Nullable class_2350 dir) {
-            return !this.dirty && dir == class_2350.field_11036 && ITEM_TO_LEVEL_INCREASE_CHANCE.containsKey((Object)stack.method_7909());
+        public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
+            return !this.dirty && dir == Direction.UP && ModComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.containsKey(stack.getItem());
         }
 
-        public boolean method_5493(int slot, class_1799 stack, class_2350 dir) {
+        public boolean canExtract(int slot, ItemStack stack, Direction dir) {
             return false;
         }
 
-        public void method_5431() {
-            class_1799 itemStack = this.method_5438(0);
-            if (!itemStack.method_7960()) {
+        public void markDirty() {
+            ItemStack itemStack = this.getStack(0);
+            if (!itemStack.isEmpty()) {
                 this.dirty = true;
-                class_2680 blockState = ModComposterBlock.addToModComposter(this.state, this.world, this.pos, itemStack);
-                this.world.method_20290(1500, this.pos, blockState != this.state ? 1 : 0);
-                this.method_5441(0);
+                BlockState blockState = ModComposterBlock.addToModComposter(this.state, this.world, this.pos, itemStack);
+                this.world.syncWorldEvent(1500, this.pos, blockState != this.state ? 1 : 0);
+                this.removeStack(0);
             }
+
         }
     }
 
-    static class DummyInventory
-    extends class_1277
-    implements class_1278 {
+    static class DummyInventory extends SimpleInventory implements SidedInventory {
         public DummyInventory() {
             super(0);
         }
 
-        public int[] method_5494(class_2350 side) {
+        public int[] getAvailableSlots(Direction side) {
             return new int[0];
         }
 
-        public boolean method_5492(int slot, class_1799 stack, @Nullable class_2350 dir) {
+        public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
             return false;
         }
 
-        public boolean method_5493(int slot, class_1799 stack, class_2350 dir) {
+        public boolean canExtract(int slot, ItemStack stack, Direction dir) {
             return false;
         }
     }
-}
 
+}

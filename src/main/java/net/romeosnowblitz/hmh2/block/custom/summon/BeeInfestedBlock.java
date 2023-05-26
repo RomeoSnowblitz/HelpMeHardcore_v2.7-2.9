@@ -1,139 +1,106 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  com.google.common.collect.Maps
- *  net.minecraft.class_1297
- *  net.minecraft.class_1299
- *  net.minecraft.class_1309
- *  net.minecraft.class_1657
- *  net.minecraft.class_174
- *  net.minecraft.class_1799
- *  net.minecraft.class_1887
- *  net.minecraft.class_1890
- *  net.minecraft.class_1893
- *  net.minecraft.class_1928
- *  net.minecraft.class_1937
- *  net.minecraft.class_2248
- *  net.minecraft.class_2338
- *  net.minecraft.class_238
- *  net.minecraft.class_2586
- *  net.minecraft.class_2680
- *  net.minecraft.class_2769
- *  net.minecraft.class_3218
- *  net.minecraft.class_3222
- *  net.minecraft.class_4466
- *  net.minecraft.class_4482
- *  net.minecraft.class_4482$class_4484
- *  net.minecraft.class_4970$class_2251
- *  org.jetbrains.annotations.Nullable
- */
 package net.romeosnowblitz.hmh2.block.custom.summon;
 
 import com.google.common.collect.Maps;
+import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BeehiveBlockEntity;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.BeeEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.property.Property;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.world.GameRules;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
-import net.minecraft.class_1297;
-import net.minecraft.class_1299;
-import net.minecraft.class_1309;
-import net.minecraft.class_1657;
-import net.minecraft.class_174;
-import net.minecraft.class_1799;
-import net.minecraft.class_1887;
-import net.minecraft.class_1890;
-import net.minecraft.class_1893;
-import net.minecraft.class_1928;
-import net.minecraft.class_1937;
-import net.minecraft.class_2248;
-import net.minecraft.class_2338;
-import net.minecraft.class_238;
-import net.minecraft.class_2586;
-import net.minecraft.class_2680;
-import net.minecraft.class_2769;
-import net.minecraft.class_3218;
-import net.minecraft.class_3222;
-import net.minecraft.class_4466;
-import net.minecraft.class_4482;
-import net.minecraft.class_4970;
-import org.jetbrains.annotations.Nullable;
 
-public class BeeInfestedBlock
-extends class_2248 {
-    private final class_2248 regularBlock;
-    private static final Map<class_2248, class_2248> REGULAR_TO_BEE_INFESTED_BLOCK = Maps.newIdentityHashMap();
-    private static final Map<class_2680, class_2680> REGULAR_TO_BEE_INFESTED_STATE = Maps.newIdentityHashMap();
-    private static final Map<class_2680, class_2680> BEE_INFESTED_TO_REGULAR_STATE = Maps.newIdentityHashMap();
+public class BeeInfestedBlock extends Block {
+    private final Block regularBlock;
+    private static final Map<Block, Block> REGULAR_TO_BEE_INFESTED_BLOCK = Maps.newIdentityHashMap();
+    private static final Map<BlockState, BlockState> REGULAR_TO_BEE_INFESTED_STATE = Maps.newIdentityHashMap();
+    private static final Map<BlockState, BlockState> BEE_INFESTED_TO_REGULAR_STATE = Maps.newIdentityHashMap();
 
-    public void method_9556(class_1937 world, class_1657 player, class_2338 pos, class_2680 state, @Nullable class_2586 blockEntity, class_1799 stack) {
-        super.method_9556(world, player, pos, state, blockEntity, stack);
-        if (!world.field_9236 && blockEntity instanceof class_4482) {
-            class_4482 beehiveBlockEntity = (class_4482)blockEntity;
-            if (class_1890.method_8225((class_1887)class_1893.field_9099, (class_1799)stack) == 0) {
-                beehiveBlockEntity.method_21850(player, state, class_4482.class_4484.field_21052);
-                world.method_8455(pos, (class_2248)this);
+    @Override
+    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack stack) {
+        super.afterBreak(world, player, pos, state, blockEntity, stack);
+        if (!world.isClient && blockEntity instanceof BeehiveBlockEntity) {
+            BeehiveBlockEntity beehiveBlockEntity = (BeehiveBlockEntity)blockEntity;
+            if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
+                beehiveBlockEntity.angerBees(player, state, BeehiveBlockEntity.BeeState.EMERGENCY);
+                world.updateComparators(pos, this);
                 this.angerNearbyBees(world, pos);
             }
-            class_174.field_21629.method_23875((class_3222)player, state, stack, beehiveBlockEntity.method_23903());
+            Criteria.BEE_NEST_DESTROYED.trigger((ServerPlayerEntity)player, state, stack, beehiveBlockEntity.getBeeCount());
         }
     }
 
-    private void angerNearbyBees(class_1937 world, class_2338 pos) {
-        List list = world.method_18467(class_4466.class, new class_238(pos).method_1009(8.0, 6.0, 8.0));
+    private void angerNearbyBees(World world, BlockPos pos) {
+        List<BeeEntity> list = world.getNonSpectatingEntities(BeeEntity.class, new Box(pos).expand(8.0, 6.0, 8.0));
         if (!list.isEmpty()) {
-            List list2 = world.method_18467(class_1657.class, new class_238(pos).method_1009(8.0, 6.0, 8.0));
+            List<PlayerEntity> list2 = world.getNonSpectatingEntities(PlayerEntity.class, new Box(pos).expand(8.0, 6.0, 8.0));
             int i = list2.size();
-            for (class_4466 beeEntity : list) {
-                if (beeEntity.method_5968() != null) continue;
-                beeEntity.method_5980((class_1309)list2.get(world.field_9229.method_43048(i)));
+            for (BeeEntity beeEntity : list) {
+                if (beeEntity.getTarget() != null) continue;
+                beeEntity.setTarget(list2.get(world.random.nextInt(i)));
             }
         }
     }
 
-    public BeeInfestedBlock(class_2248 regularBlock, class_4970.class_2251 settings) {
-        super(settings.method_36557(regularBlock.method_36555() / 2.0f).method_36558(0.75f));
+    public BeeInfestedBlock(Block regularBlock, Settings settings) {
+        super(settings.hardness(regularBlock.getHardness() / 2.0f).resistance(0.75f));
         this.regularBlock = regularBlock;
         REGULAR_TO_BEE_INFESTED_BLOCK.put(regularBlock, this);
     }
 
-    public class_2248 getRegularBlock() {
+    public Block getRegularBlock() {
         return this.regularBlock;
     }
 
-    public static boolean isInfestable(class_2680 block) {
-        return REGULAR_TO_BEE_INFESTED_BLOCK.containsKey(block.method_26204());
+    public static boolean isInfestable(BlockState block) {
+        return REGULAR_TO_BEE_INFESTED_BLOCK.containsKey(block.getBlock());
     }
 
-    private void spawnSilverfish(class_3218 world, class_2338 pos) {
-        class_4466 beeEntity = (class_4466)class_1299.field_20346.method_5883((class_1937)world);
-        beeEntity.method_5808((double)pos.method_10263() + 0.5, (double)pos.method_10264(), (double)pos.method_10260() + 0.5, 0.0f, 0.0f);
-        world.method_8649((class_1297)beeEntity);
-        beeEntity.method_5990();
+    private void spawnSilverfish(ServerWorld world, BlockPos pos) {
+        BeeEntity beeEntity = EntityType.BEE.create(world);
+        beeEntity.refreshPositionAndAngles((double)pos.getX() + 0.5, pos.getY(), (double)pos.getZ() + 0.5, 0.0f, 0.0f);
+        world.spawnEntity(beeEntity);
+        beeEntity.playSpawnEffects();
     }
 
-    public void method_9565(class_2680 state, class_3218 world, class_2338 pos, class_1799 stack, boolean dropExperience) {
-        super.method_9565(state, world, pos, stack, dropExperience);
-        if (world.method_8450().method_8355(class_1928.field_19392) && class_1890.method_8225((class_1887)class_1893.field_9099, (class_1799)stack) == 0) {
+    @Override
+    public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack stack, boolean dropExperience) {
+        super.onStacksDropped(state, world, pos, stack, dropExperience);
+        if (world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS) && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
             this.spawnSilverfish(world, pos);
         }
     }
 
-    public static class_2680 fromRegularState(class_2680 regularState) {
-        return BeeInfestedBlock.copyProperties(REGULAR_TO_BEE_INFESTED_STATE, regularState, () -> REGULAR_TO_BEE_INFESTED_BLOCK.get(regularState.method_26204()).method_9564());
+    public static BlockState fromRegularState(BlockState regularState) {
+        return BeeInfestedBlock.copyProperties(REGULAR_TO_BEE_INFESTED_STATE, regularState, () -> REGULAR_TO_BEE_INFESTED_BLOCK.get(regularState.getBlock()).getDefaultState());
     }
 
-    public class_2680 toRegularState(class_2680 infestedState) {
-        return BeeInfestedBlock.copyProperties(BEE_INFESTED_TO_REGULAR_STATE, infestedState, () -> this.getRegularBlock().method_9564());
+    public BlockState toRegularState(BlockState infestedState) {
+        return BeeInfestedBlock.copyProperties(BEE_INFESTED_TO_REGULAR_STATE, infestedState, () -> this.getRegularBlock().getDefaultState());
     }
 
-    private static class_2680 copyProperties(Map<class_2680, class_2680> stateMap, class_2680 fromState, Supplier<class_2680> toStateSupplier) {
+    private static BlockState copyProperties(Map<BlockState, BlockState> stateMap, BlockState fromState, Supplier<BlockState> toStateSupplier) {
         return stateMap.computeIfAbsent(fromState, infestedState -> {
-            class_2680 blockState = (class_2680)toStateSupplier.get();
-            for (class_2769 property : infestedState.method_28501()) {
-                blockState = blockState.method_28498(property) ? blockState : blockState;
+            BlockState blockState = (BlockState)toStateSupplier.get();
+            for (Property<?> property : infestedState.getProperties()) {
+                blockState = blockState.contains(property) ? (BlockState)blockState : blockState;
             }
             return blockState;
         });
     }
 }
-

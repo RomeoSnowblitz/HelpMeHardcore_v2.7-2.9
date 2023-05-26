@@ -1,170 +1,145 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.class_1792
- *  net.minecraft.class_1922
- *  net.minecraft.class_1936
- *  net.minecraft.class_1937
- *  net.minecraft.class_2248
- *  net.minecraft.class_2338
- *  net.minecraft.class_2350
- *  net.minecraft.class_2394
- *  net.minecraft.class_2398
- *  net.minecraft.class_2404
- *  net.minecraft.class_2586
- *  net.minecraft.class_2680
- *  net.minecraft.class_2689$class_2690
- *  net.minecraft.class_2769
- *  net.minecraft.class_3414
- *  net.minecraft.class_3417
- *  net.minecraft.class_3419
- *  net.minecraft.class_3486
- *  net.minecraft.class_3609
- *  net.minecraft.class_3610
- *  net.minecraft.class_3611
- *  net.minecraft.class_4538
- *  net.minecraft.class_5819
- *  org.jetbrains.annotations.Nullable
- */
 package net.romeosnowblitz.hmh2.fluid.magic_fluids;
 
-import java.util.Optional;
-import net.minecraft.class_1792;
-import net.minecraft.class_1922;
-import net.minecraft.class_1936;
-import net.minecraft.class_1937;
-import net.minecraft.class_2248;
-import net.minecraft.class_2338;
-import net.minecraft.class_2350;
-import net.minecraft.class_2394;
-import net.minecraft.class_2398;
-import net.minecraft.class_2404;
-import net.minecraft.class_2586;
-import net.minecraft.class_2680;
-import net.minecraft.class_2689;
-import net.minecraft.class_2769;
-import net.minecraft.class_3414;
-import net.minecraft.class_3417;
-import net.minecraft.class_3419;
-import net.minecraft.class_3486;
-import net.minecraft.class_3609;
-import net.minecraft.class_3610;
-import net.minecraft.class_3611;
-import net.minecraft.class_4538;
-import net.minecraft.class_5819;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FluidBlock;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.fluid.FlowableFluid;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.tag.FluidTags;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.Property;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import net.romeosnowblitz.hmh2.block.MagicBlocks;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.item.MagicItems;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class DolphinsGraceFluid
-extends class_3609 {
-    public class_3611 method_15750() {
+import java.util.Optional;
+
+public abstract class DolphinsGraceFluid extends FlowableFluid {
+    public DolphinsGraceFluid() {
+    }
+
+    public Fluid getFlowing() {
         return ModFluids.DOLPHINS_GRACE_FLUID_FLOWING;
     }
 
-    public class_3611 method_15751() {
+    public Fluid getStill() {
         return ModFluids.DOLPHINS_GRACE_FLUID_STILL;
     }
 
-    public class_1792 method_15774() {
+    public Item getBucketItem() {
         return MagicItems.DOLPHINS_GRACE_FLUID;
     }
 
-    public void method_15776(class_1937 world, class_2338 pos, class_3610 state, class_5819 random) {
-        if (!state.method_15771() && !((Boolean)state.method_11654((class_2769)field_15902)).booleanValue()) {
-            if (random.method_43048(64) == 0) {
-                world.method_8486((double)pos.method_10263() + 0.5, (double)pos.method_10264() + 0.5, (double)pos.method_10260() + 0.5, class_3417.field_15237, class_3419.field_15245, random.method_43057() * 0.25f + 0.75f, random.method_43057() + 0.5f, false);
+    public void randomDisplayTick(World world, BlockPos pos, FluidState state, Random random) {
+        if (!state.isStill() && !(Boolean)state.get(FALLING)) {
+            if (random.nextInt(64) == 0) {
+                world.playSound((double)pos.getX() + 0.5D, (double)pos.getY() + 0.5D, (double)pos.getZ() + 0.5D, SoundEvents.BLOCK_WATER_AMBIENT, SoundCategory.BLOCKS, random.nextFloat() * 0.25F + 0.75F, random.nextFloat() + 0.5F, false);
             }
-        } else if (random.method_43048(10) == 0) {
-            world.method_8406((class_2394)class_2398.field_11210, (double)pos.method_10263() + random.method_43058(), (double)pos.method_10264() + random.method_43058(), (double)pos.method_10260() + random.method_43058(), 0.0, 0.0, 0.0);
+        } else if (random.nextInt(10) == 0) {
+            world.addParticle(ParticleTypes.UNDERWATER, (double)pos.getX() + random.nextDouble(), (double)pos.getY() + random.nextDouble(), (double)pos.getZ() + random.nextDouble(), 0.0D, 0.0D, 0.0D);
         }
     }
 
     @Nullable
-    public class_2394 method_15787() {
-        return class_2398.field_11232;
+    public ParticleEffect getParticle() {
+        return ParticleTypes.DRIPPING_WATER;
     }
 
-    protected boolean method_15737(class_1937 world) {
+    protected boolean isInfinite(World world) {
         return false;
     }
 
-    protected void method_15730(class_1936 world, class_2338 pos, class_2680 state) {
-        class_2586 blockEntity = state.method_31709() ? world.method_8321(pos) : null;
-        class_2248.method_9610((class_2680)state, (class_1936)world, (class_2338)pos, (class_2586)blockEntity);
+    protected void beforeBreakingBlock(WorldAccess world, BlockPos pos, BlockState state) {
+        BlockEntity blockEntity = state.hasBlockEntity() ? world.getBlockEntity(pos) : null;
+        Block.dropStacks(state, world, pos, blockEntity);
     }
 
-    public int method_15733(class_4538 world) {
+    public int getFlowSpeed(WorldView world) {
         return 4;
     }
 
-    public class_2680 method_15790(class_3610 state) {
-        return (class_2680)MagicBlocks.DOLPHINS_GRACE_FLUID_BLOCK.method_9564().method_11657((class_2769)class_2404.field_11278, (Comparable)Integer.valueOf(DolphinsGraceFluid.method_15741((class_3610)state)));
+    public BlockState toBlockState(FluidState state) {
+        return (BlockState) MagicBlocks.DOLPHINS_GRACE_FLUID_BLOCK.getDefaultState().with(FluidBlock.LEVEL, getBlockStateLevel(state));
     }
 
-    public boolean method_15793(class_3610 state) {
+    @Override
+    public boolean isStill(FluidState state) {
         return false;
     }
 
-    public boolean method_15780(class_3611 fluid) {
+    public boolean matchesType(Fluid fluid) {
         return fluid == ModFluids.DOLPHINS_GRACE_FLUID_STILL || fluid == ModFluids.DOLPHINS_GRACE_FLUID_FLOWING;
     }
 
-    public int method_15739(class_4538 world) {
+    public int getLevelDecreasePerBlock(WorldView world) {
         return 1;
     }
 
-    public int method_15779(class_3610 state) {
+    @Override
+    public int getLevel(FluidState state) {
         return 0;
     }
 
-    public int method_15789(class_4538 world) {
+    public int getTickRate(WorldView world) {
         return 5;
     }
 
-    public boolean method_15777(class_3610 state, class_1922 world, class_2338 pos, class_3611 fluid, class_2350 direction) {
-        return direction == class_2350.field_11033 && !fluid.method_15791(class_3486.field_15517);
+    public boolean canBeReplacedWith(FluidState state, BlockView world, BlockPos pos, Fluid fluid, Direction direction) {
+        return direction == Direction.DOWN && !fluid.isIn(FluidTags.WATER);
     }
 
-    protected float method_15784() {
-        return 100.0f;
+    protected float getBlastResistance() {
+        return 100.0F;
     }
 
-    public Optional<class_3414> method_32359() {
-        return Optional.of(class_3417.field_15126);
+    public Optional<SoundEvent> getBucketFillSound() {
+        return Optional.of(SoundEvents.ITEM_BUCKET_FILL);
     }
 
-    public static class Still
-    extends DolphinsGraceFluid {
-        @Override
-        public int method_15779(class_3610 state) {
-            return 8;
+    public static class Flowing extends DolphinsGraceFluid {
+        public Flowing() {
         }
 
-        @Override
-        public boolean method_15793(class_3610 state) {
-            return true;
-        }
-    }
-
-    public static class Flowing
-    extends DolphinsGraceFluid {
-        protected void method_15775(class_2689.class_2690<class_3611, class_3610> builder) {
-            super.method_15775(builder);
-            builder.method_11667(new class_2769[]{field_15900});
+        protected void appendProperties(StateManager.Builder<Fluid, FluidState> builder) {
+            super.appendProperties(builder);
+            builder.add(new Property[]{LEVEL});
         }
 
-        @Override
-        public int method_15779(class_3610 state) {
-            return (Integer)state.method_11654((class_2769)field_15900);
+        public int getLevel(FluidState state) {
+            return (Integer)state.get(LEVEL);
         }
 
-        @Override
-        public boolean method_15793(class_3610 state) {
+        public boolean isStill(FluidState state) {
             return false;
         }
     }
-}
 
+    public static class Still extends DolphinsGraceFluid {
+        public Still() {
+        }
+
+        public int getLevel(FluidState state) {
+            return 8;
+        }
+
+        public boolean isStill(FluidState state) {
+            return true;
+        }
+    }
+}

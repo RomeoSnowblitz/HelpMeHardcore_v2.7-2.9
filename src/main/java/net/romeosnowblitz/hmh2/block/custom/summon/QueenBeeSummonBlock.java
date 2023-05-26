@@ -1,158 +1,126 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.class_1297
- *  net.minecraft.class_1304
- *  net.minecraft.class_174
- *  net.minecraft.class_1750
- *  net.minecraft.class_1937
- *  net.minecraft.class_2246
- *  net.minecraft.class_2248
- *  net.minecraft.class_2338
- *  net.minecraft.class_2350
- *  net.minecraft.class_2383
- *  net.minecraft.class_2680
- *  net.minecraft.class_2689$class_2690
- *  net.minecraft.class_2694
- *  net.minecraft.class_2697
- *  net.minecraft.class_2700
- *  net.minecraft.class_2700$class_2702
- *  net.minecraft.class_2710
- *  net.minecraft.class_2715
- *  net.minecraft.class_2753
- *  net.minecraft.class_2769
- *  net.minecraft.class_3222
- *  net.minecraft.class_3614
- *  net.minecraft.class_4538
- *  net.minecraft.class_4970$class_2251
- *  net.minecraft.class_5151
- */
 package net.romeosnowblitz.hmh2.block.custom.summon;
 
-import java.util.function.Predicate;
-import net.minecraft.class_1297;
-import net.minecraft.class_1304;
-import net.minecraft.class_174;
-import net.minecraft.class_1750;
-import net.minecraft.class_1937;
-import net.minecraft.class_2246;
-import net.minecraft.class_2248;
-import net.minecraft.class_2338;
-import net.minecraft.class_2350;
-import net.minecraft.class_2383;
-import net.minecraft.class_2680;
-import net.minecraft.class_2689;
-import net.minecraft.class_2694;
-import net.minecraft.class_2697;
-import net.minecraft.class_2700;
-import net.minecraft.class_2710;
-import net.minecraft.class_2715;
-import net.minecraft.class_2753;
-import net.minecraft.class_2769;
-import net.minecraft.class_3222;
-import net.minecraft.class_3614;
-import net.minecraft.class_4538;
-import net.minecraft.class_4970;
-import net.minecraft.class_5151;
+import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.block.*;
+import net.minecraft.block.pattern.BlockPattern;
+import net.minecraft.block.pattern.BlockPatternBuilder;
+import net.minecraft.block.pattern.CachedBlockPosition;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.Equipment;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.predicate.block.BlockStatePredicate;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.util.function.MaterialPredicate;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldEvents;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
 import net.romeosnowblitz.hmh2.entity.mob.QueenBeeEntity;
 import net.romeosnowblitz.hmh2.entity.mob.SoldierBeeEntity;
 
-public class QueenBeeSummonBlock
-extends class_2383
-implements class_5151 {
-    public static final class_2753 FACING = class_2383.field_11177;
-    private class_2700 soldierBeePattern;
-    private class_2700 queenBeePattern;
-    private static final Predicate<class_2680> IS_GOLEM_HEAD_PREDICATE = state -> state != null && state.method_27852(ModBlocks.HONEY_HIVE);
+import java.util.function.Predicate;
 
-    public QueenBeeSummonBlock(class_4970.class_2251 settings) {
+public class QueenBeeSummonBlock extends HorizontalFacingBlock
+        implements Equipment {
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+
+    private BlockPattern soldierBeePattern;
+    private BlockPattern queenBeePattern;
+    private static final Predicate<BlockState> IS_GOLEM_HEAD_PREDICATE = state -> state != null && (state.isOf(ModBlocks.HONEY_HIVE));
+
+    public QueenBeeSummonBlock(Settings settings) {
         super(settings);
-        this.method_9590((class_2680)((class_2680)this.field_10647.method_11664()).method_11657((class_2769)FACING, (Comparable)class_2350.field_11043));
+        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH));
     }
 
-    public void method_9615(class_2680 state, class_1937 world, class_2338 pos, class_2680 oldState, boolean notify) {
-        if (oldState.method_27852(state.method_26204())) {
+    @Override
+    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+        if (oldState.isOf(state.getBlock())) {
             return;
         }
         this.trySpawnEntity(world, pos);
     }
 
-    private void trySpawnEntity(class_1937 world, class_2338 pos) {
+    private void trySpawnEntity(World world, BlockPos pos) {
         block9: {
-            class_2700.class_2702 result;
+            BlockPattern.Result result;
             block8: {
-                result = this.getSoldierBeePattern().method_11708((class_4538)world, pos);
+                result = this.getSoldierBeePattern().searchAround(world, pos);
                 if (result == null) break block8;
-                for (int i = 0; i < this.getSoldierBeePattern().method_11713(); ++i) {
-                    class_2694 cachedBlockPosition = result.method_11717(0, i, 0);
-                    world.method_8652(cachedBlockPosition.method_11683(), class_2246.field_10124.method_9564(), 2);
-                    world.method_20290(2001, cachedBlockPosition.method_11683(), class_2248.method_9507((class_2680)cachedBlockPosition.method_11681()));
+                for (int i = 0; i < this.getSoldierBeePattern().getHeight(); ++i) {
+                    CachedBlockPosition cachedBlockPosition = result.translate(0, i, 0);
+                    world.setBlockState(cachedBlockPosition.getBlockPos(), Blocks.AIR.getDefaultState(), Block.NOTIFY_LISTENERS);
+                    world.syncWorldEvent(WorldEvents.BLOCK_BROKEN, cachedBlockPosition.getBlockPos(), Block.getRawIdFromState(cachedBlockPosition.getBlockState()));
                 }
-                SoldierBeeEntity soldierBeeEntity = (SoldierBeeEntity)MobEntities.SOLDIER_BEE.method_5883(world);
-                class_2338 blockPos = result.method_11717(0, 2, 0).method_11683();
-                soldierBeeEntity.method_5808((double)blockPos.method_10263() + 0.5, (double)blockPos.method_10264() + 0.05, (double)blockPos.method_10260() + 0.5, 0.0f, 0.0f);
-                world.method_8649((class_1297)soldierBeeEntity);
-                for (class_3222 serverPlayerEntity : world.method_18467(class_3222.class, soldierBeeEntity.method_5829().method_1014(5.0))) {
-                    class_174.field_1182.method_9124(serverPlayerEntity, (class_1297)soldierBeeEntity);
+                SoldierBeeEntity soldierBeeEntity = MobEntities.SOLDIER_BEE.create(world);
+                BlockPos blockPos = result.translate(0, 2, 0).getBlockPos();
+                soldierBeeEntity.refreshPositionAndAngles((double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.05, (double)blockPos.getZ() + 0.5, 0.0f, 0.0f);
+                world.spawnEntity(soldierBeeEntity);
+                for (ServerPlayerEntity serverPlayerEntity : world.getNonSpectatingEntities(ServerPlayerEntity.class, soldierBeeEntity.getBoundingBox().expand(5.0))) {
+                    Criteria.SUMMONED_ENTITY.trigger(serverPlayerEntity, soldierBeeEntity);
                 }
-                for (int j = 0; j < this.getSoldierBeePattern().method_11713(); ++j) {
-                    class_2694 cachedBlockPosition2 = result.method_11717(0, j, 0);
-                    world.method_8408(cachedBlockPosition2.method_11683(), class_2246.field_10124);
+                for (int j = 0; j < this.getSoldierBeePattern().getHeight(); ++j) {
+                    CachedBlockPosition cachedBlockPosition2 = result.translate(0, j, 0);
+                    world.updateNeighbors(cachedBlockPosition2.getBlockPos(), Blocks.AIR);
                 }
                 break block9;
             }
-            result = this.getQueenBeePattern().method_11708((class_4538)world, pos);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            result = this.getQueenBeePattern().searchAround(world, pos);
             if (result == null) break block9;
-            for (int i = 0; i < this.getQueenBeePattern().method_11710(); ++i) {
-                for (int k = 0; k < this.getQueenBeePattern().method_11713(); ++k) {
-                    class_2694 cachedBlockPosition3 = result.method_11717(i, k, 0);
-                    world.method_8652(cachedBlockPosition3.method_11683(), class_2246.field_10124.method_9564(), 2);
-                    world.method_20290(2001, cachedBlockPosition3.method_11683(), class_2248.method_9507((class_2680)cachedBlockPosition3.method_11681()));
+            for (int i = 0; i < this.getQueenBeePattern().getWidth(); ++i) {
+                for (int k = 0; k < this.getQueenBeePattern().getHeight(); ++k) {
+                    CachedBlockPosition cachedBlockPosition3 = result.translate(i, k, 0);
+                    world.setBlockState(cachedBlockPosition3.getBlockPos(), Blocks.AIR.getDefaultState(), Block.NOTIFY_LISTENERS);
+                    world.syncWorldEvent(WorldEvents.BLOCK_BROKEN, cachedBlockPosition3.getBlockPos(), Block.getRawIdFromState(cachedBlockPosition3.getBlockState()));
                 }
             }
-            class_2338 blockPos2 = result.method_11717(1, 2, 0).method_11683();
-            QueenBeeEntity summoningEntity = (QueenBeeEntity)MobEntities.QUEEN_BEE.method_5883(world);
-            summoningEntity.method_5808((double)blockPos2.method_10263() + 0.5, (double)blockPos2.method_10264() + 0.05, (double)blockPos2.method_10260() + 0.5, 0.0f, 0.0f);
-            world.method_8649((class_1297)summoningEntity);
-            for (class_3222 serverPlayerEntity : world.method_18467(class_3222.class, summoningEntity.method_5829().method_1014(5.0))) {
-                class_174.field_1182.method_9124(serverPlayerEntity, (class_1297)summoningEntity);
+            BlockPos blockPos2 = result.translate(1, 2, 0).getBlockPos();
+            QueenBeeEntity summoningEntity = MobEntities.QUEEN_BEE.create(world);
+            summoningEntity.refreshPositionAndAngles((double)blockPos2.getX() + 0.5, (double)blockPos2.getY() + 0.05, (double)blockPos2.getZ() + 0.5, 0.0f, 0.0f);
+            world.spawnEntity(summoningEntity);
+            for (ServerPlayerEntity serverPlayerEntity : world.getNonSpectatingEntities(ServerPlayerEntity.class, summoningEntity.getBoundingBox().expand(5.0))) {
+                Criteria.SUMMONED_ENTITY.trigger(serverPlayerEntity, summoningEntity);
             }
-            for (int j = 0; j < this.getQueenBeePattern().method_11710(); ++j) {
-                for (int l = 0; l < this.getQueenBeePattern().method_11713(); ++l) {
-                    class_2694 cachedBlockPosition4 = result.method_11717(j, l, 0);
-                    world.method_8408(cachedBlockPosition4.method_11683(), class_2246.field_10124);
+            for (int j = 0; j < this.getQueenBeePattern().getWidth(); ++j) {
+                for (int l = 0; l < this.getQueenBeePattern().getHeight(); ++l) {
+                    CachedBlockPosition cachedBlockPosition4 = result.translate(j, l, 0);
+                    world.updateNeighbors(cachedBlockPosition4.getBlockPos(), Blocks.AIR);
                 }
             }
         }
     }
 
-    public class_2680 method_9605(class_1750 ctx) {
-        return (class_2680)this.method_9564().method_11657((class_2769)FACING, (Comparable)ctx.method_8042().method_10153());
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return (BlockState)this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
-    protected void method_9515(class_2689.class_2690<class_2248, class_2680> builder) {
-        builder.method_11667(new class_2769[]{FACING});
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(FACING);
     }
 
-    private class_2700 getSoldierBeePattern() {
+    private BlockPattern getSoldierBeePattern() {
         if (this.soldierBeePattern == null) {
-            this.soldierBeePattern = class_2697.method_11701().method_11702(new String[]{"^", "#", "~"}).method_11700('^', class_2694.method_11678(IS_GOLEM_HEAD_PREDICATE)).method_11700('#', class_2694.method_11678((Predicate)class_2715.method_11758((class_2248)ModBlocks.ROYAL_JELLY))).method_11700('~', class_2694.method_11678((Predicate)class_2715.method_11758((class_2248)class_2246.field_10124))).method_11704();
+            this.soldierBeePattern = BlockPatternBuilder.start().aisle("^", "#", "~").where('^', CachedBlockPosition.matchesBlockState(IS_GOLEM_HEAD_PREDICATE)).where('#', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(ModBlocks.ROYAL_JELLY))).where('~', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(Blocks.AIR))).build();
         }
         return this.soldierBeePattern;
     }
 
-    private class_2700 getQueenBeePattern() {
+    private BlockPattern getQueenBeePattern() {
         if (this.queenBeePattern == null) {
-            this.queenBeePattern = class_2697.method_11701().method_11702(new String[]{"^", "#", "#", "#"}).method_11700('^', class_2694.method_11678(IS_GOLEM_HEAD_PREDICATE)).method_11700('#', class_2694.method_11678((Predicate)class_2715.method_11758((class_2248)ModBlocks.ROYAL_JELLY))).method_11700('~', class_2694.method_11678((Predicate)class_2710.method_11746((class_3614)class_3614.field_15959))).method_11704();
+            this.queenBeePattern = BlockPatternBuilder.start().aisle("^", "#", "#", "#").where('^', CachedBlockPosition.matchesBlockState(IS_GOLEM_HEAD_PREDICATE)).where('#', CachedBlockPosition.matchesBlockState(BlockStatePredicate.forBlock(ModBlocks.ROYAL_JELLY))).where('~', CachedBlockPosition.matchesBlockState(MaterialPredicate.create(Material.AIR))).build();
         }
         return this.queenBeePattern;
     }
 
-    public class_1304 method_7685() {
-        return class_1304.field_6169;
+    @Override
+    public EquipmentSlot getSlotType() {
+        return EquipmentSlot.HEAD;
     }
 }
-

@@ -1,41 +1,28 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  javax.annotation.Nullable
- *  net.minecraft.class_1921
- *  net.minecraft.class_2960
- *  net.minecraft.class_4597
- *  net.minecraft.class_5617$class_5618
- *  software.bernie.geckolib.core.animatable.GeoAnimatable
- *  software.bernie.geckolib.model.GeoModel
- *  software.bernie.geckolib.renderer.GeoEntityRenderer
- */
 package net.romeosnowblitz.hmh2.entity.client;
 
-import javax.annotation.Nullable;
-import net.minecraft.class_1921;
-import net.minecraft.class_2960;
-import net.minecraft.class_4597;
-import net.minecraft.class_5617;
-import net.romeosnowblitz.hmh2.entity.client.QueenBeeModel;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.util.Identifier;
+import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.entity.mob.QueenBeeEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class QueenBeeRenderer
-extends GeoEntityRenderer<QueenBeeEntity> {
-    public QueenBeeRenderer(class_5617.class_5618 ctx) {
-        super(ctx, (GeoModel)new QueenBeeModel());
+import javax.annotation.Nullable;
+
+public class QueenBeeRenderer extends GeoEntityRenderer<QueenBeeEntity> {
+    public QueenBeeRenderer(EntityRendererFactory.Context ctx) {
+        super(ctx, new QueenBeeModel());
     }
 
-    public class_2960 getTextureLocation(QueenBeeEntity instance) {
-        return new class_2960("hmh2", "textures/entity/queen_bee/queen_bee.png");
+
+    @Override
+    public Identifier getTextureLocation(QueenBeeEntity instance) {
+        return new Identifier(Hmh2.MOD_ID, "textures/entity/queen_bee/queen_bee.png");
     }
 
-    public class_1921 getRenderType(QueenBeeEntity animatable, class_2960 texture, @Nullable class_4597 bufferSource, float partialTick) {
-        return super.getRenderType((GeoAnimatable)animatable, texture, bufferSource, partialTick);
+    @Override
+    public RenderLayer getRenderType(QueenBeeEntity animatable, Identifier texture, @Nullable VertexConsumerProvider bufferSource, float partialTick) {
+        return super.getRenderType(animatable, texture, bufferSource, partialTick);
     }
 }
-

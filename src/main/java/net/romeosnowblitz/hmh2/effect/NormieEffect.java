@@ -1,43 +1,71 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.class_1291
- *  net.minecraft.class_1293
- *  net.minecraft.class_1294
- *  net.minecraft.class_1309
- *  net.minecraft.class_4081
- */
 package net.romeosnowblitz.hmh2.effect;
 
-import net.minecraft.class_1291;
-import net.minecraft.class_1293;
-import net.minecraft.class_1294;
-import net.minecraft.class_1309;
-import net.minecraft.class_4081;
-import net.romeosnowblitz.hmh2.effect.CustomEffects;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 
-public class NormieEffect
-extends class_1291 {
-    public NormieEffect(class_4081 statusEffectCategory, int color) {
+public class NormieEffect extends StatusEffect {
+    public NormieEffect(StatusEffectCategory statusEffectCategory, int color) {
         super(statusEffectCategory, color);
     }
 
-    public void method_5572(class_1309 entity, int amplifier) {
-        if (this == CustomEffects.NORMIE) {
-            entity.method_6092(new class_1293(CustomEffects.NORMIE, 1200));
+    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+        if (this == CustomEffects.NORMIE){
+            entity.addStatusEffect(new StatusEffectInstance(CustomEffects.NORMIE, 1200));
         }
-        if (this.hasAnyEffect(entity)) {
-            entity.method_6016(CustomEffects.NORMIE);
+        if (hasAnyEffect(entity)) {
+            entity.removeStatusEffect(CustomEffects.NORMIE);
         }
     }
 
-    public boolean method_5552(int duration, int amplifier) {
+    public boolean canApplyUpdateEffect(int duration, int amplifier) {
         return this == CustomEffects.NORMIE;
     }
 
-    public boolean hasAnyEffect(class_1309 entity) {
-        return entity.method_6059(class_1294.field_5898) || entity.method_6059(class_1294.field_16595) || entity.method_6059(class_1294.field_5908) || entity.method_6059(class_1294.field_5919) || entity.method_6059(class_1294.field_5927) || entity.method_6059(class_1294.field_38092) || entity.method_6059(class_1294.field_5900) || entity.method_6059(class_1294.field_5918) || entity.method_6059(class_1294.field_5912) || entity.method_6059(class_1294.field_5917) || entity.method_6059(class_1294.field_5914) || entity.method_6059(class_1294.field_5903) || entity.method_6059(class_1294.field_5921) || entity.method_6059(class_1294.field_5915) || entity.method_6059(class_1294.field_5905) || entity.method_6059(class_1294.field_5913) || entity.method_6059(class_1294.field_5902) || entity.method_6059(class_1294.field_5926) || entity.method_6059(class_1294.field_5901) || entity.method_6059(class_1294.field_5916) || entity.method_6059(class_1294.field_5925) || entity.method_6059(class_1294.field_5899) || entity.method_6059(class_1294.field_5924) || entity.method_6059(class_1294.field_5907) || entity.method_6059(class_1294.field_5922) || entity.method_6059(class_1294.field_5906) || entity.method_6059(class_1294.field_5909) || entity.method_6059(class_1294.field_5904) || entity.method_6059(class_1294.field_5910) || entity.method_6059(class_1294.field_18980) || entity.method_6059(class_1294.field_5923) || entity.method_6059(class_1294.field_5911) || entity.method_6059(CustomEffects.ANCHORED) || entity.method_6059(CustomEffects.CONDUIT_FAILURE) || entity.method_6059(CustomEffects.DOLPHINS_CURSE) || entity.method_6059(CustomEffects.ENDER_SKIN) || entity.method_6059(CustomEffects.HEALTH_SHRINKAGE) || entity.method_6059(CustomEffects.INSUSCEPTIBILITY) || entity.method_6059(CustomEffects.KINDLING) || entity.method_6059(CustomEffects.LUNAR_WOLF_PERCEPTION) || entity.method_6059(CustomEffects.POISON_IMMUNITY) || entity.method_6059(CustomEffects.SIGHTLESSSNESS);
+    public boolean hasAnyEffect(LivingEntity entity) {
+        return entity.hasStatusEffect(StatusEffects.ABSORPTION) ||
+                entity.hasStatusEffect(StatusEffects.BAD_OMEN) ||
+                entity.hasStatusEffect(StatusEffects.UNLUCK) ||
+                entity.hasStatusEffect(StatusEffects.BLINDNESS) ||
+                entity.hasStatusEffect(StatusEffects.CONDUIT_POWER) ||
+                entity.hasStatusEffect(StatusEffects.DARKNESS) ||
+                entity.hasStatusEffect(StatusEffects.DOLPHINS_GRACE) ||
+                entity.hasStatusEffect(StatusEffects.FIRE_RESISTANCE) ||
+                entity.hasStatusEffect(StatusEffects.GLOWING) ||
+                entity.hasStatusEffect(StatusEffects.HASTE) ||
+                entity.hasStatusEffect(StatusEffects.HEALTH_BOOST) ||
+                entity.hasStatusEffect(StatusEffects.HUNGER) ||
+                entity.hasStatusEffect(StatusEffects.INSTANT_DAMAGE) ||
+                entity.hasStatusEffect(StatusEffects.INSTANT_HEALTH) ||
+                entity.hasStatusEffect(StatusEffects.INVISIBILITY) ||
+                entity.hasStatusEffect(StatusEffects.JUMP_BOOST) ||
+                entity.hasStatusEffect(StatusEffects.LEVITATION) ||
+                entity.hasStatusEffect(StatusEffects.LUCK) ||
+                entity.hasStatusEffect(StatusEffects.MINING_FATIGUE) ||
+                entity.hasStatusEffect(StatusEffects.NAUSEA) ||
+                entity.hasStatusEffect(StatusEffects.NIGHT_VISION) ||
+                entity.hasStatusEffect(StatusEffects.POISON) ||
+                entity.hasStatusEffect(StatusEffects.REGENERATION) ||
+                entity.hasStatusEffect(StatusEffects.RESISTANCE) ||
+                entity.hasStatusEffect(StatusEffects.SATURATION) ||
+                entity.hasStatusEffect(StatusEffects.SLOW_FALLING) ||
+                entity.hasStatusEffect(StatusEffects.SLOWNESS) ||
+                entity.hasStatusEffect(StatusEffects.SPEED) ||
+                entity.hasStatusEffect(StatusEffects.STRENGTH) ||
+                entity.hasStatusEffect(StatusEffects.HERO_OF_THE_VILLAGE) ||
+                entity.hasStatusEffect(StatusEffects.WATER_BREATHING) ||
+                entity.hasStatusEffect(StatusEffects.WEAKNESS) ||
+                entity.hasStatusEffect(CustomEffects.ANCHORED) ||
+                entity.hasStatusEffect(CustomEffects.CONDUIT_FAILURE) ||
+                entity.hasStatusEffect(CustomEffects.DOLPHINS_CURSE) ||
+                entity.hasStatusEffect(CustomEffects.ENDER_SKIN) ||
+                entity.hasStatusEffect(CustomEffects.HEALTH_SHRINKAGE) ||
+                entity.hasStatusEffect(CustomEffects.INSUSCEPTIBILITY) ||
+                entity.hasStatusEffect(CustomEffects.KINDLING) ||
+                entity.hasStatusEffect(CustomEffects.LUNAR_WOLF_PERCEPTION) ||
+                entity.hasStatusEffect(CustomEffects.POISON_IMMUNITY) ||
+                entity.hasStatusEffect(CustomEffects.SIGHTLESSSNESS);
     }
 }
-

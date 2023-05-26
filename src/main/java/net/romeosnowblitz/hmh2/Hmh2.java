@@ -1,12 +1,3 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.fabricmc.api.ModInitializer
- *  org.apache.logging.log4j.LogManager
- *  org.apache.logging.log4j.Logger
- *  software.bernie.geckolib.GeckoLib
- */
 package net.romeosnowblitz.hmh2;
 
 import net.fabricmc.api.ModInitializer;
@@ -31,31 +22,36 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 
-public class Hmh2
-implements ModInitializer {
-    public static final String MOD_ID = "hmh2";
-    public static final Logger LOGGER = LogManager.getLogger((String)"hmh2");
+public class Hmh2 implements ModInitializer {
+	public static final String MOD_ID = "hmh2";
+	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
-    public void onInitialize() {
-        ModItemGroup.registerItemGroup();
-        ModComposterBlock.registerDefaultCompostableItems();
-        ModItems.registerModItems();
-        MagicItems.registerModItems();
-        WarfareItems.registerModItems();
-        ModBlocks.registerModBlock();
-        MagicBlocks.registerModBlock();
-        WoodworkBlocks.registerModBlock();
-        ModPaintings.registerPaintings();
-        ModRegistries.registerModStuffs();
-        ModPotions.registerPotions();
-        CustomEffects.registerEffects();
-        ModBlockEntities.registerAllBlockEntities();
-        ModRecipes.registerRecipes();
-        ModScreenHandlers.registerAllScreenHandlers();
-        GeckoLib.initialize();
-        ModVillagers.registerVillagers();
-        ModVillagers.registerVillagerTrades();
-        ModSounds.registerSounds();
-    }
+	@Override
+	public void onInitialize() {
+
+		ModItemGroup.registerItemGroup();
+		ModComposterBlock.registerDefaultCompostableItems();
+
+		ModItems.registerModItems();
+		MagicItems.registerModItems();
+		WarfareItems.registerModItems();
+		ModBlocks.registerModBlock();
+		MagicBlocks.registerModBlock();
+		WoodworkBlocks.registerModBlock();
+
+		ModPaintings.registerPaintings();
+		ModRegistries.registerModStuffs();
+
+		ModPotions.registerPotions();
+		CustomEffects.registerEffects();
+		ModBlockEntities.registerAllBlockEntities();
+		ModRecipes.registerRecipes();
+		ModScreenHandlers.registerAllScreenHandlers();
+
+		GeckoLib.initialize();
+
+		ModVillagers.registerVillagers();
+		ModVillagers.registerVillagerTrades();
+		ModSounds.registerSounds();
+	}
 }
-

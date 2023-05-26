@@ -1,25 +1,16 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.class_1263
- *  net.minecraft.class_1735
- *  net.minecraft.class_1799
- */
 package net.romeosnowblitz.hmh2.screen.slot;
 
-import net.minecraft.class_1263;
-import net.minecraft.class_1735;
-import net.minecraft.class_1799;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.screen.slot.Slot;
 
-public class ModResultSlot
-extends class_1735 {
-    public ModResultSlot(class_1263 inventory, int index, int x, int y) {
+public class ModResultSlot extends Slot {
+    public ModResultSlot(Inventory inventory, int index, int x, int y) {
         super(inventory, index, x, y);
     }
 
-    public boolean method_7680(class_1799 stack) {
+    @Override
+    public boolean canInsert(ItemStack stack) {
         return false;
     }
 }
-

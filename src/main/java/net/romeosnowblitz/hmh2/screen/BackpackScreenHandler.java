@@ -1,87 +1,83 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.class_1263
- *  net.minecraft.class_1277
- *  net.minecraft.class_1657
- *  net.minecraft.class_1661
- *  net.minecraft.class_1703
- *  net.minecraft.class_1735
- *  net.minecraft.class_1799
- *  net.minecraft.class_3913
- *  net.minecraft.class_3919
- */
 package net.romeosnowblitz.hmh2.screen;
 
-import net.minecraft.class_1263;
-import net.minecraft.class_1277;
-import net.minecraft.class_1657;
-import net.minecraft.class_1661;
-import net.minecraft.class_1703;
-import net.minecraft.class_1735;
-import net.minecraft.class_1799;
-import net.minecraft.class_3913;
-import net.minecraft.class_3919;
-import net.romeosnowblitz.hmh2.screen.ModScreenHandlers;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.screen.ArrayPropertyDelegate;
+import net.minecraft.screen.PropertyDelegate;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.slot.Slot;
 
-public class BackpackScreenHandler
-extends class_1703 {
-    private final class_1263 inventory;
-    private final class_3913 propertyDelegate;
 
-    public BackpackScreenHandler(int syncId, class_1661 playerInventory) {
-        this(syncId, playerInventory, (class_1263)new class_1277(3), (class_3913)new class_3919(4));
+public class BackpackScreenHandler extends ScreenHandler {
+    private final Inventory inventory;
+    private final PropertyDelegate propertyDelegate;
+
+    public BackpackScreenHandler(int syncId, PlayerInventory playerInventory) {
+        this(syncId, playerInventory, new SimpleInventory(3), new ArrayPropertyDelegate(4));
     }
 
-    public BackpackScreenHandler(int syncId, class_1661 playerInventory, class_1263 inventory, class_3913 delegate) {
+    public BackpackScreenHandler(int syncId, PlayerInventory playerInventory,
+                                 Inventory inventory, PropertyDelegate delegate) {
         super(ModScreenHandlers.BACKPACK_SCREEN_HANDLER, syncId);
-        BackpackScreenHandler.method_17359((class_1263)inventory, (int)3);
+        checkSize(inventory, 3);
         this.inventory = inventory;
-        inventory.method_5435(playerInventory.field_7546);
+        inventory.onOpen(playerInventory.player);
         this.propertyDelegate = delegate;
-        this.method_7621(new class_1735(inventory, 0, 0, 0));
-        this.method_7621(new class_1735(inventory, 1, 64, 64));
-        this.method_7621(new class_1735(inventory, 2, 32, 32));
-        this.addPlayerInventory(playerInventory);
-        this.addPlayerHotbar(playerInventory);
-        this.method_17360(delegate);
+
+        //
+        this.addSlot(new Slot(inventory, 0, 0, 0));
+        this.addSlot(new Slot(inventory, 1, 64, 64));
+        this.addSlot(new Slot(inventory, 2, 32, 32));
+
+        addPlayerInventory(playerInventory);
+        addPlayerHotbar(playerInventory);
+        addProperties(delegate);
     }
 
-    public boolean method_7597(class_1657 player) {
-        return this.inventory.method_5443(player);
+    @Override
+    public boolean canUse(PlayerEntity player) {
+        return this.inventory.canPlayerUse(player);
     }
 
-    public class_1799 method_7601(class_1657 player, int invSlot) {
-        class_1799 newStack = class_1799.field_8037;
-        class_1735 slot = (class_1735)this.field_7761.get(invSlot);
-        if (slot != null && slot.method_7681()) {
-            class_1799 originalStack = slot.method_7677();
-            newStack = originalStack.method_7972();
-            if (invSlot < this.inventory.method_5439() ? !this.method_7616(originalStack, this.inventory.method_5439(), this.field_7761.size(), true) : !this.method_7616(originalStack, 0, this.inventory.method_5439(), false)) {
-                return class_1799.field_8037;
+    @Override
+    public ItemStack quickMove(PlayerEntity player, int invSlot) {
+        ItemStack newStack = ItemStack.EMPTY;
+        Slot slot = this.slots.get(invSlot);
+        if (slot != null && slot.hasStack()) {
+            ItemStack originalStack = slot.getStack();
+            newStack = originalStack.copy();
+            if (invSlot < this.inventory.size()) {
+                if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
+                return ItemStack.EMPTY;
             }
-            if (originalStack.method_7960()) {
-                slot.method_48931(class_1799.field_8037);
+
+            if (originalStack.isEmpty()) {
+                slot.setStack(ItemStack.EMPTY);
             } else {
-                slot.method_7668();
+                slot.markDirty();
             }
         }
+
         return newStack;
     }
 
-    private void addPlayerInventory(class_1661 playerInventory) {
+    private void addPlayerInventory(PlayerInventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.method_7621(new class_1735((class_1263)playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
             }
         }
     }
 
-    private void addPlayerHotbar(class_1661 playerInventory) {
+    private void addPlayerHotbar(PlayerInventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.method_7621(new class_1735((class_1263)playerInventory, i, 8 + i * 18, 182));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 182));
         }
     }
 }
-

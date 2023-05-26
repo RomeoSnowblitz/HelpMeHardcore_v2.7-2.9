@@ -1,99 +1,213 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.class_1262
- *  net.minecraft.class_1278
- *  net.minecraft.class_1657
- *  net.minecraft.class_1799
- *  net.minecraft.class_2350
- *  net.minecraft.class_2371
- *  org.jetbrains.annotations.Nullable
- */
 package net.romeosnowblitz.hmh2.item.inventory;
-
-import net.minecraft.class_1262;
-import net.minecraft.class_1278;
-import net.minecraft.class_1657;
-import net.minecraft.class_1799;
-import net.minecraft.class_2350;
-import net.minecraft.class_2371;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SidedInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
 
-@FunctionalInterface
-public interface ImplementedInventory
-extends class_1278 {
-    public class_2371<class_1799> getItems();
+import java.util.List;
 
-    public static ImplementedInventory of(class_2371<class_1799> items) {
+/**
+ * A simple {@code SidedInventory} implementation with only default methods + an item list getter.
+ *
+ * <h2>Reading and writing to tags</h2>
+ * Use {@link Inventories#writeNbt(NbtCompound, DefaultedList)} and {@link Inventories#readNbt(NbtCompound, DefaultedList)}
+ * on {@linkplain #getItems() the item list}.
+ *
+ * License: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>
+ * @author Juuz
+ */
+@FunctionalInterface
+public interface ImplementedInventory extends SidedInventory {
+    /**
+     * Gets the item list of this inventory.
+     * Must return the same instance every time it's called.
+     *
+     * @return the item list
+     */
+    DefaultedList<ItemStack> getItems();
+
+    // Creation
+
+    /**
+     * Creates an inventory from the item list.
+     *
+     * @param items the item list
+     * @return a new inventory
+     */
+    static ImplementedInventory of(DefaultedList<ItemStack> items) {
         return () -> items;
     }
 
-    public static ImplementedInventory ofSize(int size) {
-        return ImplementedInventory.of((class_2371<class_1799>)class_2371.method_10213((int)size, (Object)class_1799.field_8037));
+    /**
+     * Creates a new inventory with the size.
+     *
+     * @param size the inventory size
+     * @return a new inventory
+     */
+    static ImplementedInventory ofSize(int size) {
+        return of(DefaultedList.ofSize(size, ItemStack.EMPTY));
     }
 
-    default public int[] method_5494(class_2350 side) {
-        int[] result = new int[this.getItems().size()];
-        for (int i = 0; i < result.length; ++i) {
+    // SidedInventory
+
+    /**
+     * Gets the available slots to automation on the side.
+     *
+     * <p>The default implementation returns an array of all slots.
+     *
+     * @param side the side
+     * @return the available slots
+     */
+    @Override
+    default int[] getAvailableSlots(Direction side) {
+        int[] result = new int[getItems().size()];
+        for (int i = 0; i < result.length; i++) {
             result[i] = i;
         }
+
         return result;
     }
 
-    default public boolean method_5492(int slot, class_1799 stack, @Nullable class_2350 side) {
+    /**
+     * Returns true if the stack can be inserted in the slot at the side.
+     *
+     * <p>The default implementation returns true.
+     *
+     * @param slot the slot
+     * @param stack the stack
+     * @param side the side
+     * @return true if the stack can be inserted
+     */
+    @Override
+    default boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
         return true;
     }
 
-    default public boolean method_5493(int slot, class_1799 stack, class_2350 side) {
+    /**
+     * Returns true if the stack can be extracted from the slot at the side.
+     *
+     * <p>The default implementation returns true.
+     *
+     * @param slot the slot
+     * @param stack the stack
+     * @param side the side
+     * @return true if the stack can be extracted
+     */
+    @Override
+    default boolean canExtract(int slot, ItemStack stack, Direction side) {
         return true;
     }
 
-    default public int method_5439() {
-        return this.getItems().size();
+    // Inventory
+
+    /**
+     * Returns the inventory size.
+     *
+     * <p>The default implementation returns the size of {@link #getItems()}.
+     *
+     * @return the inventory size
+     */
+    @Override
+    default int size() {
+        return getItems().size();
     }
 
-    default public boolean method_5442() {
-        for (int i = 0; i < this.method_5439(); ++i) {
-            class_1799 stack = this.method_5438(i);
-            if (stack.method_7960()) continue;
-            return false;
+    /**
+     * @return true if this inventory has only empty stacks, false otherwise
+     */
+    @Override
+    default boolean isEmpty() {
+        for (int i = 0; i < size(); i++) {
+            ItemStack stack = getStack(i);
+            if (!stack.isEmpty()) {
+                return false;
+            }
         }
+
         return true;
     }
 
-    default public class_1799 method_5438(int slot) {
-        return (class_1799)this.getItems().get(slot);
+    /**
+     * Gets the item in the slot.
+     *
+     * @param slot the slot
+     * @return the item in the slot
+     */
+    @Override
+    default ItemStack getStack(int slot) {
+        return getItems().get(slot);
     }
 
-    default public class_1799 method_5434(int slot, int count) {
-        class_1799 result = class_1262.method_5430(this.getItems(), (int)slot, (int)count);
-        if (!result.method_7960()) {
-            this.method_5431();
+    /**
+     * Takes a stack of the size from the slot.
+     *
+     * <p>(default implementation) If there are less items in the slot than what are requested,
+     * takes all items in that slot.
+     *
+     * @param slot the slot
+     * @param count the item count
+     * @return a stack
+     */
+    @Override
+    default ItemStack removeStack(int slot, int count) {
+        ItemStack result = Inventories.splitStack(getItems(), slot, count);
+        if (!result.isEmpty()) {
+            markDirty();
         }
+
         return result;
     }
 
-    default public class_1799 method_5441(int slot) {
-        return class_1262.method_5428(this.getItems(), (int)slot);
+    /**
+     * Removes the current stack in the {@code slot} and returns it.
+     *
+     * <p>The default implementation uses {@link Inventories#removeStack(List, int)}
+     *
+     * @param slot the slot
+     * @return the removed stack
+     */
+    @Override
+    default ItemStack removeStack(int slot) {
+        return Inventories.removeStack(getItems(), slot);
     }
 
-    default public void method_5447(int slot, class_1799 stack) {
-        this.getItems().set(slot, (Object)stack);
-        if (stack.method_7947() > this.method_5444()) {
-            stack.method_7939(this.method_5444());
+    /**
+     * Replaces the current stack in the {@code slot} with the provided stack.
+     *
+     * <p>If the stack is too big for this inventory ({@link Inventory#getMaxCountPerStack()}),
+     * it gets resized to this inventory's maximum amount.
+     *
+     * @param slot the slot
+     * @param stack the stack
+     */
+    @Override
+    default void setStack(int slot, ItemStack stack) {
+        getItems().set(slot, stack);
+        if (stack.getCount() > getMaxCountPerStack()) {
+            stack.setCount(getMaxCountPerStack());
         }
     }
 
-    default public void method_5448() {
-        this.getItems().clear();
+    /**
+     * Clears {@linkplain #getItems() the item list}}.
+     */
+    @Override
+    default void clear() {
+        getItems().clear();
     }
 
-    default public void method_5431() {
+    @Override
+    default void markDirty() {
+        // Override if you want behavior.
     }
 
-    default public boolean method_5443(class_1657 player) {
+    @Override
+    default boolean canPlayerUse(PlayerEntity player) {
         return true;
     }
 }
-

@@ -1,53 +1,39 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.class_1268
- *  net.minecraft.class_1271
- *  net.minecraft.class_1304
- *  net.minecraft.class_1309
- *  net.minecraft.class_1657
- *  net.minecraft.class_1792
- *  net.minecraft.class_1792$class_1793
- *  net.minecraft.class_1799
- *  net.minecraft.class_1937
- */
 package net.romeosnowblitz.hmh2.item.custom.test;
 
-import net.minecraft.class_1268;
-import net.minecraft.class_1271;
-import net.minecraft.class_1304;
-import net.minecraft.class_1309;
-import net.minecraft.class_1657;
-import net.minecraft.class_1792;
-import net.minecraft.class_1799;
-import net.minecraft.class_1937;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.world.World;
 
-public class NullPasser
-extends class_1792 {
-    public NullPasser(class_1792.class_1793 settings) {
+public class NullPasser extends Item {
+    public NullPasser(Settings settings) {
         super(settings);
     }
 
-    public class_1271<class_1799> method_7836(class_1937 world, class_1657 user, class_1268 hand) {
-        class_1799 itemStack = user.method_5998(hand);
-        if (!user.field_6002.method_8608()) {
-            double y = user.method_23318();
-            user.method_20620(0.0, y, 0.0);
-            user.method_18800(0.0, 0.0, 0.0);
-            itemStack.method_7956(1, (class_1309)user, p -> p.method_20236(hand));
-        }
-        return super.method_7836(world, user, hand);
+    @Override
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        ItemStack itemStack = user.getStackInHand(hand);
+            if (!user.world.isClient()) {
+                double y = user.getY();
+                user.teleport(0, y, 0);
+                user.setVelocity(0, 0, 0);
+                itemStack.damage(1, user, (p) -> {p.sendToolBreakStatus(hand);});
+            }
+        return super.use(world, user, hand);
     }
 
-    public boolean method_7873(class_1799 stack, class_1309 target, class_1309 attacker) {
-        if (!attacker.field_6002.method_8608()) {
-            double y = target.method_23318();
-            target.method_20620(0.0, y, 0.0);
-            target.method_18800(0.0, 0.0, 0.0);
-            stack.method_7956(1, attacker, e -> e.method_20235(class_1304.field_6173));
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if (!attacker.world.isClient()) {
+            double y = target.getY();
+            target.teleport(0, y, 0);
+            target.setVelocity(0, 0, 0);
+            stack.damage(1, attacker, (e) -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         }
-        return super.method_7873(stack, target, attacker);
+        return super.postHit(stack, target, attacker);
     }
+
 }
-

@@ -1,28 +1,41 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.class_2960
- *  software.bernie.geckolib.model.GeoModel
- */
 package net.romeosnowblitz.hmh2.entity.client;
 
-import net.minecraft.class_2960;
+import net.minecraft.util.Identifier;
+import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.entity.mob.PenguinEntity;
 import software.bernie.geckolib.model.GeoModel;
 
-public class PenguinModel
-extends GeoModel<PenguinEntity> {
-    public class_2960 getModelResource(PenguinEntity object) {
-        return new class_2960("hmh2", "geo/penguin.geo.json");
+public class PenguinModel extends GeoModel<PenguinEntity> {
+
+    @Override
+    public Identifier getModelResource(PenguinEntity object) {
+        return new Identifier(Hmh2.MOD_ID, "geo/penguin.geo.json");
     }
 
-    public class_2960 getTextureResource(PenguinEntity object) {
-        return new class_2960("hmh2", "textures/entity/penguin/penguin.png");
+    @Override
+    public Identifier getTextureResource(PenguinEntity object) {
+        return new Identifier(Hmh2.MOD_ID, "textures/entity/penguin/penguin.png");
     }
 
-    public class_2960 getAnimationResource(PenguinEntity animatable) {
-        return new class_2960("hmh2", "animations/penguin.animation.json");
+    @Override
+    public Identifier getAnimationResource(PenguinEntity animatable) {
+        return new Identifier(Hmh2.MOD_ID, "animations/penguin.animation.json");
     }
+
+    /*
+    This is for The head to turn to the player
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @Override
+    public void setLivingAnimations(PenguinEntity entity, Integer uniqueID, AnimationEvent customPredicate) {
+        super.setLivingAnimations(entity, uniqueID, customPredicate);
+        IBone head = this.getAnimationProcessor().getBone("head");
+
+        EntityModelData extraData = (EntityModelData) customPredicate.getExtraDataOfType(EntityModelData.class).get(0);
+        if (head != null) {
+            head.setRotationX(extraData.headPitch * ((float) Math.PI / 180F));
+            head.setRotationY(extraData.netHeadYaw * ((float) Math.PI / 180F));
+        }
+    }
+
+     */
 }
-

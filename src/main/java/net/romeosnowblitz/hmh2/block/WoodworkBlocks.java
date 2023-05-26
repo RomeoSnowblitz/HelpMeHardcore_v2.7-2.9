@@ -1,291 +1,205 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.fabricmc.fabric.api.item.v1.FabricItemSettings
- *  net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
- *  net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings
- *  net.minecraft.class_1299
- *  net.minecraft.class_1747
- *  net.minecraft.class_1761
- *  net.minecraft.class_1792
- *  net.minecraft.class_1792$class_1793
- *  net.minecraft.class_1922
- *  net.minecraft.class_1935
- *  net.minecraft.class_2246
- *  net.minecraft.class_2248
- *  net.minecraft.class_2269
- *  net.minecraft.class_2323
- *  net.minecraft.class_2338
- *  net.minecraft.class_2349
- *  net.minecraft.class_2354
- *  net.minecraft.class_2378
- *  net.minecraft.class_2397
- *  net.minecraft.class_2440
- *  net.minecraft.class_2440$class_2441
- *  net.minecraft.class_2465
- *  net.minecraft.class_2473
- *  net.minecraft.class_2482
- *  net.minecraft.class_2498
- *  net.minecraft.class_2508
- *  net.minecraft.class_2510
- *  net.minecraft.class_2533
- *  net.minecraft.class_2551
- *  net.minecraft.class_2647
- *  net.minecraft.class_2680
- *  net.minecraft.class_2960
- *  net.minecraft.class_2975
- *  net.minecraft.class_3614
- *  net.minecraft.class_3620
- *  net.minecraft.class_4719
- *  net.minecraft.class_4970
- *  net.minecraft.class_4970$class_2251
- *  net.minecraft.class_5321
- *  net.minecraft.class_5819
- *  net.minecraft.class_7923
- *  net.minecraft.class_8177
- *  org.jetbrains.annotations.Nullable
- */
 package net.romeosnowblitz.hmh2.block;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.class_1299;
-import net.minecraft.class_1747;
-import net.minecraft.class_1761;
-import net.minecraft.class_1792;
-import net.minecraft.class_1922;
-import net.minecraft.class_1935;
-import net.minecraft.class_2246;
-import net.minecraft.class_2248;
-import net.minecraft.class_2269;
-import net.minecraft.class_2323;
-import net.minecraft.class_2338;
-import net.minecraft.class_2349;
-import net.minecraft.class_2354;
-import net.minecraft.class_2378;
-import net.minecraft.class_2397;
-import net.minecraft.class_2440;
-import net.minecraft.class_2465;
-import net.minecraft.class_2473;
-import net.minecraft.class_2482;
-import net.minecraft.class_2498;
-import net.minecraft.class_2508;
-import net.minecraft.class_2510;
-import net.minecraft.class_2533;
-import net.minecraft.class_2551;
-import net.minecraft.class_2647;
-import net.minecraft.class_2680;
-import net.minecraft.class_2960;
-import net.minecraft.class_2975;
-import net.minecraft.class_3614;
-import net.minecraft.class_3620;
-import net.minecraft.class_4719;
-import net.minecraft.class_4970;
-import net.minecraft.class_5321;
-import net.minecraft.class_5819;
-import net.minecraft.class_7923;
-import net.minecraft.class_8177;
+import net.minecraft.block.*;
+import net.minecraft.block.sapling.SaplingGenerator;
+import net.minecraft.entity.EntityType;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.romeosnowblitz.hmh2.Hmh2;
+import net.romeosnowblitz.hmh2.block.custom.farm.ModSaplingBlock;
 import net.romeosnowblitz.hmh2.item.ModItemGroup;
 import net.romeosnowblitz.hmh2.world.feature.ModConfiguredFeatures;
 import org.jetbrains.annotations.Nullable;
 
 public class WoodworkBlocks {
-    public static final class_2248 BANANA_SAPLING = WoodworkBlocks.resisterBlock("banana_sapling", (class_2248)new class_2473(new class_2647(){
 
-        @Nullable
-        protected class_5321<class_2975<?, ?>> method_11430(class_5819 random, boolean bees) {
-            return ModConfiguredFeatures.BANANA_KEY;
-        }
-    }, FabricBlockSettings.method_9630((class_4970)class_2246.field_10394).method_9626(class_2498.field_11535)), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_LOG = WoodworkBlocks.resisterBlock("banana_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10431)), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_LEAVES = WoodworkBlocks.resisterBlock("banana_leaves", (class_2248)new class_2397(FabricBlockSettings.method_9630((class_4970)class_2246.field_10503).method_26243(WoodworkBlocks::never).method_26245(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_PLANKS = WoodworkBlocks.resisterBlock("banana_planks", new class_2248(FabricBlockSettings.method_9630((class_4970)class_2246.field_10161)), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_WOOD = WoodworkBlocks.resisterBlock("banana_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10126)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_BANANA_LOG = WoodworkBlocks.resisterBlock("stripped_banana_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10519)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_BANANA_WOOD = WoodworkBlocks.resisterBlock("stripped_banana_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10250)), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_SLAB = WoodworkBlocks.resisterBlock("banana_slab", (class_2248)new class_2482((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_STAIRS = WoodworkBlocks.resisterBlock("banana_stairs", (class_2248)new class_2510(BANANA_LOG.method_9564(), (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_DOOR = WoodworkBlocks.resisterBlock("banana_door", (class_2248)new class_2323((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(3.0f).sounds(class_2498.field_11547).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_TRAPDOOR = WoodworkBlocks.resisterBlock("banana_trapdoor", (class_2248)new class_2533((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_BUTTON = WoodworkBlocks.resisterBlock("banana_button", (class_2248)WoodworkBlocks.createStoneButtonBlock(), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_PRESSURE_PLATE = WoodworkBlocks.resisterBlock("banana_pressure_plate", (class_2248)new class_2440(class_2440.class_2441.field_11361, (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_FENCE = WoodworkBlocks.resisterBlock("banana_fence", (class_2248)new class_2354((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_FENCE_GATE = WoodworkBlocks.resisterBlock("banana_fence_gate", (class_2248)new class_2349((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(2.0f, 3.0f).sounds(class_2498.field_11547), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_WALL_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("banana_wall_sign", (class_2248)new class_2551(FabricBlockSettings.method_9630((class_4970)class_2246.field_10187), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 BANANA_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("banana_sign", (class_2248)new class_2508(FabricBlockSettings.method_9630((class_4970)class_2246.field_10121), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_SAPLING = WoodworkBlocks.resisterBlock("cherry_sapling", (class_2248)new class_2473(new class_2647(){
+    //Trees (16)
+    public static final Block BANANA_SAPLING = resisterBlock("banana_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable
+    @Override protected RegistryKey<ConfiguredFeature<?, ?>>
+    getTreeFeature(Random random, boolean bees) {return ModConfiguredFeatures.BANANA_KEY;}}, FabricBlockSettings.copy(Blocks.OAK_SAPLING).sounds(BlockSoundGroup.GRASS)), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_LOG = resisterBlock("banana_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_LEAVES = resisterBlock("banana_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_PLANKS = resisterBlock("banana_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_WOOD = resisterBlock("banana_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_BANANA_LOG = resisterBlock("stripped_banana_log", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_BANANA_WOOD = resisterBlock("stripped_banana_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_SLAB = resisterBlock("banana_slab", new SlabBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_STAIRS = resisterBlock("banana_stairs", new StairsBlock(WoodworkBlocks.BANANA_LOG.getDefaultState(), FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_DOOR = resisterBlock("banana_door", new DoorBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_TRAPDOOR = resisterBlock("banana_trapdoor", new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_BUTTON = resisterBlock("banana_button", createStoneButtonBlock(), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_PRESSURE_PLATE = resisterBlock("banana_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_FENCE = resisterBlock("banana_fence", new FenceBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_FENCE_GATE = resisterBlock("banana_fence_gate", new FenceGateBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("banana_wall_sign", new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block BANANA_SIGN_BLOCK = registerBlockWithoutBlockItem("banana_sign", new SignBlock(FabricBlockSettings.copy(Blocks.OAK_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
 
-        @Nullable
-        protected class_5321<class_2975<?, ?>> method_11430(class_5819 random, boolean bees) {
-            return ModConfiguredFeatures.CHERRY_KEY;
-        }
-    }, FabricBlockSettings.method_9630((class_4970)class_2246.field_10394).method_9626(class_2498.field_11535)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_LOG = WoodworkBlocks.resisterBlock("cherry_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10431)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_LEAVES = WoodworkBlocks.resisterBlock("cherry_leaves", (class_2248)new class_2397(FabricBlockSettings.method_9630((class_4970)class_2246.field_10503).method_26243(WoodworkBlocks::never).method_26245(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_PLANKS = WoodworkBlocks.resisterBlock("cherry_planks", new class_2248(FabricBlockSettings.method_9630((class_4970)class_2246.field_10161)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_WOOD = WoodworkBlocks.resisterBlock("cherry_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10126)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_CHERRY_LOG = WoodworkBlocks.resisterBlock("stripped_cherry_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10519)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_CHERRY_WOOD = WoodworkBlocks.resisterBlock("stripped_cherry_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10250)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_SLAB = WoodworkBlocks.resisterBlock("cherry_slab", (class_2248)new class_2482((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_STAIRS = WoodworkBlocks.resisterBlock("cherry_stairs", (class_2248)new class_2510(CHERRY_LOG.method_9564(), (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_DOOR = WoodworkBlocks.resisterBlock("cherry_door", (class_2248)new class_2323((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(3.0f).sounds(class_2498.field_11547).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_TRAPDOOR = WoodworkBlocks.resisterBlock("cherry_trapdoor", (class_2248)new class_2533((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_BUTTON = WoodworkBlocks.resisterBlock("cherry_button", (class_2248)WoodworkBlocks.createStoneButtonBlock(), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_PRESSURE_PLATE = WoodworkBlocks.resisterBlock("cherry_pressure_plate", (class_2248)new class_2440(class_2440.class_2441.field_11361, (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_FENCE = WoodworkBlocks.resisterBlock("cherry_fence", (class_2248)new class_2354((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_FENCE_GATE = WoodworkBlocks.resisterBlock("cherry_fence_gate", (class_2248)new class_2349((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(2.0f, 3.0f).sounds(class_2498.field_11547), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_WALL_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("cherry_wall_sign", (class_2248)new class_2551(FabricBlockSettings.method_9630((class_4970)class_2246.field_10187), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 CHERRY_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("cherry_sign", (class_2248)new class_2508(FabricBlockSettings.method_9630((class_4970)class_2246.field_10121), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_SAPLING = WoodworkBlocks.resisterBlock("cork_oak_sapling", (class_2248)new class_2473(new class_2647(){
+    public static final Block CHERRY_SAPLING = resisterBlock("cherry_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable
+    @Override protected RegistryKey<ConfiguredFeature<?, ?>>
+    getTreeFeature(Random random, boolean bees) {return ModConfiguredFeatures.CHERRY_KEY;}}, FabricBlockSettings.copy(Blocks.OAK_SAPLING).sounds(BlockSoundGroup.GRASS)), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_LOG = resisterBlock("cherry_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_LEAVES = resisterBlock("cherry_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_PLANKS = resisterBlock("cherry_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_WOOD = resisterBlock("cherry_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_CHERRY_LOG = resisterBlock("stripped_cherry_log", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_CHERRY_WOOD = resisterBlock("stripped_cherry_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_SLAB = resisterBlock("cherry_slab", new SlabBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_STAIRS = resisterBlock("cherry_stairs", new StairsBlock(WoodworkBlocks.CHERRY_LOG.getDefaultState(), FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_DOOR = resisterBlock("cherry_door", new DoorBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_TRAPDOOR = resisterBlock("cherry_trapdoor", new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_BUTTON = resisterBlock("cherry_button", createStoneButtonBlock(), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_PRESSURE_PLATE = resisterBlock("cherry_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_FENCE = resisterBlock("cherry_fence", new FenceBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_FENCE_GATE = resisterBlock("cherry_fence_gate", new FenceGateBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("cherry_wall_sign", new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block CHERRY_SIGN_BLOCK = registerBlockWithoutBlockItem("cherry_sign", new SignBlock(FabricBlockSettings.copy(Blocks.OAK_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
 
-        @Nullable
-        protected class_5321<class_2975<?, ?>> method_11430(class_5819 random, boolean bees) {
-            return ModConfiguredFeatures.CORK_OAK_KEY;
-        }
-    }, FabricBlockSettings.method_9630((class_4970)class_2246.field_10394).method_9626(class_2498.field_11535)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_LOG = WoodworkBlocks.resisterBlock("cork_oak_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10431)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_LEAVES = WoodworkBlocks.resisterBlock("cork_oak_leaves", (class_2248)new class_2397(FabricBlockSettings.method_9630((class_4970)class_2246.field_10503).method_26243(WoodworkBlocks::never).method_26245(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_PLANKS = WoodworkBlocks.resisterBlock("cork_oak_planks", new class_2248(FabricBlockSettings.method_9630((class_4970)class_2246.field_10161)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_WOOD = WoodworkBlocks.resisterBlock("cork_oak_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10126)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_CORK_OAK_LOG = WoodworkBlocks.resisterBlock("stripped_cork_oak_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10519)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_CORK_OAK_WOOD = WoodworkBlocks.resisterBlock("stripped_cork_oak_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10250)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_SLAB = WoodworkBlocks.resisterBlock("cork_oak_slab", (class_2248)new class_2482((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_STAIRS = WoodworkBlocks.resisterBlock("cork_oak_stairs", (class_2248)new class_2510(CORK_OAK_LOG.method_9564(), (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_DOOR = WoodworkBlocks.resisterBlock("cork_oak_door", (class_2248)new class_2323((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(3.0f).sounds(class_2498.field_11547).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_TRAPDOOR = WoodworkBlocks.resisterBlock("cork_oak_trapdoor", (class_2248)new class_2533((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_BUTTON = WoodworkBlocks.resisterBlock("cork_oak_button", (class_2248)WoodworkBlocks.createStoneButtonBlock(), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_PRESSURE_PLATE = WoodworkBlocks.resisterBlock("cork_oak_pressure_plate", (class_2248)new class_2440(class_2440.class_2441.field_11361, (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_FENCE = WoodworkBlocks.resisterBlock("cork_oak_fence", (class_2248)new class_2354((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_FENCE_GATE = WoodworkBlocks.resisterBlock("cork_oak_fence_gate", (class_2248)new class_2349((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(2.0f, 3.0f).sounds(class_2498.field_11547), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_WALL_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("cork_oak_wall_sign", (class_2248)new class_2551(FabricBlockSettings.method_9630((class_4970)class_2246.field_10187), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 CORK_OAK_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("cork_oak_sign", (class_2248)new class_2508(FabricBlockSettings.method_9630((class_4970)class_2246.field_10121), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_SAPLING = WoodworkBlocks.resisterBlock("jacaranda_sapling", (class_2248)new class_2473(new class_2647(){
+    public static final Block CORK_OAK_SAPLING = resisterBlock("cork_oak_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override protected RegistryKey<ConfiguredFeature<?, ?>>
+    getTreeFeature(Random random, boolean bees) {return ModConfiguredFeatures.CORK_OAK_KEY;}}, FabricBlockSettings.copy(Blocks.OAK_SAPLING).sounds(BlockSoundGroup.GRASS)), ModItemGroup.WOODWORKS);
 
-        @Nullable
-        protected class_5321<class_2975<?, ?>> method_11430(class_5819 random, boolean bees) {
-            return ModConfiguredFeatures.JACARANDA_KEY;
-        }
-    }, FabricBlockSettings.method_9630((class_4970)class_2246.field_10394).method_9626(class_2498.field_11535)), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_LOG = WoodworkBlocks.resisterBlock("jacaranda_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10431)), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_LEAVES = WoodworkBlocks.resisterBlock("jacaranda_leaves", (class_2248)new class_2397(FabricBlockSettings.method_9630((class_4970)class_2246.field_10503).method_26243(WoodworkBlocks::never).method_26245(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_PLANKS = WoodworkBlocks.resisterBlock("jacaranda_planks", new class_2248(FabricBlockSettings.method_9630((class_4970)class_2246.field_10161)), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_WOOD = WoodworkBlocks.resisterBlock("jacaranda_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10126)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_JACARANDA_LOG = WoodworkBlocks.resisterBlock("stripped_jacaranda_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10519)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_JACARANDA_WOOD = WoodworkBlocks.resisterBlock("stripped_jacaranda_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10250)), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_SLAB = WoodworkBlocks.resisterBlock("jacaranda_slab", (class_2248)new class_2482((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_STAIRS = WoodworkBlocks.resisterBlock("jacaranda_stairs", (class_2248)new class_2510(JACARANDA_LOG.method_9564(), (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_DOOR = WoodworkBlocks.resisterBlock("jacaranda_door", (class_2248)new class_2323((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(3.0f).sounds(class_2498.field_11547).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_TRAPDOOR = WoodworkBlocks.resisterBlock("jacaranda_trapdoor", (class_2248)new class_2533((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_BUTTON = WoodworkBlocks.resisterBlock("jacaranda_button", (class_2248)WoodworkBlocks.createStoneButtonBlock(), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_PRESSURE_PLATE = WoodworkBlocks.resisterBlock("jacaranda_pressure_plate", (class_2248)new class_2440(class_2440.class_2441.field_11361, (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_FENCE = WoodworkBlocks.resisterBlock("jacaranda_fence", (class_2248)new class_2354((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_FENCE_GATE = WoodworkBlocks.resisterBlock("jacaranda_fence_gate", (class_2248)new class_2349((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(2.0f, 3.0f).sounds(class_2498.field_11547), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_WALL_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("jacaranda_wall_sign", (class_2248)new class_2551(FabricBlockSettings.method_9630((class_4970)class_2246.field_10187), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 JACARANDA_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("jacaranda_sign", (class_2248)new class_2508(FabricBlockSettings.method_9630((class_4970)class_2246.field_10121), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_SAPLING = WoodworkBlocks.resisterBlock("mango_sapling", (class_2248)new class_2473(new class_2647(){
 
-        @Nullable
-        protected class_5321<class_2975<?, ?>> method_11430(class_5819 random, boolean bees) {
-            return ModConfiguredFeatures.MANGO_KEY;
-        }
-    }, FabricBlockSettings.method_9630((class_4970)class_2246.field_10394).method_9626(class_2498.field_11535)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_LOG = WoodworkBlocks.resisterBlock("mango_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10431)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_LEAVES = WoodworkBlocks.resisterBlock("mango_leaves", (class_2248)new class_2397(FabricBlockSettings.method_9630((class_4970)class_2246.field_10503).method_26243(WoodworkBlocks::never).method_26245(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_PLANKS = WoodworkBlocks.resisterBlock("mango_planks", new class_2248(FabricBlockSettings.method_9630((class_4970)class_2246.field_10161)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_WOOD = WoodworkBlocks.resisterBlock("mango_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10126)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_MANGO_LOG = WoodworkBlocks.resisterBlock("stripped_mango_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10519)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_MANGO_WOOD = WoodworkBlocks.resisterBlock("stripped_mango_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10250)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_SLAB = WoodworkBlocks.resisterBlock("mango_slab", (class_2248)new class_2482((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_STAIRS = WoodworkBlocks.resisterBlock("mango_stairs", (class_2248)new class_2510(MANGO_LOG.method_9564(), (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_DOOR = WoodworkBlocks.resisterBlock("mango_door", (class_2248)new class_2323((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(3.0f).sounds(class_2498.field_11547).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_TRAPDOOR = WoodworkBlocks.resisterBlock("mango_trapdoor", (class_2248)new class_2533((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_BUTTON = WoodworkBlocks.resisterBlock("mango_button", (class_2248)WoodworkBlocks.createStoneButtonBlock(), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_PRESSURE_PLATE = WoodworkBlocks.resisterBlock("mango_pressure_plate", (class_2248)new class_2440(class_2440.class_2441.field_11361, (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_FENCE = WoodworkBlocks.resisterBlock("mango_fence", (class_2248)new class_2354((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_FENCE_GATE = WoodworkBlocks.resisterBlock("mango_fence_gate", (class_2248)new class_2349((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(2.0f, 3.0f).sounds(class_2498.field_11547), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_WALL_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("mango_wall_sign", (class_2248)new class_2551(FabricBlockSettings.method_9630((class_4970)class_2246.field_10187), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 MANGO_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("mango_sign", (class_2248)new class_2508(FabricBlockSettings.method_9630((class_4970)class_2246.field_10121), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_SAPLING = WoodworkBlocks.resisterBlock("mahoe_sapling", (class_2248)new class_2473(new class_2647(){
+    public static final Block CORK_OAK_LOG = resisterBlock("cork_oak_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_LEAVES = resisterBlock("cork_oak_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_PLANKS = resisterBlock("cork_oak_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_WOOD = resisterBlock("cork_oak_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_CORK_OAK_LOG = resisterBlock("stripped_cork_oak_log", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_CORK_OAK_WOOD = resisterBlock("stripped_cork_oak_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_SLAB = resisterBlock("cork_oak_slab", new SlabBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_STAIRS = resisterBlock("cork_oak_stairs", new StairsBlock(WoodworkBlocks.CORK_OAK_LOG.getDefaultState(), FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_DOOR = resisterBlock("cork_oak_door", new DoorBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_TRAPDOOR = resisterBlock("cork_oak_trapdoor", new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_BUTTON = resisterBlock("cork_oak_button", createStoneButtonBlock(), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_PRESSURE_PLATE = resisterBlock("cork_oak_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_FENCE = resisterBlock("cork_oak_fence", new FenceBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_FENCE_GATE = resisterBlock("cork_oak_fence_gate", new FenceGateBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("cork_oak_wall_sign", new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block CORK_OAK_SIGN_BLOCK = registerBlockWithoutBlockItem("cork_oak_sign", new SignBlock(FabricBlockSettings.copy(Blocks.OAK_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
 
-        @Nullable
-        protected class_5321<class_2975<?, ?>> method_11430(class_5819 random, boolean bees) {
-            return ModConfiguredFeatures.MAHOE_KEY;
-        }
-    }, FabricBlockSettings.method_9630((class_4970)class_2246.field_10394).method_9626(class_2498.field_11535)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_LOG = WoodworkBlocks.resisterBlock("mahoe_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10431)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_LEAVES = WoodworkBlocks.resisterBlock("mahoe_leaves", (class_2248)new class_2397(FabricBlockSettings.method_9630((class_4970)class_2246.field_10503).method_26243(WoodworkBlocks::never).method_26245(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_PLANKS = WoodworkBlocks.resisterBlock("mahoe_planks", new class_2248(FabricBlockSettings.method_9630((class_4970)class_2246.field_10161)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_WOOD = WoodworkBlocks.resisterBlock("mahoe_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10126)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_MAHOE_LOG = WoodworkBlocks.resisterBlock("stripped_mahoe_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10519)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_MAHOE_WOOD = WoodworkBlocks.resisterBlock("stripped_mahoe_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10250)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_SLAB = WoodworkBlocks.resisterBlock("mahoe_slab", (class_2248)new class_2482((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_STAIRS = WoodworkBlocks.resisterBlock("mahoe_stairs", (class_2248)new class_2510(MAHOE_LOG.method_9564(), (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_DOOR = WoodworkBlocks.resisterBlock("mahoe_door", (class_2248)new class_2323((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(3.0f).sounds(class_2498.field_11547).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_TRAPDOOR = WoodworkBlocks.resisterBlock("mahoe_trapdoor", (class_2248)new class_2533((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_BUTTON = WoodworkBlocks.resisterBlock("mahoe_button", (class_2248)WoodworkBlocks.createStoneButtonBlock(), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_PRESSURE_PLATE = WoodworkBlocks.resisterBlock("mahoe_pressure_plate", (class_2248)new class_2440(class_2440.class_2441.field_11361, (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_FENCE = WoodworkBlocks.resisterBlock("mahoe_fence", (class_2248)new class_2354((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_FENCE_GATE = WoodworkBlocks.resisterBlock("mahoe_fence_gate", (class_2248)new class_2349((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(2.0f, 3.0f).sounds(class_2498.field_11547), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_WALL_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("mahoe_wall_sign", (class_2248)new class_2551(FabricBlockSettings.method_9630((class_4970)class_2246.field_10187), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 MAHOE_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("mahoe_sign", (class_2248)new class_2508(FabricBlockSettings.method_9630((class_4970)class_2246.field_10121), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_SAPLING = WoodworkBlocks.resisterBlock("willow_sapling", (class_2248)new class_2473(new class_2647(){
+    public static final Block JACARANDA_SAPLING = resisterBlock("jacaranda_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable
+    @Override protected RegistryKey<ConfiguredFeature<?, ?>>
+    getTreeFeature(Random random, boolean bees) {return ModConfiguredFeatures.JACARANDA_KEY;}}, FabricBlockSettings.copy(Blocks.OAK_SAPLING).sounds(BlockSoundGroup.GRASS)), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_LOG = resisterBlock("jacaranda_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_LEAVES = resisterBlock("jacaranda_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_PLANKS = resisterBlock("jacaranda_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_WOOD = resisterBlock("jacaranda_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_JACARANDA_LOG = resisterBlock("stripped_jacaranda_log", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_JACARANDA_WOOD = resisterBlock("stripped_jacaranda_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_SLAB = resisterBlock("jacaranda_slab", new SlabBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_STAIRS = resisterBlock("jacaranda_stairs", new StairsBlock(WoodworkBlocks.JACARANDA_LOG.getDefaultState(), FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_DOOR = resisterBlock("jacaranda_door", new DoorBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_TRAPDOOR = resisterBlock("jacaranda_trapdoor", new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_BUTTON = resisterBlock("jacaranda_button", createStoneButtonBlock(), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_PRESSURE_PLATE = resisterBlock("jacaranda_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_FENCE = resisterBlock("jacaranda_fence", new FenceBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_FENCE_GATE = resisterBlock("jacaranda_fence_gate", new FenceGateBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("jacaranda_wall_sign", new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block JACARANDA_SIGN_BLOCK = registerBlockWithoutBlockItem("jacaranda_sign", new SignBlock(FabricBlockSettings.copy(Blocks.OAK_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
 
-        @Nullable
-        protected class_5321<class_2975<?, ?>> method_11430(class_5819 random, boolean bees) {
-            return ModConfiguredFeatures.WILLOW_KEY;
-        }
-    }, FabricBlockSettings.method_9630((class_4970)class_2246.field_10394).method_9626(class_2498.field_11535)), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_LOG = WoodworkBlocks.resisterBlock("willow_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10431)), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_LEAVES = WoodworkBlocks.resisterBlock("willow_leaves", (class_2248)new class_2397(FabricBlockSettings.method_9630((class_4970)class_2246.field_10503).method_26243(WoodworkBlocks::never).method_26245(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_PLANKS = WoodworkBlocks.resisterBlock("willow_planks", new class_2248(FabricBlockSettings.method_9630((class_4970)class_2246.field_10161)), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_WOOD = WoodworkBlocks.resisterBlock("willow_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10126)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_WILLOW_LOG = WoodworkBlocks.resisterBlock("stripped_willow_log", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10519)), ModItemGroup.WOODWORKS);
-    public static final class_2248 STRIPPED_WILLOW_WOOD = WoodworkBlocks.resisterBlock("stripped_willow_wood", (class_2248)new class_2465(FabricBlockSettings.method_9630((class_4970)class_2246.field_10250)), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_SLAB = WoodworkBlocks.resisterBlock("willow_slab", (class_2248)new class_2482((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_STAIRS = WoodworkBlocks.resisterBlock("willow_stairs", (class_2248)new class_2510(WILLOW_LOG.method_9564(), (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_DOOR = WoodworkBlocks.resisterBlock("willow_door", (class_2248)new class_2323((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(3.0f).sounds(class_2498.field_11547).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_TRAPDOOR = WoodworkBlocks.resisterBlock("willow_trapdoor", (class_2248)new class_2533((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f).nonOpaque(), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_BUTTON = WoodworkBlocks.resisterBlock("willow_button", (class_2248)WoodworkBlocks.createStoneButtonBlock(), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_PRESSURE_PLATE = WoodworkBlocks.resisterBlock("willow_pressure_plate", (class_2248)new class_2440(class_2440.class_2441.field_11361, (class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f), class_8177.field_42823), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_FENCE = WoodworkBlocks.resisterBlock("willow_fence", (class_2248)new class_2354((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932).sounds(class_2498.field_11547).strength(1.0f)), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_FENCE_GATE = WoodworkBlocks.resisterBlock("willow_fence_gate", (class_2248)new class_2349((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15932, (class_3620)class_2246.field_10161.method_26403()).strength(2.0f, 3.0f).sounds(class_2498.field_11547), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_WALL_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("willow_wall_sign", (class_2248)new class_2551(FabricBlockSettings.method_9630((class_4970)class_2246.field_10187), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 WILLOW_SIGN_BLOCK = WoodworkBlocks.registerBlockWithoutBlockItem("willow_sign", (class_2248)new class_2508(FabricBlockSettings.method_9630((class_4970)class_2246.field_10121), class_4719.field_21676), ModItemGroup.WOODWORKS);
-    public static final class_2248 UNBREAKABLE_BLOCK = WoodworkBlocks.resisterBlock("unbreakable_block", new class_2248((class_4970.class_2251)FabricBlockSettings.of((class_3614)class_3614.field_15914).strength(-1.0f, 3600000.0f).dropsNothing()), ModItemGroup.WOODWORKS);
-    public static final class_2248 UNBREAKABLE_LEAVES = WoodworkBlocks.resisterBlock("unbreakable_leaves", (class_2248)new class_2397(FabricBlockSettings.method_9630((class_4970)class_2246.field_10503).method_9629(-1.0f, 3600000.0f).method_42327()), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_SAPLING = resisterBlock("mango_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable
+    @Override protected RegistryKey<ConfiguredFeature<?, ?>>
+    getTreeFeature(Random random, boolean bees) {return ModConfiguredFeatures.MANGO_KEY;}}, FabricBlockSettings.copy(Blocks.OAK_SAPLING).sounds(BlockSoundGroup.GRASS)), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_LOG = resisterBlock("mango_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_LEAVES = resisterBlock("mango_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_PLANKS = resisterBlock("mango_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_WOOD = resisterBlock("mango_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_MANGO_LOG = resisterBlock("stripped_mango_log", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_MANGO_WOOD = resisterBlock("stripped_mango_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_SLAB = resisterBlock("mango_slab", new SlabBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_STAIRS = resisterBlock("mango_stairs", new StairsBlock(WoodworkBlocks.MANGO_LOG.getDefaultState(), FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_DOOR = resisterBlock("mango_door", new DoorBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_TRAPDOOR = resisterBlock("mango_trapdoor", new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_BUTTON = resisterBlock("mango_button", createStoneButtonBlock(), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_PRESSURE_PLATE = resisterBlock("mango_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_FENCE = resisterBlock("mango_fence", new FenceBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_FENCE_GATE = resisterBlock("mango_fence_gate", new FenceGateBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("mango_wall_sign", new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block MANGO_SIGN_BLOCK = registerBlockWithoutBlockItem("mango_sign", new SignBlock(FabricBlockSettings.copy(Blocks.OAK_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
 
-    private static Boolean always(class_2680 state, class_1922 world, class_2338 pos, class_1299<?> type) {
+    public static final Block MAHOE_SAPLING = resisterBlock("mahoe_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable
+    @Override protected RegistryKey<ConfiguredFeature<?, ?>>
+    getTreeFeature(Random random, boolean bees) {return ModConfiguredFeatures.MAHOE_KEY;}}, FabricBlockSettings.copy(Blocks.OAK_SAPLING).sounds(BlockSoundGroup.GRASS)), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_LOG = resisterBlock("mahoe_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_LEAVES = resisterBlock("mahoe_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_PLANKS = resisterBlock("mahoe_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_WOOD = resisterBlock("mahoe_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_MAHOE_LOG = resisterBlock("stripped_mahoe_log", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_MAHOE_WOOD = resisterBlock("stripped_mahoe_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_SLAB = resisterBlock("mahoe_slab", new SlabBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_STAIRS = resisterBlock("mahoe_stairs", new StairsBlock(WoodworkBlocks.MAHOE_LOG.getDefaultState(), FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_DOOR = resisterBlock("mahoe_door", new DoorBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_TRAPDOOR = resisterBlock("mahoe_trapdoor", new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_BUTTON = resisterBlock("mahoe_button", createStoneButtonBlock(), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_PRESSURE_PLATE = resisterBlock("mahoe_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_FENCE = resisterBlock("mahoe_fence", new FenceBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_FENCE_GATE = resisterBlock("mahoe_fence_gate", new FenceGateBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("mahoe_wall_sign", new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block MAHOE_SIGN_BLOCK = registerBlockWithoutBlockItem("mahoe_sign", new SignBlock(FabricBlockSettings.copy(Blocks.OAK_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
+
+    public static final Block WILLOW_SAPLING = resisterBlock("willow_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable
+    @Override protected RegistryKey<ConfiguredFeature<?, ?>>
+    getTreeFeature(Random random, boolean bees) {return ModConfiguredFeatures.WILLOW_KEY;}}, FabricBlockSettings.copy(Blocks.OAK_SAPLING).sounds(BlockSoundGroup.GRASS)), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_LOG = resisterBlock("willow_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_LEAVES = resisterBlock("willow_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_PLANKS = resisterBlock("willow_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_WOOD = resisterBlock("willow_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_WILLOW_LOG = resisterBlock("stripped_willow_log", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)), ModItemGroup.WOODWORKS);
+    public static final Block STRIPPED_WILLOW_WOOD = resisterBlock("stripped_willow_wood", new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_WOOD)), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_SLAB = resisterBlock("willow_slab", new SlabBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_STAIRS = resisterBlock("willow_stairs", new StairsBlock(WoodworkBlocks.WILLOW_LOG.getDefaultState(), FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_DOOR = resisterBlock("willow_door", new DoorBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_TRAPDOOR = resisterBlock("willow_trapdoor", new TrapdoorBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f).nonOpaque(), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_BUTTON = resisterBlock("willow_button", createStoneButtonBlock(), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_PRESSURE_PLATE = resisterBlock("willow_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f), BlockSetType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_FENCE = resisterBlock("willow_fence", new FenceBlock(FabricBlockSettings.of(Material.WOOD).sounds(BlockSoundGroup.WOOD).strength(1.0f)), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_FENCE_GATE = resisterBlock("willow_fence_gate", new FenceGateBlock(FabricBlockSettings.of(Material.WOOD, Blocks.OAK_PLANKS.getDefaultMapColor()).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_WALL_SIGN_BLOCK = registerBlockWithoutBlockItem("willow_wall_sign", new WallSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
+    public static final Block WILLOW_SIGN_BLOCK = registerBlockWithoutBlockItem("willow_sign", new SignBlock(FabricBlockSettings.copy(Blocks.OAK_SIGN), WoodType.OAK), ModItemGroup.WOODWORKS);
+
+    public static final Block UNBREAKABLE_BLOCK = resisterBlock("unbreakable_block", new Block(FabricBlockSettings.of(Material.STONE).strength(-1.0f, 3600000.0f).dropsNothing()), ModItemGroup.WOODWORKS);
+    public static final Block UNBREAKABLE_LEAVES = resisterBlock("unbreakable_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).strength(-1.0f,3600000.0f).dropsNothing()), ModItemGroup.WOODWORKS);
+
+    private static Boolean always(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) {
         return true;
     }
-
-    private static boolean never(class_2680 state, class_1922 world, class_2338 pos) {
+    private static boolean never(BlockState state, BlockView world, BlockPos pos) {
         return false;
     }
 
-    private static class_2248 registerBlockWithoutBlockItem(String name, class_2248 block, class_1761 group) {
-        return (class_2248)class_2378.method_10230((class_2378)class_7923.field_41175, (class_2960)new class_2960("hmh2", name), (Object)block);
+    private static Block registerBlockWithoutBlockItem(String name, Block block, ItemGroup group) {
+        return Registry.register(Registries.BLOCK, new Identifier(Hmh2.MOD_ID, name), block);
     }
 
-    private static class_2248 resisterBlock(String name, class_2248 block, class_1761 group) {
-        WoodworkBlocks.registerBlockItem(name, block, group);
-        return (class_2248)class_2378.method_10230((class_2378)class_7923.field_41175, (class_2960)new class_2960("hmh2", name), (Object)block);
+    private static Block resisterBlock(String name, Block block, ItemGroup group) {
+        registerBlockItem(name, block, group);
+        return Registry.register(Registries.BLOCK, new Identifier(Hmh2.MOD_ID, name), block);
     }
 
-    private static class_1792 registerBlockItem(String name, class_2248 block, class_1761 group) {
-        class_1792 item = (class_1792)class_2378.method_10230((class_2378)class_7923.field_41178, (class_2960)new class_2960("hmh2", name), (Object)new class_1747(block, (class_1792.class_1793)new FabricItemSettings()));
-        ItemGroupEvents.modifyEntriesEvent((class_1761)group).register(entries -> entries.method_45421((class_1935)item));
+    private static Item registerBlockItem(String name, Block block, ItemGroup group){
+        Item item = Registry.register((Registries.ITEM), new Identifier(Hmh2.MOD_ID, name),
+                new BlockItem(block, new FabricItemSettings()));
+        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
         return item;
     }
 
-    private static class_2269 createStoneButtonBlock() {
-        return new class_2269(class_4970.class_2251.method_9637((class_3614)class_3614.field_15924).method_9634().method_9632(0.5f).method_9626(class_2498.field_11544), class_8177.field_42823, 20, false);
+    private static ButtonBlock createStoneButtonBlock() {
+        return new ButtonBlock(AbstractBlock.Settings.of(Material.DECORATION).noCollision().strength(0.5F).sounds(BlockSoundGroup.STONE), BlockSetType.OAK, 20, false);
     }
 
     public static void registerModBlock() {
-        Hmh2.LOGGER.info("Registering ModBlocks for hmh2");
+        Hmh2.LOGGER.info("Registering ModBlocks for " + Hmh2.MOD_ID);
     }
-}
 
+}

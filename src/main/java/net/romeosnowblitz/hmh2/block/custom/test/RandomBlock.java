@@ -1,101 +1,69 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.class_1297
- *  net.minecraft.class_1922
- *  net.minecraft.class_1936
- *  net.minecraft.class_1937
- *  net.minecraft.class_2246
- *  net.minecraft.class_2248
- *  net.minecraft.class_2338
- *  net.minecraft.class_2350$class_2351
- *  net.minecraft.class_238
- *  net.minecraft.class_247
- *  net.minecraft.class_259
- *  net.minecraft.class_265
- *  net.minecraft.class_2680
- *  net.minecraft.class_4970$class_2251
- */
 package net.romeosnowblitz.hmh2.block.custom.test;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.function.BooleanBiFunction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
+
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.class_1297;
-import net.minecraft.class_1922;
-import net.minecraft.class_1936;
-import net.minecraft.class_1937;
-import net.minecraft.class_2246;
-import net.minecraft.class_2248;
-import net.minecraft.class_2338;
-import net.minecraft.class_2350;
-import net.minecraft.class_238;
-import net.minecraft.class_247;
-import net.minecraft.class_259;
-import net.minecraft.class_265;
-import net.minecraft.class_2680;
-import net.minecraft.class_4970;
 
-public class RandomBlock
-extends class_2248 {
-    static Random random = new Random();
-    static class_2248 y = RandomBlock.randomBlocks();
-
-    public RandomBlock(class_4970.class_2251 settings) {
+public class RandomBlock extends Block {
+    public RandomBlock(Settings settings) {
         super(settings);
     }
 
-    public static class_2248 randomBlocks() {
-        int i = random.nextInt(9);
-        if (i == 1) {
-            y = class_2246.field_10085;
-        }
-        if (i == 2) {
-            y = class_2246.field_10441;
-        }
-        if (i == 3) {
-            y = class_2246.field_27159;
-        }
-        if (i == 4) {
-            y = class_2246.field_10166;
-        }
-        if (i == 5) {
-            y = class_2246.field_10540;
-        }
-        if (i == 6) {
-            y = class_2246.field_10201;
-        }
-        if (i == 7) {
-            y = class_2246.field_10234;
-        }
-        if (i == 8) {
-            y = class_2246.field_10205;
-        }
+    static Random random = new Random();
+    static Block y = randomBlocks();
+
+    public static Block randomBlocks() {
+        int i = random.nextInt(8 + 1);
+        if (i==1){y = Blocks.IRON_BLOCK;}
+        if (i==2){y = Blocks.LAPIS_BLOCK;}
+        if (i==3){y = Blocks.AMETHYST_BLOCK;}
+        if (i==4){y = Blocks.BONE_BLOCK;}
+        if (i==5){y = Blocks.OBSIDIAN;}
+        if (i==6){y = Blocks.DIAMOND_BLOCK;}
+        if (i==7){y = Blocks.EMERALD_BLOCK;}
+        if (i==8){y = Blocks.GOLD_BLOCK;}
         return y;
     }
 
-    public void method_9591(class_1937 world, class_2338 pos, class_2680 state, class_1297 entity) {
-        if (!world.field_9236) {
-            RandomBlock.randomBlocks();
+    public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
+        if(!world.isClient){
+            randomBlocks();
             RandomBlock.setToRandom(state, world, pos);
         }
     }
 
-    public static void setToRandom(class_2680 state, class_1937 world, class_2338 pos) {
-        world.method_8501(pos, RandomBlock.pushEntitiesUpBeforeBlockChange(state, y.method_9564(), (class_1936)world, pos));
+    public static void setToRandom(BlockState state, World world, BlockPos pos) {
+        world.setBlockState(pos, RandomBlock.pushEntitiesUpBeforeBlockChange(state, y.getDefaultState(), world, pos));
     }
 
-    public static class_2680 pushEntitiesUpBeforeBlockChange(class_2680 from, class_2680 to, class_1936 world, class_2338 pos) {
-        class_265 voxelShape = class_259.method_1082((class_265)from.method_26220((class_1922)world, pos), (class_265)to.method_26220((class_1922)world, pos), (class_247)class_247.field_16893).method_1096((double)pos.method_10263(), (double)pos.method_10264(), (double)pos.method_10260());
-        if (voxelShape.method_1110()) {
+    public static BlockState pushEntitiesUpBeforeBlockChange(BlockState from, BlockState to, WorldAccess world, BlockPos pos) {
+        VoxelShape voxelShape = VoxelShapes.combine(from.getCollisionShape(world, pos), to.getCollisionShape(world, pos), BooleanBiFunction.ONLY_SECOND).offset((double)pos.getX(), (double)pos.getY(), (double)pos.getZ());
+        if (voxelShape.isEmpty()) {
+            return to;
+        } else {
+            List<Entity> list = world.getOtherEntities((Entity)null, voxelShape.getBoundingBox());
+            Iterator var6 = list.iterator();
+
+            while(var6.hasNext()) {
+                Entity entity = (Entity)var6.next();
+                double d = VoxelShapes.calculateMaxOffset(Direction.Axis.Y, entity.getBoundingBox().offset(0.0D, 1.0D, 0.0D), List.of(voxelShape), -1.0D);
+                entity.requestTeleportOffset(0.0D, 1.0D + d, 0.0D);
+            }
+
             return to;
         }
-        List list = world.method_8335((class_1297)null, voxelShape.method_1107());
-        for (class_1297 entity : list) {
-            double d = class_259.method_1085((class_2350.class_2351)class_2350.class_2351.field_11052, (class_238)entity.method_5829().method_989(0.0, 1.0, 0.0), List.of(voxelShape), (double)-1.0);
-            entity.method_45166(0.0, 1.0 + d, 0.0);
-        }
-        return to;
     }
-}
 
+}

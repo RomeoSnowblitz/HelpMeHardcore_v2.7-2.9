@@ -1,343 +1,308 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.class_1282
- *  net.minecraft.class_1293
- *  net.minecraft.class_1294
- *  net.minecraft.class_1297
- *  net.minecraft.class_1299
- *  net.minecraft.class_1308
- *  net.minecraft.class_1309
- *  net.minecraft.class_1313
- *  net.minecraft.class_1314
- *  net.minecraft.class_1321
- *  net.minecraft.class_1335
- *  net.minecraft.class_1335$class_1336
- *  net.minecraft.class_1347
- *  net.minecraft.class_1352
- *  net.minecraft.class_1352$class_4134
- *  net.minecraft.class_1366
- *  net.minecraft.class_1400
- *  net.minecraft.class_1439
- *  net.minecraft.class_1588
- *  net.minecraft.class_1657
- *  net.minecraft.class_1937
- *  net.minecraft.class_2338
- *  net.minecraft.class_243
- *  net.minecraft.class_2487
- *  net.minecraft.class_2680
- *  net.minecraft.class_270
- *  net.minecraft.class_2940
- *  net.minecraft.class_2941
- *  net.minecraft.class_2943
- *  net.minecraft.class_2945
- *  net.minecraft.class_3414
- *  net.minecraft.class_3417
- *  net.minecraft.class_3532
- *  net.minecraft.class_5132$class_5133
- *  net.minecraft.class_5134
- *  software.bernie.geckolib.animatable.GeoEntity
- *  software.bernie.geckolib.core.animatable.GeoAnimatable
- *  software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
- *  software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache
- *  software.bernie.geckolib.core.animation.AnimatableManager$ControllerRegistrar
- *  software.bernie.geckolib.core.animation.Animation$LoopType
- *  software.bernie.geckolib.core.animation.AnimationController
- *  software.bernie.geckolib.core.animation.AnimationState
- *  software.bernie.geckolib.core.animation.RawAnimation
- *  software.bernie.geckolib.core.object.PlayState
- */
 package net.romeosnowblitz.hmh2.entity.mob;
 
-import java.util.EnumSet;
-import net.minecraft.class_1282;
-import net.minecraft.class_1293;
-import net.minecraft.class_1294;
-import net.minecraft.class_1297;
-import net.minecraft.class_1299;
-import net.minecraft.class_1308;
-import net.minecraft.class_1309;
-import net.minecraft.class_1313;
-import net.minecraft.class_1314;
-import net.minecraft.class_1321;
-import net.minecraft.class_1335;
-import net.minecraft.class_1347;
-import net.minecraft.class_1352;
-import net.minecraft.class_1366;
-import net.minecraft.class_1400;
-import net.minecraft.class_1439;
-import net.minecraft.class_1588;
-import net.minecraft.class_1657;
-import net.minecraft.class_1937;
-import net.minecraft.class_2338;
-import net.minecraft.class_243;
-import net.minecraft.class_2487;
-import net.minecraft.class_2680;
-import net.minecraft.class_270;
-import net.minecraft.class_2940;
-import net.minecraft.class_2941;
-import net.minecraft.class_2943;
-import net.minecraft.class_2945;
-import net.minecraft.class_3414;
-import net.minecraft.class_3417;
-import net.minecraft.class_3532;
-import net.minecraft.class_5132;
-import net.minecraft.class_5134;
-import net.romeosnowblitz.hmh2.entity.mob.QueenBeeEntity;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MovementType;
+import net.minecraft.entity.ai.control.MoveControl;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
+import net.minecraft.entity.ai.goal.Goal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.passive.IronGolemEntity;
+import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.scoreboard.AbstractTeam;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animation.Animation;
 import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 
-public class SoldierBeeEntity
-extends class_1588
-implements GeoEntity {
-    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache((GeoAnimatable)this);
-    protected static final class_2940<Byte> QUEEN_FLAGS = class_2945.method_12791(QueenBeeEntity.class, (class_2941)class_2943.field_13319);
+import java.util.EnumSet;
+
+public class SoldierBeeEntity extends HostileEntity implements GeoEntity {
+
+    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
+
+    protected static final TrackedData<Byte> QUEEN_FLAGS = DataTracker.registerData(QueenBeeEntity.class, TrackedDataHandlerRegistry.BYTE);
     private static final int CHARGING_FLAG = 1;
-    private class_2338 bounds;
+    private BlockPos bounds;
 
-    public SoldierBeeEntity(class_1299<? extends class_1588> entityType, class_1937 world) {
+    public SoldierBeeEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.field_6207 = new SoldierBeeMoveControl(this);
+        this.moveControl = new SoldierBeeMoveControl(this);
     }
 
-    public void method_5773() {
-        this.field_5960 = true;
-        super.method_5773();
-        this.field_5960 = false;
-        this.method_5875(true);
+    @Override
+    public void tick() {
+        this.noClip = true;
+        super.tick();
+        this.noClip = false;
+        this.setNoGravity(true);
     }
 
-    public void method_5784(class_1313 movementType, class_243 movement) {
-        super.method_5784(movementType, movement);
-        this.method_5852();
+    @Override
+    public void move(MovementType movementType, Vec3d movement) {
+        super.move(movementType, movement);
+        this.checkBlockCollision();
     }
 
-    public static class_5132.class_5133 setAttributes() {
-        return class_1321.method_26828().method_26868(class_5134.field_23716, 5.0).method_26868(class_5134.field_23721, 1.0).method_26868(class_5134.field_23723, 1.0).method_26868(class_5134.field_23719, (double)0.1f).method_26868(class_5134.field_23717, 1024.0);
+
+    public static DefaultAttributeContainer.Builder setAttributes() {
+        return TameableEntity.createMobAttributes()
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 5.0D)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 1.0f)
+                .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.0f)
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1f)
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 1024f);
     }
 
-    protected void method_5959() {
-        this.field_6201.method_6277(0, (class_1352)new class_1347((class_1308)this));
-        this.field_6201.method_6277(1, (class_1352)new class_1366((class_1314)this, 4.0, false));
-        this.field_6201.method_6277(1, (class_1352)new ChargeTargetGoal());
-        this.field_6201.method_6277(2, (class_1352)new LookAtTargetGoal());
-        this.field_6185.method_6277(1, (class_1352)new class_1400((class_1308)this, class_1439.class, true));
-        this.field_6185.method_6277(1, (class_1352)new class_1400((class_1308)this, class_1657.class, true));
+    protected void initGoals() {
+        this.goalSelector.add(0, new SwimGoal(this));
+        this.goalSelector.add(1, new MeleeAttackGoal(this, 4, false));
+        this.goalSelector.add(1, new ChargeTargetGoal());
+        this.goalSelector.add(2, new LookAtTargetGoal());
+        this.targetSelector.add(1, new ActiveTargetGoal<IronGolemEntity>((MobEntity)this, IronGolemEntity.class, true));
+        this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, true));
     }
 
-    private PlayState predicate(AnimationState animationState) {
-        if (animationState.isMoving()) {
+    private PlayState predicate(software.bernie.geckolib.core.animation.AnimationState animationState) {
+        if(animationState.isMoving()) {
             animationState.getController().setAnimation(RawAnimation.begin().then("animation.soldier_bee.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
+
         animationState.getController().setAnimation(RawAnimation.begin().then("animation.soldier_bee.idle", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
     }
 
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController[]{new AnimationController((GeoAnimatable)this, "controller", 0, this::predicate)});
-    }
-
-    protected void method_5693() {
-        super.method_5693();
-        this.field_6011.method_12784(QUEEN_FLAGS, (Object)0);
-    }
-
-    public boolean method_6121(class_1297 target) {
-        if (!super.method_6121(target)) {
-            return false;
-        }
-        if (target instanceof class_1309) {
-            ((class_1309)target).method_37222(new class_1293(class_1294.field_5899, 60, 0), (class_1297)this);
-        }
-        return true;
-    }
-
-    public void method_5749(class_2487 nbt) {
-        super.method_5749(nbt);
-        if (nbt.method_10545("BoundX")) {
-            this.bounds = new class_2338(nbt.method_10550("BoundX"), nbt.method_10550("BoundY"), nbt.method_10550("BoundZ"));
-        }
-    }
-
-    public void method_5652(class_2487 nbt) {
-        super.method_5652(nbt);
-        if (this.bounds != null) {
-            nbt.method_10569("BoundX", this.bounds.method_10263());
-            nbt.method_10569("BoundY", this.bounds.method_10264());
-            nbt.method_10569("BoundZ", this.bounds.method_10260());
-        }
-    }
-
-    private boolean areFlagsSet(int mask) {
-        byte i = (Byte)this.field_6011.method_12789(QUEEN_FLAGS);
-        return (i & mask) != 0;
-    }
-
-    private void setQueenFlags(int mask, boolean value) {
-        int i = ((Byte)this.field_6011.method_12789(QUEEN_FLAGS)).byteValue();
-        i = value ? (i = i | mask) : (i = i & ~mask);
-        this.field_6011.method_12778(QUEEN_FLAGS, (Object)((byte)(i & 0xFF)));
-    }
-
-    public boolean isCharging() {
-        return this.areFlagsSet(1);
-    }
-
-    public void setCharging(boolean charging) {
-        this.setQueenFlags(1, charging);
-    }
-
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.factory;
-    }
-
-    protected class_3414 method_5994() {
-        return class_3417.field_20605;
-    }
-
-    protected class_3414 method_6011(class_1282 source) {
-        return class_3417.field_20604;
-    }
-
-    protected class_3414 method_6002() {
-        return class_3417.field_23060;
-    }
-
-    protected void method_5712(class_2338 pos, class_2680 state) {
-        this.method_5783(class_3417.field_20605, 1.0f, 1.0f);
-    }
-
-    public class_270 method_5781() {
-        return super.method_5781();
-    }
-
-    public boolean method_5931(class_1657 player) {
-        return false;
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers){
+        controllers.add(new AnimationController(this, "controller",
+                0, this::predicate));
     }
 
     class SoldierBeeMoveControl
-    extends class_1335 {
+            extends MoveControl {
         public SoldierBeeMoveControl(SoldierBeeEntity owner) {
-            super((class_1308)owner);
+            super(owner);
         }
 
-        public void method_6240() {
-            if (this.field_6374 != class_1335.class_1336.field_6378) {
+        @Override
+        public void tick() {
+            if (this.state != State.MOVE_TO) {
                 return;
             }
-            class_243 vec3d = new class_243(this.field_6370 - SoldierBeeEntity.this.method_23317(), this.field_6369 - SoldierBeeEntity.this.method_23318(), this.field_6367 - SoldierBeeEntity.this.method_23321());
-            double d = vec3d.method_1033();
-            if (d < SoldierBeeEntity.this.method_5829().method_995()) {
-                this.field_6374 = class_1335.class_1336.field_6377;
-                SoldierBeeEntity.this.method_18799(SoldierBeeEntity.this.method_18798().method_1021(0.5));
+            Vec3d vec3d = new Vec3d(this.targetX - SoldierBeeEntity.this.getX(), this.targetY - SoldierBeeEntity.this.getY(), this.targetZ - SoldierBeeEntity.this.getZ());
+            double d = vec3d.length();
+            if (d < SoldierBeeEntity.this.getBoundingBox().getAverageSideLength()) {
+                this.state = State.WAIT;
+                SoldierBeeEntity.this.setVelocity(SoldierBeeEntity.this.getVelocity().multiply(0.5));
             } else {
-                SoldierBeeEntity.this.method_18799(SoldierBeeEntity.this.method_18798().method_1019(vec3d.method_1021(this.field_6372 * 0.05 / d)));
-                if (SoldierBeeEntity.this.method_5968() == null) {
-                    class_243 vec3d2 = SoldierBeeEntity.this.method_18798();
-                    SoldierBeeEntity.this.method_36456(-((float)class_3532.method_15349((double)vec3d2.field_1352, (double)vec3d2.field_1350)) * 57.295776f);
-                    SoldierBeeEntity.this.field_6283 = SoldierBeeEntity.this.method_36454();
+                SoldierBeeEntity.this.setVelocity(SoldierBeeEntity.this.getVelocity().add(vec3d.multiply(this.speed * 0.05 / d)));
+                if (SoldierBeeEntity.this.getTarget() == null) {
+                    Vec3d vec3d2 = SoldierBeeEntity.this.getVelocity();
+                    SoldierBeeEntity.this.setYaw(-((float) MathHelper.atan2(vec3d2.x, vec3d2.z)) * 57.295776f);
+                    SoldierBeeEntity.this.bodyYaw = SoldierBeeEntity.this.getYaw();
                 } else {
-                    double e = SoldierBeeEntity.this.method_5968().method_23317() - SoldierBeeEntity.this.method_23317();
-                    double f = SoldierBeeEntity.this.method_5968().method_23321() - SoldierBeeEntity.this.method_23321();
-                    SoldierBeeEntity.this.method_36456(-((float)class_3532.method_15349((double)e, (double)f)) * 57.295776f);
-                    SoldierBeeEntity.this.field_6283 = SoldierBeeEntity.this.method_36454();
+                    double e = SoldierBeeEntity.this.getTarget().getX() - SoldierBeeEntity.this.getX();
+                    double f = SoldierBeeEntity.this.getTarget().getZ() - SoldierBeeEntity.this.getZ();
+                    SoldierBeeEntity.this.setYaw(-((float)MathHelper.atan2(e, f)) * 57.295776f);
+                    SoldierBeeEntity.this.bodyYaw = SoldierBeeEntity.this.getYaw();
                 }
             }
         }
     }
 
+    @Override
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.startTracking(QUEEN_FLAGS, (byte)0);
+    }
+
+    @Override
+    public boolean tryAttack(Entity target) {
+        if (!super.tryAttack(target)) {
+            return false;
+        }
+        if (target instanceof LivingEntity) {
+            ((LivingEntity)target).addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 60, 0), this);
+        }
+        return true;
+    }
+
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+        if (nbt.contains("BoundX")) {
+            this.bounds = new BlockPos(nbt.getInt("BoundX"), nbt.getInt("BoundY"), nbt.getInt("BoundZ"));
+        }
+    }
+
+    @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+        if (this.bounds != null) {
+            nbt.putInt("BoundX", this.bounds.getX());
+            nbt.putInt("BoundY", this.bounds.getY());
+            nbt.putInt("BoundZ", this.bounds.getZ());
+        }
+    }
+
+    private boolean areFlagsSet(int mask) {
+        byte i = this.dataTracker.get(QUEEN_FLAGS);
+        return (i & mask) != 0;
+    }
+
+    private void setQueenFlags(int mask, boolean value) {
+        int i = this.dataTracker.get(QUEEN_FLAGS).byteValue();
+        i = value ? (i |= mask) : (i &= ~mask);
+        this.dataTracker.set(QUEEN_FLAGS, (byte)(i & 0xFF));
+    }
+
+    public boolean isCharging() {
+        return this.areFlagsSet(CHARGING_FLAG);
+    }
+
+    public void setCharging(boolean charging) {
+        this.setQueenFlags(CHARGING_FLAG, charging);
+    }
+
+
     class ChargeTargetGoal
-    extends class_1352 {
+            extends Goal {
         public ChargeTargetGoal() {
-            this.method_6265(EnumSet.of(class_1352.class_4134.field_18405));
+            this.setControls(EnumSet.of(Control.MOVE));
         }
 
-        public boolean method_6264() {
-            class_1309 livingEntity = SoldierBeeEntity.this.method_5968();
-            if (livingEntity != null && livingEntity.method_5805() && !SoldierBeeEntity.this.method_5962().method_6241() && SoldierBeeEntity.this.field_5974.method_43048(ChargeTargetGoal.method_38848((int)7)) == 0) {
-                return SoldierBeeEntity.this.method_5858((class_1297)livingEntity) > 4.0;
+        @Override
+        public boolean canStart() {
+            LivingEntity livingEntity = SoldierBeeEntity.this.getTarget();
+            if (livingEntity != null && livingEntity.isAlive() && !SoldierBeeEntity.this.getMoveControl().isMoving() && SoldierBeeEntity.this.random.nextInt(ChargeTargetGoal.toGoalTicks(7)) == 0) {
+                return SoldierBeeEntity.this.squaredDistanceTo(livingEntity) > 4.0;
             }
             return false;
         }
 
-        public boolean method_6266() {
-            return SoldierBeeEntity.this.method_5962().method_6241() && SoldierBeeEntity.this.isCharging() && SoldierBeeEntity.this.method_5968() != null && SoldierBeeEntity.this.method_5968().method_5805();
+        @Override
+        public boolean shouldContinue() {
+            return SoldierBeeEntity.this.getMoveControl().isMoving() && SoldierBeeEntity.this.isCharging() && SoldierBeeEntity.this.getTarget() != null && SoldierBeeEntity.this.getTarget().isAlive();
         }
 
-        public void method_6269() {
-            class_1309 livingEntity = SoldierBeeEntity.this.method_5968();
+        @Override
+        public void start() {
+            LivingEntity livingEntity = SoldierBeeEntity.this.getTarget();
             if (livingEntity != null) {
-                class_243 vec3d = livingEntity.method_33571();
-                SoldierBeeEntity.this.field_6207.method_6239(vec3d.field_1352, vec3d.field_1351, vec3d.field_1350, 1.0);
+                Vec3d vec3d = livingEntity.getEyePos();
+                SoldierBeeEntity.this.moveControl.moveTo(vec3d.x, vec3d.y, vec3d.z, 1.0);
             }
             SoldierBeeEntity.this.setCharging(true);
-            SoldierBeeEntity.this.method_5783(class_3417.field_20604, 1.0f, 1.0f);
+            SoldierBeeEntity.this.playSound(SoundEvents.ENTITY_BEE_LOOP_AGGRESSIVE, 1.0f, 1.0f);
         }
 
-        public void method_6270() {
+        @Override
+        public void stop() {
             SoldierBeeEntity.this.setCharging(false);
         }
 
-        public boolean method_38846() {
+        @Override
+        public boolean shouldRunEveryTick() {
             return true;
         }
 
-        public void method_6268() {
-            class_1309 livingEntity = SoldierBeeEntity.this.method_5968();
+        @Override
+        public void tick() {
+            LivingEntity livingEntity = SoldierBeeEntity.this.getTarget();
             if (livingEntity == null) {
                 return;
             }
-            if (SoldierBeeEntity.this.method_5829().method_994(livingEntity.method_5829())) {
-                SoldierBeeEntity.this.method_6121((class_1297)livingEntity);
+            if (SoldierBeeEntity.this.getBoundingBox().intersects(livingEntity.getBoundingBox())) {
+                SoldierBeeEntity.this.tryAttack(livingEntity);
                 SoldierBeeEntity.this.setCharging(false);
             } else {
-                double d = SoldierBeeEntity.this.method_5858((class_1297)livingEntity);
+                double d = SoldierBeeEntity.this.squaredDistanceTo(livingEntity);
                 if (d < 9.0) {
-                    class_243 vec3d = livingEntity.method_33571();
-                    SoldierBeeEntity.this.field_6207.method_6239(vec3d.field_1352, vec3d.field_1351, vec3d.field_1350, 1.0);
+                    Vec3d vec3d = livingEntity.getEyePos();
+                    SoldierBeeEntity.this.moveControl.moveTo(vec3d.x, vec3d.y, vec3d.z, 1.0);
                 }
             }
         }
     }
 
     class LookAtTargetGoal
-    extends class_1352 {
+            extends Goal {
         public LookAtTargetGoal() {
-            this.method_6265(EnumSet.of(class_1352.class_4134.field_18405));
+            this.setControls(EnumSet.of(Control.MOVE));
         }
 
-        public boolean method_6264() {
-            return !SoldierBeeEntity.this.method_5962().method_6241() && SoldierBeeEntity.this.field_5974.method_43048(LookAtTargetGoal.method_38848((int)7)) == 0;
+        @Override
+        public boolean canStart() {
+            return !SoldierBeeEntity.this.getMoveControl().isMoving() && SoldierBeeEntity.this.random.nextInt(LookAtTargetGoal.toGoalTicks(7)) == 0;
         }
 
-        public boolean method_6266() {
+        @Override
+        public boolean shouldContinue() {
             return false;
         }
 
-        public void method_6268() {
-            class_2338 blockPos = SoldierBeeEntity.this.bounds;
+        @Override
+        public void tick() {
+            BlockPos blockPos = SoldierBeeEntity.this.bounds;
             if (blockPos == null) {
-                blockPos = SoldierBeeEntity.this.method_24515();
+                blockPos = SoldierBeeEntity.this.getBlockPos();
             }
             for (int i = 0; i < 3; ++i) {
-                class_2338 blockPos2 = blockPos.method_10069(SoldierBeeEntity.this.field_5974.method_43048(15) - 7, SoldierBeeEntity.this.field_5974.method_43048(11) - 5, SoldierBeeEntity.this.field_5974.method_43048(15) - 7);
-                if (!SoldierBeeEntity.this.field_6002.method_22347(blockPos2)) continue;
-                SoldierBeeEntity.this.field_6207.method_6239((double)blockPos2.method_10263() + 0.5, (double)blockPos2.method_10264() + 0.5, (double)blockPos2.method_10260() + 0.5, 0.25);
-                if (SoldierBeeEntity.this.method_5968() != null) break;
-                SoldierBeeEntity.this.method_5988().method_6230((double)blockPos2.method_10263() + 0.5, (double)blockPos2.method_10264() + 0.5, (double)blockPos2.method_10260() + 0.5, 180.0f, 20.0f);
+                BlockPos blockPos2 = blockPos.add(SoldierBeeEntity.this.random.nextInt(15) - 7, SoldierBeeEntity.this.random.nextInt(11) - 5, SoldierBeeEntity.this.random.nextInt(15) - 7);
+                if (!SoldierBeeEntity.this.world.isAir(blockPos2)) continue;
+                SoldierBeeEntity.this.moveControl.moveTo((double)blockPos2.getX() + 0.5, (double)blockPos2.getY() + 0.5, (double)blockPos2.getZ() + 0.5, 0.25);
+                if (SoldierBeeEntity.this.getTarget() != null) break;
+                SoldierBeeEntity.this.getLookControl().lookAt((double)blockPos2.getX() + 0.5, (double)blockPos2.getY() + 0.5, (double)blockPos2.getZ() + 0.5, 180.0f, 20.0f);
                 break;
             }
         }
     }
-}
 
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return factory;
+    }
+
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.ENTITY_BEE_LOOP;
+    }
+    protected SoundEvent getHurtSound(DamageSource source) {return SoundEvents.ENTITY_BEE_LOOP_AGGRESSIVE;}
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.PARTICLE_SOUL_ESCAPE;
+    }
+    protected void playStepSound(BlockPos pos, BlockState state) {this.playSound(SoundEvents.ENTITY_BEE_LOOP, 1f, 1.0f);}
+
+    public AbstractTeam getScoreboardTeam() {
+        return super.getScoreboardTeam();
+    }
+    public boolean canBeLeashedBy(PlayerEntity player) {
+        return false;
+    }
+
+
+}

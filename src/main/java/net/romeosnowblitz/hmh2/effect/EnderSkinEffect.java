@@ -1,54 +1,59 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  net.minecraft.class_1291
- *  net.minecraft.class_1309
- *  net.minecraft.class_3414
- *  net.minecraft.class_3417
- *  net.minecraft.class_3532
- *  net.minecraft.class_4019
- *  net.minecraft.class_4081
- */
 package net.romeosnowblitz.hmh2.effect;
 
-import net.minecraft.class_1291;
-import net.minecraft.class_1309;
-import net.minecraft.class_3414;
-import net.minecraft.class_3417;
-import net.minecraft.class_3532;
-import net.minecraft.class_4019;
-import net.minecraft.class_4081;
-import net.romeosnowblitz.hmh2.effect.CustomEffects;
+import net.minecraft.block.FallingBlock;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageType;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.passive.FoxEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
+import net.minecraft.world.event.GameEvent;
 
-public class EnderSkinEffect
-extends class_1291 {
-    public EnderSkinEffect(class_4081 statusEffectCategory, int color) {
+import java.awt.event.KeyEvent;
+
+public class EnderSkinEffect extends StatusEffect {
+    public EnderSkinEffect(StatusEffectCategory statusEffectCategory, int color) {
         super(statusEffectCategory, color);
     }
 
-    public void method_5572(class_1309 entity, int amplifier) {
-        if (this == CustomEffects.ENDER_SKIN && entity.method_5637()) {
-            entity.method_5643(entity.method_48923().method_48824(), 1.0f);
+    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+        if (this == CustomEffects.ENDER_SKIN) {
+            if (entity.isWet()) {
+                entity.damage(entity.getDamageSources().drown(), 1);
+            }
         }
-        if (this == CustomEffects.ENDER_SKIN && entity.method_5715()) {
-            for (int i = 0; i < 128; ++i) {
-                double g = entity.method_23317() + (entity.method_6051().method_43058() - 0.5) * 40.0;
-                double h = class_3532.method_15350((double)(entity.method_23318() + (double)(entity.method_6051().method_43048(10) - 8)), (double)entity.method_23318(), (double)entity.method_23318());
-                double j = entity.method_23321() + (entity.method_6051().method_43058() - 0.5) * 40.0;
-                if (entity.method_5765()) {
-                    entity.method_5848();
+
+        if (this == CustomEffects.ENDER_SKIN && entity.isSneaking()) {
+            for(int i = 0; i < 128; ++i) {
+                double g = entity.getX() + (entity.getRandom().nextDouble() - 0.5D) * 40.0D;
+                double h = MathHelper.clamp(entity.getY() + (double)(entity.getRandom().nextInt(10) - 8), entity.getY(), entity.getY());
+                double j = entity.getZ() + (entity.getRandom().nextDouble() - 0.5D) * 40.0D;
+                if (entity.hasVehicle()) {
+                    entity.stopRiding();
                 }
-                if (!entity.method_6082(g, h, j, true)) continue;
-                class_3414 soundEvent = entity instanceof class_4019 ? class_3417.field_24630 : class_3417.field_14890;
-                entity.method_5783(soundEvent, 1.0f, 1.0f);
-                break;
+                if (entity.teleport(g, h, j, true)) {
+                    SoundEvent soundEvent = entity instanceof FoxEntity ? SoundEvents.ENTITY_FOX_TELEPORT : SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT;
+                    entity.playSound(soundEvent, 1.0F, 1.0F);
+                    break;
+                }
             }
         }
     }
 
-    public boolean method_5552(int duration, int amplifier) {
+    public boolean canApplyUpdateEffect(int duration, int amplifier) {
         if (this == CustomEffects.ENDER_SKIN) {
+            //the lower the number the faster it is
             int i = 10 >> amplifier;
             if (i > 0) {
                 return duration % i == 0;
@@ -57,5 +62,5 @@ extends class_1291 {
         }
         return false;
     }
-}
 
+}
