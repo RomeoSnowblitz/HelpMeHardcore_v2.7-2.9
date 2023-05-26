@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left_open",
+  "textures": {
+    "bottom": "hmh2:block/mango_door_bottom",
+    "top": "hmh2:block/mango_door_top"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_four_candles",
+  "textures": {
+    "all": "hmh2:block/ultramarine_candle",
+    "particle": "hmh2:block/ultramarine_candle"
+  }
+}

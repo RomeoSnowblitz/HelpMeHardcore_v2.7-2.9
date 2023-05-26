@@ -8,6 +8,8 @@ import net.minecraft.potion.Potions;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.romeosnowblitz.hmh2.Hmh2;
+import net.romeosnowblitz.hmh2.block.MagicBlocks;
+import net.romeosnowblitz.hmh2.item.MagicItems;
 import net.romeosnowblitz.hmh2.item.ModItems;
 import net.romeosnowblitz.hmh2.mixin.BrewingRecipeRegistryMixin;
 
@@ -30,6 +32,7 @@ public class ModPotions {
     public static Potion HEALTH_BOOST_POTION;
     public static Potion ABSORPTION_POTION;
     public static Potion CONDUIT_POTION;
+    public static Potion DARKNESS;
 
     public static Potion registerHastePotion(String name) {return Registry.register(Registry.POTION, new Identifier(Hmh2.MOD_ID, name), new Potion(new StatusEffectInstance(StatusEffects.HASTE, 9600, 0)));}
     public static Potion registerMiningFatiguePotion(String name) {return Registry.register(Registry.POTION, new Identifier(Hmh2.MOD_ID, name), new Potion(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 9600, 0)));}
@@ -49,6 +52,7 @@ public class ModPotions {
     public static Potion registerHealthBoostPotion(String name) {return Registry.register(Registry.POTION, new Identifier(Hmh2.MOD_ID, name), new Potion(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 3000, 0)));}
     public static Potion registerAbsorptionPotion(String name) {return Registry.register(Registry.POTION, new Identifier(Hmh2.MOD_ID, name), new Potion(new StatusEffectInstance(StatusEffects.ABSORPTION, 3000, 0)));}
     public static Potion registerConduitPotion(String name) {return Registry.register(Registry.POTION, new Identifier(Hmh2.MOD_ID, name), new Potion(new StatusEffectInstance(StatusEffects.CONDUIT_POWER, 4800, 0)));}
+    public static Potion registerDarknessPotion(String name) {return Registry.register(Registry.POTION, new Identifier(Hmh2.MOD_ID, name), new Potion(new StatusEffectInstance(StatusEffects.DARKNESS, 300, 0)));}
 
 
     public static void registerPotions() {
@@ -70,6 +74,7 @@ public class ModPotions {
         HEALTH_BOOST_POTION = registerHealthBoostPotion("health_boost_potion");
         ABSORPTION_POTION = registerAbsorptionPotion("absorption_potion");
         CONDUIT_POTION = registerConduitPotion("conduit_potion");
+        DARKNESS = registerDarknessPotion("darkness_potion");
 
         registerPotionRecipes();
     }
@@ -93,5 +98,39 @@ public class ModPotions {
         BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, Items.HONEY_BLOCK, ModPotions.HEALTH_BOOST_POTION);
         BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, ModItems.HEART, ModPotions.ABSORPTION_POTION);
         BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, Items.NAUTILUS_SHELL, ModPotions.CONDUIT_POTION);
+
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.AMBER_DUST.asItem(), Potions.FIRE_RESISTANCE);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.ANDALUSITE_DUST.asItem(), ModPotions.MINING_FATIGUE_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.AQUAMARINE_DUST.asItem(), ModPotions.DOLPHINS_GRACE_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.CITRINE_DUST.asItem(), ModPotions.HEALTH_BOOST_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.DIOPSIDE_DUST.asItem(), ModPotions.BAD_OMEN_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.GARNET_DUST.asItem(), Potions.HARMING);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.HESSONITE_DUST.asItem(), Potions.STRENGTH);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.MALICHITE_DUST.asItem(), ModPotions.HUNGER_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.MOONSTONE_DUST.asItem(), Potions.SLOWNESS);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.OPAL_DUST.asItem(), ModPotions.CONDUIT_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.PERIDOT_DUST.asItem(), Potions.LEAPING);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.PREHNITE_DUST.asItem(), Potions.POISON);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.RUBY_DUST.asItem(), ModPotions.SATURATION_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.SAPPHIRE_DUST.asItem(), Potions.NIGHT_VISION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.SMOKY_QUARTZ_DUST.asItem(), ModPotions.WITHER_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.SPESSARITE_DUST.asItem(), Potions.HEALING);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.SPHENE_DUST.asItem(), ModPotions.LUCK_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.SPINEL_DUST.asItem(), ModPotions.RESISTANCE_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.TANZANITE_DUST.asItem(), Potions.WATER_BREATHING);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.TOPAZ_DUST.asItem(), ModPotions.BAD_LUCK_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.TORMALINE_DUST.asItem(), Potions.REGENERATION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.TSAVORITE_DUST.asItem(), ModPotions.GLOWING_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.ZIRCON_DUST.asItem(), Potions.SLOW_FALLING);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.AMETHYST_DUST.asItem(), ModPotions.NAUSEA_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.CHARCOAL_DUST.asItem(), Potions.WEAKNESS);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.COAL_DUST.asItem(), ModPotions.DARKNESS);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.COPPER_DUST.asItem(), ModPotions.LEVITATION_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.DIAMOND_DUST.asItem(), Potions.SWIFTNESS);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.EMERALD_DUST.asItem(), ModPotions.VILLAGE_HERO_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.FLINT_DUST.asItem(), ModPotions.BLINDNESS_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.GOLD_DUST.asItem(), ModPotions.HASTE_POTION);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.IRON_DUST.asItem(), Potions.INVISIBILITY);
+        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, MagicBlocks.LAPIS_DUST.asItem(), ModPotions.ABSORPTION_POTION);
     }
 }

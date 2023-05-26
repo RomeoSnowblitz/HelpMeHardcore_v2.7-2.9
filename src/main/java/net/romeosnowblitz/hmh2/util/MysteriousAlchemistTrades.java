@@ -5,7 +5,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.village.TradeOffer;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
+import net.romeosnowblitz.hmh2.block.MagicBlocks;
+import net.romeosnowblitz.hmh2.item.MagicItems;
 import net.romeosnowblitz.hmh2.item.ModItems;
+import net.romeosnowblitz.hmh2.item.WarfareItems;
 import net.romeosnowblitz.hmh2.villager.ModVillagers;
 
 public class MysteriousAlchemistTrades extends ModRegistries{
@@ -1343,556 +1346,556 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(Items.RAW_IRON_BLOCK, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMBER, 1),
+                            new ItemStack(MagicItems.AMBER, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.AMBER, 1),
+                            new ItemStack(MagicItems.AMBER, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.AMBER_ORE, 1),
+                            new ItemStack(MagicBlocks.AMBER_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.AMBER_ORE, 1),
+                            new ItemStack(MagicBlocks.AMBER_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_AMBER_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_AMBER_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_AMBER_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_AMBER_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.ANDALUSITE, 1),
+                            new ItemStack(MagicItems.ANDALUSITE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.ANDALUSITE, 1),
+                            new ItemStack(MagicItems.ANDALUSITE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.ANDALUSITE_ORE, 1),
+                            new ItemStack(MagicBlocks.ANDALUSITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.ANDALUSITE_ORE, 1),
+                            new ItemStack(MagicBlocks.ANDALUSITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_ANDALUSITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_ANDALUSITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_ANDALUSITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_ANDALUSITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AQUAMARINE, 1),
+                            new ItemStack(MagicItems.AQUAMARINE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.AQUAMARINE, 1),
+                            new ItemStack(MagicItems.AQUAMARINE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.AQUAMARINE_ORE, 1),
+                            new ItemStack(MagicBlocks.AQUAMARINE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.AQUAMARINE_ORE, 1),
+                            new ItemStack(MagicBlocks.AQUAMARINE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_AQUAMARINE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_AQUAMARINE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_AQUAMARINE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_AQUAMARINE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.CITRINE, 1),
+                            new ItemStack(MagicItems.CITRINE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.CITRINE, 1),
+                            new ItemStack(MagicItems.CITRINE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.CITRINE_ORE, 1),
+                            new ItemStack(MagicBlocks.CITRINE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.CITRINE_ORE, 1),
+                            new ItemStack(MagicBlocks.CITRINE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_CITRINE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_CITRINE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_CITRINE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_CITRINE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.DIOPSIDE, 1),
+                            new ItemStack(MagicItems.DIOPSIDE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.DIOPSIDE, 1),
+                            new ItemStack(MagicItems.DIOPSIDE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DIOPSIDE_ORE, 1),
+                            new ItemStack(MagicBlocks.DIOPSIDE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DIOPSIDE_ORE, 1),
+                            new ItemStack(MagicBlocks.DIOPSIDE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_DIOPSIDE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_DIOPSIDE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_DIOPSIDE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_DIOPSIDE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.GARNET, 1),
+                            new ItemStack(MagicItems.GARNET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.GARNET, 1),
+                            new ItemStack(MagicItems.GARNET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.GARNET_ORE, 1),
+                            new ItemStack(MagicBlocks.GARNET_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.GARNET_ORE, 1),
+                            new ItemStack(MagicBlocks.GARNET_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_GARNET_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_GARNET_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_GARNET_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_GARNET_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.HESSONITE, 1),
+                            new ItemStack(MagicItems.HESSONITE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.HESSONITE, 1),
+                            new ItemStack(MagicItems.HESSONITE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.HESSONITE_ORE, 1),
+                            new ItemStack(MagicBlocks.HESSONITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.HESSONITE_ORE, 1),
+                            new ItemStack(MagicBlocks.HESSONITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_HESSONITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_HESSONITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_HESSONITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_HESSONITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.MALICHITE, 1),
+                            new ItemStack(MagicItems.MALICHITE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.MALICHITE, 1),
+                            new ItemStack(MagicItems.MALICHITE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.MALICHITE_ORE, 1),
+                            new ItemStack(MagicBlocks.MALICHITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.MALICHITE_ORE, 1),
+                            new ItemStack(MagicBlocks.MALICHITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_MALICHITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_MALICHITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_MALICHITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_MALICHITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.MOONSTONE, 1),
+                            new ItemStack(MagicItems.MOONSTONE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.MOONSTONE, 1),
+                            new ItemStack(MagicItems.MOONSTONE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.MOONSTONE_ORE, 1),
+                            new ItemStack(MagicBlocks.MOONSTONE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.MOONSTONE_ORE, 1),
+                            new ItemStack(MagicBlocks.MOONSTONE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_MOONSTONE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_MOONSTONE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_MOONSTONE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_MOONSTONE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.OPAL, 1),
+                            new ItemStack(MagicItems.OPAL, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.OPAL, 1),
+                            new ItemStack(MagicItems.OPAL, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.OPAL_ORE, 1),
+                            new ItemStack(MagicBlocks.OPAL_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.OPAL_ORE, 1),
+                            new ItemStack(MagicBlocks.OPAL_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_OPAL_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_OPAL_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_OPAL_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_OPAL_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.PERIDOT, 1),
+                            new ItemStack(MagicItems.PERIDOT, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.PERIDOT, 1),
+                            new ItemStack(MagicItems.PERIDOT, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.PERIDOT_ORE, 1),
+                            new ItemStack(MagicBlocks.PERIDOT_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.PERIDOT_ORE, 1),
+                            new ItemStack(MagicBlocks.PERIDOT_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_PERIDOT_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_PERIDOT_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_PERIDOT_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_PERIDOT_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.PREHNITE, 1),
+                            new ItemStack(MagicItems.PREHNITE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.PREHNITE, 1),
+                            new ItemStack(MagicItems.PREHNITE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.PREHNITE_ORE, 1),
+                            new ItemStack(MagicBlocks.PREHNITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.PREHNITE_ORE, 1),
+                            new ItemStack(MagicBlocks.PREHNITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_PREHNITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_PREHNITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_PREHNITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_PREHNITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.SPESSARITE, 1),
+                            new ItemStack(MagicItems.SPESSARITE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.SPESSARITE, 1),
+                            new ItemStack(MagicItems.SPESSARITE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.SPESSARITE_ORE, 1),
+                            new ItemStack(MagicBlocks.SPESSARITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.SPESSARITE_ORE, 1),
+                            new ItemStack(MagicBlocks.SPESSARITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_SPESSARITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_SPESSARITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_SPESSARITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_SPESSARITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.RUBY, 1),
+                            new ItemStack(MagicItems.RUBY, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.RUBY, 1),
+                            new ItemStack(MagicItems.RUBY, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.RUBY_ORE, 1),
+                            new ItemStack(MagicBlocks.RUBY_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.RUBY_ORE, 1),
+                            new ItemStack(MagicBlocks.RUBY_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_RUBY_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_RUBY_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_RUBY_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_RUBY_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.SAPPHIRE, 1),
+                            new ItemStack(MagicItems.SAPPHIRE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.SAPPHIRE, 1),
+                            new ItemStack(MagicItems.SAPPHIRE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.SAPPHIRE_ORE, 1),
+                            new ItemStack(MagicBlocks.SAPPHIRE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.SAPPHIRE_ORE, 1),
+                            new ItemStack(MagicBlocks.SAPPHIRE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_SAPPHIRE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_SAPPHIRE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_SAPPHIRE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_SAPPHIRE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.SMOKY_QUARTZ, 1),
+                            new ItemStack(MagicItems.SMOKY_QUARTZ, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.SMOKY_QUARTZ, 1),
+                            new ItemStack(MagicItems.SMOKY_QUARTZ, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.SMOKY_QUARTZ_ORE, 1),
+                            new ItemStack(MagicBlocks.SMOKY_QUARTZ_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.SMOKY_QUARTZ_ORE, 1),
+                            new ItemStack(MagicBlocks.SMOKY_QUARTZ_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_SMOKY_QUARTZ_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_SMOKY_QUARTZ_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_SMOKY_QUARTZ_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_SMOKY_QUARTZ_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.SPHENE, 1),
+                            new ItemStack(MagicItems.SPHENE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.SPHENE, 1),
+                            new ItemStack(MagicItems.SPHENE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.SPHENE_ORE, 1),
+                            new ItemStack(MagicBlocks.SPHENE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.SPHENE_ORE, 1),
+                            new ItemStack(MagicBlocks.SPHENE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_SPHENE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_SPHENE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_SPHENE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_SPHENE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.SPINEL, 1),
+                            new ItemStack(MagicItems.SPINEL, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.SPINEL, 1),
+                            new ItemStack(MagicItems.SPINEL, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.SPINEL_ORE, 1),
+                            new ItemStack(MagicBlocks.SPINEL_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.SPINEL_ORE, 1),
+                            new ItemStack(MagicBlocks.SPINEL_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_SPINEL_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_SPINEL_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_SPINEL_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_SPINEL_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.TANZANITE, 1),
+                            new ItemStack(MagicItems.TANZANITE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.TANZANITE, 1),
+                            new ItemStack(MagicItems.TANZANITE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.TANZANITE_ORE, 1),
+                            new ItemStack(MagicBlocks.TANZANITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.TANZANITE_ORE, 1),
+                            new ItemStack(MagicBlocks.TANZANITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_TANZANITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_TANZANITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_TANZANITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_TANZANITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.TOPAZ, 1),
+                            new ItemStack(MagicItems.TOPAZ, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.TOPAZ, 1),
+                            new ItemStack(MagicItems.TOPAZ, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.TOPAZ_ORE, 1),
+                            new ItemStack(MagicBlocks.TOPAZ_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.TOPAZ_ORE, 1),
+                            new ItemStack(MagicBlocks.TOPAZ_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_TOPAZ_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_TOPAZ_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_TOPAZ_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_TOPAZ_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.TORMALINE, 1),
+                            new ItemStack(MagicItems.TORMALINE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.TORMALINE, 1),
+                            new ItemStack(MagicItems.TORMALINE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.TORMALINE_ORE, 1),
+                            new ItemStack(MagicBlocks.TORMALINE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.TORMALINE_ORE, 1),
+                            new ItemStack(MagicBlocks.TORMALINE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_TORMALINE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_TORMALINE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_TORMALINE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_TORMALINE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.TSAVORITE, 1),
+                            new ItemStack(MagicItems.TSAVORITE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.TSAVORITE, 1),
+                            new ItemStack(MagicItems.TSAVORITE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.TSAVORITE_ORE, 1),
+                            new ItemStack(MagicBlocks.TSAVORITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.TSAVORITE_ORE, 1),
+                            new ItemStack(MagicBlocks.TSAVORITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_TSAVORITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_TSAVORITE_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_TSAVORITE_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_TSAVORITE_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.ZIRCON, 1),
+                            new ItemStack(MagicItems.ZIRCON, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModItems.ZIRCON, 1),
+                            new ItemStack(MagicItems.ZIRCON, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.ZIRCON_ORE, 1),
+                            new ItemStack(MagicBlocks.ZIRCON_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.ZIRCON_ORE, 1),
+                            new ItemStack(MagicBlocks.ZIRCON_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.DEEPSLATE_ZIRCON_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_ZIRCON_ORE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_CYAN_DEBRIS, 1),
-                            new ItemStack(ModBlocks.DEEPSLATE_ZIRCON_ORE, 1),
+                            new ItemStack(MagicBlocks.DEEPSLATE_ZIRCON_ORE, 1),
                             64,16,0.0f));
                 });
 
@@ -1964,108 +1967,108 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(ModBlocks.LUCKY_BLOCK, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.LIFE_HELMET, 1),
+                            new ItemStack(WarfareItems.LIFE_HELMET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.LIFE_HELMET, 1),
+                            new ItemStack(WarfareItems.LIFE_HELMET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.LIFE_CHESTPLATE, 1),
+                            new ItemStack(WarfareItems.LIFE_CHESTPLATE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.LIFE_CHESTPLATE, 1),
+                            new ItemStack(WarfareItems.LIFE_CHESTPLATE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.LIFE_LEGGINGS, 1),
+                            new ItemStack(WarfareItems.LIFE_LEGGINGS, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.LIFE_LEGGINGS, 1),
+                            new ItemStack(WarfareItems.LIFE_LEGGINGS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.LIFE_BOOTS, 1),
+                            new ItemStack(WarfareItems.LIFE_BOOTS, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.LIFE_BOOTS, 1),
+                            new ItemStack(WarfareItems.LIFE_BOOTS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.QUAERITE_HELMET, 1),
+                            new ItemStack(WarfareItems.QUAERITE_HELMET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.QUAERITE_HELMET, 1),
+                            new ItemStack(WarfareItems.QUAERITE_HELMET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.QUAERITE_CHESTPLATE, 1),
+                            new ItemStack(WarfareItems.QUAERITE_CHESTPLATE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.QUAERITE_CHESTPLATE, 1),
+                            new ItemStack(WarfareItems.QUAERITE_CHESTPLATE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.QUAERITE_LEGGINGS, 1),
+                            new ItemStack(WarfareItems.QUAERITE_LEGGINGS, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.QUAERITE_LEGGINGS, 1),
+                            new ItemStack(WarfareItems.QUAERITE_LEGGINGS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.QUAERITE_BOOTS, 1),
+                            new ItemStack(WarfareItems.QUAERITE_BOOTS, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.QUAERITE_BOOTS, 1),
+                            new ItemStack(WarfareItems.QUAERITE_BOOTS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.QUAERITE_SWORD, 1),
+                            new ItemStack(WarfareItems.QUAERITE_SWORD, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.QUAERITE_SWORD, 1),
+                            new ItemStack(WarfareItems.QUAERITE_SWORD, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.QUAERITE_PICKAXE, 1),
+                            new ItemStack(WarfareItems.QUAERITE_PICKAXE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.QUAERITE_PICKAXE, 1),
+                            new ItemStack(WarfareItems.QUAERITE_PICKAXE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.QUAERITE_AXE, 1),
+                            new ItemStack(WarfareItems.QUAERITE_AXE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.QUAERITE_AXE, 1),
+                            new ItemStack(WarfareItems.QUAERITE_AXE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.QUAERITE_SHOVEL, 1),
+                            new ItemStack(WarfareItems.QUAERITE_SHOVEL, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.QUAERITE_SHOVEL, 1),
+                            new ItemStack(WarfareItems.QUAERITE_SHOVEL, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.QUAERITE_HOE, 1),
+                            new ItemStack(WarfareItems.QUAERITE_HOE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.QUAERITE_HOE, 1),
+                            new ItemStack(WarfareItems.QUAERITE_HOE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.ENDER_SHARD, 1),
@@ -2148,380 +2151,380 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(ModBlocks.RAW_TITANIUM_BLOCK, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMBER_LOCKET, 1),
+                            new ItemStack(MagicItems.AMBER_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMBER_LOCKET, 1),
+                            new ItemStack(MagicItems.AMBER_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.ANDALUSITE_LOCKET, 1),
+                            new ItemStack(MagicItems.ANDALUSITE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.ANDALUSITE_LOCKET, 1),
+                            new ItemStack(MagicItems.ANDALUSITE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AQUAMARINE_LOCKET, 1),
+                            new ItemStack(MagicItems.AQUAMARINE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AQUAMARINE_LOCKET, 1),
+                            new ItemStack(MagicItems.AQUAMARINE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.CITRINE_LOCKET, 1),
+                            new ItemStack(MagicItems.CITRINE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.CITRINE_LOCKET, 1),
+                            new ItemStack(MagicItems.CITRINE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.DIAMOND_LOCKET, 1),
+                            new ItemStack(MagicItems.DIAMOND_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.DIAMOND_LOCKET, 1),
+                            new ItemStack(MagicItems.DIAMOND_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.DIOPSIDE_LOCKET, 1),
+                            new ItemStack(MagicItems.DIOPSIDE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.DIOPSIDE_LOCKET, 1),
+                            new ItemStack(MagicItems.DIOPSIDE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.GARNET_LOCKET, 1),
+                            new ItemStack(MagicItems.GARNET_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.GARNET_LOCKET, 1),
+                            new ItemStack(MagicItems.GARNET_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.HESSONITE_LOCKET, 1),
+                            new ItemStack(MagicItems.HESSONITE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.HESSONITE_LOCKET, 1),
+                            new ItemStack(MagicItems.HESSONITE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.MALICHITE_LOCKET, 1),
+                            new ItemStack(MagicItems.MALICHITE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.MALICHITE_LOCKET, 1),
+                            new ItemStack(MagicItems.MALICHITE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.MOONSTONE_LOCKET, 1),
+                            new ItemStack(MagicItems.MOONSTONE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.MOONSTONE_LOCKET, 1),
+                            new ItemStack(MagicItems.MOONSTONE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.OPAL_LOCKET, 1),
+                            new ItemStack(MagicItems.OPAL_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.OPAL_LOCKET, 1),
+                            new ItemStack(MagicItems.OPAL_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.PERIDOT_LOCKET, 1),
+                            new ItemStack(MagicItems.PERIDOT_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.PERIDOT_LOCKET, 1),
+                            new ItemStack(MagicItems.PERIDOT_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.PREHNITE_LOCKET, 1),
+                            new ItemStack(MagicItems.PREHNITE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.PREHNITE_LOCKET, 1),
+                            new ItemStack(MagicItems.PREHNITE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.SPESSARITE_LOCKET, 1),
+                            new ItemStack(MagicItems.SPESSARITE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.SPESSARITE_LOCKET, 1),
+                            new ItemStack(MagicItems.SPESSARITE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.RUBY_LOCKET, 1),
+                            new ItemStack(MagicItems.RUBY_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.RUBY_LOCKET, 1),
+                            new ItemStack(MagicItems.RUBY_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.SAPPHIRE_LOCKET, 1),
+                            new ItemStack(MagicItems.SAPPHIRE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.SAPPHIRE_LOCKET, 1),
+                            new ItemStack(MagicItems.SAPPHIRE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.SMOKY_QUARTZ_LOCKET, 1),
+                            new ItemStack(MagicItems.SMOKY_QUARTZ_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.SMOKY_QUARTZ_LOCKET, 1),
+                            new ItemStack(MagicItems.SMOKY_QUARTZ_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.SPHENE_LOCKET, 1),
+                            new ItemStack(MagicItems.SPHENE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.SPHENE_LOCKET, 1),
+                            new ItemStack(MagicItems.SPHENE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.SPINEL_LOCKET, 1),
+                            new ItemStack(MagicItems.SPINEL_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.SPINEL_LOCKET, 1),
+                            new ItemStack(MagicItems.SPINEL_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.TANZANITE_LOCKET, 1),
+                            new ItemStack(MagicItems.TANZANITE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.TANZANITE_LOCKET, 1),
+                            new ItemStack(MagicItems.TANZANITE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.TOPAZ_LOCKET, 1),
+                            new ItemStack(MagicItems.TOPAZ_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.TOPAZ_LOCKET, 1),
+                            new ItemStack(MagicItems.TOPAZ_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.TORMALINE_LOCKET, 1),
+                            new ItemStack(MagicItems.TORMALINE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.TORMALINE_LOCKET, 1),
+                            new ItemStack(MagicItems.TORMALINE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.TSAVORITE_LOCKET, 1),
+                            new ItemStack(MagicItems.TSAVORITE_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.TSAVORITE_LOCKET, 1),
+                            new ItemStack(MagicItems.TSAVORITE_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.ZIRCON_LOCKET, 1),
+                            new ItemStack(MagicItems.ZIRCON_LOCKET, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.ZIRCON_LOCKET, 1),
+                            new ItemStack(MagicItems.ZIRCON_LOCKET, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_ARTHRITIS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_ARTHRITIS, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_ARTHRITIS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_ARTHRITIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_BAD_LUCK, 1),
+                            new ItemStack(MagicItems.AMULET_OF_BAD_LUCK, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_BAD_LUCK, 1),
+                            new ItemStack(MagicItems.AMULET_OF_BAD_LUCK, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_BRICKS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_BRICKS, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_BRICKS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_BRICKS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_BUBBLES, 1),
+                            new ItemStack(MagicItems.AMULET_OF_BUBBLES, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_BUBBLES, 1),
+                            new ItemStack(MagicItems.AMULET_OF_BUBBLES, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_CLOVERS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_CLOVERS, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_CLOVERS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_CLOVERS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_DECAY, 1),
+                            new ItemStack(MagicItems.AMULET_OF_DECAY, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_DECAY, 1),
+                            new ItemStack(MagicItems.AMULET_OF_DECAY, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_EXTRA_LOVE, 1),
+                            new ItemStack(MagicItems.AMULET_OF_EXTRA_LOVE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_EXTRA_LOVE, 1),
+                            new ItemStack(MagicItems.AMULET_OF_EXTRA_LOVE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_FLAMELESSNESS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_FLAMELESSNESS, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_FLAMELESSNESS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_FLAMELESSNESS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_GILLS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_GILLS, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_GILLS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_GILLS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_GLUTTONY, 1),
+                            new ItemStack(MagicItems.AMULET_OF_GLUTTONY, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_GLUTTONY, 1),
+                            new ItemStack(MagicItems.AMULET_OF_GLUTTONY, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_HEALING, 1),
+                            new ItemStack(MagicItems.AMULET_OF_HEALING, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_HEALING, 1),
+                            new ItemStack(MagicItems.AMULET_OF_HEALING, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_HERCULES, 1),
+                            new ItemStack(MagicItems.AMULET_OF_HERCULES, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_HERCULES, 1),
+                            new ItemStack(MagicItems.AMULET_OF_HERCULES, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_ILLUMINATION, 1),
+                            new ItemStack(MagicItems.AMULET_OF_ILLUMINATION, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_ILLUMINATION, 1),
+                            new ItemStack(MagicItems.AMULET_OF_ILLUMINATION, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_LEAPING, 1),
+                            new ItemStack(MagicItems.AMULET_OF_LEAPING, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_LEAPING, 1),
+                            new ItemStack(MagicItems.AMULET_OF_LEAPING, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_NIGHT_SIGHT, 1),
+                            new ItemStack(MagicItems.AMULET_OF_NIGHT_SIGHT, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_NIGHT_SIGHT, 1),
+                            new ItemStack(MagicItems.AMULET_OF_NIGHT_SIGHT, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_NOURISHMENT, 1),
+                            new ItemStack(MagicItems.AMULET_OF_NOURISHMENT, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_NOURISHMENT, 1),
+                            new ItemStack(MagicItems.AMULET_OF_NOURISHMENT, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_OLYMPIC_SWIMMING, 1),
+                            new ItemStack(MagicItems.AMULET_OF_OLYMPIC_SWIMMING, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_OLYMPIC_SWIMMING, 1),
+                            new ItemStack(MagicItems.AMULET_OF_OLYMPIC_SWIMMING, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_RAIDS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_RAIDS, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_RAIDS, 1),
+                            new ItemStack(MagicItems.AMULET_OF_RAIDS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_REJUVINATION, 1),
+                            new ItemStack(MagicItems.AMULET_OF_REJUVINATION, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_REJUVINATION, 1),
+                            new ItemStack(MagicItems.AMULET_OF_REJUVINATION, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_SHIELDING, 1),
+                            new ItemStack(MagicItems.AMULET_OF_SHIELDING, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_SHIELDING, 1),
+                            new ItemStack(MagicItems.AMULET_OF_SHIELDING, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_SICKENING, 1),
+                            new ItemStack(MagicItems.AMULET_OF_SICKENING, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_SICKENING, 1),
+                            new ItemStack(MagicItems.AMULET_OF_SICKENING, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_THE_PHANTOM, 1),
+                            new ItemStack(MagicItems.AMULET_OF_THE_PHANTOM, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_THE_PHANTOM, 1),
+                            new ItemStack(MagicItems.AMULET_OF_THE_PHANTOM, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.AMULET_OF_THE_TORTISE, 1),
+                            new ItemStack(MagicItems.AMULET_OF_THE_TORTISE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModItems.AMULET_OF_THE_TORTISE, 1),
+                            new ItemStack(MagicItems.AMULET_OF_THE_TORTISE, 1),
                             64,16,0.0f));
                 });
 

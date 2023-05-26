@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:peridot"
+  },
+  "result": "hmh2:peridot_dust",
+  "count": 4
+}

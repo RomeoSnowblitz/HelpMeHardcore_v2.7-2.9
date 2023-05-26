@@ -10,10 +10,12 @@ import net.minecraft.item.Items;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.VillagerProfession;
 import net.romeosnowblitz.hmh2.Hmh2;
-import net.romeosnowblitz.hmh2.block.ModBlocks;
+import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
 import net.romeosnowblitz.hmh2.entity.ModEntities;
 import net.romeosnowblitz.hmh2.entity.custom.PenguinEntity;
+import net.romeosnowblitz.hmh2.entity.custom.ShadowCreatureEntity;
 import net.romeosnowblitz.hmh2.item.ModItems;
+import net.romeosnowblitz.hmh2.tag.ModItemTags;
 
 import static net.romeosnowblitz.hmh2.util.MysteriousAlchemistTrades.registerMysteriousAlchemistTrades;
 
@@ -32,41 +34,45 @@ public class ModRegistries {
         System.out.println("Now registering Fuels for " + Hmh2.MOD_ID);
         FuelRegistry registry = FuelRegistry.INSTANCE;
 
-        registry.add(ModItems.BANANA_PEEL, 200);
-        registry.add(ModItems.HELLSTONE, 2000);
+        registry.add(ModItemTags.FUEL_ONE_HUNDRED, 100);
+        registry.add(ModItemTags.FUEL_THREE_HUNDRED, 300);
+        registry.add(ModItemTags.FUEL_SIXTEEN_THOUSAND, 16000);
     }
 
     public static void registerStrippables(){
-        StrippableBlockRegistry.register(ModBlocks.BANANA_LOG, ModBlocks.STRIPPED_BANANA_LOG);
-        StrippableBlockRegistry.register(ModBlocks.BANANA_WOOD, ModBlocks.STRIPPED_BANANA_WOOD);
-        StrippableBlockRegistry.register(ModBlocks.CHERRY_LOG, ModBlocks.STRIPPED_CHERRY_LOG);
-        StrippableBlockRegistry.register(ModBlocks.CHERRY_WOOD, ModBlocks.STRIPPED_CHERRY_WOOD);
-        StrippableBlockRegistry.register(ModBlocks.JACARANDA_LOG, ModBlocks.STRIPPED_JACARANDA_LOG);
-        StrippableBlockRegistry.register(ModBlocks.JACARANDA_WOOD, ModBlocks.STRIPPED_JACARANDA_WOOD);
-        StrippableBlockRegistry.register(ModBlocks.MANGO_LOG, ModBlocks.STRIPPED_MANGO_LOG);
-        StrippableBlockRegistry.register(ModBlocks.MANGO_WOOD, ModBlocks.STRIPPED_MANGO_WOOD);
-        StrippableBlockRegistry.register(ModBlocks.MAHOE_LOG, ModBlocks.STRIPPED_MAHOE_LOG);
-        StrippableBlockRegistry.register(ModBlocks.MAHOE_WOOD, ModBlocks.STRIPPED_MAHOE_WOOD);
-        StrippableBlockRegistry.register(ModBlocks.WILLOW_LOG, ModBlocks.STRIPPED_WILLOW_LOG);
-        StrippableBlockRegistry.register(ModBlocks.WILLOW_WOOD, ModBlocks.STRIPPED_WILLOW_WOOD);
+        StrippableBlockRegistry.register(WoodworkBlocks.BANANA_LOG, WoodworkBlocks.STRIPPED_BANANA_LOG);
+        StrippableBlockRegistry.register(WoodworkBlocks.BANANA_WOOD, WoodworkBlocks.STRIPPED_BANANA_WOOD);
+        StrippableBlockRegistry.register(WoodworkBlocks.CHERRY_LOG, WoodworkBlocks.STRIPPED_CHERRY_LOG);
+        StrippableBlockRegistry.register(WoodworkBlocks.CHERRY_WOOD, WoodworkBlocks.STRIPPED_CHERRY_WOOD);
+        StrippableBlockRegistry.register(WoodworkBlocks.CORK_OAK_LOG, WoodworkBlocks.STRIPPED_CORK_OAK_LOG);
+        StrippableBlockRegistry.register(WoodworkBlocks.CORK_OAK_WOOD, WoodworkBlocks.STRIPPED_CORK_OAK_WOOD);
+        StrippableBlockRegistry.register(WoodworkBlocks.JACARANDA_LOG, WoodworkBlocks.STRIPPED_JACARANDA_LOG);
+        StrippableBlockRegistry.register(WoodworkBlocks.JACARANDA_WOOD, WoodworkBlocks.STRIPPED_JACARANDA_WOOD);
+        StrippableBlockRegistry.register(WoodworkBlocks.MANGO_LOG, WoodworkBlocks.STRIPPED_MANGO_LOG);
+        StrippableBlockRegistry.register(WoodworkBlocks.MANGO_WOOD, WoodworkBlocks.STRIPPED_MANGO_WOOD);
+        StrippableBlockRegistry.register(WoodworkBlocks.MAHOE_LOG, WoodworkBlocks.STRIPPED_MAHOE_LOG);
+        StrippableBlockRegistry.register(WoodworkBlocks.MAHOE_WOOD, WoodworkBlocks.STRIPPED_MAHOE_WOOD);
+        StrippableBlockRegistry.register(WoodworkBlocks.WILLOW_LOG, WoodworkBlocks.STRIPPED_WILLOW_LOG);
+        StrippableBlockRegistry.register(WoodworkBlocks.WILLOW_WOOD, WoodworkBlocks.STRIPPED_WILLOW_WOOD);
     }
 
     private static void registerFlammableBlock() {
         FlammableBlockRegistry instance = FlammableBlockRegistry.getDefaultInstance();
 
-        instance.add(ModBlocks.BANANA_LOG, 5, 5);
-        instance.add(ModBlocks.STRIPPED_BANANA_LOG, 5, 5);
-        instance.add(ModBlocks.BANANA_WOOD, 5, 5);
-        instance.add(ModBlocks.STRIPPED_BANANA_WOOD, 5, 5);
-        instance.add(ModBlocks.BANANA_PLANKS, 5, 20);
-        instance.add(ModBlocks.BANANA_LEAVES, 30, 60);
-
-        instance.add(ModBlocks.MANGO_LOG, 5, 5);
-        instance.add(ModBlocks.STRIPPED_MANGO_LOG, 5, 5);
-        instance.add(ModBlocks.MANGO_WOOD, 5, 5);
-        instance.add(ModBlocks.STRIPPED_MANGO_WOOD, 5, 5);
-        instance.add(ModBlocks.MANGO_PLANKS, 5, 20);
-        instance.add(ModBlocks.MANGO_LEAVES, 30, 60);
+        instance.add(WoodworkBlocks.BANANA_LOG, 5, 5); instance.add(WoodworkBlocks.STRIPPED_BANANA_LOG, 5, 5);instance.add(WoodworkBlocks.BANANA_WOOD, 5, 5);
+        instance.add(WoodworkBlocks.STRIPPED_BANANA_WOOD, 5, 5); instance.add(WoodworkBlocks.BANANA_PLANKS, 5, 20); instance.add(WoodworkBlocks.BANANA_LEAVES, 30, 60);
+        instance.add(WoodworkBlocks.CHERRY_LOG, 5, 5); instance.add(WoodworkBlocks.STRIPPED_CHERRY_LOG, 5, 5);instance.add(WoodworkBlocks.CHERRY_WOOD, 5, 5);
+        instance.add(WoodworkBlocks.STRIPPED_CHERRY_WOOD, 5, 5); instance.add(WoodworkBlocks.CHERRY_PLANKS, 5, 20); instance.add(WoodworkBlocks.CHERRY_LEAVES, 30, 60);
+        instance.add(WoodworkBlocks.CORK_OAK_LOG, 5, 5); instance.add(WoodworkBlocks.STRIPPED_CORK_OAK_LOG, 5, 5);instance.add(WoodworkBlocks.CORK_OAK_WOOD, 5, 5);
+        instance.add(WoodworkBlocks.STRIPPED_CORK_OAK_WOOD, 5, 5); instance.add(WoodworkBlocks.CORK_OAK_PLANKS, 5, 20); instance.add(WoodworkBlocks.CORK_OAK_LEAVES, 30, 60);
+        instance.add(WoodworkBlocks.JACARANDA_LOG, 5, 5); instance.add(WoodworkBlocks.STRIPPED_JACARANDA_LOG, 5, 5); instance.add(WoodworkBlocks.JACARANDA_WOOD, 5, 5);
+        instance.add(WoodworkBlocks.STRIPPED_JACARANDA_WOOD, 5, 5);instance.add(WoodworkBlocks.JACARANDA_PLANKS, 5, 20); instance.add(WoodworkBlocks.JACARANDA_LEAVES, 30, 60);
+        instance.add(WoodworkBlocks.MAHOE_LOG, 5, 5); instance.add(WoodworkBlocks.STRIPPED_MAHOE_LOG, 5, 5);instance.add(WoodworkBlocks.MAHOE_WOOD, 5, 5);
+        instance.add(WoodworkBlocks.STRIPPED_MAHOE_WOOD, 5, 5);instance.add(WoodworkBlocks.MAHOE_PLANKS, 5, 20); instance.add(WoodworkBlocks.MAHOE_LEAVES, 30, 60);
+        instance.add(WoodworkBlocks.MANGO_LOG, 5, 5); instance.add(WoodworkBlocks.STRIPPED_MANGO_LOG, 5, 5);instance.add(WoodworkBlocks.MANGO_WOOD, 5, 5);
+        instance.add(WoodworkBlocks.STRIPPED_MANGO_WOOD, 5, 5);instance.add(WoodworkBlocks.MANGO_PLANKS, 5, 20); instance.add(WoodworkBlocks.MANGO_LEAVES, 30, 60);
+        instance.add(WoodworkBlocks.WILLOW_LOG, 5, 5); instance.add(WoodworkBlocks.STRIPPED_WILLOW_LOG, 5, 5);instance.add(WoodworkBlocks.WILLOW_WOOD, 5, 5);
+        instance.add(WoodworkBlocks.STRIPPED_WILLOW_WOOD, 5, 5);instance.add(WoodworkBlocks.WILLOW_PLANKS, 5, 20); instance.add(WoodworkBlocks.WILLOW_LEAVES, 30, 60);
     }
 
     public static void registerCustomTrades(){
@@ -94,6 +100,8 @@ public class ModRegistries {
 
     private static void registerAttributes() {
         FabricDefaultAttributeRegistry.register(ModEntities.PENGUIN, PenguinEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.RACCOON, PenguinEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.SHADOW_CREATURE, ShadowCreatureEntity.setAttributes());
     }
 
 

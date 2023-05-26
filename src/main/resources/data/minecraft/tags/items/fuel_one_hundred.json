@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:oil_bucket",
+    "hmh2:banana_peel",
+    "hmh2:banana_sapling",
+    "hmh2:cherry_sapling",
+    "hmh2:jacaranda_sapling",
+    "hmh2:mahoe_sapling",
+    "hmh2:mango_sapling",
+    "hmh2:willow_sapling"
+  ]
+}

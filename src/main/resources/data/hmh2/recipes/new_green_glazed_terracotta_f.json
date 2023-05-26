@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "hmh2:new_green_terracotta"
+  },
+  "result": "hmh2:new_green_glazed_terracotta"
+}

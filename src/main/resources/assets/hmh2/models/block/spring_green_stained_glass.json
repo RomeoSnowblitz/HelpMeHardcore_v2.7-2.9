@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "hmh2:block/spring_green_stained_glass"
+  }
+}

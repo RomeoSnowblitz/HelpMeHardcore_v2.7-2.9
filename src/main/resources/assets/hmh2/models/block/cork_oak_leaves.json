@@ -1,0 +1,6 @@
+{
+  "parent": "block/leaves",
+  "textures": {
+    "all": "hmh2:block/cork_oak_leaves"
+  }
+}

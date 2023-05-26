@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "hmh2:raw_titanium"
+  },
+  "result": "hmh2:titanium_ingot",
+  "experience": 0.35,
+  "cookingtime": 100
+}

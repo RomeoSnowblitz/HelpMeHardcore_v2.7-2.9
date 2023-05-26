@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:prehnite"
+  },
+  "result": "hmh2:prehnite_dust",
+  "count": 4
+}
