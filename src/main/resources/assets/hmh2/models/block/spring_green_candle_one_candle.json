@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_candle",
+  "textures": {
+    "all": "hmh2:block/spring_green_candle",
+    "particle": "hmh2:block/spring_green_candle"
+  }
+}

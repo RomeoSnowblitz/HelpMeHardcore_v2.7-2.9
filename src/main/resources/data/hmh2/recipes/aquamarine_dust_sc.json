@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:aquamarine"
+  },
+  "result": "hmh2:aquamarine_dust",
+  "count": 4
+}

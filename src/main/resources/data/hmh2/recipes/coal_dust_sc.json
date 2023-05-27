@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:coal"
+  },
+  "result": "hmh2:coal_dust",
+  "count": 4
+}

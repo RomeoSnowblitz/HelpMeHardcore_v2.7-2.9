@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:cheese"
+  },
+  "result": "hmh2:cheese_slice",
+  "count": 4
+}

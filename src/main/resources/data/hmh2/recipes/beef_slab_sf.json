@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "hmh2:raw_beef_slab"
+  },
+  "result": "hmh2:beef_slab",
+  "experience": 0.7,
+  "cookingtime": 200
+}

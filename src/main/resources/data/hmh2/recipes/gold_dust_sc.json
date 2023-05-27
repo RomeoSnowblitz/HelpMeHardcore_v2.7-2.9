@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:raw_gold"
+  },
+  "result": "hmh2:gold_dust",
+  "count": 4
+}

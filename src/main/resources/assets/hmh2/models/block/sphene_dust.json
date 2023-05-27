@@ -1,0 +1,16 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "hmh2:block/sphene_dust",
+    "sphene_dust": "hmh2:block/sphene_dust"
+  },
+  "elements": [
+    {   "from": [ 0, 0, 0.1 ],
+      "to": [ 16, 16, 0.1 ],
+      "faces": {
+        "north": { "uv": [ 16, 0, 0, 16 ], "texture": "#sphene_dust" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#sphene_dust" }
+      }
+    }
+  ]
+}

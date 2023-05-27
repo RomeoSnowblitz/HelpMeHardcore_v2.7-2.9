@@ -1,0 +1,74 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:honeycomb_block"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:honey_block"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bee_nest"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hmh2:royal_jelly"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 32.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 16.0,
+                "min": 0.0
+              },
+              "function": "minecraft:looting_enchant"
+            }
+          ],
+          "name": "minecraft:honeycomb"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "hmh2:queen_bee_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hmh2:queen_bee_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hmh2:queen_bee_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hmh2:queen_bee_boots"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "hmh2:queen_bee_stinger"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "hmh2:block/rose_shulker_box_bottom",
+    "up": "hmh2:block/rose_shulker_box_top",
+    "north": "hmh2:block/rose_shulker_box_side",
+    "east": "hmh2:block/rose_shulker_box_side",
+    "south": "hmh2:block/rose_shulker_box_side",
+    "west": "hmh2:block/rose_shulker_box_side",
+    "particle": "hmh2:block/rose_shulker_box_side"
+  }
+}

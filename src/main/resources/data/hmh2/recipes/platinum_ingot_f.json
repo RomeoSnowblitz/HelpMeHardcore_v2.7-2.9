@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "hmh2:raw_platinum"
+  },
+  "result": "hmh2:platinum_ingot",
+  "experience": 0.35,
+  "cookingtime": 200
+}

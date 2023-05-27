@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:sphene"
+  },
+  "result": "hmh2:sphene_dust",
+  "count": 4
+}

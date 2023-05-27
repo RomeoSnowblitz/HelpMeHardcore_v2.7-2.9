@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " c ",
+    "nNn",
+    " c "
+  ],
+  "key": {
+    "c": {
+      "item": "hmh2:ender_ingot"
+    },
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "hmh2:revival_stone",
+    "count": 1
+  }
+}

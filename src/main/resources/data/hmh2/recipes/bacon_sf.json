@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "hmh2:raw_bacon"
+  },
+  "result": "hmh2:bacon",
+  "experience": 1.0,
+  "cookingtime": 100
+}

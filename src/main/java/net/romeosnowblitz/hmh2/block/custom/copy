@@ -1,0 +1,60 @@
+BADLANDS                 Amber
+BAMBOO_JUNGLE            Peridot
+BEACH                    Opal
+BIRCH_FOREST             Tsavorite
+COLD_OCEAN               Opal
+DESERT                   Amber
+DARK_FOREST              Diopside
+DEEP_COLD_OCEAN          Andalusite
+DEEP_DARK                Garnet
+DEEP_FROZEN_OCEAN        Sapphire
+DEEP_LUKEWARM_OCEAN      Aquamarine
+DRIPSTONE_CAVES          Topaz
+DEEP_OCEAN               Tanzanite
+FOREST                   Sphene
+FLOWER_FOREST            Ruby
+FROZEN_OCEAN             Moonstone
+JAGGED_PEAKS             Charcoal
+FROZEN_RIVER             Sapphire
+WINDSWEPT_HILLS          Zircon
+ICE_SPIKES               Diopside
+JUNGLE                   Citrine
+FROZEN_PEAKS             Zircon
+LUKEWARM_OCEAN           Aquamarine
+LUSH_CAVES               Malichite
+MEADOW                   Ruby
+MUSHROOM_FIELDS          Smoky Quartz
+MANGROVE_SWAMP           Spessarite
+OCEAN                    Tanzanite
+OLD_GROWTH_BIRCH_FOREST  Charcoal
+OLD_GROWTH_PINE_TAIGA    Charcoal
+OLD_GROWTH_SPRUCE_TAIGA  Tsavorite
+PLAINS                   Prehnite
+RIVER                    Sphene
+SAVANNA                  Hessonite
+SWAMP                    Tormaline
+SAVANNA_PLATEAU          Hessonite
+SNOWY_BEACH              Topaz
+SNOWY_PLAINS             Moonstone
+SNOWY_SLOPES             Andalusite
+SNOWY_TAIGA              Spinel
+STONY_PEAKS              Smoky Quartz
+STONY_SHORE              Malichite
+GROVE                    Peridot
+TAIGA                    Spinel
+WARM_OCEAN               Tormaline
+WINDSWEPT_FOREST         Prehnite
+WINDSWEPT_GRAVELLY_HILLS Charcoal
+SUNFLOWER_PLAINS         Citrine
+WINDSWEPT_SAVANNA        Spessarite
+WOODED_BADLANDS          Garnet
+
+    .food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 600, 0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.BAD_OMEN,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.CONDUIT_POWER,600,0),0.75F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.GLOWING,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.HASTE,600,0),0.75F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.HERO_OF_THE_VILLAGE,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_DAMAGE,600,0),0.75F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.LEVITATION,600,0),0.75F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.LUCK,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION,600,0),0.75F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.POISON,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.SATURATION,600,0),0.75F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.SPEED,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH,600,0),0.75F)
+            .statusEffect(new StatusEffectInstance(StatusEffects.UNLUCK,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.WATER_BREATHING,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,600,0),0.75F).statusEffect(new StatusEffectInstance(StatusEffects.WITHER,600,0),0.75F).build()).group(ModItemGroup.ITEM)));

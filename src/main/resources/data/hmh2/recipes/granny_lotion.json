@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hmh2:plastic"
+    },
+    {
+      "item": "hmh2:hoof_powder"
+    },
+    {
+      "item": "hmh2:heavy_cream"
+    },
+    {
+      "item": "hmh2:mysterious_white_debris"
+    },
+    {
+      "item": "hmh2:flour"
+    },
+    {
+      "item": "hmh2:ashes"
+    },
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    },
+    {
+      "tag": "minecraft:flowers"
+    }
+  ],
+  "result": {
+    "item": "hmh2:granny_lotion",
+    "count": 1
+  }
+}

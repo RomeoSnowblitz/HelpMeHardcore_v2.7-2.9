@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#S",
+    "S#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:blaze_powder"
+    },
+    "S": {
+      "item": "hmh2:hellstone"
+    }
+  },
+  "result": {
+    "item": "hmh2:nether_prismarine",
+    "count": 1
+  }
+}

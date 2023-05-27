@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:tormaline"
+  },
+  "result": "hmh2:tormaline_dust",
+  "count": 4
+}

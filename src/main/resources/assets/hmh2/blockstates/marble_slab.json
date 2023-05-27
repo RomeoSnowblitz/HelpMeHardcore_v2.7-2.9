@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hmh2:block/marble_slab"
+    },
+    "type=double": {
+      "model": "hmh2:block/marble"
+    },
+    "type=top": {
+      "model": "hmh2:block/marble_slab_top"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right_open",
+  "textures": {
+    "bottom": "hmh2:block/jacaranda_door_bottom",
+    "top": "hmh2:block/jacaranda_door_top"
+  }
+}

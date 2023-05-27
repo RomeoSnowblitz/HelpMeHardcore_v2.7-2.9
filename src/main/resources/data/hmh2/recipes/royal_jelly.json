@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#B#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:honeycomb"
+    },
+    "B": {
+      "item": "hmh2:honey_bucket"
+    }
+  },
+  "result": {
+    "item": "hmh2:royal_jelly",
+    "count": 1
+  }
+}

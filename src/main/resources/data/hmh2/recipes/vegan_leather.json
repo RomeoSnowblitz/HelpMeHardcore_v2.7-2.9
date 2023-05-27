@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hmh2:cork"
+    },
+    {
+      "item": "hmh2:plastic"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    }
+  ],
+  "result": {
+    "item": "hmh2:vegan_leather",
+    "count": 1
+  }
+}

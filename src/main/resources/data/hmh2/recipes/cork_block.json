@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:cork"
+    }
+  },
+  "result": {
+    "item": "hmh2:cork_block",
+    "count": 1
+  }
+}

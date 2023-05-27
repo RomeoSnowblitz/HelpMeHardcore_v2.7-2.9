@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "moisture=0": {
+      "model": "hmh2:block/warped_farmland"
+    },
+    "moisture=1": {
+      "model": "hmh2:block/warped_farmland"
+    },
+    "moisture=2": {
+      "model": "hmh2:block/warped_farmland"
+    },
+    "moisture=3": {
+      "model": "hmh2:block/warped_farmland"
+    },
+    "moisture=4": {
+      "model": "hmh2:block/warped_farmland"
+    },
+    "moisture=5": {
+      "model": "hmh2:block/warped_farmland"
+    },
+    "moisture=6": {
+      "model": "hmh2:block/warped_farmland"
+    },
+    "moisture=7": {
+      "model": "hmh2:block/warped_farmland_moist"
+    }
+  }
+}

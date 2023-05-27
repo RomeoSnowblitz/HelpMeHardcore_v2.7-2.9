@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:moonstone"
+  },
+  "result": "hmh2:moonstone_dust",
+  "count": 4
+}
