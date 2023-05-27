@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": {"model": "hmh2:block/deepslate_diopside_ore" }
+    "": {
+      "model": "hmh2:block/deepslate_diopside_ore"
+    }
   }
 }

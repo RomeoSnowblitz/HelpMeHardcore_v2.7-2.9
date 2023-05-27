@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": {"model": "hmh2:block/hessonite_ore" }
+    "": {
+      "model": "hmh2:block/hessonite_ore"
+    }
   }
 }

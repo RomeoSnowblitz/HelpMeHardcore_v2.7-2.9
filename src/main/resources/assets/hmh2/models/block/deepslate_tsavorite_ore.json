@@ -1,5 +1,5 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "hmh2:block/deepslate_tsavorite_ore"
   }

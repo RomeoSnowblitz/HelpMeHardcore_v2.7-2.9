@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": {"model": "hmh2:block/hellstone_block" }
+    "": {
+      "model": "hmh2:block/hellstone_block"
+    }
   }
 }

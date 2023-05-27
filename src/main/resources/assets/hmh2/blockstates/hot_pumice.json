@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": {"model": "hmh2:block/hot_pumice" }
+    "": {
+      "model": "hmh2:block/hot_pumice"
+    }
   }
 }

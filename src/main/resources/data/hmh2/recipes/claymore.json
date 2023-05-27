@@ -1,19 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "i",
-    "g",
-    "/"
+    " i",
+    "I "
   ],
   "key": {
     "i": {
-      "item": "hmh2:silver_ingot"
+      "tag": "hmh2:mod_irons"
     },
-    "g": {
-      "item": "hmh2:titanium_ingot"
-    },
-    "/": {
-      "item": "minecraft:stick"
+    "I": {
+      "item": "minecraft:iron_sword"
     }
   },
   "result": {

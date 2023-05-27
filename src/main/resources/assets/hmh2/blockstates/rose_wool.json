@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": {"model": "hmh2:block/rose_wool" }
+    "": {
+      "model": "hmh2:block/rose_wool"
+    }
   }
 }

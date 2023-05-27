@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:iron_sword"
-  },
-  "result": "hmh2:hawkbrand",
-  "count": 1
-}

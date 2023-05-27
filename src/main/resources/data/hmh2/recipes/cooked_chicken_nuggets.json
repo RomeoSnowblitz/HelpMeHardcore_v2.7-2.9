@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "hmh2:raw_chicken_nugget"
-  },
-  "result": "hmh2:chicken_nugget",
-  "experience": 0.1,
-  "cookingtime": 20
-}

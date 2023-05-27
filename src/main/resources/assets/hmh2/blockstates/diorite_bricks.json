@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": {"model": "hmh2:block/diorite_bricks" }
+    "": {
+      "model": "hmh2:block/diorite_bricks"
+    }
   }
 }

@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": {"model": "hmh2:block/granite_bricks" }
+    "": {
+      "model": "hmh2:block/granite_bricks"
+    }
   }
 }

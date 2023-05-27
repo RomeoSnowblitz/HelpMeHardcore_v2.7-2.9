@@ -79,7 +79,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "hmh2:cow_hoof"
+          "name": "hmh2:hoof"
         }
       ],
       "conditions": [

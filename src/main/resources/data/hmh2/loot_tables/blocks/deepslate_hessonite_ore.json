@@ -25,11 +25,25 @@
                   }
                 }
               ],
-              "name": "hmh2:deepslate_hessonite_ore"
+              "name": "hmh2:deepslate_garnet_ore"
             },
             {
               "type": "minecraft:item",
-              "name": "hmh2:hessonite"
+              "functions": [
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:ore_drops",
+                  "function": "minecraft:apply_bonus"
+                },
+                {
+                  "function": "minecraft:explosion_decay"
+                }
+              ],
+              "name": "hmh2:garnet"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hmh2:garnet"
             }
           ]
         }

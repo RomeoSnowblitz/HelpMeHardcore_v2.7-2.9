@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "hmh2:raw_chicken_slab"
-  },
-  "result": "hmh2:chicken_slab",
-  "experience": 0.7,
-  "cookingtime": 400
-}

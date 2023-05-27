@@ -1,5 +1,7 @@
 {
   "variants": {
-    "": {"model": "hmh2:block/tormaline_ore" }
+    "": {
+      "model": "hmh2:block/tormaline_ore"
+    }
   }
 }

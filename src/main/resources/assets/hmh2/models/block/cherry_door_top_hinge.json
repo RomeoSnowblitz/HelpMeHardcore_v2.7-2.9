@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_top_rh",
-  "textures": {
-    "top": "hmh2:block/cherry_door_top",
-    "bottom": "hmh2:block/cherry_door_bottom"
-  }
-}
