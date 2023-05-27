@@ -10,10 +10,6 @@ public class ModDataGeneration implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-
-        pack.addProvider(ModLootTableGenerator::new);
-        pack.addProvider(ModModelProvider::new);
-        pack.addProvider(ModWorldGenerator::new);
     }
 
     public void buildRegistry(RegistryBuilder registryBuilder){

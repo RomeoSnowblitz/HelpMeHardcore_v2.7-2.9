@@ -4,35 +4,35 @@ import com.google.common.collect.Lists;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Pair;
 import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.*;
 import net.minecraft.world.border.WorldBorder;
@@ -40,27 +40,34 @@ import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.explosion.Explosion;
 import net.minecraft.world.explosion.ExplosionBehavior;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.romeosnowblitz.hmh2.entity.MobEntities;
-import net.romeosnowblitz.hmh2.entity.mob.SoldierBeeEntity;
+import net.romeosnowblitz.hmh2.block.ModBlocks;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Queue;
 
+/*
 public class TestBlock extends Block {
     public static final IntProperty AGE;
     public static final int MAX_AGE = 15;
     protected static final int field_31045 = 1;
     private final RegistryKey<ConfiguredFeature<?, ?>> featureKey;
+    public static final BooleanProperty LIT;
     public TestBlock(Settings settings, RegistryKey<ConfiguredFeature<?, ?>> featureKey) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
         this.featureKey = featureKey;
     }
 
+
+
+
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
         if(world.isClient()){
             Direction north = Direction.NORTH;Direction south = Direction.SOUTH;Direction east= Direction.EAST;Direction west = Direction.WEST;
-            /*
+
            if(placer.getHorizontalFacing() == north) {placer.setVelocity(0, 4, -8);}
            if(placer.getHorizontalFacing() == south) {placer.setVelocity(0, 4, 8);}
            if(placer.getHorizontalFacing() == east) {placer.setVelocity(8, 4, 0);}
@@ -69,7 +76,7 @@ public class TestBlock extends Block {
            if(placer.isSneaking() && placer.getHorizontalFacing() == south)  {placer.setVelocity(0, 4, -8);}
            if(placer.isSneaking() && placer.getHorizontalFacing() == east)  {placer.setVelocity(-8, 4, 0);}
            if(placer.isSneaking() && placer.getHorizontalFacing() == west)  {placer.setVelocity(8, 4, 0);}
-             */
+
         }
         if (world.getDimension().ultrawarm()) {
             world.setBlockState(pos, Blocks.SPONGE.getDefaultState(), 3);
@@ -99,7 +106,6 @@ public class TestBlock extends Block {
         if (!state.canPlaceAt(world, pos)) {
             world.scheduleBlockTick(pos, this, 1);
         }
-
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
@@ -165,7 +171,7 @@ public class TestBlock extends Block {
     }
 
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        /*
+
         if (world instanceof ServerWorld && !entity.hasVehicle() && !entity.hasPassengers() && entity.canUsePortals() && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset((double)(-pos.getX()), (double)(-pos.getY()), (double)(-pos.getZ()))), state.getOutlineShape(world, pos), BooleanBiFunction.AND)) {
             RegistryKey<World> registryKey = world.getRegistryKey() == World.END ? World.OVERWORLD : World.END;
             ServerWorld serverWorld = ((ServerWorld)world).getServer().getWorld(registryKey);
@@ -174,7 +180,7 @@ public class TestBlock extends Block {
             }
             entity.moveToWorld(serverWorld);
         }
-         */
+
         if (world instanceof ServerWorld && entity instanceof PlayerEntity) {
             world.breakBlock(new BlockPos(pos), true, entity);
         }
@@ -223,50 +229,59 @@ public class TestBlock extends Block {
         super.onLandedUpon(world, state, pos, entity, fallDistance);
     }
 
-
     public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
-        Block shiny = Blocks.GOLD_BLOCK;
-        SoundEvent twinkle = SoundEvents.BLOCK_AMETHYST_BLOCK_HIT;
-        Hand hand = Hand.OFF_HAND;
-        LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(world);
+        Block x = Blocks.GOLD_BLOCK;
         BlockPos blockPos = hit.getBlockPos();
-        PlayerEntity player = world.getClosestPlayer(blockPos.getX(), blockPos.getY(), blockPos.getZ(), 100, EntityPredicates.VALID_ENTITY);
-        Box box = projectile.getBoundingBox().expand(blockPos.getX()+100, blockPos.getY()+100, blockPos.getZ()+100);
-        PigEntity nearestPig = projectile.world.getClosestEntity(PigEntity.class, TargetPredicate.DEFAULT, null, projectile.getX(), projectile.getY(), projectile.getZ(), box);
+
         if (!world.isClient && projectile.isOnFire()) {
-            world.setBlockState(blockPos.up(), shiny.getDefaultState());
-            world.playSound(null, blockPos, twinkle, SoundCategory.BLOCKS, 1.0F, 0.5F + world.random.nextFloat() * 1.2F);
+            world.setBlockState(blockPos.up(), x.getDefaultState());
+            world.playSound(null, blockPos, SoundEvents.BLOCK_AMETHYST_BLOCK_HIT, SoundCategory.BLOCKS, 1.0F, 0.5F + world.random.nextFloat() * 1.2F);
+            LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(world);
             lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(blockPos.up()));
             world.spawnEntity(lightningEntity);
         }
         if (projectile.isOnFire() || !projectile.isOnFire()) {
-            player.addExperienceLevels(1);
             teleport(state, world, blockPos);
-            if(player.getStackInHand(hand).isOf(Items.GLOWSTONE_DUST)){
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 100, 9));
-                nearestPig.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 100, 9));
-                //explode(state, world, nearestPig.getBlockPos()); This will make nearby pigs explode
-            }
-            if(player.getStackInHand(hand).isOf(Items.ENDER_PEARL)){
-                player.teleport(blockPos.getX(), blockPos.getY(), blockPos.getZ());
-            }
+            explode(state, world, blockPos);
         }
+
     }
 
 
 
     public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
-
+        light(state, world, pos);
         super.onBlockBreakStart(state, world, pos, player);
     }
 
     public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
+        if (world instanceof World world2) {
+            if (!world2.isAir(pos.up()) && !world2.isAir(pos.up().up()) && !world2.isAir(pos.up().up().north()) &&
+                    !world2.isAir(pos.up().up().south()) && !world2.isAir(pos.up().up().east()) && !world2.isAir(pos.up().up().west()) &&
+                    !world2.isAir(pos.up().up().north().east()) && !world2.isAir(pos.up().up().north().west()) &&
+                    !world2.isAir(pos.up().up().south().east()) && !world2.isAir(pos.up().up().south().west())) {
+                world2.setBlockState(pos.up(), Blocks.AIR.getDefaultState());
+                world2.setBlockState(pos.up().up(), Blocks.AIR.getDefaultState());
+                world2.setBlockState(pos.up().up().north(), Blocks.AIR.getDefaultState());
+                world2.setBlockState(pos.up().up().south(), Blocks.AIR.getDefaultState());
+                world2.setBlockState(pos.up().up().east(), Blocks.AIR.getDefaultState());
+                world2.setBlockState(pos.up().up().west(), Blocks.AIR.getDefaultState());
+                world2.setBlockState(pos.up().up().north().east(), Blocks.AIR.getDefaultState());
+                world2.setBlockState(pos.up().up().north().west(), Blocks.AIR.getDefaultState());
+                world2.setBlockState(pos.up().up().south().east(), Blocks.AIR.getDefaultState());
+                world2.setBlockState(pos.up().up().south().west(), Blocks.AIR.getDefaultState());
+            }
+        }
+        ItemEntity itemEntity = new ItemEntity((World) world, pos.getX(),pos.getY(),pos.getZ(), new ItemStack(ModBlocks.TEST_BLOCK));
+        world.spawnEntity(itemEntity);
+
         BlockPos blockPos = pos.up();
         SoldierBeeEntity soldierBeeEntity = MobEntities.SOLDIER_BEE.create((World) world);
         if (world.isAir(blockPos)) {
             soldierBeeEntity.refreshPositionAndAngles((double)pos.getX() + 0.5, pos.getY(), (double)pos.getZ() + 0.5, 0.0f, 0.0f);
             world.spawnEntity(soldierBeeEntity);
         }
+
         if (isCoalNearby(world, pos)) {
             explode(state, (World) world, pos);
         }
@@ -275,6 +290,7 @@ public class TestBlock extends Block {
         player.incrementStat(Stats.MINED.getOrCreateStat(this));
         player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 100));
         player.addExhaustion(0.005F);
+        primeTnt(world, pos);
         dropStacks(state, world, pos, blockEntity, player, stack);
     }
 
@@ -368,18 +384,18 @@ public class TestBlock extends Block {
             }
         };
         Vec3d vec3d = explodedPos.toCenterPos();
-        world.createExplosion((Entity)null, world.getDamageSources().badRespawnPoint(vec3d), explosionBehavior, vec3d, 2.0F, true, World.ExplosionSourceType.BLOCK);
+        world.createExplosion(null, DamageSource.badRespawnPoint(vec3d), explosionBehavior, vec3d, 2.0F, true, World.ExplosionSourceType.BLOCK);
     }
 
     public static void primeTnt(World world, BlockPos pos) {
-        primeTnt(world, pos, (LivingEntity)null);
+        primeTnt(world, pos, null);
     }
 
     private static void primeTnt(World world, BlockPos pos, @Nullable LivingEntity igniter) {
         if (!world.isClient) {
-            TntEntity tntEntity = new TntEntity(world, (double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, igniter);
+            TntEntity tntEntity = new TntEntity(world, (double)pos.getX() + 0.5D, pos.getY(), (double)pos.getZ() + 0.5D, igniter);
             world.spawnEntity(tntEntity);
-            world.playSound((PlayerEntity)null, tntEntity.getX(), tntEntity.getY(), tntEntity.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.playSound(null, tntEntity.getX(), tntEntity.getY(), tntEntity.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
             world.emitGameEvent(igniter, GameEvent.PRIME_FUSE, pos);
         }
     }
@@ -412,20 +428,34 @@ public class TestBlock extends Block {
 
     }
 
+    private static void light(BlockState state, World world, BlockPos pos) {
+        if (!(Boolean) state.get(LIT)) {
+            world.setBlockState(pos, (BlockState) state.with(LIT, true), 3);
+        }
+    }
+
     public boolean hasRandomTicks(BlockState state) {
-        return false;
+        return (Boolean)state.get(LIT);
     }
 
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        spawnParticles(world, pos);
+        if ((Boolean)state.get(LIT)) {
+            spawnParticles(world, pos);
+        }
+
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(AGE);
+        builder.add(AGE, LIT);
     }
+
+
 
     static {
         AGE = Properties.AGE_15;
+        LIT = RedstoneTorchBlock.LIT;
     }
 
 }
+
+ */

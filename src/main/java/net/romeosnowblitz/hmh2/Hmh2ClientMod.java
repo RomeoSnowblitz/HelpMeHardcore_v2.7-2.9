@@ -14,6 +14,8 @@ import net.romeosnowblitz.hmh2.entity.MobEntities;
 import net.romeosnowblitz.hmh2.entity.client.*;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.screen.BackpackScreen;
+import net.romeosnowblitz.hmh2.screen.CheesePressScreen;
+import net.romeosnowblitz.hmh2.screen.FreezerScreen;
 import net.romeosnowblitz.hmh2.screen.ModScreenHandlers;
 import net.romeosnowblitz.hmh2.util.ModModelPredicateProvider;
 
@@ -187,16 +189,14 @@ public class Hmh2ClientMod implements ClientModInitializer {
         EntityRendererRegistry.register(MobEntities.SHADOW_CREATURE, ShadowCreatureRenderer::new);
         EntityRendererRegistry.register(MobEntities.SOLDIER_BEE, SoldierBeeRenderer::new);
         EntityRendererRegistry.register(MobEntities.THE_GREAT_HUNGER, TheGreatHungerRenderer::new);
+        EntityRendererRegistry.register(MobEntities.CAL, CalRenderer::new);
         EntityRendererRegistry.register(MobEntities.HELLMITE, HellmiteRenderer::new);
         EntityRendererRegistry.register(MobEntities.MAGMITE, MagmiteRenderer::new);
-        EntityRendererRegistry.register(MobEntities.CAL, CalRenderer::new);
         EntityRendererRegistry.register(MobEntities.SCULKMITE, SculkmiteRenderer::new);
 
         ScreenRegistry.register(ModScreenHandlers.BACKPACK_SCREEN_HANDLER, BackpackScreen::new);
-        /*
         ScreenRegistry.register(ModScreenHandlers.CHEESE_PRESS_SCREEN_HANDLER, CheesePressScreen::new);
         ScreenRegistry.register(ModScreenHandlers.FREEZER_SCREEN_HANDLER, FreezerScreen::new);
-         */
 
     }
 }

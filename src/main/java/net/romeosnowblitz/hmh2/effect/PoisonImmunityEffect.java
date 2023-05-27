@@ -9,6 +9,7 @@ public class PoisonImmunityEffect extends StatusEffect {
     public PoisonImmunityEffect(StatusEffectCategory statusEffectCategory, int color) {
         super(statusEffectCategory, color);
     }
+
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         if (this == CustomEffects.POISON_IMMUNITY && entity.hasStatusEffect(StatusEffects.POISON)) {
             entity.removeStatusEffect(StatusEffects.POISON);

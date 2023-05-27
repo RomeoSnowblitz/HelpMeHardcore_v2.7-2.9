@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "hmh2:block/ender_corn_seeds_stage7"
+  }
+}

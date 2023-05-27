@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hmh2:endchilada"
+    ]
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:cooked_beef",
+              "minecraft:cooked_porkchop",
+              "minecraft:cooked_chicken",
+              "minecraft:cooked_rabbit",
+              "minecraft:cooked_mutton",
+              "hmh2:cheese",
+              "hmh2:ender_corn",
+              "hmh2:tortilla"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hmh2:endchilada"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item",
+      "has_the_recipe"
+    ]
+  ]
+}

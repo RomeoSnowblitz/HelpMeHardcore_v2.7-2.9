@@ -9,6 +9,7 @@ public class LunarWolfPerceptionEffect extends StatusEffect {
     public LunarWolfPerceptionEffect(StatusEffectCategory statusEffectCategory, int color) {
         super(statusEffectCategory, color);
     }
+
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         if (this == CustomEffects.LUNAR_WOLF_PERCEPTION && entity.hasStatusEffect(StatusEffects.BLINDNESS)) {
             entity.removeStatusEffect(StatusEffects.BLINDNESS);

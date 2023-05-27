@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "hmh2:flour"
+    }
+  ],
+  "result": {
+    "item": "hmh2:dough",
+    "count": 1
+  }
+}

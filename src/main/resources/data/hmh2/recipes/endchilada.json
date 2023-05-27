@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hmh2:ender_corn"
+    },
+    {
+      "item": "hmh2:tortilla"
+    },
+    {
+      "tag": "hmh2:meats"
+    },
+    {
+      "item": "hmh2:cheese"
+    }
+  ],
+  "result": {
+    "item": "hmh2:endchilada",
+    "count": 1
+  }
+}

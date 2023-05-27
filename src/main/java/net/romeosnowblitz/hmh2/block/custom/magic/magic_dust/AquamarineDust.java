@@ -55,6 +55,11 @@ public class AquamarineDust extends MultifaceGrowthBlock implements Waterloggabl
     }
 
     @Override
+    public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
+        return state.getFluidState().isEmpty();
+    }
+
+    @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         LivingEntity livingEntity;
         if (world.isClient || world.getDifficulty() == Difficulty.PEACEFUL) {

@@ -86,9 +86,8 @@ public class ModPistonExtensionBlock extends BlockWithEntity {
         return ActionResult.PASS;
     }
 
-    @Override
     public List<ItemStack> getDroppedStacks(BlockState state, LootContext.Builder builder) {
-        ModPistonBlockEntity pistonBlockEntity = this.getPistonBlockEntity(builder.getWorld(), BlockPos.ofFloored((Position)builder.get(LootContextParameters.ORIGIN)));
+        ModPistonBlockEntity pistonBlockEntity = this.getPistonBlockEntity(builder.getWorld(), BlockPos.ofFloored(builder.get(LootContextParameters.ORIGIN)));
         return pistonBlockEntity == null ? Collections.emptyList() : pistonBlockEntity.getPushedBlock().getDroppedStacks(builder);
     }
 

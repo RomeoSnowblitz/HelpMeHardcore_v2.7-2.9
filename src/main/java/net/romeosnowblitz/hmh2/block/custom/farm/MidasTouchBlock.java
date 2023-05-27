@@ -11,6 +11,6 @@ public class MidasTouchBlock extends ModCropBlock {
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return ModItems.ENDER_CORN_SEEDS;
+        return ModItems.MIDAS_SEEDS;
     }
 }

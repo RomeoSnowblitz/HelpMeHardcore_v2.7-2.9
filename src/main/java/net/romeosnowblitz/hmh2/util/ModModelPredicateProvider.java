@@ -9,7 +9,6 @@ public class ModModelPredicateProvider {
     public static void registerModModels() {
 
         registerBambooBow(ModItems.BAMBOO_BOW);
-        registerSpear(ModItems.SPEAR);
         registerBambooShield(ModItems.BAMBOO_SHIELD);
     }
 

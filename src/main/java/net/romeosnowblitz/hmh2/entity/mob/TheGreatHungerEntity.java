@@ -139,7 +139,7 @@ public class TheGreatHungerEntity extends TameableEntity implements GeoEntity, A
 
     @Override
     public boolean tryAttack(Entity target) {
-        boolean bl = target.damage(world.getDamageSources().mobAttack(this), (int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE));
+        boolean bl = target.damage(target.getDamageSources().mobAttack(this), (int)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE));
         if (bl) {this.applyDamageEffects(this, target);}return bl;
     }
 

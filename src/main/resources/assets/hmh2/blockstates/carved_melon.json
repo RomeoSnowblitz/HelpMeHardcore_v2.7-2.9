@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "hmh2:block/carved_melon",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "hmh2:block/carved_melon"
+    },
+    "facing=south": {
+      "model": "hmh2:block/carved_melon",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "hmh2:block/carved_melon",
+      "y": 270
+    }
+  }
+}

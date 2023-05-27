@@ -31,7 +31,6 @@ import org.slf4j.LoggerFactory;
 import java.util.IdentityHashMap;
 import java.util.Map;
 
-/*
 // TODO: Clamp values to 32767 (+ add hook for mods which extend the limit to disable the check?)
 public final class ModFuelRegistryImpl implements FuelRegistry {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ModFuelRegistryImpl.class);
@@ -51,7 +50,7 @@ public final class ModFuelRegistryImpl implements FuelRegistry {
 		Map<Item, Integer> ret = fuelTimeCache;
 
 		if (ret == null) {
-			fuelTimeCache = ret = new IdentityHashMap<>(ModAbstractFurnaceBlockEntity.createModFuelTimeMap()); // IdentityHashMap is faster than vanilla's LinkedHashMap and suitable for Item keys
+			// fuelTimeCache = ret = new IdentityHashMap<>(ModAbstractFurnaceBlockEntity.createModFuelTimeMap()); // IdentityHashMap is faster than vanilla's LinkedHashMap and suitable for Item keys
 		}
 
 		return ret;
@@ -106,6 +105,7 @@ public final class ModFuelRegistryImpl implements FuelRegistry {
 		resetCache();
 	}
 
+	/*
 	public void apply(Map<Item, Integer> map) {
 		// tags take precedence before blocks
 		for (TagKey<Item> tag : tagCookTimes.keySet()) {
@@ -129,6 +129,7 @@ public final class ModFuelRegistryImpl implements FuelRegistry {
 			}
 		}
 	}
+	 */
 
 	private static String getTagName(TagKey<?> tag) {
 		return tag.id().toString();
@@ -138,5 +139,3 @@ public final class ModFuelRegistryImpl implements FuelRegistry {
 		fuelTimeCache = null;
 	}
 }
-
- */

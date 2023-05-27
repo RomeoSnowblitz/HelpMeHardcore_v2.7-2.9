@@ -113,9 +113,9 @@ public class ModRegistries {
         FabricDefaultAttributeRegistry.register(MobEntities.SHADOW_CREATURE, ShadowCreatureEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(MobEntities.SOLDIER_BEE, SoldierBeeEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(MobEntities.THE_GREAT_HUNGER, TheGreatHungerEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(MobEntities.CAL, CalEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(MobEntities.HELLMITE, HellmiteEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(MobEntities.MAGMITE, MagmiteEntity.setAttributes());
-        FabricDefaultAttributeRegistry.register(MobEntities.CAL, CalEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(MobEntities.SCULKMITE, SculkmiteEntity.setAttributes());
     }
 

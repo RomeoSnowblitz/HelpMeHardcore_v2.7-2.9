@@ -24,8 +24,7 @@ import net.romeosnowblitz.hmh2.entity.mob.SoldierBeeEntity;
 
 import java.util.function.Predicate;
 
-public class QueenBeeSummonBlock extends HorizontalFacingBlock
-        implements Equipment {
+public class QueenBeeSummonBlock extends HorizontalFacingBlock {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     private BlockPattern soldierBeePattern;
@@ -119,8 +118,4 @@ public class QueenBeeSummonBlock extends HorizontalFacingBlock
         return this.queenBeePattern;
     }
 
-    @Override
-    public EquipmentSlot getSlotType() {
-        return EquipmentSlot.HEAD;
-    }
 }

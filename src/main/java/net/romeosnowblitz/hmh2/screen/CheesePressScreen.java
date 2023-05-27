@@ -9,7 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 
-/*
+
 public class CheesePressScreen extends HandledScreen<CheesePressScreenHandler> {
     private static final Identifier TEXTURE =
             new Identifier(Hmh2.MOD_ID, "textures/gui/cheese_press_gui.png");
@@ -49,5 +49,3 @@ public class CheesePressScreen extends HandledScreen<CheesePressScreenHandler> {
         drawMouseoverTooltip(matrices, mouseX, mouseY);
     }
 }
-
- */

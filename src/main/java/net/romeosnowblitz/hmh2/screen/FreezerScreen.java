@@ -9,7 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 
-/*
+
 public class FreezerScreen extends HandledScreen<FreezerScreenHandler> {
     private static final Identifier TEXTURE =
             new Identifier(Hmh2.MOD_ID, "textures/gui/freezer_gui.png");
@@ -49,5 +49,3 @@ public class FreezerScreen extends HandledScreen<FreezerScreenHandler> {
         drawMouseoverTooltip(matrices, mouseX, mouseY);
     }
 }
-
- */

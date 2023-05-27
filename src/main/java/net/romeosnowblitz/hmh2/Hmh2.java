@@ -13,7 +13,6 @@ import net.romeosnowblitz.hmh2.item.ModItems;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
 import net.romeosnowblitz.hmh2.painting.ModPaintings;
 import net.romeosnowblitz.hmh2.potion.ModPotions;
-import net.romeosnowblitz.hmh2.recipe.ModRecipes;
 import net.romeosnowblitz.hmh2.screen.ModScreenHandlers;
 import net.romeosnowblitz.hmh2.sounds.ModSounds;
 import net.romeosnowblitz.hmh2.util.ModRegistries;
@@ -45,7 +44,6 @@ public class Hmh2 implements ModInitializer {
 		ModPotions.registerPotions();
 		CustomEffects.registerEffects();
 		ModBlockEntities.registerAllBlockEntities();
-		ModRecipes.registerRecipes();
 		ModScreenHandlers.registerAllScreenHandlers();
 
 		GeckoLib.initialize();
