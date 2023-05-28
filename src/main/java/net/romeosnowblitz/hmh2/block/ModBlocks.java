@@ -17,6 +17,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.custom.SandSculk;
@@ -37,7 +38,6 @@ import net.romeosnowblitz.hmh2.sounds.ModSounds;
 import static net.romeosnowblitz.hmh2.item.custom.dyes.ModDyeColor.*;
 
 public class ModBlocks {
-
     //New Blocks
     public static final Block MOD_COMPOSTER = resisterBlock("mod_composter", new ModComposterBlock(AbstractBlock.Settings.of(Material.WOOD).strength(0.6F).sounds(BlockSoundGroup.WOOD)), ModItemGroup.MOD);
     public static final Block SAND_SCULK = resisterBlock("sand_sculk", new SandSculk(AbstractBlock.Settings.of(Material.SCULK).strength(1.0f)), ModItemGroup.MOD);
