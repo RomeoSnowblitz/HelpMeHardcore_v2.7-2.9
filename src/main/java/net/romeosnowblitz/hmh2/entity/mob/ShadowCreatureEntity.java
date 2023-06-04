@@ -10,7 +10,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -39,24 +38,21 @@ public class ShadowCreatureEntity extends HostileEntity implements GeoEntity {
         super(entityType, world);
     }
 
-
     public static DefaultAttributeContainer.Builder setAttributes() {
         return TameableEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 1.0D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 1.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.0f)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 1024f);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1f);
     }
 
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(2, new WanderAroundPointOfInterestGoal(this, 0.75f, false));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
         this.goalSelector.add(4, new LookAroundGoal(this));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
         this.goalSelector.add(1, new AttackGoal(this));
-        this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, true).setMaxTimeWithoutVisibility(300));
+        this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true).setMaxTimeWithoutVisibility(300));
     }
 
     private PlayState predicate(software.bernie.geckolib.core.animation.AnimationState animationState) {
@@ -69,17 +65,11 @@ public class ShadowCreatureEntity extends HostileEntity implements GeoEntity {
         return PlayState.CONTINUE;
     }
 
-    public static ItemStack getXRay() {
-        ItemStack itemStack = new ItemStack(ModBlocks.XRAY);
-        return itemStack;
-    }
-
     @Override
     public boolean tryAttack(Entity target) {
         if (!super.tryAttack(target)) {
             return false;
         }
-        ItemStack itemStack = null;
         LivingEntity livingEntity = getTarget();
         StatusEffectInstance statusEffectInstance = livingEntity.getStatusEffect(CustomEffects.HEALTH_SHRINKAGE);
         if (target instanceof LivingEntity) {

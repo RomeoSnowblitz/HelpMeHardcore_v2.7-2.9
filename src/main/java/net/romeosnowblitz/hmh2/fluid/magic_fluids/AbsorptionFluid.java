@@ -31,7 +31,35 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public abstract class AbsorptionFluid extends FlowableFluid {
-    public AbsorptionFluid() {
+    public static class Flowing extends AbsorptionFluid {
+        public Flowing() {
+        }
+
+        protected void appendProperties(StateManager.Builder<Fluid, FluidState> builder) {
+            super.appendProperties(builder);
+            builder.add(new Property[]{LEVEL});
+        }
+
+        public int getLevel(FluidState state) {
+            return (Integer)state.get(LEVEL);
+        }
+
+        public boolean isStill(FluidState state) {
+            return false;
+        }
+    }
+
+    public static class Still extends AbsorptionFluid {
+        public Still() {
+        }
+
+        public int getLevel(FluidState state) {
+            return 8;
+        }
+
+        public boolean isStill(FluidState state) {
+            return true;
+        }
     }
 
     public Fluid getFlowing() {
@@ -110,36 +138,5 @@ public abstract class AbsorptionFluid extends FlowableFluid {
 
     public Optional<SoundEvent> getBucketFillSound() {
         return Optional.of(SoundEvents.ITEM_BUCKET_FILL);
-    }
-
-    public static class Flowing extends AbsorptionFluid {
-        public Flowing() {
-        }
-
-        protected void appendProperties(StateManager.Builder<Fluid, FluidState> builder) {
-            super.appendProperties(builder);
-            builder.add(new Property[]{LEVEL});
-        }
-
-        public int getLevel(FluidState state) {
-            return (Integer)state.get(LEVEL);
-        }
-
-        public boolean isStill(FluidState state) {
-            return false;
-        }
-    }
-
-    public static class Still extends AbsorptionFluid {
-        public Still() {
-        }
-
-        public int getLevel(FluidState state) {
-            return 8;
-        }
-
-        public boolean isStill(FluidState state) {
-            return true;
-        }
     }
 }

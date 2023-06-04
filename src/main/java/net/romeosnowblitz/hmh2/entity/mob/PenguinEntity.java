@@ -25,6 +25,7 @@ import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
 import net.romeosnowblitz.hmh2.item.ModItems;
+import net.romeosnowblitz.hmh2.item.SustenanceItems;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
@@ -52,7 +53,7 @@ public class PenguinEntity extends TameableEntity implements GeoEntity {
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return stack.getItem() == ModItems.CHOCOLATE_ICE_CREAM;
+        return stack.getItem() == SustenanceItems.CHOCOLATE_ICE_CREAM;
     }
 
     public static DefaultAttributeContainer.Builder setAttributes() {

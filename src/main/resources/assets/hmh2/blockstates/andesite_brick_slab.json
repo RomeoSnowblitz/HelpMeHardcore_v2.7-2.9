@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hmh2:block/andesite_brick_slab"
+    },
+    "type=double": {
+      "model": "hmh2:block/andesite_bricks"
+    },
+    "type=top": {
+      "model": "hmh2:block/andesite_brick_slab_top"
+    }
+  }
+}

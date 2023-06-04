@@ -89,7 +89,7 @@ public class SculkmiteEntity
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 5.0)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 1.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.0f)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED,  (double)0.2f);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2f);
     }
 
     protected void initGoals() {

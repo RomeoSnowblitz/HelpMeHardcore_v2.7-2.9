@@ -3,6 +3,9 @@
 	"animations": {
 		"animation.shadow_creature.idle": {
 			"loop": true
+		},
+		"animation.shadow_creature.walk": {
+			"loop": true
 		}
 	}
 }

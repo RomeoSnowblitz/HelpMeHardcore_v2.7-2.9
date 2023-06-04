@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hmh2:block/hot_pumice_slab"
+    },
+    "type=double": {
+      "model": "hmh2:block/hot_pumice"
+    },
+    "type=top": {
+      "model": "hmh2:block/hot_pumice_slab_top"
+    }
+  }
+}

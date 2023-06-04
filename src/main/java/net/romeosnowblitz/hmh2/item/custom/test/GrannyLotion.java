@@ -15,11 +15,8 @@ import net.minecraft.world.World;
 
 public class GrannyLotion extends Item {
 
-    private int itemDurability = 14;
-
     public GrannyLotion(Settings settings) {
         super(settings);
-        this.itemDurability = itemDurability;
     }
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
@@ -48,10 +45,5 @@ public class GrannyLotion extends Item {
             stack.damage(1, miner, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         }
         return true;
-    }
-
-
-    public int getDurability() {
-        return this.itemDurability;
     }
 }

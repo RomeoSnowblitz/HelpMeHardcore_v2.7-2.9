@@ -18,17 +18,10 @@ package net.romeosnowblitz.hmh2.block.custom.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.TntEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
-import org.jetbrains.annotations.Nullable;
 
 public class EnderCrystalBlock
 extends Block {
@@ -39,7 +32,10 @@ extends Block {
     @Override
     public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
         super.onProjectileHit(world, state, hit, projectile);
-        world.createExplosion(projectile, hit.getBlockPos().getX(), hit.getPos().getY(), hit.getBlockPos().getZ(), 9.0f, World.ExplosionSourceType.BLOCK);
+        if(!world.isClient()){
+            world.setBlockState(hit.getBlockPos(), Blocks.AIR.getDefaultState());
+            world.createExplosion(projectile, hit.getBlockPos().getX(), hit.getPos().getY(), hit.getBlockPos().getZ(), 9.0f, World.ExplosionSourceType.BLOCK);
+        }
     }
 
 }

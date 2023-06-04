@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hmh2:block/limestone_slab"
+    },
+    "type=double": {
+      "model": "hmh2:block/limestone"
+    },
+    "type=top": {
+      "model": "hmh2:block/limestone_slab_top"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hmh2:block/cork_slab"
+    },
+    "type=double": {
+      "model": "hmh2:block/cork_block"
+    },
+    "type=top": {
+      "model": "hmh2:block/cork_slab_top"
+    }
+  }
+}

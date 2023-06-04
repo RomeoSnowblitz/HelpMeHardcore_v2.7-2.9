@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hmh2:block/salt_slab"
+    },
+    "type=double": {
+      "model": "hmh2:block/salt_block"
+    },
+    "type=top": {
+      "model": "hmh2:block/salt_slab_top"
+    }
+  }
+}

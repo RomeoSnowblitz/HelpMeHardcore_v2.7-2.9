@@ -76,7 +76,7 @@ public class SoldierBeeEntity extends HostileEntity implements GeoEntity {
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 1.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.0f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 1024f);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40f);
     }
 
     protected void initGoals() {
@@ -148,6 +148,7 @@ public class SoldierBeeEntity extends HostileEntity implements GeoEntity {
         }
         if (target instanceof LivingEntity) {
             ((LivingEntity)target).addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 60, 0), this);
+            target.damage(getDamageSources().mobAttack(this), 1);
         }
         return true;
     }

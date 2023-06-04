@@ -93,17 +93,17 @@ public class QueenBeeEntity extends SpellcastingIllagerEntity implements GeoEnti
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 20.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 10.0f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 10.0f)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 1024f);
+                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40f);
     }
 
     protected void initGoals() {
-        this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 4, false));
-        this.goalSelector.add(5, new SummonVexGoal());
-        this.goalSelector.add(1, new ChargeTargetGoal());
-        this.goalSelector.add(2, new LookAtTargetGoal());
-        this.targetSelector.add(1, new ActiveTargetGoal<IronGolemEntity>((MobEntity)this, IronGolemEntity.class, true));
-        this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, true));
+        this.goalSelector.add(1, new SwimGoal(this));
+        this.goalSelector.add(2, new MeleeAttackGoal(this, 4, false));
+        this.goalSelector.add(6, new SummonVexGoal());
+        this.goalSelector.add(2, new ChargeTargetGoal());
+        this.goalSelector.add(3, new LookAtTargetGoal());
+        this.targetSelector.add(2, new ActiveTargetGoal<IronGolemEntity>((MobEntity)this, IronGolemEntity.class, true));
+        this.targetSelector.add(2, new ActiveTargetGoal<PlayerEntity>((MobEntity)this, PlayerEntity.class, true));
 
     }
 

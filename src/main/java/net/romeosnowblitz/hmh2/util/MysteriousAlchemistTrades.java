@@ -4,10 +4,13 @@ import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.village.TradeOffer;
+import net.romeosnowblitz.hmh2.block.ColoringBlocks;
+import net.romeosnowblitz.hmh2.block.DecorationBlocks;
 import net.romeosnowblitz.hmh2.block.MagicBlocks;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.item.MagicItems;
 import net.romeosnowblitz.hmh2.item.ModItems;
+import net.romeosnowblitz.hmh2.item.SustenanceItems;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
 import net.romeosnowblitz.hmh2.villager.ModVillagers;
 
@@ -159,15 +162,6 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_WHITE_DEBRIS, 1),
                             new ItemStack(Items.INFESTED_STONE_BRICKS, 1),
-                            64,16,0.0f));
-
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.SCULK_SENSOR, 1),
-                            new ItemStack(ModItems.MYSTERIOUS_WHITE_DEBRIS, 1),
-                            64,16,0.0f));
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.MYSTERIOUS_WHITE_DEBRIS, 1),
-                            new ItemStack(Items.SCULK_SENSOR, 1),
                             64,16,0.0f));
 
                     factories.add((entity, random) -> new TradeOffer(
@@ -1123,12 +1117,12 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(ModBlocks.LUCKY_ORE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.BLUE_SPIDER_LILY, 1),
+                            new ItemStack(ColoringBlocks.BLUE_SPIDER_LILY, 1),
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
-                            new ItemStack(ModBlocks.BLUE_SPIDER_LILY, 1),
+                            new ItemStack(ColoringBlocks.BLUE_SPIDER_LILY, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModBlocks.POISON_GRASS, 1),
@@ -1139,28 +1133,28 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(ModBlocks.POISON_GRASS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.ROSE, 1),
+                            new ItemStack(ColoringBlocks.ROSE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
-                            new ItemStack(ModBlocks.ROSE, 1),
+                            new ItemStack(ColoringBlocks.ROSE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.WOLFSBANE, 1),
+                            new ItemStack(ColoringBlocks.WOLFSBANE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
-                            new ItemStack(ModBlocks.WOLFSBANE, 1),
+                            new ItemStack(ColoringBlocks.WOLFSBANE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.ROSE_WOOL, 1),
+                            new ItemStack(ColoringBlocks.ROSE_WOOL, 1),
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
-                            new ItemStack(ModBlocks.ROSE_WOOL, 1),
+                            new ItemStack(ColoringBlocks.ROSE_WOOL, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.ROSE_DYE, 1),
@@ -1171,12 +1165,12 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(ModItems.ROSE_DYE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.ULTRAMARINE_WOOL, 1),
+                            new ItemStack(ColoringBlocks.ULTRAMARINE_WOOL, 1),
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
-                            new ItemStack(ModBlocks.ULTRAMARINE_WOOL, 1),
+                            new ItemStack(ColoringBlocks.ULTRAMARINE_WOOL, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.ULTRAMARINE_DYE, 1),
@@ -1187,12 +1181,12 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(ModItems.ULTRAMARINE_DYE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.VIOLET_WOOL, 1),
+                            new ItemStack(ColoringBlocks.VIOLET_WOOL, 1),
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
-                            new ItemStack(ModBlocks.VIOLET_WOOL, 1),
+                            new ItemStack(ColoringBlocks.VIOLET_WOOL, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.VIOLET_DYE, 1),
@@ -1259,28 +1253,28 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(ModItems.RAW_TITANIUM, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.MARBLE, 1),
+                            new ItemStack(DecorationBlocks.MARBLE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
-                            new ItemStack(ModBlocks.MARBLE, 1),
+                            new ItemStack(DecorationBlocks.MARBLE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.PUMICE, 1),
+                            new ItemStack(DecorationBlocks.PUMICE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
-                            new ItemStack(ModBlocks.PUMICE, 1),
+                            new ItemStack(DecorationBlocks.PUMICE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.HEART, 1),
+                            new ItemStack(SustenanceItems.HEART, 1),
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
-                            new ItemStack(ModItems.HEART, 1),
+                            new ItemStack(SustenanceItems.HEART, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.HELLSTONE, 1),
@@ -1307,12 +1301,12 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(ModItems.WOODED_DIAMOND, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.TOOTHPASTE, 1),
+                            new ItemStack(SustenanceItems.TOOTHPASTE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_YELLOW_DEBRIS, 1),
-                            new ItemStack(ModItems.TOOTHPASTE, 1),
+                            new ItemStack(SustenanceItems.TOOTHPASTE, 1),
                             64,16,0.0f));
                 });
 
@@ -2164,20 +2158,20 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(ModBlocks.QUAERITE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.SALT_BLOCK, 1),
+                            new ItemStack(DecorationBlocks.SALT_BLOCK, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModBlocks.SALT_BLOCK, 1),
+                            new ItemStack(DecorationBlocks.SALT_BLOCK, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.HOT_PUMICE, 1),
+                            new ItemStack(DecorationBlocks.HOT_PUMICE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(ModBlocks.HOT_PUMICE, 1),
+                            new ItemStack(DecorationBlocks.HOT_PUMICE, 1),
                             64,16,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModBlocks.GRAPHITE_BLOCK, 1),

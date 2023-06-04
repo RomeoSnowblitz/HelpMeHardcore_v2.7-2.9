@@ -2,7 +2,6 @@ package net.romeosnowblitz.hmh2.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -11,6 +10,7 @@ import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.item.custom.magic.perks.*;
 import net.romeosnowblitz.hmh2.item.custom.magic.perks.single.FurPerk;
 import net.romeosnowblitz.hmh2.item.custom.magic.perks.single.HellstonePerk;
+import net.romeosnowblitz.hmh2.item.custom.magic.perks.single.QuaeritePerk;
 import net.romeosnowblitz.hmh2.item.custom.magic.perks.single.QueenBeePerk;
 import net.romeosnowblitz.hmh2.item.custom.magic.swords.*;
 import net.romeosnowblitz.hmh2.item.custom.tools.ModCarver;
@@ -132,7 +132,7 @@ public class WarfareItems {
         WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUEEN_BEE_HELMET);
         WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUEEN_BEE_CHESTPLATE);
         WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUEEN_BEE_LEGGINGS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUAERITE_BOOTS);
+        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUEEN_BEE_BOOTS);
         WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUEEN_BEE_STINGER);
         WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONE_HELMET);
         WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONE_CHESTPLATE);

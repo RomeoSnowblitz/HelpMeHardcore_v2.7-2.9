@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hmh2:block/shale_slab"
+    },
+    "type=double": {
+      "model": "hmh2:block/shale"
+    },
+    "type=top": {
+      "model": "hmh2:block/shale_slab_top"
+    }
+  }
+}

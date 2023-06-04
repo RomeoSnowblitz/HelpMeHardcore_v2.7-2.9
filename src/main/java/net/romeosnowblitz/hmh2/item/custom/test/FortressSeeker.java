@@ -46,8 +46,8 @@ public class FortressSeeker extends Item {
                         Criteria.USED_ENDER_EYE.trigger((ServerPlayerEntity)user, blockPos);
                     }
 
-                    world.playSound((PlayerEntity)null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_ENDER_EYE_LAUNCH, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
-                    world.syncWorldEvent((PlayerEntity)null, 1003, user.getBlockPos(), 0);
+                    world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_ENDER_EYE_LAUNCH, SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+                    world.syncWorldEvent(null, 1003, user.getBlockPos(), 0);
                     if (!user.getAbilities().creativeMode) {
                         itemStack.decrement(1);
                     }

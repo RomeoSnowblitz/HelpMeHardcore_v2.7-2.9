@@ -24,11 +24,11 @@
               "entity": "this"
             }
           ],
-					"conditions": [
-						{
-							"condition": "killed_by_player"
-						}
-					]
+          "conditions": [
+            {
+              "condition": "killed_by_player"
+            }
+          ]
   	    }
   	  ]
   	}

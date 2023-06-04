@@ -1,53 +1,103 @@
 package net.romeosnowblitz.hmh2.item;
 
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Lazy;
+import net.minecraft.util.StringIdentifiable;
+import net.minecraft.util.Util;
 
+import java.util.EnumMap;
 import java.util.function.Supplier;
 
 public enum ModArmorMaterial implements ArmorMaterial {
-    BANANA("banana", 5, new int[]{1, 2, 3, 1}, 100, SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 0.0F, 0.0F, () -> {
+
+
+    BANANA("banana", 5, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 1);
+        map.put(ArmorItem.Type.LEGGINGS, 2);
+        map.put(ArmorItem.Type.CHESTPLATE, 3);
+        map.put(ArmorItem.Type.HELMET, 1);
+    }), 100, SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 0.0F, 0.0F, () -> {
         return Ingredient.ofItems(ModItems.BANANA_PEEL);
     }),
-    BEE("bee", 15, new int[]{3, 6, 8, 3}, 30, SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 1.0F, 0.1F, () -> {
+    BEE("bee", 15, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
+        map.put(ArmorItem.Type.HELMET, 3);
+    }), 30, SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 1.0F, 0.1F, () -> {
         return Ingredient.ofItems(Items.HONEYCOMB);
     }),
-    BONE("bone", 15, new int[]{2, 5, 6, 2}, 13, SoundEvents.BLOCK_DRIPSTONE_BLOCK_BREAK, 3.0F, 0.0F, () -> {
-        return Ingredient.ofItems(ModItems.FUR_PELT);
+    BONE("bone", 15, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 2);
+        map.put(ArmorItem.Type.LEGGINGS, 5);
+        map.put(ArmorItem.Type.CHESTPLATE, 6);
+        map.put(ArmorItem.Type.HELMET, 2);
+    }), 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F, 0.0F, () -> {
+        return Ingredient.ofItems(Items.BONE);
     }),
-    EMERALD("emerald", 35, new int[]{3, 6, 8, 3}, 30, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> {
+    EMERALD("emerald", 35, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
+        map.put(ArmorItem.Type.HELMET, 3);
+    }), 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> {
         return Ingredient.ofItems(Items.EMERALD);
     }),
-    FUR("fur", 5, new int[]{1, 2, 3, 1}, 30, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {
-        return Ingredient.ofItems(ModItems.BONE_PLATE);
+
+    FUR("fur", 5, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 1);
+        map.put(ArmorItem.Type.LEGGINGS, 2);
+        map.put(ArmorItem.Type.CHESTPLATE, 3);
+        map.put(ArmorItem.Type.HELMET, 1);
+    }), 30, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {
+        return Ingredient.ofItems(ModItems.FUR_PELT);
     }),
-    HELLSTONE("hellstone", 35, new int[]{3, 6, 8, 3}, 30, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0.0F, 0.0F, () -> {
+    HELLSTONE("hellstone", 35, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
+        map.put(ArmorItem.Type.HELMET, 3);
+    }), 35, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0.0F, 1.0F, () -> {
         return Ingredient.ofItems(ModItems.HELLSTONE);
     }),
-    LIFE("life", 35, new int[]{3, 6, 8, 3}, 30, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.0F, 0.0F, () -> {
-        return Ingredient.ofItems(ModItems.HEART);
+    LIFE("life", 35, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
+        map.put(ArmorItem.Type.HELMET, 3);
+    }), 30, SoundEvents.ENTITY_WARDEN_HEARTBEAT, 0.0F, 0.0F, () -> {
+        return Ingredient.ofItems(SustenanceItems.HEART);
     }),
-    QUAERITE("quaerite", 35, new int[]{3, 6, 8, 3}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2.0F, 0.1F, () -> {
+    QUAERITE("quaerite", 35, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
+        map.put(ArmorItem.Type.HELMET, 3);
+    }), 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.0F, 1.0F, () -> {
         return Ingredient.ofItems(ModItems.QUAERITE_FRAGMENT);
     });
 
-    private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
+    public static final StringIdentifiable.Codec<ArmorMaterials> CODEC = StringIdentifiable.createCodec(ArmorMaterials::values);
+    private static final EnumMap BASE_DURABILITY = Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 13);
+        map.put(ArmorItem.Type.LEGGINGS, 15);
+        map.put(ArmorItem.Type.CHESTPLATE, 16);
+        map.put(ArmorItem.Type.HELMET, 11);
+    });
     private final String name;
     private final int durabilityMultiplier;
-    private final int[] protectionAmounts;
+    private final EnumMap<ArmorItem.Type, Integer> protectionAmounts;
     private final int enchantability;
     private final SoundEvent equipSound;
     private final float toughness;
     private final float knockbackResistance;
     private final Lazy<Ingredient> repairIngredientSupplier;
 
-    private ModArmorMaterial(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier) {
+    private ModArmorMaterial(String name, int durabilityMultiplier, EnumMap<ArmorItem.Type, Integer> protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
         this.protectionAmounts = protectionAmounts;
@@ -58,22 +108,12 @@ public enum ModArmorMaterial implements ArmorMaterial {
         this.repairIngredientSupplier = new Lazy(repairIngredientSupplier);
     }
 
-    public int getDurability(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getEntitySlotId()] * this.durabilityMultiplier;
-    }
-
-    public int getProtectionAmount(EquipmentSlot slot) {
-        return this.protectionAmounts[slot.getEntitySlotId()];
-    }
-
-    @Override
     public int getDurability(ArmorItem.Type type) {
-        return 0;
+        return (Integer)BASE_DURABILITY.get(type) * this.durabilityMultiplier;
     }
 
-    @Override
     public int getProtection(ArmorItem.Type type) {
-        return 0;
+        return this.protectionAmounts.get(type);
     }
 
     public int getEnchantability() {
@@ -85,7 +125,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
     }
 
     public Ingredient getRepairIngredient() {
-        return (Ingredient)this.repairIngredientSupplier.get();
+        return this.repairIngredientSupplier.get();
     }
 
     public String getName() {
@@ -99,5 +139,6 @@ public enum ModArmorMaterial implements ArmorMaterial {
     public float getKnockbackResistance() {
         return this.knockbackResistance;
     }
+
 }
 

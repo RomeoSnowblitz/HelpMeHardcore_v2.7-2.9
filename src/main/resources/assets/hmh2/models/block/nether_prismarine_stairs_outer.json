@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "hmh2:block/nether_prismarine",
+    "top": "hmh2:block/nether_prismarine",
+    "side": "hmh2:block/nether_prismarine"
+  }
+}

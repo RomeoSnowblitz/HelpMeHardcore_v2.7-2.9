@@ -1,17 +1,34 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "#",
-    "W"
-  ],
-  "key": {
-    "#": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
       "item": "hmh2:flour"
     },
-    "W": {
-      "item": "minecraft:water_bucket"
+    {
+      "item": "hmh2:flour"
+    },
+    {
+      "item": "hmh2:flour"
+    },
+    {
+      "item": "hmh2:flour"
+    },
+    {
+      "item": "hmh2:flour"
+    },
+    {
+      "item": "hmh2:flour"
+    },
+    {
+      "item": "hmh2:flour"
+    },
+    {
+      "item": "hmh2:flour"
     }
-  },
+  ],
   "result": {
     "item": "hmh2:glue",
     "count": 4

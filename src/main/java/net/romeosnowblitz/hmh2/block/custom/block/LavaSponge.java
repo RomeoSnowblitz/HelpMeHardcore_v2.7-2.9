@@ -10,6 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
+import net.romeosnowblitz.hmh2.block.DecorationBlocks;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 
 import java.util.LinkedList;
@@ -37,7 +38,7 @@ public class LavaSponge extends Block {
 
     protected void update(World world, BlockPos pos) {
         if (this.absorbLava(world, pos)) {
-            world.setBlockState(pos, ModBlocks.HOT_PUMICE.getDefaultState(), Block.NOTIFY_LISTENERS);
+            world.setBlockState(pos, DecorationBlocks.HOT_PUMICE.getDefaultState(), Block.NOTIFY_LISTENERS);
             world.syncWorldEvent(WorldEvents.BLOCK_BROKEN, pos, Block.getRawIdFromState(Blocks.WATER.getDefaultState()));
         }
     }

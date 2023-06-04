@@ -1,6 +1,8 @@
 package net.romeosnowblitz.hmh2.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -19,6 +21,7 @@ public class MobEntities {
     public static final EntityType<ShadowCreatureEntity> SHADOW_CREATURE = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "shadow_creature"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ShadowCreatureEntity::new)
+                    .specificSpawnBlocks(Blocks.GRASS, Blocks.STONE, Blocks.DEEPSLATE, Blocks.SAND)
                     .dimensions(EntityDimensions.fixed(0.8f, 1.6f)).build());
 
     public static final EntityType<SoldierBeeEntity> SOLDIER_BEE = Registry.register(
@@ -41,14 +44,17 @@ public class MobEntities {
             Registries.ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "hellmite"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, HellmiteEntity::new)
                     .dimensions(EntityDimensions.fixed(0.75f, 0.5f)).build());
+
     public static final EntityType<MagmiteEntity> MAGMITE = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "magmite"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MagmiteEntity::new)
                     .dimensions(EntityDimensions.fixed(0.75f, 0.5f)).build());
+
     public static final EntityType<CalEntity> CAL = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "cal"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CalEntity::new)
                     .dimensions(EntityDimensions.fixed(0.8f, 1.9f)).build());
+
     public static final EntityType<SculkmiteEntity> SCULKMITE = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "sculkmite"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SculkmiteEntity::new)

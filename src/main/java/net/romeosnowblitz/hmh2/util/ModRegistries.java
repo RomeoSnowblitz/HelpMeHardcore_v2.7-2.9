@@ -3,27 +3,41 @@ package net.romeosnowblitz.hmh2.util;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.VillagerProfession;
+import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
 import net.romeosnowblitz.hmh2.entity.mob.*;
 import net.romeosnowblitz.hmh2.item.ModItems;
+import net.romeosnowblitz.hmh2.item.SustenanceItems;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
+import net.romeosnowblitz.hmh2.tag.ModItemTags;
 
 import static net.romeosnowblitz.hmh2.util.MysteriousAlchemistTrades.registerMysteriousAlchemistTrades;
 
 public class ModRegistries {
 
     public static void registerModStuffs() {
+        registerModFuels();
         registerStrippables();
         registerFlammableBlock();
         registerCustomTrades();
         registerAttributes();
         registerMysteriousAlchemistTrades();
+    }
+
+    public static void registerModFuels() {
+        System.out.println("Now registering Fuels for " + Hmh2.MOD_ID);
+        FuelRegistry registry = FuelRegistry.INSTANCE;
+
+        registry.add(ModItemTags.FUEL_ONE_HUNDRED, 100);
+        registry.add(ModItemTags.FUEL_THREE_HUNDRED, 300);
+        registry.add(ModItemTags.FUEL_SIXTEEN_THOUSAND, 16000);
     }
 
 
@@ -73,19 +87,19 @@ public class ModRegistries {
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 2),
-                            new ItemStack(ModItems.CHERRIES, 4),
+                            new ItemStack(SustenanceItems.CHERRIES, 4),
                             8,2,0.02f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 2),
-                            new ItemStack(ModItems.MANGO, 4),
+                            new ItemStack(SustenanceItems.MANGO, 4),
                             8,2,0.02f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 2),
-                            new ItemStack(ModItems.BANANAS, 4),
+                            new ItemStack(SustenanceItems.BANANAS, 4),
                             8,2,0.02f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 2),
-                            new ItemStack(ModItems.ORANGE, 4),
+                            new ItemStack(SustenanceItems.ORANGE, 4),
                             8,2,0.02f));
                 });
 

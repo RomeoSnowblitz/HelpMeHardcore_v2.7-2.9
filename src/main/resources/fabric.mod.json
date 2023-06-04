@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "hmh2",
 	"version": "${version}",
-	"name": "Folder",
+	"name": "Help Me Hardcore",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Me!"
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/hmh2/icon.png",
+	"icon": "assets/hmh2/textures/gui/mod_icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [

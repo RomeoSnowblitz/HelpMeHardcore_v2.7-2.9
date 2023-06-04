@@ -45,9 +45,6 @@ public class ModItems {
     //Materials
     public static final Item CORK = registerItem("cork", new Item(new FabricItemSettings()));
     public static final Item GRAPHITE = registerItem("graphite", new Item(new FabricItemSettings()));
-    public static final Item HEART = registerItem("heart", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(1.0f)
-            .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 60, 0), 1F)
-            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION,60,0), 1F).alwaysEdible().build())));
     public static final Item HELLSTONE = registerItem("hellstone", new Item(new FabricItemSettings()));
     public static final Item LUCKY_PIECE = registerItem("lucky_piece", new Item(new FabricItemSettings()));
     public static final Item QUAERITE_FRAGMENT = registerItem("quaerite_fragment", new Item(new FabricItemSettings()));
@@ -133,7 +130,7 @@ public class ModItems {
     public static final Item SHEET_PAN = registerItem("sheet_pan", new Item(new FabricItemSettings()));
     public static final Item VEGAN_LEATHER = registerItem("vegan_leather", new Item(new FabricItemSettings()));
     public static final Item WOODED_DIAMOND = registerItem("wooded_diamond", new Item(new FabricItemSettings()));
-    public static final Item GRANNY_LOTION = registerItem("granny_lotion", new GrannyLotion(new FabricItemSettings().maxDamage(14)));
+    public static final Item GRANNY_LOTION = registerItem("granny_lotion", new GrannyLotion(new FabricItemSettings().maxDamage(128)));
 
     public static final Item ROSE_DYE = registerItem("rose_dye", new RedDyeItem(new FabricItemSettings()));
     public static final Item ULTRAMARINE_DYE = registerItem("ultramarine_dye", new BlueDyeItem(new FabricItemSettings()));
@@ -152,42 +149,6 @@ public class ModItems {
     public static final Item MAHOE_SIGN = registerItem("mahoe_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.MAHOE_SIGN_BLOCK, WoodworkBlocks.MAHOE_WALL_SIGN_BLOCK));
     public static final Item MANGO_SIGN = registerItem("mango_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.MANGO_SIGN_BLOCK, WoodworkBlocks.MANGO_WALL_SIGN_BLOCK));
     public static final Item WILLOW_SIGN = registerItem("willow_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.WILLOW_SIGN_BLOCK, WoodworkBlocks.WILLOW_WALL_SIGN_BLOCK));
-
-    //Food (16)
-    public static final Item APPLE_JUICE = registerItem("apple_juice", (Item)new HoneyBottleItem(new Item.Settings().recipeRemainder(GLASS_BOTTLE).food(FoodComponents.HONEY_BOTTLE).maxCount(16)));
-    public static final Item APPLE_PIE = registerItem("apple_pie", new ConsumeLeaveSheetPan(new FabricItemSettings().recipeRemainder(BUCKET).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.3f).build())));
-    public static final Item BACON = registerItem("bacon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.5f).build())));
-    public static final Item BANANAS = registerItem("bananas", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3f).build())));
-    public static final Item BEEF_JERKY = registerItem("beef_jerky", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.2f).build())));
-    public static final Item BLUEBERRIES = registerItem("blueberries", (Item)new AliasedBlockItem(ModBlocks.BLUEBERRY_BUSH, new Item.Settings().food(FoodComponents.SWEET_BERRIES)));
-    public static final Item BLUEBERRY_JAM = registerItem("blueberry_jam", new ConsumeLeaveBottle(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.4f).build())));
-    public static final Item BLUEBERRY_PIE = registerItem("blueberry_pie", new ConsumeLeaveSheetPan(new FabricItemSettings().food(new FoodComponent.Builder().hunger(8).saturationModifier(0.3f).build())));
-    public static final Item BURNT_TOAST = registerItem("burnt_toast", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(1).saturationModifier(0.3f).build())));
-    public static final Item BUTTERED_TOAST = registerItem("buttered_toast", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(5).saturationModifier(2.0f).build())));
-    public static final Item CHEESE = registerItem("cheese", (Item)new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.9f).build())));
-    public static final Item CHEESE_SLICE = registerItem("cheese_slice", (Item)new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.3f).build())));
-    public static final Item CHERRIES = registerItem("cherries", (Item)new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.3f).build())));
-    public static final Item CHERRY_PIE = registerItem("cherry_pie", new ConsumeLeaveSheetPan(new FabricItemSettings().food(new FoodComponent.Builder().hunger(8).saturationModifier(0.3f).build())));
-    public static final Item CHICKEN_NUGGET = registerItem("chicken_nugget", (Item)new Item(new FabricItemSettings().food(new FoodComponent.Builder().snack().hunger(1).saturationModifier(0.3f).build())));
-    public static final Item CHICKEN_SANDWICH = registerItem("chicken_sandwich", (Item)new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.8f).build())));
-    public static final Item CHOCOLATE_ICE_CREAM = registerItem("chocolate_ice_cream",(Item)new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(0.4f).build()).maxCount(1)));
-    public static final Item DOUGH = ModItems.registerItem("dough", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.2f).build())));
-    public static final Item ENDCHILADA = ModItems.registerItem("endchilada", new EnderSkinConsumableLong(new FabricItemSettings().food(new FoodComponent.Builder().hunger(20).saturationModifier(2.0f).build())));
-    public static final Item GOLDEN_SALMON = registerItem("golden_salmon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(1.2f).build())));
-    public static final Item LIGHT_TOAST = registerItem("light_toast", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.8f).build())));
-    public static final Item MANGO = registerItem("mango", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3f).build())));
-    public static final Item ORANGE = registerItem("orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3f).build())));
-    public static final Item ORANGE_JUICE = registerItem("orange_juice", (Item)new HoneyBottleItem(new Item.Settings().recipeRemainder(GLASS_BOTTLE).food(FoodComponents.HONEY_BOTTLE).maxCount(16)));
-    public static final Item RAW_BACON= registerItem("raw_bacon", (Item)new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 0.3f).meat().build())));
-    public static final Item RAW_CHICKEN_NUGGET = registerItem("raw_chicken_nugget", (Item)new Item(new FabricItemSettings().food(new FoodComponent.Builder().snack().hunger(1).saturationModifier(0.1f).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 0.3f).meat().build())));
-    public static final Item SLICED_BREAD = registerItem("sliced_bread", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.6f).build())));
-    public static final Item SASHIMI = registerItem("sashimi", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.6f).build())));
-    public static final Item STRAWBERRIES = registerItem("strawberries", (Item)new AliasedBlockItem(ModBlocks.STRAWBERRY_BUSH, new Item.Settings().food(FoodComponents.SWEET_BERRIES)));
-    public static final Item STRAWBERRY_JAM = registerItem("strawberry_jam", new ConsumeLeaveBottle(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.4f).build())));
-    public static final Item STRAWBERRY_PIE = registerItem("strawberry_pie", new ConsumeLeaveSheetPan(new FabricItemSettings().food(new FoodComponent.Builder().hunger(8).saturationModifier(0.3f).build())));
-    public static final Item TOOTHPASTE = registerItem("toothpaste", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3f).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA,300,255), 1.0F).build())));
-    public static final Item TOAST = registerItem("toast", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(1.0f).build())));
-    public static final Item TORTILLA = ModItems.registerItem("tortilla", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(1).saturationModifier(0.2f).build())));
 
     //Special Items
     public static final Item CHOCOLATE_MILK = registerItem("chocolate_milk", new BucketItem(ModFluids.CHOCOLATE_MILK_STILL, new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(0.4f).build()).recipeRemainder(BUCKET).maxCount(1)));
@@ -208,7 +169,7 @@ public class ModItems {
         addToItemGroup(ModItemGroup.ITEM, DISC_FRAGMENT);
         addToItemGroup(ModItemGroup.ITEM, FORTRESS_SEEKER);
         addToItemGroup(ModItemGroup.ITEM, SUN_STONE);
-        addToItemGroup(ModItemGroup.TESTING, REVIVAL_STONE);
+        addToItemGroup(ModItemGroup.ITEM, REVIVAL_STONE);
         addToItemGroup(ModItemGroup.ITEM, GLUE);
         addToItemGroup(ModItemGroup.ITEM, FLOUR);
 
@@ -217,7 +178,6 @@ public class ModItems {
         addToItemGroup(ModItemGroup.ITEM, BAMBOO_SHIELD);
         addToItemGroup(ModItemGroup.ITEM, CORK);
         addToItemGroup(ModItemGroup.ITEM, GRAPHITE);
-        addToItemGroup(ModItemGroup.ITEM, HEART);
         addToItemGroup(ModItemGroup.ITEM, HELLSTONE);
         addToItemGroup(ModItemGroup.ITEM, LUCKY_PIECE);
         addToItemGroup(ModItemGroup.ITEM, QUAERITE_FRAGMENT);
@@ -276,37 +236,6 @@ public class ModItems {
         addToItemGroup(ModItemGroup.WOODWORKS, MAHOE_SIGN);
         addToItemGroup(ModItemGroup.WOODWORKS, MANGO_SIGN);
         addToItemGroup(ModItemGroup.WOODWORKS, WILLOW_SIGN);
-        addToItemGroup(ModItemGroup.ITEM, APPLE_JUICE);
-        addToItemGroup(ModItemGroup.ITEM, APPLE_PIE);
-        addToItemGroup(ModItemGroup.ITEM, BACON);
-        addToItemGroup(ModItemGroup.ITEM, BANANAS);
-        addToItemGroup(ModItemGroup.ITEM, BEEF_JERKY);
-        addToItemGroup(ModItemGroup.ITEM, BLUEBERRIES);
-        addToItemGroup(ModItemGroup.ITEM, BLUEBERRY_JAM);
-        addToItemGroup(ModItemGroup.ITEM, BLUEBERRY_PIE);
-        addToItemGroup(ModItemGroup.ITEM, BURNT_TOAST);
-        addToItemGroup(ModItemGroup.ITEM, BUTTERED_TOAST);
-        addToItemGroup(ModItemGroup.ITEM, CHEESE);
-        addToItemGroup(ModItemGroup.ITEM, CHEESE_SLICE);
-        addToItemGroup(ModItemGroup.ITEM, CHERRIES);
-        addToItemGroup(ModItemGroup.ITEM, CHERRY_PIE);
-        addToItemGroup(ModItemGroup.ITEM, CHICKEN_NUGGET);
-        addToItemGroup(ModItemGroup.ITEM, CHICKEN_SANDWICH);
-        addToItemGroup(ModItemGroup.ITEM, CHOCOLATE_ICE_CREAM);
-        addToItemGroup(ModItemGroup.ITEM, GOLDEN_SALMON);
-        addToItemGroup(ModItemGroup.ITEM, LIGHT_TOAST);
-        addToItemGroup(ModItemGroup.ITEM, MANGO);
-        addToItemGroup(ModItemGroup.ITEM, ORANGE);
-        addToItemGroup(ModItemGroup.ITEM, ORANGE_JUICE);
-        addToItemGroup(ModItemGroup.ITEM, RAW_BACON);
-        addToItemGroup(ModItemGroup.ITEM, RAW_CHICKEN_NUGGET);
-        addToItemGroup(ModItemGroup.ITEM, SLICED_BREAD);
-        addToItemGroup(ModItemGroup.ITEM, SASHIMI);
-        addToItemGroup(ModItemGroup.ITEM, STRAWBERRIES);
-        addToItemGroup(ModItemGroup.ITEM, STRAWBERRY_JAM);
-        addToItemGroup(ModItemGroup.ITEM, STRAWBERRY_PIE);
-        addToItemGroup(ModItemGroup.ITEM, TOOTHPASTE);
-        addToItemGroup(ModItemGroup.ITEM, TOAST);
         addToItemGroup(ModItemGroup.ITEM, CHOCOLATE_MILK);
         addToItemGroup(ModItemGroup.ITEM, HEATED_OIL_BUCKET);
         addToItemGroup(ModItemGroup.ITEM, HONEY_BUCKET);

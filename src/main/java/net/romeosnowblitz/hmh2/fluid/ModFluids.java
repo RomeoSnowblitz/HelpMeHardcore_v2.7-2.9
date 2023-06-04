@@ -85,8 +85,9 @@ public class ModFluids {
     public static final FlowableFluid WITHER_FLUID_STILL = register("wither_still", new WitherFluid.Still());
     public static final FlowableFluid WITHER_FLUID_FLOWING = register("wither_flowing", new WitherFluid.Flowing());
 
-
     private static FlowableFluid register(String name, FlowableFluid flowableFluid) {
         return Registry.register(Registries.FLUID, new Identifier(Hmh2.MOD_ID, name), flowableFluid);
     }
+
+
 }

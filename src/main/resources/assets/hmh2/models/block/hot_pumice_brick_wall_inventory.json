@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "hmh2:block/hot_pumice_bricks"
+  }
+}

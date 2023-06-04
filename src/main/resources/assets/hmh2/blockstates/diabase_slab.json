@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "hmh2:block/diabase_slab"
+    },
+    "type=double": {
+      "model": "hmh2:block/diabase"
+    },
+    "type=top": {
+      "model": "hmh2:block/diabase_slab_top"
+    }
+  }
+}

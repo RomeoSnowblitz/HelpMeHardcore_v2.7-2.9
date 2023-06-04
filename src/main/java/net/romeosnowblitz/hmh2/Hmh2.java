@@ -1,16 +1,11 @@
 package net.romeosnowblitz.hmh2;
 
 import net.fabricmc.api.ModInitializer;
-import net.romeosnowblitz.hmh2.block.MagicBlocks;
-import net.romeosnowblitz.hmh2.block.ModBlocks;
-import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
+import net.romeosnowblitz.hmh2.block.*;
 import net.romeosnowblitz.hmh2.block.custom.block.ModComposterBlock;
 import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import net.romeosnowblitz.hmh2.entity.ModBlockEntities;
-import net.romeosnowblitz.hmh2.item.MagicItems;
-import net.romeosnowblitz.hmh2.item.ModItemGroup;
-import net.romeosnowblitz.hmh2.item.ModItems;
-import net.romeosnowblitz.hmh2.item.WarfareItems;
+import net.romeosnowblitz.hmh2.item.*;
 import net.romeosnowblitz.hmh2.painting.ModPaintings;
 import net.romeosnowblitz.hmh2.potion.ModPotions;
 import net.romeosnowblitz.hmh2.screen.ModScreenHandlers;
@@ -34,7 +29,10 @@ public class Hmh2 implements ModInitializer {
 		ModItems.registerModItems();
 		MagicItems.registerModItems();
 		WarfareItems.registerModItems();
+		SustenanceItems.registerSustenanceItems();
 		ModBlocks.registerModBlock();
+		ColoringBlocks.registerColoringBlocks();
+		DecorationBlocks.registerDecorationBlocks();
 		MagicBlocks.registerModBlock();
 		WoodworkBlocks.registerModBlock();
 

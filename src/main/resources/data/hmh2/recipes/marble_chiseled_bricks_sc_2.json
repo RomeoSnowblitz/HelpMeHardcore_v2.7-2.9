@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:marble_bricks"
+  },
+  "result": "hmh2:marble_chiseled_bricks",
+  "count": 1
+}
