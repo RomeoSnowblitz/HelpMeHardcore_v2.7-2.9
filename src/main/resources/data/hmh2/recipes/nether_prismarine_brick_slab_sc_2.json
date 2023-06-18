@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:nether_prismarine_bricks"
+  },
+  "result": "hmh2:nether_prismarine_brick_slab",
+  "count": 2
+}

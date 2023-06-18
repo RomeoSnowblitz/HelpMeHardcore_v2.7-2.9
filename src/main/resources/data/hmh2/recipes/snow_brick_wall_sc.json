@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:snow_block"
+  },
+  "result": "hmh2:snow_brick_wall",
+  "count": 1
+}

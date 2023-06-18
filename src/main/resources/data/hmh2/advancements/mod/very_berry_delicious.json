@@ -1,0 +1,92 @@
+{
+  "parent": "hmh2:mod/remember_to_brush",
+  "criteria": {
+    "banana": {
+      "conditions": {
+        "item": {
+          "items": [
+            "hmh2:bananas"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "blueberry": {
+      "conditions": {
+        "item": {
+          "items": [
+            "hmh2:blueberries"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cherry": {
+      "conditions": {
+        "item": {
+          "items": [
+            "hmh2:cherries"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "glow_berry": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:glow_berries"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "strawberry": {
+      "conditions": {
+        "item": {
+          "items": [
+            "hmh2:strawberries"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "sweet_berry": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:sweet_berries"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "Eat All Types of Berries to have a Berry Balanced Diet"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:glow_berries"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "Berry Balanced Diet"
+    }
+  },
+  "requirements": [
+    ["banana"],
+    ["blueberry"],
+    ["cherry"],
+    ["glow_berry"],
+    ["strawberry"],
+    ["sweet_berry"]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

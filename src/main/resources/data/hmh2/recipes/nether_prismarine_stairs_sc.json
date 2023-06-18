@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:nether_prismarine"
+  },
+  "result": "hmh2:nether_prismarine_stairs",
+  "count": 1
+}

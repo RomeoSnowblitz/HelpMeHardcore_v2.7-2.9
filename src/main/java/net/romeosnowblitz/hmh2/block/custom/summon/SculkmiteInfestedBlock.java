@@ -30,7 +30,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
-import net.romeosnowblitz.hmh2.entity.mob.HellmiteEntity;
 import net.romeosnowblitz.hmh2.entity.mob.SculkmiteEntity;
 import org.jetbrains.annotations.Nullable;
 

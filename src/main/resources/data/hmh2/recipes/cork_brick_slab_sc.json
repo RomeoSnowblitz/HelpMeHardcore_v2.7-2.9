@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:cork_block"
+  },
+  "result": "hmh2:cork_brick_slab",
+  "count": 2
+}

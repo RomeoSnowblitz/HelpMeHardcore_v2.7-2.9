@@ -3,7 +3,6 @@ package net.romeosnowblitz.hmh2.effect;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.entity.player.PlayerEntity;
 
 public class AnchoredEffect
         extends StatusEffect {

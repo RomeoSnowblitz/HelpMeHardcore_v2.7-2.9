@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:snow_bricks"
+  },
+  "result": "hmh2:snow_brick_slab",
+  "count": 2
+}

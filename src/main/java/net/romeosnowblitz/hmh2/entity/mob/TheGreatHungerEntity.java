@@ -12,7 +12,6 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.Angerable;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
@@ -128,7 +127,7 @@ public class TheGreatHungerEntity extends TameableEntity implements GeoEntity, A
             return false;
         }
         Entity entity = source.getAttacker();
-        if (!this.world.isClient) {
+        if (!this.getWorld().isClient) {
             this.setSitting(false);
         }
         if (entity != null && !(entity instanceof PlayerEntity) && !(entity instanceof PersistentProjectileEntity)) {
@@ -150,25 +149,25 @@ public class TheGreatHungerEntity extends TameableEntity implements GeoEntity, A
             player.playSound(SoundEvents.ENTITY_EVOKER_FANGS_ATTACK, 1.0f, 1.0f);
             ItemStack itemStack2 = ItemUsage.exchangeStack(itemStack, player, WarfareItems.TRUTHSEEKER.getDefaultStack());
             player.setStackInHand(hand, itemStack2);
-            return ActionResult.success(this.world.isClient);
+            return ActionResult.success(this.getWorld().isClient);
         }
         if (itemStack.isOf(WarfareItems.BREAD_KNIFE) && !this.isBaby()) {
             player.playSound(SoundEvents.ENTITY_EVOKER_FANGS_ATTACK, 1.0f, 1.0f);
             ItemStack itemStack2 = ItemUsage.exchangeStack(itemStack, player, WarfareItems.SOUL_KNIFE.getDefaultStack());
             player.setStackInHand(hand, itemStack2);
-            return ActionResult.success(this.world.isClient);
+            return ActionResult.success(this.getWorld().isClient);
         }
         if (itemStack.isOf(WarfareItems.CUTLASS) && !this.isBaby()) {
             player.playSound(SoundEvents.ENTITY_EVOKER_FANGS_ATTACK, 1.0f, 1.0f);
             ItemStack itemStack2 = ItemUsage.exchangeStack(itemStack, player, WarfareItems.MOON_DAGGER.getDefaultStack());
             player.setStackInHand(hand, itemStack2);
-            return ActionResult.success(this.world.isClient);
+            return ActionResult.success(this.getWorld().isClient);
         }
         if (itemStack.isOf(WarfareItems.SHEER_DAGGER) && !this.isBaby()) {
             player.playSound(SoundEvents.ENTITY_EVOKER_FANGS_ATTACK, 1.0f, 1.0f);
             ItemStack itemStack2 = ItemUsage.exchangeStack(itemStack, player, WarfareItems.TEMPEST_KNIFE.getDefaultStack());
             player.setStackInHand(hand, itemStack2);
-            return ActionResult.success(this.world.isClient);
+            return ActionResult.success(this.getWorld().isClient);
         }
         return super.interactMob(player, hand);
     }

@@ -8,7 +8,6 @@ import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.entity.mob.SoldierBeeEntity;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-import javax.annotation.Nullable;
 
 public class SoldierBeeRenderer extends GeoEntityRenderer<SoldierBeeEntity> {
     public SoldierBeeRenderer(EntityRendererFactory.Context ctx) {
@@ -21,7 +20,7 @@ public class SoldierBeeRenderer extends GeoEntityRenderer<SoldierBeeEntity> {
     }
 
     @Override
-    public RenderLayer getRenderType(SoldierBeeEntity animatable, Identifier texture, @Nullable VertexConsumerProvider bufferSource, float partialTick) {
+    public RenderLayer getRenderType(SoldierBeeEntity animatable, Identifier texture, VertexConsumerProvider bufferSource, float partialTick) {
         return super.getRenderType(animatable, texture, bufferSource, partialTick);
     }
 }

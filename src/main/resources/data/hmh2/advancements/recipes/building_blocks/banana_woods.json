@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hmh2:banana_button",
+      "hmh2:banana_door",
+      "hmh2:banana_fence",
+      "hmh2:banana_fence_gate",
+      "hmh2:banana_planks",
+      "hmh2:banana_pressure_plate",
+      "hmh2:banana_slab",
+      "hmh2:banana_stairs",
+      "hmh2:banana_trapdoor",
+      "hmh2:banana_wood",
+      "hmh2:stripped_banana_wood"
+    ]
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:banana_log",
+              "hmh2:banana_wood",
+              "hmh2:stripped_banana_log",
+              "hmh2:stripped_banana_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hmh2:banana_woods"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item",
+      "has_the_recipe"
+    ]
+  ]
+}

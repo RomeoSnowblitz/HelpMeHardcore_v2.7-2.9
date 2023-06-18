@@ -141,7 +141,7 @@ public class QueenBeeEntity extends SpellcastingIllagerEntity implements GeoEnti
             player.playSound(SoundEvents.ITEM_HONEY_BOTTLE_DRINK, 1.0f, 1.0f);
             ItemStack itemStack2 = ItemUsage.exchangeStack(itemStack, player, ModItems.HONEY_BUCKET.getDefaultStack());
             player.setStackInHand(hand, itemStack2);
-            return ActionResult.success(this.world.isClient);
+            return ActionResult.success(this.getWorld().isClient);
         }
         return super.interactMob(player, hand);
     }
@@ -358,7 +358,7 @@ class ChargeTargetGoal
             }
             for (int i = 0; i < 3; ++i) {
                 BlockPos blockPos2 = blockPos.add(QueenBeeEntity.this.random.nextInt(15) - 7, QueenBeeEntity.this.random.nextInt(11) - 5, QueenBeeEntity.this.random.nextInt(15) - 7);
-                if (!QueenBeeEntity.this.world.isAir(blockPos2)) continue;
+                if (!QueenBeeEntity.this.getWorld().isAir(blockPos2)) continue;
                 QueenBeeEntity.this.moveControl.moveTo((double)blockPos2.getX() + 0.5, (double)blockPos2.getY() + 0.5, (double)blockPos2.getZ() + 0.5, 0.25);
                     if (QueenBeeEntity.this.getTarget() != null) break;
                     QueenBeeEntity.this.getLookControl().lookAt((double)blockPos2.getX() + 0.5, (double)blockPos2.getY() + 0.5, (double)blockPos2.getZ() + 0.5, 180.0f, 20.0f);
@@ -379,7 +379,7 @@ class ChargeTargetGoal
             if (!super.canStart()) {
                 return false;
             }
-            int i = QueenBeeEntity.this.world.getTargets(QueenBeeEntity.class, this.closeQueenBeePredicate, QueenBeeEntity.this, QueenBeeEntity.this.getBoundingBox().expand(16.0)).size();
+            int i = QueenBeeEntity.this.getWorld().getTargets(QueenBeeEntity.class, this.closeQueenBeePredicate, QueenBeeEntity.this, QueenBeeEntity.this.getBoundingBox().expand(16.0)).size();
             return QueenBeeEntity.this.random.nextInt(8) + 1 > i;
         }
 
@@ -395,12 +395,12 @@ class ChargeTargetGoal
 
         @Override
         protected void castSpell() {
-            ServerWorld serverWorld = (ServerWorld)QueenBeeEntity.this.world;
+            ServerWorld serverWorld = (ServerWorld) QueenBeeEntity.this.getWorld();
             for (int i = 0; i < 3; ++i) {
                 BlockPos blockPos = QueenBeeEntity.this.getBlockPos().add(-2 + QueenBeeEntity.this.random.nextInt(5), 1, -2 + QueenBeeEntity.this.random.nextInt(5));
-                SoldierBeeEntity soldierBeeEntity = MobEntities.SOLDIER_BEE.create(QueenBeeEntity.this.world);
+                SoldierBeeEntity soldierBeeEntity = MobEntities.SOLDIER_BEE.create(QueenBeeEntity.this.getWorld());
                 soldierBeeEntity.refreshPositionAndAngles(blockPos, 0.0f, 0.0f);
-                soldierBeeEntity.initialize(serverWorld, QueenBeeEntity.this.world.getLocalDifficulty(blockPos), SpawnReason.MOB_SUMMONED, null, null);
+                soldierBeeEntity.initialize(serverWorld, QueenBeeEntity.this.getWorld().getLocalDifficulty(blockPos), SpawnReason.MOB_SUMMONED, null, null);
                 serverWorld.spawnEntityAndPassengers(soldierBeeEntity);
             }
         }

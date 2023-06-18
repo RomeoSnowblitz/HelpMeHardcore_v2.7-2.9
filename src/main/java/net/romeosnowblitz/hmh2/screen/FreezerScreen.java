@@ -9,6 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 
+    /*
 
 public class FreezerScreen extends HandledScreen<FreezerScreenHandler> {
     private static final Identifier TEXTURE =
@@ -48,4 +49,7 @@ public class FreezerScreen extends HandledScreen<FreezerScreenHandler> {
         super.render(matrices, mouseX, mouseY, delta);
         drawMouseoverTooltip(matrices, mouseX, mouseY);
     }
+
 }
+
+     */

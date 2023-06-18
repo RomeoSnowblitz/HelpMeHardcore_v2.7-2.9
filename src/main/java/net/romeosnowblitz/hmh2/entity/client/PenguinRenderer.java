@@ -8,7 +8,6 @@ import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.entity.mob.PenguinEntity;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-import javax.annotation.Nullable;
 
 public class PenguinRenderer extends GeoEntityRenderer<PenguinEntity> {
     public PenguinRenderer(EntityRendererFactory.Context ctx) {
@@ -21,7 +20,7 @@ public class PenguinRenderer extends GeoEntityRenderer<PenguinEntity> {
     }
 
     @Override
-    public RenderLayer getRenderType(PenguinEntity animatable, Identifier texture, @Nullable VertexConsumerProvider bufferSource, float partialTick) {
+    public RenderLayer getRenderType(PenguinEntity animatable, Identifier texture, VertexConsumerProvider bufferSource, float partialTick) {
         return super.getRenderType(animatable, texture, bufferSource, partialTick);
     }
 

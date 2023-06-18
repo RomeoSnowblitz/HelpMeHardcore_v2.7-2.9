@@ -1,11 +1,12 @@
 {
   "item.hmh2.disc_fragment": "Disc Fragment",
   "item.hmh2.revival_stone": "Revival Stone",
-  "item.hmh2.fortress_seeker": "Fortress Seeker",
+  "item.hmh2.fortress_seeker": "Eye of the Heart",
   "item.hmh2.granny_lotion": "Granny Lotion",
   "item.hmh2.glue": "Glue",
   "item.hmh2.flour": "Flour",
   "item.hmh2.sun_stone": "Sun Stone",
+  "item.hmh2.null_passer": "Null Passer",
 
   "block.hmh2.gluey_piston": "Gluey Piston",
   "block.hmh2.nether_prismarine": "Nether Prismarine",
@@ -13,6 +14,7 @@
 
   "block.hmh2.hellstone_bricks": "Hellstone Bricks",
   "block.hmh2.iced_bucket": "Iced Bucket",
+  "block.hmh2.sand_sculk": "Sand Sculk",
 
   "item.hmh2.bamboo_bow": "Bamboo Bow",
 
@@ -102,7 +104,7 @@
   "item.hmh2.poison_sac": "Poison Sac",
   "item.hmh2.rennet": "Rennet",
 
-  "item.hmh2.banana_peel": "Banana Peel",
+  "block.hmh2.banana_peel": "Banana Peel",
   "item.hmh2.bone_plate": "Bone Plate",
   "item.hmh2.butter": "Butter",
   "item.hmh2.chained_mesh": "Chained Mesh",
@@ -1004,5 +1006,7 @@
   "effect.hmh2.lunar_wolf_perception": "Lunar Wolf Perception",
   "effect.hmh2.normie": "Normie",
   "effect.hmh2.poison_immunity": "Poison Immunity",
-  "effect.hmh2.sightlessness": "Sightlessness"
+  "effect.hmh2.sightlessness": "Sightlessness",
+
+  "stat.hmh2.list": "List"
 }

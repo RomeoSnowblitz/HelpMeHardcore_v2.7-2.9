@@ -4,13 +4,14 @@ import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Lazy;
+import net.romeosnowblitz.hmh2.block.ModBlocks;
 
 import java.util.function.Supplier;
 
 public enum ModToolMaterial implements ToolMaterial {
 
     BANANA(2, 131, 4.0F, 1.0F, 30, () -> {
-        return Ingredient.ofItems(ModItems.BANANA_PEEL);}),
+        return Ingredient.ofItems(ModBlocks.BANANA_PEEL);}),
     BLAZE(4, 420, 12.0F, 7.0F, 30, () -> {
         return Ingredient.ofItems(Items.BLAZE_ROD);}),
     BLUE_ICE(4, 906, 1.0F, -1.0F, 30, () -> {

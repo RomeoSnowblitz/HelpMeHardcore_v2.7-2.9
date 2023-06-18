@@ -1,13 +1,16 @@
 package net.romeosnowblitz.hmh2.item;
 
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.*;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.ArmorMaterials;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Lazy;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.Util;
+import net.romeosnowblitz.hmh2.block.ModBlocks;
 
 import java.util.EnumMap;
 import java.util.function.Supplier;
@@ -21,7 +24,7 @@ public enum ModArmorMaterial implements ArmorMaterial {
         map.put(ArmorItem.Type.CHESTPLATE, 3);
         map.put(ArmorItem.Type.HELMET, 1);
     }), 100, SoundEvents.BLOCK_HONEY_BLOCK_SLIDE, 0.0F, 0.0F, () -> {
-        return Ingredient.ofItems(ModItems.BANANA_PEEL);
+        return Ingredient.ofItems(ModBlocks.BANANA_PEEL);
     }),
     BEE("bee", 15, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
         map.put(ArmorItem.Type.BOOTS, 3);

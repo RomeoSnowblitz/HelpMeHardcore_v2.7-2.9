@@ -1,7 +1,10 @@
 package net.romeosnowblitz.hmh2.item.custom.food;
 
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FluidDrainable;
+import net.minecraft.block.FluidFillable;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
@@ -151,7 +154,6 @@ public class MultiPurposeHoneyBucket extends Item
         }
         BlockState blockState = world.getBlockState(pos);
         Block block = blockState.getBlock();
-        Material material = blockState.getMaterial();
         boolean bl = blockState.canBucketPlace(this.fluid);
         boolean bl3 = bl2 = blockState.isAir() || bl || block instanceof FluidFillable && ((FluidFillable)((Object)block)).canFillWithFluid(world, pos, blockState, this.fluid);
         if (!bl2) {
@@ -172,9 +174,11 @@ public class MultiPurposeHoneyBucket extends Item
             this.playEmptyingSound(player, world, pos);
             return true;
         }
-        if (!world.isClient && bl && !material.isLiquid()) {
+        if (!world.isClient && bl && !blockState.isLiquid()) {
             world.breakBlock(pos, true);
         }
+
+
         if (world.setBlockState(pos, this.fluid.getDefaultState().getBlockState(), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD) || blockState.getFluidState().isStill()) {
             this.playEmptyingSound(player, world, pos);
             return true;

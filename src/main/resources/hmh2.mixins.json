@@ -3,9 +3,7 @@
 	"package": "net.romeosnowblitz.hmh2.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"BlockEntityTypeMixin",
-		"BrewingRecipeRegistryMixin",
-		"CustomFarmlandMixin"
+		"ExampleMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

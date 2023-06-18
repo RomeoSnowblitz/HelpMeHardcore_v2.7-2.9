@@ -8,7 +8,6 @@ import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.entity.mob.TheGreatHungerEntity;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-import javax.annotation.Nullable;
 
 public class TheGreatHungerRenderer extends GeoEntityRenderer<TheGreatHungerEntity> {
     public TheGreatHungerRenderer(EntityRendererFactory.Context ctx) {
@@ -21,7 +20,7 @@ public class TheGreatHungerRenderer extends GeoEntityRenderer<TheGreatHungerEnti
     }
 
     @Override
-    public RenderLayer getRenderType(TheGreatHungerEntity animatable, Identifier texture, @Nullable VertexConsumerProvider bufferSource, float partialTick) {
+    public RenderLayer getRenderType(TheGreatHungerEntity animatable, Identifier texture, VertexConsumerProvider bufferSource, float partialTick) {
         return super.getRenderType(animatable, texture, bufferSource, partialTick);
     }
 }

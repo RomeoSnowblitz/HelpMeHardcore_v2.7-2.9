@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:diorite"
+  },
+  "result": "hmh2:diorite_bricks",
+  "count": 1
+}

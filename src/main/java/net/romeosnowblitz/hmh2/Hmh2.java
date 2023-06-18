@@ -8,13 +8,12 @@ import net.romeosnowblitz.hmh2.entity.ModBlockEntities;
 import net.romeosnowblitz.hmh2.item.*;
 import net.romeosnowblitz.hmh2.painting.ModPaintings;
 import net.romeosnowblitz.hmh2.potion.ModPotions;
-import net.romeosnowblitz.hmh2.screen.ModScreenHandlers;
 import net.romeosnowblitz.hmh2.sounds.ModSounds;
+import net.romeosnowblitz.hmh2.test.ModEvents;
 import net.romeosnowblitz.hmh2.util.ModRegistries;
 import net.romeosnowblitz.hmh2.villager.ModVillagers;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import software.bernie.geckolib.GeckoLib;
 
 public class Hmh2 implements ModInitializer {
 	public static final String MOD_ID = "hmh2";
@@ -42,12 +41,11 @@ public class Hmh2 implements ModInitializer {
 		ModPotions.registerPotions();
 		CustomEffects.registerEffects();
 		ModBlockEntities.registerAllBlockEntities();
-		ModScreenHandlers.registerAllScreenHandlers();
-
-		GeckoLib.initialize();
 
 		ModVillagers.registerVillagers();
 		ModVillagers.registerVillagerTrades();
 		ModSounds.registerSounds();
+		ModEvents.registerModEvents();
+
 	}
 }

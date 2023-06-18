@@ -24,23 +24,23 @@ public class CustomEffects {
 
     public static StatusEffect registerAnchoredStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new AnchoredEffect(StatusEffectCategory.HARMFUL, 1485372));
+                new AnchoredEffect(StatusEffectCategory.HARMFUL, 11184810));
     }
     public static StatusEffect registerConduitFailureStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new ConduitFailureEffect(StatusEffectCategory.HARMFUL, 1485372));
+                new ConduitFailureEffect(StatusEffectCategory.HARMFUL, 11184810));
     }
     public static StatusEffect registerDolphinsCurseStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new DolphinsCurseEffect(StatusEffectCategory.HARMFUL, 1485372));
+                new DolphinsCurseEffect(StatusEffectCategory.HARMFUL, 11184810));
     }
     public static StatusEffect registerEnderSkinStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new EnderSkinEffect(StatusEffectCategory.HARMFUL, 1485372));
+                new EnderSkinEffect(StatusEffectCategory.HARMFUL, 11141290));
     }
     public static StatusEffect registerHealthShrinkageStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new HealthShrikageEffect(StatusEffectCategory.HARMFUL, 1485372)
+                new HealthShrikageEffect(StatusEffectCategory.HARMFUL, 11141120)
                         .addAttributeModifier(EntityAttributes.GENERIC_MAX_HEALTH,
                                 "5D6F0BA2-1186-46AC-B896-C61C5CEE99CC",
                                 -1.0, EntityAttributeModifier.Operation.ADDITION));
@@ -48,15 +48,15 @@ public class CustomEffects {
 
     public static StatusEffect registerInsusceptibilityStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new InsusceptibilityEffect(StatusEffectCategory.BENEFICIAL, 1485372));
+                new InsusceptibilityEffect(StatusEffectCategory.BENEFICIAL, 11184810));
     }
     public static StatusEffect registerKindlingStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new KindlingEffect(StatusEffectCategory.HARMFUL, 1485372));
+                new KindlingEffect(StatusEffectCategory.HARMFUL, 16777045));
     }
     public static StatusEffect registerLunarWolfPerceptionStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new LunarWolfPerceptionEffect(StatusEffectCategory.BENEFICIAL, 1485372));
+                new LunarWolfPerceptionEffect(StatusEffectCategory.BENEFICIAL, 170));
     }
     public static StatusEffect registerNormieStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
@@ -64,11 +64,11 @@ public class CustomEffects {
     }
     public static StatusEffect registerPoisonImmunityStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new PoisonImmunityEffect(StatusEffectCategory.BENEFICIAL, 1485372));
+                new PoisonImmunityEffect(StatusEffectCategory.BENEFICIAL, 11184810));
     }
     public static StatusEffect registerSightlessnessStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new SightlessnessEffect(StatusEffectCategory.HARMFUL, 1485372));
+                new SightlessnessEffect(StatusEffectCategory.HARMFUL, 11184810));
     }
 
     public static void registerEffects() {

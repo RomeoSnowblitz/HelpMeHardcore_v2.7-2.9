@@ -1,11 +1,13 @@
 package net.romeosnowblitz.hmh2.item.custom.magic;
 
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.FluidDrainable;
+import net.minecraft.block.FluidFillable;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.Fluid;
@@ -136,7 +138,6 @@ public class MagicBucket extends Item implements FluidModificationItem {
         } else {
             BlockState blockState = world.getBlockState(pos);
             Block block = blockState.getBlock();
-            Material material = blockState.getMaterial();
             boolean bl = blockState.canBucketPlace(this.fluid);
             boolean bl2 = blockState.isAir() || bl || block instanceof FluidFillable && ((FluidFillable)block).canFillWithFluid(world, pos, blockState, this.fluid);
             if (!bl2) {
@@ -157,7 +158,7 @@ public class MagicBucket extends Item implements FluidModificationItem {
                 this.playEmptyingSound(player, world, pos);
                 return true;
             } else {
-                if (!world.isClient && bl && !material.isLiquid()) {
+                if (!world.isClient && bl && !blockState.isLiquid()) {
                     world.breakBlock(pos, true);
                 }
 

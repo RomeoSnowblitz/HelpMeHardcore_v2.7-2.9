@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:salt_block"
+  },
+  "result": "hmh2:salt_stairs",
+  "count": 1
+}

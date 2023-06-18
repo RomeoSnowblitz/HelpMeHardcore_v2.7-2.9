@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hmh2:jacaranda_button",
+      "hmh2:jacaranda_door",
+      "hmh2:jacaranda_fence",
+      "hmh2:jacaranda_fence_gate",
+      "hmh2:jacaranda_planks",
+      "hmh2:jacaranda_pressure_plate",
+      "hmh2:jacaranda_slab",
+      "hmh2:jacaranda_stairs",
+      "hmh2:jacaranda_trapdoor",
+      "hmh2:jacaranda_wood",
+      "hmh2:stripped_jacaranda_wood"
+    ]
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:jacaranda_log",
+              "hmh2:jacaranda_wood",
+              "hmh2:stripped_jacaranda_log",
+              "hmh2:stripped_jacaranda_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hmh2:jacaranda_woods"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item",
+      "has_the_recipe"
+    ]
+  ]
+}

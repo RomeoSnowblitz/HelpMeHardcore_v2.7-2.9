@@ -17,7 +17,7 @@ public class NullPasser extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-            if (!user.world.isClient()) {
+            if (!user.getWorld().isClient()) {
                 double y = user.getY();
                 user.teleport(0, y, 0);
                 user.setVelocity(0, 0, 0);
@@ -27,7 +27,7 @@ public class NullPasser extends Item {
     }
 
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (!attacker.world.isClient()) {
+        if (!attacker.getWorld().isClient()) {
             double y = target.getY();
             target.teleport(0, y, 0);
             target.setVelocity(0, 0, 0);

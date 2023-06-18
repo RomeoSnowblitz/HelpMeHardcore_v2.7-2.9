@@ -1,0 +1,42 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hmh2:new_green_candle",
+      "hmh2:new_green_carpet",
+      "hmh2:new_green_concrete_powder",
+      "hmh2:new_green_dye",
+      "hmh2:new_green_glazed_terracotta",
+      "hmh2:new_green_stained_glass",
+      "hmh2:new_green_stained_glass_pane",
+      "hmh2:new_green_terracotta",
+      "hmh2:new_green_wool"
+    ]
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:new_green_dye"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hmh2:new_green_color"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -13,7 +13,6 @@ import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
 import net.romeosnowblitz.hmh2.entity.mob.*;
-import net.romeosnowblitz.hmh2.item.ModItems;
 import net.romeosnowblitz.hmh2.item.SustenanceItems;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
 import net.romeosnowblitz.hmh2.tag.ModItemTags;

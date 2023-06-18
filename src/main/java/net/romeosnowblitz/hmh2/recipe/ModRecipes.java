@@ -1,10 +1,5 @@
 package net.romeosnowblitz.hmh2.recipe;
 
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
-import net.romeosnowblitz.hmh2.Hmh2;
-
 /*
 public class ModRecipes {
     public static void registerRecipes() {

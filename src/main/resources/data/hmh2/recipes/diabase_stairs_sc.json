@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:diabase"
+  },
+  "result": "hmh2:diabase_stairs",
+  "count": 1
+}

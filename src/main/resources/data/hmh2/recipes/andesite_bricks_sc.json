@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:andesite"
+  },
+  "result": "hmh2:andesite_bricks",
+  "count": 1
+}

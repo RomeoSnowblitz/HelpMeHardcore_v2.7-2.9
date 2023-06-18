@@ -8,14 +8,13 @@
  */
 package net.romeosnowblitz.hmh2.block.custom.farm;
 
-import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.CropBlock;
 import net.minecraft.item.ItemConvertible;
 import net.romeosnowblitz.hmh2.item.ModItems;
 
 public class EnderCornBlock
 extends CropBlock {
-    public EnderCornBlock(AbstractBlock.Settings settings) {
+    public EnderCornBlock(Settings settings) {
         super(settings);
     }
 

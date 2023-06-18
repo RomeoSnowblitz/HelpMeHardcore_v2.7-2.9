@@ -13,6 +13,7 @@ import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.item.custom.magic.MagicAmulet;
 import net.romeosnowblitz.hmh2.item.custom.magic.MagicBucket;
 import net.romeosnowblitz.hmh2.item.custom.magic.charms.*;
+
 import static net.minecraft.item.Items.BUCKET;
 
 public class MagicItems {
@@ -163,139 +164,8 @@ public class MagicItems {
         return Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), item);
     }
 
-    public static void addItemsToItemGroup() {
-        addToItemGroup(ModItemGroup.MAGIC, AMBER);
-        addToItemGroup(ModItemGroup.MAGIC, ANDALUSITE);
-        addToItemGroup(ModItemGroup.MAGIC, AQUAMARINE);
-        addToItemGroup(ModItemGroup.MAGIC, CITRINE);
-        addToItemGroup(ModItemGroup.MAGIC, DIOPSIDE);
-        addToItemGroup(ModItemGroup.MAGIC, GARNET);
-        addToItemGroup(ModItemGroup.MAGIC, HESSONITE);
-        addToItemGroup(ModItemGroup.MAGIC, MALICHITE);
-        addToItemGroup(ModItemGroup.MAGIC, MOONSTONE);
-        addToItemGroup(ModItemGroup.MAGIC, OPAL);
-        addToItemGroup(ModItemGroup.MAGIC, PERIDOT);
-        addToItemGroup(ModItemGroup.MAGIC, PREHNITE);
-        addToItemGroup(ModItemGroup.MAGIC, RUBY);
-        addToItemGroup(ModItemGroup.MAGIC, SAPPHIRE);
-        addToItemGroup(ModItemGroup.MAGIC, SMOKY_QUARTZ);
-        addToItemGroup(ModItemGroup.MAGIC, SPESSARITE);
-        addToItemGroup(ModItemGroup.MAGIC, SPHENE);
-        addToItemGroup(ModItemGroup.MAGIC, SPINEL);
-        addToItemGroup(ModItemGroup.MAGIC, TANZANITE);
-        addToItemGroup(ModItemGroup.MAGIC, TOPAZ);
-        addToItemGroup(ModItemGroup.MAGIC, TORMALINE);
-        addToItemGroup(ModItemGroup.MAGIC, TSAVORITE);
-        addToItemGroup(ModItemGroup.MAGIC, ZIRCON);
-        addToItemGroup(ModItemGroup.MAGIC, AMBER_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, ANDALUSITE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, AQUAMARINE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, CITRINE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, DIOPSIDE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, GARNET_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, HESSONITE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, MALICHITE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, MOONSTONE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, OPAL_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, PERIDOT_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, PREHNITE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, RUBY_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, SAPPHIRE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, SMOKY_QUARTZ_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, SPESSARITE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, SPHENE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, SPINEL_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, TANZANITE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, TOPAZ_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, TORMALINE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, TSAVORITE_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, ZIRCON_LOCKET);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_ACCELERATION);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_ANTIGRAVITY);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_ARTHRITIS);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_BAD_LUCK);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_BRICKS);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_BRO_YOU_GOTTA_TRY_THIS);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_BUBBLES);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_CLOAKING);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_CLOSED_EYES);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_CLOVERS);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_DECAY);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_ENDURANCE);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_EXCAVATION);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_EXTRA_LOVE);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_FLAMELESSNESS);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_FRAILTY);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_GILLS);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_GLUTTONY);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_HEALING);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_HERCULES);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_ILLUMINATION);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_LEAPING);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_NIGHT_SIGHT);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_NOURISHMENT);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_OLYMPIC_SWIMMING);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_RAIDS);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_REJUVINATION);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_SHADOWS);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_SHIELDING);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_SICKENING);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_THE_PHANTOM);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_THE_TORTISE);
-        addToItemGroup(ModItemGroup.MAGIC, AMULET_OF_THE_VILLAGE_HERO);
-        addToItemGroup(ModItemGroup.MAGIC, FIGHT_CHARM);
-        addToItemGroup(ModItemGroup.MAGIC, LIGHT_CHARM);
-        addToItemGroup(ModItemGroup.MAGIC, MIGHT_CHARM);
-        addToItemGroup(ModItemGroup.MAGIC, SIGHT_CHARM);
-        addToItemGroup(ModItemGroup.MAGIC, FLIGHT_CHARM);
-        addToItemGroup(ModItemGroup.MAGIC, SLIGHT_CHARM);
-        addToItemGroup(ModItemGroup.MAGIC, ALIGHT_CHARM);
-        addToItemGroup(ModItemGroup.MAGIC, BLIGHT_CHARM);
-        addToItemGroup(ModItemGroup.MAGIC, BRIGHT_CHARM);
-        addToItemGroup(ModItemGroup.MAGIC, FRIGHT_CHARM);
-        addToItemGroup(ModItemGroup.MAGIC, KNIGHT_CHARM);
-        addToItemGroup(ModItemGroup.MAGIC, ABSORPTION_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, BAD_LUCK_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, BAD_OMEN_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, BLINDNESS_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, CONDUIT_POWER_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, DARKNESS_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, DOLPHINS_GRACE_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, FIRE_IMMUNITY_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, GLOWING_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, HASTE_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, HEALTH_BOOST_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, HUNGER_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, INSTANT_DAMAGE_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, INSTANT_HEALTH_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, INVISIBILITY_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, JUMP_BOOST_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, LEVITATION_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, LUCK_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, MINING_FATIGUE_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, NAUSEA_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, NIGHT_VISION_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, POISON_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, REGENERATION_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, RESISTANCE_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, SATURATION_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, SLOW_FALLING_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, SLOWNESS_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, SPEED_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, STRENGTH_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, VILLAGE_HERO_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, WATER_BREATHING_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, WEAKNESS_FLUID);
-        addToItemGroup(ModItemGroup.MAGIC, WITHER_FLUID);
-    }
-
-    public static void addToItemGroup(ItemGroup group, Item item){
-        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
-    }
-
     public static void registerModItems() {
         Hmh2.LOGGER.info("Registering Mod Items for " + Hmh2.MOD_ID);
-        addItemsToItemGroup();
     }
 
 }

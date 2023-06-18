@@ -59,16 +59,12 @@ public class ModCropBlock extends CropBlock {
         return 7;
     }
 
-    protected int getAge(BlockState state) {
+    public int getAge(BlockState state) {
         return state.get(this.getAgeProperty());
     }
 
     public BlockState withAge(int age) {
-        return (BlockState)this.getDefaultState().with(this.getAgeProperty(), age);
-    }
-
-    public boolean isMature(BlockState state) {
-        return state.get(this.getAgeProperty()) >= this.getMaxAge();
+        return this.getDefaultState().with(this.getAgeProperty(), age);
     }
 
     @Override

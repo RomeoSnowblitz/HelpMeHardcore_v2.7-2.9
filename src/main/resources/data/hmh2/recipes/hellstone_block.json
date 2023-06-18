@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:hellstone"
+    }
+  },
+  "result": {
+    "item": "hmh2:hellstone_block",
+    "count": 1
+  }
+}

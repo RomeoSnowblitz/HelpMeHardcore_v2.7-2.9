@@ -13,18 +13,16 @@
  */
 package net.romeosnowblitz.hmh2.entity.client;
 
-import javax.annotation.Nullable;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
-import net.romeosnowblitz.hmh2.entity.client.CalModel;
 import net.romeosnowblitz.hmh2.entity.mob.CalEntity;
-import net.romeosnowblitz.hmh2.entity.mob.SculkmiteEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
+
+
 
 public class CalRenderer
         extends GeoEntityRenderer<CalEntity> {
@@ -42,7 +40,7 @@ public class CalRenderer
         }
 
         @Override
-        public RenderLayer getRenderType(CalEntity animatable, Identifier texture, @Nullable VertexConsumerProvider bufferSource, float partialTick) {
+        public RenderLayer getRenderType(CalEntity animatable, Identifier texture, VertexConsumerProvider bufferSource, float partialTick) {
             return super.getRenderType(animatable, texture, bufferSource, partialTick);
         }
     }

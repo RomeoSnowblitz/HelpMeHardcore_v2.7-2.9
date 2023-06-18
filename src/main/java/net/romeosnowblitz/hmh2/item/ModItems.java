@@ -2,6 +2,10 @@ package net.romeosnowblitz.hmh2.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.MapColor;
+import net.minecraft.block.SignBlock;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
@@ -19,20 +23,18 @@ import net.romeosnowblitz.hmh2.item.custom.food.*;
 import net.romeosnowblitz.hmh2.item.custom.test.*;
 
 import static net.minecraft.item.Items.BUCKET;
-import static net.minecraft.item.Items.GLASS_BOTTLE;
 
 public class ModItems {
 
     //あなたの名前
-
-    /*/Test
+    /*/ModEvents
     public static final Item TEST_ITEM = registerItem("test_item", new TestItem(10, 1, 10, new Item.Settings().maxDamage(1000)));
      */
 
     //New Items
     public static final Item FORTRESS_SEEKER = registerItem("fortress_seeker", new FortressSeeker(new FabricItemSettings()));
     public static final Item SUN_STONE = registerItem("sun_stone", new SunStone(new FabricItemSettings()));
-    public static final Item REVIVAL_STONE = registerItem("revival_stone", new RevivalStone(new FabricItemSettings()));
+    public static final Item REVIVAL_STONE = registerItem("revival_stone", new RevivalStone(new FabricItemSettings().maxDamage(1)));
     public static final Item GLUE = registerItem("glue", new Item(new FabricItemSettings()));
     public static final Item FLOUR = registerItem("flour", new Item(new FabricItemSettings()));
     public static final Item DISC_FRAGMENT = registerItem("disc_fragment", new Disc_Fragment(new FabricItemSettings()));
@@ -113,7 +115,6 @@ public class ModItems {
     public static final Item RENNET = registerItem("rennet", new Item(new FabricItemSettings()));
 
     //Obtained from Crafting (8)
-    public static final Item BANANA_PEEL = registerItem("banana_peel", new Item(new FabricItemSettings()));
     public static final Item BONE_PLATE = registerItem("bone_plate", new Item(new FabricItemSettings()));
     public static final Item CHAINED_MESH = registerItem("chained_mesh", new Item(new FabricItemSettings()));
     public static final Item CLOTH = registerItem("cloth", new Item(new FabricItemSettings()));
@@ -144,6 +145,7 @@ public class ModItems {
 
     public static final Item BANANA_SIGN = registerItem("banana_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.BANANA_SIGN_BLOCK, WoodworkBlocks.BANANA_WALL_SIGN_BLOCK));
     public static final Item CHERRY_SIGN = registerItem("cherry_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.CHERRY_SIGN_BLOCK, WoodworkBlocks.CHERRY_WALL_SIGN_BLOCK));
+
     public static final Item CORK_OAK_SIGN = registerItem("cork_oak_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.CORK_OAK_SIGN_BLOCK, WoodworkBlocks.CORK_OAK_WALL_SIGN_BLOCK));
     public static final Item JACARANDA_SIGN = registerItem("jacaranda_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.JACARANDA_SIGN_BLOCK, WoodworkBlocks.JACARANDA_WALL_SIGN_BLOCK));
     public static final Item MAHOE_SIGN = registerItem("mahoe_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.MAHOE_SIGN_BLOCK, WoodworkBlocks.MAHOE_WALL_SIGN_BLOCK));
@@ -165,92 +167,7 @@ public class ModItems {
         return Registry.register (Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), item);
     }
 
-    public static void addItemsToItemGroup(){
-        addToItemGroup(ModItemGroup.ITEM, DISC_FRAGMENT);
-        addToItemGroup(ModItemGroup.ITEM, FORTRESS_SEEKER);
-        addToItemGroup(ModItemGroup.ITEM, SUN_STONE);
-        addToItemGroup(ModItemGroup.ITEM, REVIVAL_STONE);
-        addToItemGroup(ModItemGroup.ITEM, GLUE);
-        addToItemGroup(ModItemGroup.ITEM, FLOUR);
-
-
-        addToItemGroup(ModItemGroup.ITEM, BAMBOO_BOW);
-        addToItemGroup(ModItemGroup.ITEM, BAMBOO_SHIELD);
-        addToItemGroup(ModItemGroup.ITEM, CORK);
-        addToItemGroup(ModItemGroup.ITEM, GRAPHITE);
-        addToItemGroup(ModItemGroup.ITEM, HELLSTONE);
-        addToItemGroup(ModItemGroup.ITEM, LUCKY_PIECE);
-        addToItemGroup(ModItemGroup.ITEM, QUAERITE_FRAGMENT);
-        addToItemGroup(ModItemGroup.ITEM, RAW_PLATINUM);
-        addToItemGroup(ModItemGroup.ITEM, RAW_SILVER);
-        addToItemGroup(ModItemGroup.ITEM, RAW_TIN);
-        addToItemGroup(ModItemGroup.ITEM, RAW_TITANIUM);
-        addToItemGroup(ModItemGroup.ITEM, SALT);
-        addToItemGroup(ModItemGroup.ITEM, ASHES);
-        addToItemGroup(ModItemGroup.ITEM, BURNT_EGGSHELL);
-        addToItemGroup(ModItemGroup.ITEM, HEAVY_CREAM);
-        addToItemGroup(ModItemGroup.ITEM, PLASTIC);
-        addToItemGroup(ModItemGroup.ITEM, RESIN);
-        addToItemGroup(ModItemGroup.ITEM, PLATINUM_INGOT);
-        addToItemGroup(ModItemGroup.ITEM, SILVER_INGOT);
-        addToItemGroup(ModItemGroup.ITEM, TIN_INGOT);
-        addToItemGroup(ModItemGroup.ITEM, TITANIUM_INGOT);
-        addToItemGroup(ModItemGroup.ITEM, BRONZE_INGOT);
-        addToItemGroup(ModItemGroup.ITEM, BUTTER);
-        addToItemGroup(ModItemGroup.ITEM, MYSTERIOUS_WHITE_DEBRIS);
-        addToItemGroup(ModItemGroup.ITEM, MYSTERIOUS_YELLOW_DEBRIS);
-        addToItemGroup(ModItemGroup.ITEM, MYSTERIOUS_CYAN_DEBRIS);
-        addToItemGroup(ModItemGroup.ITEM, MYSTERIOUS_MAGENTA_DEBRIS);
-        addToItemGroup(ModItemGroup.ITEM, HOOF);
-        addToItemGroup(ModItemGroup.ITEM, FUR_PELT);
-        addToItemGroup(ModItemGroup.ITEM, POISON_SAC);
-        addToItemGroup(ModItemGroup.ITEM, RENNET);
-        addToItemGroup(ModItemGroup.ITEM, BANANA_PEEL);
-        addToItemGroup(ModItemGroup.ITEM, BONE_PLATE);
-        addToItemGroup(ModItemGroup.ITEM, CHAINED_MESH);
-        addToItemGroup(ModItemGroup.ITEM, CLOTH);
-        addToItemGroup(ModItemGroup.ITEM, HOOF_POWDER);
-        addToItemGroup(ModItemGroup.ITEM, CONE);
-        addToItemGroup(ModItemGroup.ITEM, ENDER_SHARD);
-        addToItemGroup(ModItemGroup.ITEM, ENDER_DUST);
-        addToItemGroup(ModItemGroup.ITEM, ENDER_INGOT);
-        addToItemGroup(ModItemGroup.ITEM, FROZEN_MILK);
-        addToItemGroup(ModItemGroup.ITEM, ITEM);
-        addToItemGroup(ModItemGroup.ITEM, OIL_BALL);
-        addToItemGroup(ModItemGroup.ITEM, PENCIL);
-        addToItemGroup(ModItemGroup.ITEM, SILK);
-        addToItemGroup(ModItemGroup.ITEM, SHEET_PAN);
-        addToItemGroup(ModItemGroup.ITEM, VEGAN_LEATHER);
-        addToItemGroup(ModItemGroup.ITEM, WOODED_DIAMOND);
-        addToItemGroup(ModItemGroup.ITEM, GRANNY_LOTION);
-        addToItemGroup(ModItemGroup.ITEM, ROSE_DYE);
-        addToItemGroup(ModItemGroup.ITEM, ULTRAMARINE_DYE);
-        addToItemGroup(ModItemGroup.ITEM, NEW_GREEN_DYE);
-        addToItemGroup(ModItemGroup.ITEM, SPRING_GREEN_DYE);
-        addToItemGroup(ModItemGroup.ITEM, VIOLET_DYE);
-        addToItemGroup(ModItemGroup.ITEM, MIDAS_SEEDS);
-        addToItemGroup(ModItemGroup.WOODWORKS, BANANA_SIGN);
-        addToItemGroup(ModItemGroup.WOODWORKS, CHERRY_SIGN);
-        addToItemGroup(ModItemGroup.WOODWORKS, CORK_OAK_SIGN);
-        addToItemGroup(ModItemGroup.WOODWORKS, JACARANDA_SIGN);
-        addToItemGroup(ModItemGroup.WOODWORKS, MAHOE_SIGN);
-        addToItemGroup(ModItemGroup.WOODWORKS, MANGO_SIGN);
-        addToItemGroup(ModItemGroup.WOODWORKS, WILLOW_SIGN);
-        addToItemGroup(ModItemGroup.ITEM, CHOCOLATE_MILK);
-        addToItemGroup(ModItemGroup.ITEM, HEATED_OIL_BUCKET);
-        addToItemGroup(ModItemGroup.ITEM, HONEY_BUCKET);
-        addToItemGroup(ModItemGroup.ITEM, OIL_BUCKET);
-        addToItemGroup(ModItemGroup.ITEM, PENGUIN_SPAWN_EGG);
-        addToItemGroup(ModItemGroup.ITEM, SHADOW_CREATURE_SPAWN_EGG);
-        addToItemGroup(ModItemGroup.ITEM, THE_GREAT_HUNGER_SPAWN_EGG);
-    }
-
-    public static void addToItemGroup(ItemGroup group, Item item){
-        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
-    }
-
     public static void registerModItems() {
         Hmh2.LOGGER.info("Registering Mod Items for " + Hmh2.MOD_ID);
-        addItemsToItemGroup();
     }
 }

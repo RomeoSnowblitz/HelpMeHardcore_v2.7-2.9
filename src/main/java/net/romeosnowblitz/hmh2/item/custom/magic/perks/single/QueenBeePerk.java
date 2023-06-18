@@ -22,7 +22,6 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
@@ -31,7 +30,7 @@ import net.romeosnowblitz.hmh2.item.WarfareItems;
 
 public class QueenBeePerk
 extends ArmorItem {
-    public QueenBeePerk(ArmorMaterial material, ArmorItem.Type type, Item.Settings settings) {
+    public QueenBeePerk(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
     }
 

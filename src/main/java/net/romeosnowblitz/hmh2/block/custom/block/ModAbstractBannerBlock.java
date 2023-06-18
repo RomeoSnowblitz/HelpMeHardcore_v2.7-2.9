@@ -21,7 +21,7 @@ public class ModAbstractBannerBlock
         this.color = color;
     }
 
-    @Override
+
     public boolean canMobSpawnInside() {
         return true;
     }

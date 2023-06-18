@@ -17,7 +17,7 @@ import net.romeosnowblitz.hmh2.item.custom.tools.ModCarver;
 
 public class WarfareItems {
 
-    //Armor (4) + Tools (2)  /   (28)
+    //Armor (4) + Tools (2) / (28)
     public static final Item BANANA_HELMET = registerItem("banana_helmet",new ArmorItem(ModArmorMaterial.BANANA, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item BANANA_CHESTPLATE = registerItem("banana_chestplate", new ArmorItem(ModArmorMaterial.BANANA, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
     public static final Item BANANA_LEGGINGS = registerItem("banana_leggings", new ArmorItem(ModArmorMaterial.BANANA, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
@@ -81,7 +81,7 @@ public class WarfareItems {
     public static final Item BATTLESTAFF = registerItem("battlestaff", new SwordItem(ModToolMaterial.STICK, 2, -0.5f, new FabricItemSettings()));
     public static final Item BATTLESTAFF_OF_TERROR = registerItem("battlestaff_of_terror", new SwordItem(ModToolMaterial.ENDER_INGOT, 8, -2.0f, new FabricItemSettings()));
     public static final Item BONECLUB = registerItem("boneclub", new SwordItem(ModToolMaterial.BONE, 14, -3.5f, new FabricItemSettings()));
-    public static final Item BREAD_KNIFE = registerItem("bread_knife", new ModCarver( 1, -0.25f, new FabricItemSettings()));
+    public static final Item BREAD_KNIFE = registerItem("bread_knife", new ModCarver(ModToolMaterial.MOD_IRON, 1, -0.25f, new FabricItemSettings()));
     public static final Item BROADSWORD = registerItem("broadsword", new SwordItem(ModToolMaterial.MOD_IRON, 11, -3.25f, new FabricItemSettings()));
     public static final Item BROKEN_SAWBLADE = registerItem("broken_sawblade", new SwordItem(ModToolMaterial.BONE, 8, -3.0f, new FabricItemSettings()));
     public static final Item CHILL_GALE_KNIFE = registerItem("chill_gale_knife", new SwordItem(ModToolMaterial.MYSTERIOUS_DEBRIS, 8, -1.25f, new FabricItemSettings()));
@@ -122,101 +122,7 @@ public class WarfareItems {
         return Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), item);
     }
 
-    public static void addItemsToItemGroup() {
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BANANA_HELMET);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BANANA_CHESTPLATE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BANANA_LEGGINGS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BANANA_BOOTS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BANANA_HORSE_ARMOR);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BANANA_PICKAXE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUEEN_BEE_HELMET);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUEEN_BEE_CHESTPLATE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUEEN_BEE_LEGGINGS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUEEN_BEE_BOOTS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUEEN_BEE_STINGER);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONE_HELMET);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONE_CHESTPLATE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONE_LEGGINGS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONE_BOOTS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONE_SWORD);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONE_SHOVEL);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONE_PICKAXE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONE_AXE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONE_HOE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, EMERALD_HELMET);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, EMERALD_CHESTPLATE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, EMERALD_LEGGINGS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, EMERALD_BOOTS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, FUR_HELMET);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, FUR_CHESTPLATE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, FUR_LEGGINGS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, FUR_BOOTS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, HELLSTONE_HELMET);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, HELLSTONE_CHESTPLATE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, HELLSTONE_LEGGINGS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, HELLSTONE_BOOTS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, LIFE_HELMET);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, LIFE_CHESTPLATE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, LIFE_LEGGINGS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, LIFE_BOOTS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUAERITE_HELMET);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUAERITE_CHESTPLATE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUAERITE_LEGGINGS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUAERITE_BOOTS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUAERITE_SWORD);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUAERITE_SHOVEL);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUAERITE_PICKAXE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUAERITE_AXE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, QUAERITE_HOE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BLAZE_CUTTER);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, CLUB);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, ANCHOR);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BATTLESTAFF);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BATTLESTAFF_OF_TERROR);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BONECLUB);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BROADSWORD);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BROKEN_SAWBLADE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, CHILL_GALE_KNIFE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, CLAYMORE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, CORAL_BLADE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, CUTLASS);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, BREAD_KNIFE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, ENCRUSTED_ANCHOR);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, ETERNAL_KNIFE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, FROST_FANG);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, FIREBRAND);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, GLAIVE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, GRAVE_BANE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, GREAT_AXEBLADE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, GROWING_STAFF);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, HAWKBRAND);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, HEARTSTEALER);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, HIGHLAND_AXE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, MECHANIZED_SAWBLADE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, MOON_DAGGER);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, NAMELESS_BLADE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, NIGHTMARES_BITE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, OBSIDIAN_CLAYMORE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, RESOLUTE_TEMPEST_KNIFE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, SHEER_DAGGER);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, SICKEL);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, SOUL_KNIFE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, SPONGE_STRIKER);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, TEMPEST_KNIFE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, THE_LAST_LAUGH);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, THE_STARLESS_NIGHT);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, TRUTHSEEKER);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, VENOM_GLAIVE);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, VINE_WHIP);
-        WarfareItems.addToItemGroup(ModItemGroup.WARFARE, WHIP);
-    }
-
-    public static void addToItemGroup(ItemGroup group, Item item) {
-        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
-    }
-
     public static void registerModItems() {
         Hmh2.LOGGER.info("Registering Mod Items for " + Hmh2.MOD_ID);
-        WarfareItems.addItemsToItemGroup();
     }
 }

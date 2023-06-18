@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:hellstone_bricks"
+  },
+  "result": "hmh2:hellstone_brick_wall",
+  "count": 1
+}

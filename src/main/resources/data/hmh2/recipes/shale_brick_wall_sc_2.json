@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:shale_bricks"
+  },
+  "result": "hmh2:shale_brick_wall",
+  "count": 1
+}

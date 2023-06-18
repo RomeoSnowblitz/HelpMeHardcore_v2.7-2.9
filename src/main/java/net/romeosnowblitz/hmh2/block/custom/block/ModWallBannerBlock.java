@@ -35,7 +35,7 @@ public class ModWallBannerBlock extends ModAbstractBannerBlock{
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return world.getBlockState(pos.offset(state.get(FACING).getOpposite())).getMaterial().isSolid();
+        return world.getBlockState(pos.offset(state.get(FACING).getOpposite())).isSolid();
     }
 
     @Override

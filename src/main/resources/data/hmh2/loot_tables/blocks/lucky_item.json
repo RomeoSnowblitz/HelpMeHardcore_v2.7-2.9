@@ -4,40 +4,6 @@
     {
       "rolls": 1,
       "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:alternative",
-                  "terms": [
-                    {
-                      "condition": "minecraft:match_tool",
-                      "predicate": {
-                        "enchantments": [
-                          {
-                            "enchantment": "minecraft:silk_touch",
-                            "levels": {
-                              "min": 1
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  ]
-                }
-              ],
-              "name": "hmh2:lucky_item"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
         {"type": "minecraft:item", "name": "minecraft:warden_spawn_egg"},
         {"type": "minecraft:item", "name": "minecraft:tadpole_spawn_egg"},
         {"type": "minecraft:item", "name": "minecraft:frog_spawn_egg"},

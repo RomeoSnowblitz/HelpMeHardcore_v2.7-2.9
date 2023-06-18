@@ -10,6 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
+import net.romeosnowblitz.hmh2.item.custom.food.ConsumeLeaveBananaPeel;
 import net.romeosnowblitz.hmh2.item.custom.food.ConsumeLeaveBottle;
 import net.romeosnowblitz.hmh2.item.custom.food.ConsumeLeaveSheetPan;
 import net.romeosnowblitz.hmh2.item.custom.food.EnderSkinConsumableLong;
@@ -21,7 +22,7 @@ public class SustenanceItems {
     public static final Item APPLE_JUICE = registerItem("apple_juice", (Item)new HoneyBottleItem(new Item.Settings().recipeRemainder(GLASS_BOTTLE).food(FoodComponents.HONEY_BOTTLE).maxCount(16)));
     public static final Item APPLE_PIE = registerItem("apple_pie", new ConsumeLeaveSheetPan(new FabricItemSettings().recipeRemainder(BUCKET).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.3f).build())));
     public static final Item BACON = registerItem("bacon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.5f).build())));
-    public static final Item BANANAS = registerItem("bananas", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3f).build())));
+    public static final Item BANANAS = registerItem("bananas", new ConsumeLeaveBananaPeel(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3f).alwaysEdible().build())));
     public static final Item BEEF_JERKY = registerItem("beef_jerky", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.2f).build())));
     public static final Item BLUEBERRIES = registerItem("blueberries", (Item)new AliasedBlockItem(ModBlocks.BLUEBERRY_BUSH, new Item.Settings().food(FoodComponents.SWEET_BERRIES)));
     public static final Item BLUEBERRY_JAM = registerItem("blueberry_jam", new ConsumeLeaveBottle(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.4f).build())));
@@ -58,50 +59,7 @@ public class SustenanceItems {
         return Registry.register (Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), item);
     }
 
-    public static void addItemsToItemGroup(){
-        addToItemGroup(ModItemGroup.SUSTENANCE, APPLE_JUICE);
-        addToItemGroup(ModItemGroup.SUSTENANCE, APPLE_PIE);
-        addToItemGroup(ModItemGroup.SUSTENANCE, BACON);
-        addToItemGroup(ModItemGroup.SUSTENANCE, BANANAS);
-        addToItemGroup(ModItemGroup.SUSTENANCE, BEEF_JERKY);
-        addToItemGroup(ModItemGroup.SUSTENANCE, BLUEBERRIES);
-        addToItemGroup(ModItemGroup.SUSTENANCE, BLUEBERRY_JAM);
-        addToItemGroup(ModItemGroup.SUSTENANCE, BLUEBERRY_PIE);
-        addToItemGroup(ModItemGroup.SUSTENANCE, BURNT_TOAST);
-        addToItemGroup(ModItemGroup.SUSTENANCE, BUTTERED_TOAST);
-        addToItemGroup(ModItemGroup.SUSTENANCE, CHEESE);
-        addToItemGroup(ModItemGroup.SUSTENANCE, CHEESE_SLICE);
-        addToItemGroup(ModItemGroup.SUSTENANCE, CHERRIES);
-        addToItemGroup(ModItemGroup.SUSTENANCE, CHERRY_PIE);
-        addToItemGroup(ModItemGroup.SUSTENANCE, CHICKEN_NUGGET);
-        addToItemGroup(ModItemGroup.SUSTENANCE, CHICKEN_SANDWICH);
-        addToItemGroup(ModItemGroup.SUSTENANCE, CHOCOLATE_ICE_CREAM);
-        addToItemGroup(ModItemGroup.SUSTENANCE, DOUGH);
-        addToItemGroup(ModItemGroup.SUSTENANCE, ENDCHILADA);
-        addToItemGroup(ModItemGroup.SUSTENANCE, GOLDEN_SALMON);
-        addToItemGroup(ModItemGroup.SUSTENANCE, HEART);
-        addToItemGroup(ModItemGroup.SUSTENANCE, LIGHT_TOAST);
-        addToItemGroup(ModItemGroup.SUSTENANCE, MANGO);
-        addToItemGroup(ModItemGroup.SUSTENANCE, ORANGE);
-        addToItemGroup(ModItemGroup.SUSTENANCE, ORANGE_JUICE);
-        addToItemGroup(ModItemGroup.SUSTENANCE, RAW_BACON);
-        addToItemGroup(ModItemGroup.SUSTENANCE, RAW_CHICKEN_NUGGET);
-        addToItemGroup(ModItemGroup.SUSTENANCE, SLICED_BREAD);
-        addToItemGroup(ModItemGroup.SUSTENANCE, SASHIMI);
-        addToItemGroup(ModItemGroup.SUSTENANCE, STRAWBERRIES);
-        addToItemGroup(ModItemGroup.SUSTENANCE, STRAWBERRY_JAM);
-        addToItemGroup(ModItemGroup.SUSTENANCE, STRAWBERRY_PIE);
-        addToItemGroup(ModItemGroup.SUSTENANCE, TOOTHPASTE);
-        addToItemGroup(ModItemGroup.SUSTENANCE, TOAST);
-        addToItemGroup(ModItemGroup.SUSTENANCE, TORTILLA);
-    }
-
-    public static void addToItemGroup(ItemGroup group, Item item){
-        ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
-    }
-
     public static void registerSustenanceItems() {
         Hmh2.LOGGER.info("Registering Mod Items for " + Hmh2.MOD_ID);
-        addItemsToItemGroup();
     }
 }

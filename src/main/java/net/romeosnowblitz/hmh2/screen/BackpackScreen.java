@@ -8,6 +8,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 
+/*
 
 public class BackpackScreen extends HandledScreen<BackpackScreenHandler> {
     private static final Identifier TEXTURE =
@@ -38,3 +39,6 @@ public class BackpackScreen extends HandledScreen<BackpackScreenHandler> {
         int y = (height - backgroundHeight) * 2;
     }
 }
+
+
+ */

@@ -14,7 +14,6 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -46,22 +45,13 @@ import net.romeosnowblitz.hmh2.item.WarfareItems;
 import org.jetbrains.annotations.Nullable;
 
 public class ModComposterBlock extends Block implements InventoryProvider {
-    public static final int MAX_LEVEL = 8;
-    public static final int field_31072 = 0;
-    public static final int field_31073 = 7;
     public static final IntProperty LEVEL;
     public static final Object2FloatMap<ItemConvertible> ITEM_TO_LEVEL_INCREASE_CHANCE;
-    private static final int field_31074 = 2;
     private static final VoxelShape RAYCAST_SHAPE;
     private static final VoxelShape[] LEVEL_TO_COLLISION_SHAPE;
 
     public static void registerDefaultCompostableItems() {
         ITEM_TO_LEVEL_INCREASE_CHANCE.defaultReturnValue(-1.0F);
-        float f = 0.3F;
-        float g = 0.5F;
-        float h = 0.65F;
-        float i = 0.85F;
-        float j = 1.0F;
         registerCompostableItem(0.3F, ModItems.BURNT_EGGSHELL);
         registerCompostableItem(0.3F, SustenanceItems.BURNT_TOAST);
         registerCompostableItem(0.3F, ModItems.HOOF_POWDER);
@@ -100,6 +90,7 @@ public class ModComposterBlock extends Block implements InventoryProvider {
         registerCompostableItem(0.3F, Items.MANGROVE_PROPAGULE);
         registerCompostableItem(0.3F, Items.BEETROOT_SEEDS);
         registerCompostableItem(0.3F, Items.DRIED_KELP);
+        registerCompostableItem(0.3F, ModItems.ENDER_CORN_SEEDS);
         registerCompostableItem(0.3F, Items.GRASS);
         registerCompostableItem(0.3F, ModBlocks.POISON_GRASS);
         registerCompostableItem(0.3F, Items.KELP);
@@ -113,8 +104,8 @@ public class ModComposterBlock extends Block implements InventoryProvider {
         registerCompostableItem(0.3F, Items.SMALL_DRIPLEAF);
         registerCompostableItem(0.3F, Items.HANGING_ROOTS);
         registerCompostableItem(0.3F, Items.MANGROVE_ROOTS);
-        registerCompostableItem(0.5F, ModItems.BANANA_PEEL);
-        registerCompostableItem(0.5F, ModItems.BANANA_PEEL);
+        registerCompostableItem(0.5F, ModBlocks.BANANA_PEEL);
+        registerCompostableItem(0.5F, ModBlocks.BANANA_PEEL);
         registerCompostableItem(0.5F, SustenanceItems.SLICED_BREAD);
         registerCompostableItem(0.5F, SustenanceItems.LIGHT_TOAST);
         registerCompostableItem(0.5F, Items.DRIED_KELP_BLOCK);
@@ -146,6 +137,7 @@ public class ModComposterBlock extends Block implements InventoryProvider {
         registerCompostableItem(0.65F, Items.PUMPKIN);
         registerCompostableItem(0.65F, Items.CARVED_PUMPKIN);
         registerCompostableItem(0.65F, Items.MELON);
+        registerCompostableItem(0.65F, ModBlocks.CARVED_MELON);
         registerCompostableItem(0.65F, Items.APPLE);
         registerCompostableItem(0.65F, Items.BEETROOT);
         registerCompostableItem(0.65F, Items.CARROT);
@@ -215,24 +207,7 @@ public class ModComposterBlock extends Block implements InventoryProvider {
 
     public ModComposterBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(LEVEL, 0));
-    }
-
-    public static void playEffects(World world, BlockPos pos, boolean fill) {
-        BlockState blockState = world.getBlockState(pos);
-        world.playSoundAtBlockCenter(pos, fill ? SoundEvents.BLOCK_COMPOSTER_FILL_SUCCESS : SoundEvents.BLOCK_COMPOSTER_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
-        double d = blockState.getOutlineShape(world, pos).getEndingCoord(Direction.Axis.Y, 0.5D, 0.5D) + 0.03125D;
-        double e = 0.13124999403953552D;
-        double f = 0.737500011920929D;
-        Random random = world.getRandom();
-
-        for(int i = 0; i < 10; ++i) {
-            double g = random.nextGaussian() * 0.02D;
-            double h = random.nextGaussian() * 0.02D;
-            double j = random.nextGaussian() * 0.02D;
-            world.addParticle(ParticleTypes.COMPOSTER, (double)pos.getX() + 0.13124999403953552D + 0.737500011920929D * (double)random.nextFloat(), (double)pos.getY() + d + (double)random.nextFloat() * (1.0D - d), (double)pos.getZ() + 0.13124999403953552D + 0.737500011920929D * (double)random.nextFloat(), g, h, j);
-        }
-
+        this.setDefaultState(this.stateManager.getDefaultState().with(LEVEL, 0));
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -255,7 +230,7 @@ public class ModComposterBlock extends Block implements InventoryProvider {
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        int i = (Integer)state.get(LEVEL);
+        int i = state.get(LEVEL);
         ItemStack itemStack = player.getStackInHand(hand);
         if (i < 8 && ITEM_TO_LEVEL_INCREASE_CHANCE.containsKey(itemStack.getItem())) {
             if (i < 7 && !world.isClient) {
@@ -276,17 +251,6 @@ public class ModComposterBlock extends Block implements InventoryProvider {
         }
     }
 
-    public static BlockState compost(BlockState state, ServerWorld world, ItemStack stack, BlockPos pos) {
-        int i = (Integer)state.get(LEVEL);
-        if (i < 7 && ITEM_TO_LEVEL_INCREASE_CHANCE.containsKey(stack.getItem())) {
-            BlockState blockState = addToModComposter(state, world, pos, stack);
-            stack.decrement(1);
-            return blockState;
-        } else {
-            return state;
-        }
-    }
-
     public static BlockState emptyFullModComposter(BlockState state, World world, BlockPos pos) {
         if (!world.isClient) {
             float f = 0.7F;
@@ -299,12 +263,12 @@ public class ModComposterBlock extends Block implements InventoryProvider {
         }
 
         BlockState blockState = emptyModComposter(state, world, pos);
-        world.playSound((PlayerEntity)null, pos, SoundEvents.BLOCK_COMPOSTER_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        world.playSound(null, pos, SoundEvents.BLOCK_COMPOSTER_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
         return blockState;
     }
 
     static BlockState emptyModComposter(BlockState state, WorldAccess world, BlockPos pos) {
-        BlockState blockState = (BlockState)state.with(LEVEL, 0);
+        BlockState blockState = state.with(LEVEL, 0);
         world.setBlockState(pos, blockState, 3);
         return blockState;
     }

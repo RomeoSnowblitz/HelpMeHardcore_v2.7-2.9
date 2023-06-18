@@ -23,7 +23,6 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
@@ -32,7 +31,7 @@ import net.romeosnowblitz.hmh2.item.WarfareItems;
 
 public class QuaeritePerk
 extends ArmorItem {
-    public QuaeritePerk(ArmorMaterial material, ArmorItem.Type type, Item.Settings settings) {
+    public QuaeritePerk(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
     }
 
@@ -44,7 +43,7 @@ extends ArmorItem {
             ItemStack legPiece = player.getEquippedStack(EquipmentSlot.LEGS);
             ItemStack footPiece = player.getEquippedStack(EquipmentSlot.FEET);
             if (headPiece.isOf(WarfareItems.QUAERITE_HELMET) || chestPiece.isOf(WarfareItems.QUAERITE_CHESTPLATE) || legPiece.isOf(WarfareItems.QUAERITE_LEGGINGS) || footPiece.isOf(WarfareItems.QUAERITE_BOOTS)) {
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 60, 0, false, false, true));
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 669, 0, false, false, true));
                 player.removeStatusEffect(CustomEffects.SIGHTLESSSNESS);
             }
         }

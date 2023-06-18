@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hmh2:mahoe_button",
+      "hmh2:mahoe_door",
+      "hmh2:mahoe_fence",
+      "hmh2:mahoe_fence_gate",
+      "hmh2:mahoe_planks",
+      "hmh2:mahoe_pressure_plate",
+      "hmh2:mahoe_slab",
+      "hmh2:mahoe_stairs",
+      "hmh2:mahoe_trapdoor",
+      "hmh2:mahoe_wood",
+      "hmh2:stripped_mahoe_wood"
+    ]
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:mahoe_log",
+              "hmh2:mahoe_wood",
+              "hmh2:stripped_mahoe_log",
+              "hmh2:stripped_mahoe_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hmh2:mahoe_woods"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item",
+      "has_the_recipe"
+    ]
+  ]
+}

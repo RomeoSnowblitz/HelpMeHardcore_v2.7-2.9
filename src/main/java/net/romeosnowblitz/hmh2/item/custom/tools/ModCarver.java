@@ -3,7 +3,8 @@ package net.romeosnowblitz.hmh2.item.custom.tools;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -14,18 +15,17 @@ import net.minecraft.item.*;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 
-public class ModCarver
-        extends Item {
+public class ModCarver extends ToolItem {
     protected static final ImmutableMap PATH_STATES;
     private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
-    public ModCarver(int attackDamage, float attackSpeed,  Settings settings) {
-        super(settings);
+    public ModCarver(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+        super(toolMaterial, settings);
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
@@ -37,8 +37,17 @@ public class ModCarver
     }
     public boolean isSuitableFor(BlockState state) {return state.isOf(Blocks.COBWEB);}
 
-    public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {if (state.isOf(Blocks.COBWEB)) {return 15.0F;} else {Material material = state.getMaterial();
-        return material != Material.PLANT && material != Material.REPLACEABLE_PLANT && !state.isIn(BlockTags.LEAVES) && material != Material.GOURD ? 1.0F : 1.5F;}}
+    public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
+        if (!state.isOf(Blocks.COBWEB) && !state.isIn(BlockTags.LEAVES)) {
+            if (state.isIn(BlockTags.WOOL)) {
+                return 5.0F;
+            } else {
+                return !state.isOf(Blocks.VINE) && !state.isOf(Blocks.GLOW_LICHEN) ? super.getMiningSpeedMultiplier(stack, state) : 2.0F;
+            }
+        } else {
+            return 15.0F;
+        }
+    }
 
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();

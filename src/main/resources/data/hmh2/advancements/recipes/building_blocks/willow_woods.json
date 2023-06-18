@@ -1,0 +1,46 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hmh2:willow_button",
+      "hmh2:willow_door",
+      "hmh2:willow_fence",
+      "hmh2:willow_fence_gate",
+      "hmh2:willow_planks",
+      "hmh2:willow_pressure_plate",
+      "hmh2:willow_slab",
+      "hmh2:willow_stairs",
+      "hmh2:willow_trapdoor",
+      "hmh2:willow_wood"
+    ]
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:willow_log",
+              "hmh2:willow_wood",
+              "hmh2:stripped_willow_log",
+              "hmh2:stripped_willow_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hmh2:willow_woods"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item",
+      "has_the_recipe"
+    ]
+  ]
+}

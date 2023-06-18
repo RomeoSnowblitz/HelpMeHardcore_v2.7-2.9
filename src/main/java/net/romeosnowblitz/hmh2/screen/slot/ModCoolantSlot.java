@@ -1,10 +1,5 @@
 package net.romeosnowblitz.hmh2.screen.slot;
 
-import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.screen.slot.Slot;
-
 /*
 public class ModCoolantSlot extends Slot {
     public ModCoolantSlot(Inventory inventory, int index, int x, int y) {

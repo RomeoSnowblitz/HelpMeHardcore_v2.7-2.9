@@ -8,7 +8,6 @@ import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.entity.mob.ShadowCreatureEntity;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-import javax.annotation.Nullable;
 
 public class ShadowCreatureRenderer extends GeoEntityRenderer<ShadowCreatureEntity> {
     public ShadowCreatureRenderer(EntityRendererFactory.Context ctx) {
@@ -21,7 +20,7 @@ public class ShadowCreatureRenderer extends GeoEntityRenderer<ShadowCreatureEnti
     }
 
     @Override
-    public RenderLayer getRenderType(ShadowCreatureEntity animatable, Identifier texture, @Nullable VertexConsumerProvider bufferSource, float partialTick) {
+    public RenderLayer getRenderType(ShadowCreatureEntity animatable, Identifier texture, VertexConsumerProvider bufferSource, float partialTick) {
         return super.getRenderType(animatable, texture, bufferSource, partialTick);
     }
 }

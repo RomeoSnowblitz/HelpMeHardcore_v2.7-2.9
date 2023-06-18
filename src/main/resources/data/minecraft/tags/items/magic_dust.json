@@ -1,0 +1,28 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:amber_dust",
+    "hmh2:andalusite_dust",
+    "hmh2:aquamarine_dust",
+    "hmh2:citrine_dust",
+    "hmh2:diopside_dust",
+    "hmh2:garnet_dust",
+    "hmh2:hessonite_dust",
+    "hmh2:malichite_dust",
+    "hmh2:moonstone_dust",
+    "hmh2:opal_dust",
+    "hmh2:peridot_dust",
+    "hmh2:prehnite_dust",
+    "hmh2:ruby_dust",
+    "hmh2:sapphire_dust",
+    "hmh2:smoky_quartz_dust",
+    "hmh2:spessarite_dust",
+    "hmh2:sphene_dust",
+    "hmh2:spinel_dust",
+    "hmh2:tanzanite_dust",
+    "hmh2:topaz_dust",
+    "hmh2:tormaline_dust",
+    "hmh2:tsavorite_dust",
+    "hmh2:zircon_dust"
+  ]
+}

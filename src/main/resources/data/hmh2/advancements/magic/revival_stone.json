@@ -1,0 +1,41 @@
+{
+  "display": {
+    "title": {
+      "text": "A Good Samaritan"
+    },
+    "description": {
+      "text": "Congratulations on Saving Lives"
+    },
+    "icon": {
+      "item": "hmh2:revival_stone"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "conditions": {
+        "item": {
+          "items": [
+            "hmh2:revival_stone"
+          ]
+        }
+      },
+      "trigger": "minecraft:item_durability_changed"
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "hmh2:chests/totem_reward"
+    ],
+    "experience": 1000
+  },
+  "parent": "hmh2:magic/root"
+}

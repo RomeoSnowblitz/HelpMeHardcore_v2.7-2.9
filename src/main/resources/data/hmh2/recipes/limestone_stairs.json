@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:limestone"
+    }
+  },
+  "result": {
+    "item": "hmh2:limestone_stairs",
+    "count": 8
+  }
+}

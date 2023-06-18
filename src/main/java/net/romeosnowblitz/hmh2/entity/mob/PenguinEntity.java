@@ -24,7 +24,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
-import net.romeosnowblitz.hmh2.item.ModItems;
 import net.romeosnowblitz.hmh2.item.SustenanceItems;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -35,7 +34,6 @@ import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.core.object.PlayState;
 
-import javax.annotation.Nullable;
 
 public class PenguinEntity extends TameableEntity implements GeoEntity {
     private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
@@ -44,7 +42,6 @@ public class PenguinEntity extends TameableEntity implements GeoEntity {
         super(entityType, world);
     }
 
-    @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
 
@@ -121,18 +118,18 @@ public class PenguinEntity extends TameableEntity implements GeoEntity {
         }
 
         if (item == itemForTaming && !isTamed()) {
-            if (this.world.isClient()) {
+            if (this.getWorld().isClient()) {
                 return ActionResult.CONSUME;
             } else {
                 if (!player.getAbilities().creativeMode) {
                     itemstack.decrement(1);
                 }
 
-                if (!this.world.isClient()) {
+                if (!this.getWorld().isClient()) {
                     super.setOwner(player);
                     this.navigation.recalculatePath();
                     this.setTarget(null);
-                    this.world.sendEntityStatus(this, (byte)7);
+                    this.getWorld().sendEntityStatus(this, (byte)7);
                     setSit(true);
                 }
 
@@ -140,7 +137,7 @@ public class PenguinEntity extends TameableEntity implements GeoEntity {
             }
         }
 
-        if(isTamed() && !this.world.isClient() && hand == Hand.MAIN_HAND) {
+        if(isTamed() && !this.getWorld().isClient() && hand == Hand.MAIN_HAND) {
             setSit(!isSitting());
             return ActionResult.SUCCESS;
         }

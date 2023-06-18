@@ -10,7 +10,6 @@ package net.romeosnowblitz.hmh2.entity.client;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.entity.mob.MagmiteEntity;
-import net.romeosnowblitz.hmh2.entity.mob.ShadowCreatureEntity;
 import software.bernie.geckolib.model.GeoModel;
 
 public class MagmiteModel

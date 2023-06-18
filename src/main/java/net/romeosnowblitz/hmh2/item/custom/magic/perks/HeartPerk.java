@@ -19,10 +19,10 @@ package net.romeosnowblitz.hmh2.item.custom.magic.perks;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
@@ -31,7 +31,7 @@ import net.romeosnowblitz.hmh2.item.WarfareItems;
 
 public class HeartPerk
 extends ArmorItem {
-    public HeartPerk(ArmorMaterial material, ArmorItem.Type type, Item.Settings settings) {
+    public HeartPerk(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
     }
 
@@ -42,17 +42,17 @@ extends ArmorItem {
             ItemStack chestPiece = player.getEquippedStack(EquipmentSlot.CHEST);
             ItemStack legPiece = player.getEquippedStack(EquipmentSlot.LEGS);
             ItemStack footPiece = player.getEquippedStack(EquipmentSlot.FEET);
-            if (headPiece.isOf(WarfareItems.FUR_HELMET) || chestPiece.isOf(WarfareItems.FUR_CHESTPLATE) || legPiece.isOf(WarfareItems.FUR_LEGGINGS) || footPiece.isOf(WarfareItems.FUR_BOOTS)) {
-                player.addStatusEffect(new StatusEffectInstance(CustomEffects.LUNAR_WOLF_PERCEPTION, 60, 0, false, false, true));
+            if (headPiece.isOf(WarfareItems.LIFE_HELMET) || chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) || legPiece.isOf(WarfareItems.LIFE_LEGGINGS) || footPiece.isOf(WarfareItems.LIFE_BOOTS)) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 60, 0, false, false, true));
             }
-            if (headPiece.isOf(WarfareItems.FUR_HELMET) && chestPiece.isOf(WarfareItems.FUR_CHESTPLATE) || headPiece.isOf(WarfareItems.FUR_HELMET) && legPiece.isOf(WarfareItems.FUR_LEGGINGS) || headPiece.isOf(WarfareItems.FUR_HELMET) && footPiece.isOf(WarfareItems.FUR_BOOTS) || chestPiece.isOf(WarfareItems.FUR_CHESTPLATE) && legPiece.isOf(WarfareItems.FUR_LEGGINGS) || chestPiece.isOf(WarfareItems.FUR_CHESTPLATE) && footPiece.isOf(WarfareItems.FUR_BOOTS) || legPiece.isOf(WarfareItems.FUR_LEGGINGS) && footPiece.isOf(WarfareItems.FUR_BOOTS)) {
-                player.addStatusEffect(new StatusEffectInstance(CustomEffects.LUNAR_WOLF_PERCEPTION, 60, 1, false, false, true));
+            if (headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) || headPiece.isOf(WarfareItems.LIFE_HELMET) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) || headPiece.isOf(WarfareItems.LIFE_HELMET) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) || chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS)) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 60, 1, false, false, true));
             }
-            if (chestPiece.isOf(WarfareItems.FUR_CHESTPLATE) && legPiece.isOf(WarfareItems.FUR_LEGGINGS) && footPiece.isOf(WarfareItems.FUR_BOOTS) || headPiece.isOf(WarfareItems.FUR_HELMET) && legPiece.isOf(WarfareItems.FUR_LEGGINGS) && footPiece.isOf(WarfareItems.FUR_BOOTS) || headPiece.isOf(WarfareItems.FUR_HELMET) && chestPiece.isOf(WarfareItems.FUR_CHESTPLATE) && footPiece.isOf(WarfareItems.FUR_BOOTS) || headPiece.isOf(WarfareItems.FUR_HELMET) && chestPiece.isOf(WarfareItems.FUR_CHESTPLATE) && legPiece.isOf(WarfareItems.FUR_LEGGINGS)) {
-                player.addStatusEffect(new StatusEffectInstance(CustomEffects.LUNAR_WOLF_PERCEPTION, 60, 2, false, false, true));
+            if (chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || headPiece.isOf(WarfareItems.LIFE_HELMET) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS)) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 60, 2, false, false, true));
             }
-            if (headPiece.isOf(WarfareItems.FUR_HELMET) && chestPiece.isOf(WarfareItems.FUR_CHESTPLATE) && legPiece.isOf(WarfareItems.FUR_LEGGINGS) && footPiece.isOf(WarfareItems.FUR_BOOTS)) {
-                player.addStatusEffect(new StatusEffectInstance(CustomEffects.LUNAR_WOLF_PERCEPTION, 60, 3, false, false, true));
+            if (headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS)) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 60, 3, false, false, true));
             }
         }
         super.inventoryTick(stack, world, entity, slot, selected);

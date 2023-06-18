@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hmh2:cherry_button",
+      "hmh2:cherry_door",
+      "hmh2:cherry_fence",
+      "hmh2:cherry_fence_gate",
+      "hmh2:cherry_planks",
+      "hmh2:cherry_pressure_plate",
+      "hmh2:cherry_slab",
+      "hmh2:cherry_stairs",
+      "hmh2:cherry_trapdoor",
+      "hmh2:cherry_wood",
+      "hmh2:stripped_cherry_wood"
+    ]
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:cherry_log",
+              "hmh2:cherry_wood",
+              "hmh2:stripped_cherry_log",
+              "hmh2:stripped_cherry_wood"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hmh2:cherry_woods"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item",
+      "has_the_recipe"
+    ]
+  ]
+}

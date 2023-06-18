@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:limestone"
+  },
+  "result": "hmh2:limestone_brick_wall",
+  "count": 1
+}

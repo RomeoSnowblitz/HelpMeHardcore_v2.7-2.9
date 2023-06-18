@@ -1,0 +1,42 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "hmh2:salt",
+      "hmh2:salt_block",
+      "hmh2:salt_brick_slab",
+      "hmh2:salt_brick_stairs",
+      "hmh2:salt_brick_wall",
+      "hmh2:salt_bricks",
+      "hmh2:salt_slab",
+      "hmh2:salt_stairs",
+      "hmh2:salt_wall"
+    ]
+  },
+  "criteria": {
+    "has_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:salt"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "hmh2:salts"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_item",
+      "has_the_recipe"
+    ]
+  ]
+}

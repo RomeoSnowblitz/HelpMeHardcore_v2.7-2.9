@@ -14,15 +14,13 @@ import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
 import net.romeosnowblitz.hmh2.entity.MobEntities;
 import net.romeosnowblitz.hmh2.entity.client.*;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
-import net.romeosnowblitz.hmh2.screen.BackpackScreen;
-import net.romeosnowblitz.hmh2.screen.CheesePressScreen;
-import net.romeosnowblitz.hmh2.screen.FreezerScreen;
 import net.romeosnowblitz.hmh2.screen.ModScreenHandlers;
 import net.romeosnowblitz.hmh2.util.ModModelPredicateProvider;
 
 public class Hmh2ClientMod implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BANANA_PEEL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ColoringBlocks.BLUE_SPIDER_LILY, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ColoringBlocks.ULTRAMARINE_STAINED_GLASS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ColoringBlocks.ULTRAMARINE_STAINED_GLASS_PANE, RenderLayer.getTranslucent());
@@ -197,9 +195,12 @@ public class Hmh2ClientMod implements ClientModInitializer {
         EntityRendererRegistry.register(MobEntities.MAGMITE, MagmiteRenderer::new);
         EntityRendererRegistry.register(MobEntities.SCULKMITE, SculkmiteRenderer::new);
 
+        /*
         ScreenRegistry.register(ModScreenHandlers.BACKPACK_SCREEN_HANDLER, BackpackScreen::new);
         ScreenRegistry.register(ModScreenHandlers.CHEESE_PRESS_SCREEN_HANDLER, CheesePressScreen::new);
         ScreenRegistry.register(ModScreenHandlers.FREEZER_SCREEN_HANDLER, FreezerScreen::new);
+
+         */
 
     }
 }

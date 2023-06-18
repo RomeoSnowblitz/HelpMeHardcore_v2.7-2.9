@@ -275,7 +275,7 @@ public class SoldierBeeEntity extends HostileEntity implements GeoEntity {
             }
             for (int i = 0; i < 3; ++i) {
                 BlockPos blockPos2 = blockPos.add(SoldierBeeEntity.this.random.nextInt(15) - 7, SoldierBeeEntity.this.random.nextInt(11) - 5, SoldierBeeEntity.this.random.nextInt(15) - 7);
-                if (!SoldierBeeEntity.this.world.isAir(blockPos2)) continue;
+                if (!SoldierBeeEntity.this.getWorld().isAir(blockPos2)) continue;
                 SoldierBeeEntity.this.moveControl.moveTo((double)blockPos2.getX() + 0.5, (double)blockPos2.getY() + 0.5, (double)blockPos2.getZ() + 0.5, 0.25);
                 if (SoldierBeeEntity.this.getTarget() != null) break;
                 SoldierBeeEntity.this.getLookControl().lookAt((double)blockPos2.getX() + 0.5, (double)blockPos2.getY() + 0.5, (double)blockPos2.getZ() + 0.5, 180.0f, 20.0f);

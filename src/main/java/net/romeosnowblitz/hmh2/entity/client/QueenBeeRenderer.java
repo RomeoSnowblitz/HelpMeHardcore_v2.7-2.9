@@ -8,7 +8,6 @@ import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.entity.mob.QueenBeeEntity;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-import javax.annotation.Nullable;
 
 public class QueenBeeRenderer extends GeoEntityRenderer<QueenBeeEntity> {
     public QueenBeeRenderer(EntityRendererFactory.Context ctx) {
@@ -22,7 +21,7 @@ public class QueenBeeRenderer extends GeoEntityRenderer<QueenBeeEntity> {
     }
 
     @Override
-    public RenderLayer getRenderType(QueenBeeEntity animatable, Identifier texture, @Nullable VertexConsumerProvider bufferSource, float partialTick) {
+    public RenderLayer getRenderType(QueenBeeEntity animatable, Identifier texture, VertexConsumerProvider bufferSource, float partialTick) {
         return super.getRenderType(animatable, texture, bufferSource, partialTick);
     }
 }

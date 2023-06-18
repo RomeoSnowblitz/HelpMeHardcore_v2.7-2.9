@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "hmh2",
 	"version": "${version}",
-	"name": "Help Me Hardcore",
+	"name": "Season7",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"Me!"
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/hmh2/textures/gui/mod_icon.png",
+	"icon": "assets/hmh2/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -29,8 +29,8 @@
 		"hmh2.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.19",
-		"minecraft": "~1.19.4",
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20",
 		"java": ">=17",
 		"fabric-api": "*"
 	},

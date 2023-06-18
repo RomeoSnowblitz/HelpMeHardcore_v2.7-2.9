@@ -69,11 +69,7 @@ import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.Animation;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.AnimationState;
-import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 
 public class SculkmiteEntity
@@ -129,7 +125,7 @@ public class SculkmiteEntity
             }
             i = MathHelper.clamp(i, 0, 20);
             StatusEffectInstance statusEffectInstance2 = new StatusEffectInstance(CustomEffects.SIGHTLESSSNESS, 120000, i, false, false, true);
-            if (!this.world.getGameRules().getBoolean(GameRules.DISABLE_RAIDS)) {
+            if (!this.getWorld().getGameRules().getBoolean(GameRules.DISABLE_RAIDS)) {
                 livingEntity.addStatusEffect(statusEffectInstance2);
             }
         }

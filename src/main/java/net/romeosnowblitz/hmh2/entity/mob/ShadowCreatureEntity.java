@@ -12,7 +12,6 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.scoreboard.AbstractTeam;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -20,7 +19,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -82,7 +80,7 @@ public class ShadowCreatureEntity extends HostileEntity implements GeoEntity {
             }
             i = MathHelper.clamp(i, 0, 20);
             StatusEffectInstance statusEffectInstance2 = new StatusEffectInstance(CustomEffects.HEALTH_SHRINKAGE, 120000, i, false, false, true);
-            if (!this.world.getGameRules().getBoolean(GameRules.DISABLE_RAIDS)) {
+            if (!this.getWorld().getGameRules().getBoolean(GameRules.DISABLE_RAIDS)) {
                 livingEntity.addStatusEffect(statusEffectInstance2);
             }
         }

@@ -22,13 +22,10 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.IdentityHashMap;
 import java.util.Map;
 
 // TODO: Clamp values to 32767 (+ add hook for mods which extend the limit to disable the check?)

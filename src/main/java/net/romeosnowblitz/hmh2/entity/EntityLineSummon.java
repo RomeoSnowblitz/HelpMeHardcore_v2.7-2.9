@@ -52,7 +52,7 @@ public class EntityLineSummon extends Entity {
     @Nullable
     public LivingEntity getOwner() {
         Entity entity;
-        if (this.owner == null && this.ownerUuid != null && this.world instanceof ServerWorld && (entity = ((ServerWorld)this.world).getEntity(this.ownerUuid)) instanceof LivingEntity) {
+        if (this.owner == null && this.ownerUuid != null && this.getWorld() instanceof ServerWorld && (entity = ((ServerWorld) this.getWorld()).getEntity(this.ownerUuid)) instanceof LivingEntity) {
             this.owner = (LivingEntity)entity;
         }
         return this.owner;
@@ -77,7 +77,7 @@ public class EntityLineSummon extends Entity {
     @Override
     public void tick() {
         super.tick();
-        if (this.world.isClient) {
+        if (this.getWorld().isClient) {
             if (this.playingAnimation) {
                 --this.ticksLeft;
                 if (this.ticksLeft == 14) {
@@ -88,19 +88,19 @@ public class EntityLineSummon extends Entity {
                         double g = (this.random.nextDouble() * 2.0 - 1.0) * 0.3;
                         double h = 0.3 + this.random.nextDouble() * 0.3;
                         double j = (this.random.nextDouble() * 2.0 - 1.0) * 0.3;
-                        this.world.addParticle(ParticleTypes.CRIT, d, e + 1.0, f, g, h, j);
+                        this.getWorld().addParticle(ParticleTypes.CRIT, d, e + 1.0, f, g, h, j);
                     }
                 }
             }
         } else if (--this.warmup < 0) {
             if (this.warmup == -8) {
-                List<LivingEntity> list = this.world.getNonSpectatingEntities(LivingEntity.class, this.getBoundingBox().expand(0.2, 0.0, 0.2));
+                List<LivingEntity> list = this.getWorld().getNonSpectatingEntities(LivingEntity.class, this.getBoundingBox().expand(0.2, 0.0, 0.2));
                 for (LivingEntity livingEntity : list) {
                     this.damage(livingEntity);
                 }
             }
             if (!this.startedAttack) {
-                this.world.sendEntityStatus(this, EntityStatuses.PLAY_ATTACK_SOUND);
+                this.getWorld().sendEntityStatus(this, EntityStatuses.PLAY_ATTACK_SOUND);
                 this.startedAttack = true;
             }
             if (--this.ticksLeft < 0) {
@@ -115,7 +115,7 @@ public class EntityLineSummon extends Entity {
             return;
         }
         if (livingEntity == null) {
-            target.damage(world.getDamageSources().magic(), 6);
+            target.damage(getWorld().getDamageSources().magic(), 6);
         } else {
             if (livingEntity.isTeammate(target)) {
                 return;
@@ -130,7 +130,7 @@ public class EntityLineSummon extends Entity {
         if (status == EntityStatuses.PLAY_ATTACK_SOUND) {
             this.playingAnimation = true;
             if (!this.isSilent()) {
-                this.world.playSound(this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_EVOKER_FANGS_ATTACK, this.getSoundCategory(), 1.0f, this.random.nextFloat() * 0.2f + 0.85f, false);
+                this.getWorld().playSound(this.getX(), this.getY(), this.getZ(), SoundEvents.ENTITY_EVOKER_FANGS_ATTACK, this.getSoundCategory(), 1.0f, this.random.nextFloat() * 0.2f + 0.85f, false);
             }
         }
     }

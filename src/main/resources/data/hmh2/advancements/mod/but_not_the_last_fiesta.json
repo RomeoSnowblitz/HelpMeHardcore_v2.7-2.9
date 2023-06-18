@@ -1,0 +1,37 @@
+{
+  "parent": "hmh2:mod/very_berry_delicious",
+  "criteria": {
+    "endchilada": {
+      "conditions": {
+        "item": {
+          "items": [
+            "hmh2:endchilada"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "Zoomies!"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "hmh2:endchilada"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "But Not The Last Fiesta"
+    }
+  },
+  "requirements": [
+    ["endchilada"]
+  ],
+  "rewards": {
+    "experience": 200
+  },
+  "sends_telemetry_event": true
+}

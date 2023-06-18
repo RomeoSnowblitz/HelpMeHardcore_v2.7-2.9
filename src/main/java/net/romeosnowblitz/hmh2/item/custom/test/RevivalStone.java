@@ -13,13 +13,13 @@ import net.minecraft.world.World;
 
 public class RevivalStone
         extends Item {
-    public RevivalStone(Item.Settings settings) {
+    public RevivalStone(Settings settings) {
         super(settings);
     }
 
     @Override
     public boolean hasGlint(ItemStack stack) {
-        return super.hasGlint(stack);
+        return true;
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
