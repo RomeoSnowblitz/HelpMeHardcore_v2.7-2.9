@@ -36,13 +36,9 @@ extends ArmorItem {
     }
 
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (!world.isClient && entity instanceof PlayerEntity) {
-            PlayerEntity player = (ServerPlayerEntity)entity;
-            ItemStack headPiece = player.getEquippedStack(EquipmentSlot.HEAD);
-            ItemStack chestPiece = player.getEquippedStack(EquipmentSlot.CHEST);
-            ItemStack legPiece = player.getEquippedStack(EquipmentSlot.LEGS);
-            ItemStack footPiece = player.getEquippedStack(EquipmentSlot.FEET);
-            if (headPiece.isOf(WarfareItems.QUAERITE_HELMET) || chestPiece.isOf(WarfareItems.QUAERITE_CHESTPLATE) || legPiece.isOf(WarfareItems.QUAERITE_LEGGINGS) || footPiece.isOf(WarfareItems.QUAERITE_BOOTS)) {
+        if (!world.isClient && entity instanceof PlayerEntity player) {
+            if (player.getEquippedStack(EquipmentSlot.HEAD).isOf(WarfareItems.QUAERITE_HELMET) || player.getEquippedStack(EquipmentSlot.CHEST).isOf(WarfareItems.QUAERITE_CHESTPLATE) ||
+                    player.getEquippedStack(EquipmentSlot.LEGS).isOf(WarfareItems.QUAERITE_LEGGINGS) || player.getEquippedStack(EquipmentSlot.FEET).isOf(WarfareItems.QUAERITE_BOOTS)) {
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 669, 0, false, false, true));
                 player.removeStatusEffect(CustomEffects.SIGHTLESSSNESS);
             }

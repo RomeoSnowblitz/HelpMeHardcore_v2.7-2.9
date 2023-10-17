@@ -1,0 +1,37 @@
+{
+  "display": {
+    "title": {
+      "text": "A Fraction Of The Sun"
+    },
+    "description": {
+      "text": "Successfully Killed A Blazing Inferno"
+    },
+    "icon": {
+      "item": "hmh2:solar_fragment"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtain_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:solar_fragment"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_item"
+    ]
+  ],
+  "parent": "minecraft:nether/obtain_blaze_rod"
+}

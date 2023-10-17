@@ -1,0 +1,38 @@
+{
+  "display": {
+    "title": {
+      "text": "Heart Stealer"
+    },
+    "description": {
+      "text": "A Broken Sword, Now With ROI"
+    },
+    "icon": {
+      "item": "hmh2:heartstealer",
+      "nbt": "{Damage:0}"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtain_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:heartstealer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_item"
+    ]
+  ],
+  "parent": "hmh2:mining/worldly_infestation"
+}

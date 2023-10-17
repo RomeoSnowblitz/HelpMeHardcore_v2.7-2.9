@@ -1,6 +1,5 @@
 {
-  "parent": "block/cube_all",
   "textures": {
-    "all": "hmh2:block/_sign"
+    "particle": "hmh2:block/_planks"
   }
 }

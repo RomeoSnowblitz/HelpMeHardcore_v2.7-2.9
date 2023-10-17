@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "hmh2:warped_wart"
+    }
+  },
+  "result": {
+    "item": "minecraft:warped_wart_block",
+    "count": 1
+  }
+}

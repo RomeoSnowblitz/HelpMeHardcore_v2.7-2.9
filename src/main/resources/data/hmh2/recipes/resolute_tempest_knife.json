@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:smithing",
+  "type": "minecraft:smithing_transform",
   "base": {
     "item": "hmh2:chill_gale_knife"
   },
@@ -8,5 +8,8 @@
   },
   "result": {
     "item": "hmh2:resolute_tempest_knife"
+  },
+  "template": {
+    "item": "hmh2:mysterious_cyan_debris"
   }
 }

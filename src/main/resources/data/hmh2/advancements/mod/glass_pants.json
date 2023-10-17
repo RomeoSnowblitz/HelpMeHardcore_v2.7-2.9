@@ -1,0 +1,176 @@
+{
+  "parent": "hmh2:mod/mary_droppins",
+  "criteria": {
+    "break1": {
+      "conditions": {
+        "delta": -1,
+        "item": {
+          "items": [
+            "hmh2:glass_leggings"
+          ]
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "equipment": {
+                "legs": {
+                  "durability": {
+                    "max": 1
+                  },
+                  "items": [
+                    "hmh2:glass_leggings"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_durability_changed"
+    },
+    "break2": {
+      "conditions": {
+        "delta": -2,
+        "item": {
+          "items": [
+            "hmh2:glass_leggings"
+          ]
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "equipment": {
+                "legs": {
+                  "durability": {
+                    "max": 2
+                  },
+                  "items": [
+                    "hmh2:glass_leggings"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_durability_changed"
+    },
+    "break3": {
+      "conditions": {
+        "delta": -3,
+        "item": {
+          "items": [
+            "hmh2:glass_leggings"
+          ]
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "equipment": {
+                "legs": {
+                  "durability": {
+                    "max": 3
+                  },
+                  "items": [
+                    "hmh2:glass_leggings"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_durability_changed"
+    },
+    "break4": {
+      "conditions": {
+        "delta": -4,
+        "item": {
+          "items": [
+            "hmh2:glass_leggings"
+          ]
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "equipment": {
+                "legs": {
+                  "durability": {
+                    "max": 4
+                  },
+                  "items": [
+                    "hmh2:glass_leggings"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_durability_changed"
+    },
+    "break5": {
+      "conditions": {
+        "delta": -5,
+        "item": {
+          "items": [
+            "hmh2:glass_leggings"
+          ]
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "equipment": {
+                "legs": {
+                  "durability": {
+                    "max": 5
+                  },
+                  "items": [
+                    "hmh2:glass_leggings"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_durability_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "broken glass on the buns don't feel too good :<"
+    },
+    "frame": "task",
+    "hidden": true,
+    "icon": {
+      "item": "hmh2:glass_leggings",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "That's Gotta Hurt"
+    }
+  },
+  "requirements": [
+    [
+      "break1",
+      "break2",
+      "break3",
+      "break4",
+      "break5"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

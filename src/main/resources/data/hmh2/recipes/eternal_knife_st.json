@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "hmh2:soul_knife"
+  },
+  "addition": {
+    "item": "hmh2:ender_ingot"
+  },
+  "result": {
+    "item": "hmh2:eternal_knife"
+  },
+  "template": {
+    "item": "hmh2:ender_ingot"
+  }
+}

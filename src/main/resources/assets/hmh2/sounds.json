@@ -23,9 +23,55 @@
     ]
   },
   "ore_scream_step": {
-    "subtitle": "help_me_hardcore.ore_scream_step",
+    "subtitle": "hmh2.ore_scream_step",
     "sounds": [
       "hmh2:ore_scream_step"
+    ]
+  },
+
+  "blazestep_disc": {
+    "subtitle": "Music Plays",
+    "sounds": [
+      {
+        "name": "hmh2:blazestep_disc",
+        "stream": true
+      }
+    ]
+  },
+  "darkness_disc": {
+    "subtitle": "Music Plays",
+    "sounds": [
+      {
+        "name": "hmh2:darkness_disc",
+        "stream": true
+      }
+    ]
+  },
+  "fortress_disc": {
+    "subtitle": "Music Plays",
+    "sounds": [
+      {
+        "name": "hmh2:fortress_disc",
+        "stream": true
+      }
+    ]
+  },
+  "game_over_disc": {
+    "subtitle": "Music Plays",
+    "sounds": [
+      {
+        "name": "hmh2:game_over_disc",
+        "stream": true
+      }
+    ]
+  },
+  "void_disc": {
+    "subtitle": "Music Plays",
+    "sounds": [
+      {
+        "name": "hmh2:void_disc",
+        "stream": true
+      }
     ]
   }
 }

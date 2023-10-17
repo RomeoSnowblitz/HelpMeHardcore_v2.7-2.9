@@ -31,13 +31,13 @@ import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
+import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import org.jetbrains.annotations.Nullable;
 
 public class MultiPurposeHoneyBucket extends Item
         implements FluidModificationItem {
 
     private final Fluid fluid;
-    private static final int MAX_USE_TIME = 32;
 
     public MultiPurposeHoneyBucket(Fluid fluid, Settings settings) {
         super(settings);
@@ -65,13 +65,18 @@ public class MultiPurposeHoneyBucket extends Item
             user.removeStatusEffect(StatusEffects.DARKNESS);
             user.removeStatusEffect(StatusEffects.WEAKNESS);
             user.removeStatusEffect(StatusEffects.INSTANT_DAMAGE);
-
-
             user.removeStatusEffect(StatusEffects.BAD_OMEN);
             user.removeStatusEffect(StatusEffects.UNLUCK);
             user.removeStatusEffect(StatusEffects.SLOW_FALLING);
             user.removeStatusEffect(StatusEffects.GLOWING);
             user.removeStatusEffect(StatusEffects.LEVITATION);
+
+            user.removeStatusEffect(CustomEffects.ANCHORED);
+            user.removeStatusEffect(CustomEffects.CONDUIT_FAILURE);
+            user.removeStatusEffect(CustomEffects.DOLPHINS_CURSE);
+            user.removeStatusEffect(CustomEffects.HEALTH_SHRINKAGE);
+            user.removeStatusEffect(CustomEffects.KINDLING);
+            user.removeStatusEffect(CustomEffects.SIGHTLESSSNESS);
         }
         if (stack.isEmpty()) {
             return new ItemStack(Items.BUCKET);
@@ -111,7 +116,7 @@ public class MultiPurposeHoneyBucket extends Item
                 if (blockState.getBlock() instanceof FluidDrainable && !(itemStack2 = (fluidDrainable = (FluidDrainable)((Object)blockState.getBlock())).tryDrainFluid(world, blockPos, blockState)).isEmpty()) {
                     user.incrementStat(Stats.USED.getOrCreateStat(this));
                     fluidDrainable.getBucketFillSound().ifPresent(sound -> user.playSound((SoundEvent)sound, 1.0f, 1.0f));
-                    world.emitGameEvent((Entity)user, GameEvent.FLUID_PICKUP, blockPos);
+                    world.emitGameEvent(user, GameEvent.FLUID_PICKUP, blockPos);
                     ItemStack itemStack3 = ItemUsage.exchangeStack(itemStack, user, itemStack2);
                     if (!world.isClient) {
                         Criteria.FILLED_BUCKET.trigger((ServerPlayerEntity)user, itemStack2);
@@ -135,28 +140,19 @@ public class MultiPurposeHoneyBucket extends Item
         return TypedActionResult.pass(itemStack);
     }
 
-    public static ItemStack getEmptiedStack(ItemStack stack, PlayerEntity player) {
-        if (!player.getAbilities().creativeMode) {
-            return new ItemStack(Items.BUCKET);
-        }
-        return stack;
-    }
-
     @Override
     public void onEmptied(@Nullable PlayerEntity player, World world, ItemStack stack, BlockPos pos) {
     }
 
     @Override
     public boolean placeFluid(@Nullable PlayerEntity player, World world, BlockPos pos, @Nullable BlockHitResult hitResult) {
-        boolean bl2;
+
         if (!(this.fluid instanceof FlowableFluid)) {
             return false;
         }
         BlockState blockState = world.getBlockState(pos);
         Block block = blockState.getBlock();
-        boolean bl = blockState.canBucketPlace(this.fluid);
-        boolean bl3 = bl2 = blockState.isAir() || bl || block instanceof FluidFillable && ((FluidFillable)((Object)block)).canFillWithFluid(world, pos, blockState, this.fluid);
-        if (!bl2) {
+        if (!(blockState.isAir() || blockState.canBucketPlace(this.fluid) || block instanceof FluidFillable && ((FluidFillable) block).canFillWithFluid(world, pos, blockState, this.fluid))) {
             return hitResult != null && this.placeFluid(player, world, hitResult.getBlockPos().offset(hitResult.getSide()), null);
         }
         if (world.getDimension().ultrawarm() && this.fluid.isIn(FluidTags.WATER)) {
@@ -170,15 +166,13 @@ public class MultiPurposeHoneyBucket extends Item
             return true;
         }
         if (block instanceof FluidFillable && this.fluid == Fluids.WATER) {
-            ((FluidFillable)((Object)block)).tryFillWithFluid(world, pos, blockState, ((FlowableFluid)this.fluid).getStill(false));
+            ((FluidFillable) block).tryFillWithFluid(world, pos, blockState, ((FlowableFluid)this.fluid).getStill(false));
             this.playEmptyingSound(player, world, pos);
             return true;
         }
-        if (!world.isClient && bl && !blockState.isLiquid()) {
+        if (!world.isClient && blockState.canBucketPlace(this.fluid) && !blockState.isLiquid()) {
             world.breakBlock(pos, true);
         }
-
-
         if (world.setBlockState(pos, this.fluid.getDefaultState().getBlockState(), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD) || blockState.getFluidState().isStill()) {
             this.playEmptyingSound(player, world, pos);
             return true;
@@ -189,6 +183,6 @@ public class MultiPurposeHoneyBucket extends Item
     protected void playEmptyingSound(@Nullable PlayerEntity player, WorldAccess world, BlockPos pos) {
         SoundEvent soundEvent = this.fluid.isIn(FluidTags.LAVA) ? SoundEvents.ITEM_BUCKET_EMPTY_LAVA : SoundEvents.ITEM_BUCKET_EMPTY;
         world.playSound(player, pos, soundEvent, SoundCategory.BLOCKS, 1.0f, 1.0f);
-        world.emitGameEvent((Entity)player, GameEvent.FLUID_PLACE, pos);
+        world.emitGameEvent(player, GameEvent.FLUID_PLACE, pos);
     }
 }

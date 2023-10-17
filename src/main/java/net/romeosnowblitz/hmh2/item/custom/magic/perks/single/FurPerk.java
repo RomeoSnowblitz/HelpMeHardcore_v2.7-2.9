@@ -19,13 +19,9 @@ extends ArmorItem {
     }
 
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (!world.isClient && entity instanceof PlayerEntity) {
-            PlayerEntity player = (ServerPlayerEntity)entity;
-            ItemStack headPiece = player.getEquippedStack(EquipmentSlot.HEAD);
-            ItemStack chestPiece = player.getEquippedStack(EquipmentSlot.CHEST);
-            ItemStack legPiece = player.getEquippedStack(EquipmentSlot.LEGS);
-            ItemStack footPiece = player.getEquippedStack(EquipmentSlot.FEET);
-            if (headPiece.isOf(WarfareItems.FUR_HELMET) || chestPiece.isOf(WarfareItems.FUR_CHESTPLATE) || legPiece.isOf(WarfareItems.FUR_LEGGINGS) || footPiece.isOf(WarfareItems.FUR_BOOTS)) {
+        if (!world.isClient && entity instanceof PlayerEntity player) {
+            if (player.getEquippedStack(EquipmentSlot.HEAD).isOf(WarfareItems.FUR_HELMET) || player.getEquippedStack(EquipmentSlot.CHEST).isOf(WarfareItems.FUR_CHESTPLATE) ||
+                    player.getEquippedStack(EquipmentSlot.LEGS).isOf(WarfareItems.FUR_LEGGINGS) || player.getEquippedStack(EquipmentSlot.FEET).isOf(WarfareItems.FUR_BOOTS)) {
                 player.addStatusEffect(new StatusEffectInstance(CustomEffects.LUNAR_WOLF_PERCEPTION, 60, 0, false, false, true));
             }
         }

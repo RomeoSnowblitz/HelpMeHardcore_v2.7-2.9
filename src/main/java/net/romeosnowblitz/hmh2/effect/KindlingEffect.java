@@ -10,19 +10,11 @@ public class KindlingEffect extends StatusEffect {
     }
 
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        if (this == CustomEffects.KINDLING && entity.isOnFire()) {
-            entity.damage(entity.getDamageSources().onFire(), 2.0f);
-        }
+        if (entity.isOnFire()) {entity.damage(entity.getDamageSources().onFire(), 2.0f);}
     }
 
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
-        if (this == CustomEffects.KINDLING) {
-            int i = 20 >> amplifier;
-            if (i > 0) {
-                return duration % i == 0;
-            }
-            return true;
-        }
-        return false;
+        if (20 >> amplifier > 20 >> amplifier) {return duration % 20 >> amplifier == 0;}
+        return true;
     }
 }

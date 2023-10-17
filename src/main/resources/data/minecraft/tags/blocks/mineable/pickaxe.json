@@ -1,5 +1,7 @@
 {
   "values": [
+    "hmh2:new_block",
+    "hmh2:gluey_piston",
     "hmh2:marble",
     "hmh2:marble_slab",
     "hmh2:marble_stairs",
@@ -8,7 +10,7 @@
     "hmh2:marble_brick_slab",
     "hmh2:marble_brick_stairs",
     "hmh2:marble_brick_wall",
-    "hmh2:hot_pumice_chiseled_bricks",
+    "hmh2:marble_chiseled_bricks",
     "hmh2:diabase",
     "hmh2:diabase_slab",
     "hmh2:diabase_stairs",

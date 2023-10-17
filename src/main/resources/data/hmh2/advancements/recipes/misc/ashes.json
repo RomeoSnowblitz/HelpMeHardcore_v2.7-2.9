@@ -2,7 +2,9 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "hmh2:ashes"
+      "hmh2:ashes",
+      "hmh2:ash_block",
+      "hmh2:ash_cream"
     ]
   },
   "criteria": {
@@ -12,7 +14,8 @@
         "items": [
           {
             "items": [
-              "minecraft:wheat"
+              "minecraft:wheat",
+              "hmh2:ashes"
             ]
           }
         ]

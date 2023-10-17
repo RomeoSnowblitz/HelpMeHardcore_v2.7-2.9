@@ -1,26 +1,24 @@
 package net.romeosnowblitz.hmh2.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.SignBlock;
-import net.minecraft.block.enums.Instrument;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
-import net.romeosnowblitz.hmh2.entity.MobEntities;
+import net.romeosnowblitz.hmh2.entity.ModEntities;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.item.custom.dyes.*;
 import net.romeosnowblitz.hmh2.item.custom.food.*;
 import net.romeosnowblitz.hmh2.item.custom.test.*;
+import net.romeosnowblitz.hmh2.item.custom.tools.*;
+import net.romeosnowblitz.hmh2.sounds.ModSounds;
 
 import static net.minecraft.item.Items.BUCKET;
 
@@ -31,6 +29,18 @@ public class ModItems {
     public static final Item TEST_ITEM = registerItem("test_item", new TestItem(10, 1, 10, new Item.Settings().maxDamage(1000)));
      */
 
+    public static final Item SERVER_KEY = registerItem("server_key", new Item(new FabricItemSettings()));
+    public static final Item NEW_ITEM = registerItem("new_item", new PlusOne(new FabricItemSettings()));
+
+    public static final Item UMBRELLA = registerItem("umbrella", new Umbrella(new FabricItemSettings().maxDamage(100)));
+    public static final Item WAXED_CLOTH = registerItem("waxed_cloth", new Item(new FabricItemSettings()));
+    public static final Item WARPED_WART = registerItem("warped_wart", new Item(new FabricItemSettings()));
+    public static final Item PITCHFORK = registerItem("pitchfork", new SwordItem(ToolMaterials.IRON, 4, -2.9f, new FabricItemSettings()));
+    public static final Item HELLFORK = registerItem("hellfork", new SwordItem(ModToolMaterial.HELLSTONE, 9, -2.9f, new FabricItemSettings()));
+    public static final Item INFERNAL_DIAMOND = registerItem("infernal_diamond", new Item(new FabricItemSettings().fireproof()));
+    public static final Item INFERNAL_HELLFORK = registerItem("infernal_hellfork", new Infernal_Hellfork(ModToolMaterial.HELLSTONE, 11, -2.9f, new FabricItemSettings().fireproof()));
+    public static final Item SOLAR_FRAGMENT = registerItem("solar_fragment", new Item(new FabricItemSettings().fireproof()));
+
     //New Items
     public static final Item FORTRESS_SEEKER = registerItem("fortress_seeker", new FortressSeeker(new FabricItemSettings()));
     public static final Item SUN_STONE = registerItem("sun_stone", new SunStone(new FabricItemSettings()));
@@ -38,13 +48,14 @@ public class ModItems {
     public static final Item GLUE = registerItem("glue", new Item(new FabricItemSettings()));
     public static final Item FLOUR = registerItem("flour", new Item(new FabricItemSettings()));
     public static final Item DISC_FRAGMENT = registerItem("disc_fragment", new Disc_Fragment(new FabricItemSettings()));
-    public static final Item NULL_PASSER = registerItem("null_passer", new NullPasser(new FabricItemSettings().maxDamage(3)));
+    public static final Item NULL_PASSER = registerItem("null_passer", new NullPasser(new FabricItemSettings().maxDamage(16)));
 
     //Bows
     public static final Item BAMBOO_BOW = registerItem("bamboo_bow", new BowItem(new FabricItemSettings().maxDamage(192)));
     public static final Item BAMBOO_SHIELD = registerItem("bamboo_shield", new ShieldItem(new FabricItemSettings().maxDamage(192)));
 
     //Materials
+    public static final Item ASH_CREAM = registerItem("ash_cream", new Item(new FabricItemSettings()));
     public static final Item CORK = registerItem("cork", new Item(new FabricItemSettings()));
     public static final Item GRAPHITE = registerItem("graphite", new Item(new FabricItemSettings()));
     public static final Item HELLSTONE = registerItem("hellstone", new Item(new FabricItemSettings()));
@@ -133,35 +144,63 @@ public class ModItems {
     public static final Item WOODED_DIAMOND = registerItem("wooded_diamond", new Item(new FabricItemSettings()));
     public static final Item GRANNY_LOTION = registerItem("granny_lotion", new GrannyLotion(new FabricItemSettings().maxDamage(128)));
 
-    public static final Item ROSE_DYE = registerItem("rose_dye", new RedDyeItem(new FabricItemSettings()));
-    public static final Item ULTRAMARINE_DYE = registerItem("ultramarine_dye", new BlueDyeItem(new FabricItemSettings()));
-    public static final Item NEW_GREEN_DYE = registerItem("new_green_dye", new GreenDyeItem(new FabricItemSettings()));
-    public static final Item SPRING_GREEN_DYE = registerItem("spring_green_dye", new CyanDyeItem(new FabricItemSettings()));
-    public static final Item VIOLET_DYE = registerItem("violet_dye", new PurpleDyeItem(new FabricItemSettings()));
+    public static final Item ROSE_DYE = registerItem("rose_dye", new SheepDyeItem(DyeColor.RED, new FabricItemSettings()));
+    public static final Item ULTRAMARINE_DYE = registerItem("ultramarine_dye", new SheepDyeItem(DyeColor.BLUE, new FabricItemSettings()));
+    public static final Item NEW_GREEN_DYE = registerItem("new_green_dye", new SheepDyeItem(DyeColor.GREEN, new FabricItemSettings()));
+    public static final Item SPRING_GREEN_DYE = registerItem("spring_green_dye", new SheepDyeItem(DyeColor.CYAN, new FabricItemSettings()));
+    public static final Item VIOLET_DYE = registerItem("violet_dye", new SheepDyeItem(DyeColor.PURPLE, new FabricItemSettings()));
     //Seeds
     public static final Item MIDAS_SEEDS = registerItem("midas_seeds", new AliasedBlockItem((ModBlocks.MIDAS_TOUCH), new FabricItemSettings()));
     public static final Item ENDER_CORN_SEEDS = registerItem("ender_corn_seeds", new AliasedBlockItem((ModBlocks.ENDER_CORN_BLOCK), new FabricItemSettings()));
     public static final Item ENDER_CORN = ModItems.registerItem("ender_corn", new EnderSkinConsumableShort(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.5f).build())));
 
-    public static final Item BANANA_SIGN = registerItem("banana_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.BANANA_SIGN_BLOCK, WoodworkBlocks.BANANA_WALL_SIGN_BLOCK));
-    public static final Item CHERRY_SIGN = registerItem("cherry_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.CHERRY_SIGN_BLOCK, WoodworkBlocks.CHERRY_WALL_SIGN_BLOCK));
+    public static final Item BANANA_SIGN = registerItem("banana_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.BANANA_SIGN, WoodworkBlocks.BANANA_WALL_SIGN));
+    public static final Item BANANA_HANGING_SIGN = registerItem("banana_hanging_sign", new HangingSignItem(WoodworkBlocks.BANANA_HANGING_SIGN, WoodworkBlocks.BANANA_HANGING_WALL_SIGN, new FabricItemSettings().maxCount(16)));
+    public static final Item CHERRY_SIGN = registerItem("cherry_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.CHERRY_SIGN, WoodworkBlocks.CHERRY_WALL_SIGN));
+    public static final Item CHERRY_HANGING_SIGN = registerItem("cherry_hanging_sign", new HangingSignItem(WoodworkBlocks.CHERRY_HANGING_SIGN, WoodworkBlocks.CHERRY_HANGING_WALL_SIGN, new FabricItemSettings().maxCount(16)));
+    public static final Item CORK_OAK_SIGN = registerItem("cork_oak_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.CORK_OAK_SIGN, WoodworkBlocks.CORK_OAK_WALL_SIGN));
+    public static final Item CORK_OAK_HANGING_SIGN = registerItem("cork_oak_hanging_sign", new HangingSignItem(WoodworkBlocks.CORK_OAK_HANGING_SIGN, WoodworkBlocks.CORK_OAK_HANGING_WALL_SIGN, new FabricItemSettings().maxCount(16)));
+    public static final Item JACARANDA_SIGN = registerItem("jacaranda_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.JACARANDA_SIGN, WoodworkBlocks.JACARANDA_WALL_SIGN));
+    public static final Item JACARANDA_HANGING_SIGN = registerItem("jacaranda_hanging_sign", new HangingSignItem(WoodworkBlocks.JACARANDA_HANGING_SIGN, WoodworkBlocks.JACARANDA_HANGING_WALL_SIGN, new FabricItemSettings().maxCount(16)));
+    public static final Item MAHOE_SIGN = registerItem("mahoe_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.MAHOE_SIGN, WoodworkBlocks.MAHOE_WALL_SIGN));
+    public static final Item MAHOE_HANGING_SIGN = registerItem("mahoe_hanging_sign", new HangingSignItem(WoodworkBlocks.MAHOE_HANGING_SIGN, WoodworkBlocks.MAHOE_HANGING_WALL_SIGN, new FabricItemSettings().maxCount(16)));
+    public static final Item MANGO_SIGN = registerItem("mango_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.MANGO_SIGN, WoodworkBlocks.MANGO_WALL_SIGN));
+    public static final Item MANGO_HANGING_SIGN = registerItem("mango_hanging_sign", new HangingSignItem(WoodworkBlocks.MANGO_HANGING_SIGN, WoodworkBlocks.MANGO_HANGING_WALL_SIGN, new FabricItemSettings().maxCount(16)));
+    public static final Item WILLOW_SIGN = registerItem("willow_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.WILLOW_SIGN, WoodworkBlocks.WILLOW_WALL_SIGN));
+    public static final Item WILLOW_HANGING_SIGN = registerItem("willow_hanging_sign", new HangingSignItem(WoodworkBlocks.WILLOW_HANGING_SIGN, WoodworkBlocks.WILLOW_HANGING_WALL_SIGN, new FabricItemSettings().maxCount(16)));
 
-    public static final Item CORK_OAK_SIGN = registerItem("cork_oak_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.CORK_OAK_SIGN_BLOCK, WoodworkBlocks.CORK_OAK_WALL_SIGN_BLOCK));
-    public static final Item JACARANDA_SIGN = registerItem("jacaranda_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.JACARANDA_SIGN_BLOCK, WoodworkBlocks.JACARANDA_WALL_SIGN_BLOCK));
-    public static final Item MAHOE_SIGN = registerItem("mahoe_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.MAHOE_SIGN_BLOCK, WoodworkBlocks.MAHOE_WALL_SIGN_BLOCK));
-    public static final Item MANGO_SIGN = registerItem("mango_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.MANGO_SIGN_BLOCK, WoodworkBlocks.MANGO_WALL_SIGN_BLOCK));
-    public static final Item WILLOW_SIGN = registerItem("willow_sign", new SignItem(new FabricItemSettings().maxCount(16), WoodworkBlocks.WILLOW_SIGN_BLOCK, WoodworkBlocks.WILLOW_WALL_SIGN_BLOCK));
-
-    //Special Items
+    //Bucket Items
     public static final Item CHOCOLATE_MILK = registerItem("chocolate_milk", new BucketItem(ModFluids.CHOCOLATE_MILK_STILL, new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(0.4f).build()).recipeRemainder(BUCKET).maxCount(1)));
     public static final Item HEATED_OIL_BUCKET = registerItem("heated_oil_bucket", new BucketItem(ModFluids.HEATED_OIL_STILL, new FabricItemSettings().recipeRemainder(BUCKET).maxCount(1)));
     public static final Item HONEY_BUCKET = registerItem("honey_bucket", new MultiPurposeHoneyBucket(ModFluids.HONEY_STILL, new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(0.4f).build()).recipeRemainder(BUCKET).maxCount(1)));
     public static final Item OIL_BUCKET = registerItem("oil_bucket", new BucketItem(ModFluids.OIL_STILL, new FabricItemSettings().maxCount(1)));
+    public static final Item QUICKSAND_BUCKET = registerItem("quicksand_bucket", new BucketItem(ModFluids.QUICKSAND_STILL, new FabricItemSettings().maxCount(1)));
 
-    //spawn eggs
-    public static final Item PENGUIN_SPAWN_EGG = registerItem("penguin_spawn_egg", new SpawnEggItem(MobEntities.PENGUIN,0x0d0d0d, 0xffffff, new FabricItemSettings().maxCount(1)));
-    public static final Item SHADOW_CREATURE_SPAWN_EGG = registerItem("shadow_creature_spawn_egg", new SpawnEggItem(MobEntities.SHADOW_CREATURE,0x0d0d0d, 0xffffff, new FabricItemSettings().maxCount(1)));
-    public static final Item THE_GREAT_HUNGER_SPAWN_EGG = registerItem("the_great_hunger_spawn_egg", new SpawnEggItem(MobEntities.THE_GREAT_HUNGER,0x092306, 0x147e23, new FabricItemSettings().maxCount(1)));
+    //Spawn Eggs
+    public static final Item ASHMITE_SPAWN_EGG = registerItem("ashmite_spawn_egg", new SpawnEggItem(ModEntities.ASHMITE,0x808080, 0x1b2632, new FabricItemSettings()));
+    public static final Item BLAZING_INFERNO_SPAWN_EGG = registerItem("blazing_inferno_spawn_egg", new SpawnEggItem(ModEntities.BLAZING_INFERNO,0x5f0201, 0xffd528, new FabricItemSettings()));
+    public static final Item BLOODMITE_SPAWN_EGG = registerItem("bloodmite_spawn_egg", new SpawnEggItem(ModEntities.BLOODMITE,0x652828, 0x7b0000, new FabricItemSettings()));
+    public static final Item CAL_SPAWN_EGG = registerItem("cal_spawn_egg", new SpawnEggItem(ModEntities.CAL,0x000000, 0x00ff00, new FabricItemSettings()));
+    public static final Item HELLMITE_SPAWN_EGG = registerItem("hellmite_spawn_egg", new SpawnEggItem(ModEntities.HELLMITE,0x652828, 0xac7c12, new FabricItemSettings()));
+    public static final Item LOST_SOUL_SPAWN_EGG = registerItem("lost_soul_spawn_egg", new SpawnEggItem(ModEntities.LOST_SOUL,0xffffff, 0x000000, new FabricItemSettings()));
+    public static final Item MAGMITE_SPAWN_EGG = registerItem("magmite_spawn_egg", new SpawnEggItem(ModEntities.MAGMITE,0x652828, 0xf48522, new FabricItemSettings()));
+    public static final Item PENGUIN_SPAWN_EGG = registerItem("penguin_spawn_egg", new SpawnEggItem(ModEntities.PENGUIN,0x0d0d0d, 0xffffff, new FabricItemSettings()));
+    public static final Item QUEEN_BEE_SPAWN_EGG = registerItem("queen_bee_spawn_egg", new SpawnEggItem(ModEntities.QUEEN_BEE,0xb27516, 0x010215, new FabricItemSettings()));
+    public static final Item SCULKMITE_SPAWN_EGG = registerItem("sculkmite_spawn_egg", new SpawnEggItem(ModEntities.SCULKMITE,0x0b0e12, 0x29dfeb, new FabricItemSettings()));
+    public static final Item SHADOW_CREATURE_SPAWN_EGG = registerItem("shadow_creature_spawn_egg", new SpawnEggItem(ModEntities.SHADOW_CREATURE,0xffffff, 0xffffff, new FabricItemSettings()));
+    public static final Item SOLDIER_BEE_SPAWN_EGG = registerItem("soldier_bee_spawn_egg", new SpawnEggItem(ModEntities.SOLDIER_BEE,0xb27516, 0xe40018, new FabricItemSettings()));
+    public static final Item THE_GREAT_HUNGER_SPAWN_EGG = registerItem("the_great_hunger_spawn_egg", new SpawnEggItem(ModEntities.THE_GREAT_HUNGER,0x092306, 0x147e23, new FabricItemSettings()));
+    public static final Item WARPMITE_SPAWN_EGG = registerItem("warpmite_spawn_egg", new SpawnEggItem(ModEntities.WARPMITE,0x652828, 0x119b85, new FabricItemSettings()));
+
+    public static final Item DEMON_SPAWN_EGG = registerItem("demon_spawn_egg", new SpawnEggItem(ModEntities.DEMON,0x650d00, 0x000000, new FabricItemSettings()));
+    public static final Item WISP_SPAWN_EGG = registerItem("wisp_spawn_egg", new SpawnEggItem(ModEntities.WISP,0x01a7ac, 0x60f5fa, new FabricItemSettings()));
+    public static final Item HEADLESS_HORSEMAN_SPAWN_EGG = registerItem("headless_horseman_spawn_egg", new SpawnEggItem(ModEntities.HEADLESS_HORSEMAN,0xFFFFFF, 0x000000, new FabricItemSettings()));
+
+    public static final Item BLAZESTEP_DISC = registerItem("blazestep_disc", new MusicDiscItem(1, ModSounds.BLAZESTEP_DISC, new FabricItemSettings().maxCount(1), 199));
+    public static final Item DARKNESS_DISC = registerItem("darkness_disc", new MusicDiscItem(2, ModSounds.DARKNESS_DISC, new FabricItemSettings().maxCount(1), 187));
+    public static final Item FORTRESS_DISC = registerItem("fortress_disc", new MusicDiscItem(3, ModSounds.FORTRESS_DISC, new FabricItemSettings().maxCount(1), 222));
+    public static final Item GAME_OVER_DISC = registerItem("game_over_disc", new MusicDiscItem(4, ModSounds.GAME_OVER_DISC, new FabricItemSettings().maxCount(1), 228));
+    public static final Item VOID_DISC = registerItem("void_disc", new MusicDiscItem(5, ModSounds.VOID_DISC, new FabricItemSettings().maxCount(1), 144));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register (Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), item);

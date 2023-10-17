@@ -22,8 +22,6 @@ public class ConsumeLeaveBucket extends Item {
         super(settings);
     }
 
-    private static final int MAX_USE_TIME = 40;
-
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         super.finishUsing(stack, world, user);

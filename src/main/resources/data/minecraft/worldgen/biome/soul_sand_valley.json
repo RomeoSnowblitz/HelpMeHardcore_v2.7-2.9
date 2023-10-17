@@ -106,6 +106,12 @@
         "weight": 20
       },
       {
+        "type": "hmh2:lost_soul",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 5
+      },
+      {
         "type": "minecraft:ghast",
         "maxCount": 4,
         "minCount": 4,

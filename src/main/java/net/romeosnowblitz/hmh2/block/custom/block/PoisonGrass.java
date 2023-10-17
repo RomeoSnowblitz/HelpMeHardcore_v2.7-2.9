@@ -23,10 +23,8 @@ public class PoisonGrass extends FlowerBlock {
 
     @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        VoxelShape voxelShape = this.getOutlineShape(state, world, pos, ShapeContext.absent());
-        Vec3d vec3d = voxelShape.getBoundingBox().getCenter();
-        double d = (double)pos.getX() + vec3d.x;
-        double e = (double)pos.getZ() + vec3d.z;
+        double d = (double)pos.getX() + this.getOutlineShape(state, world, pos, ShapeContext.absent()).getBoundingBox().getCenter().x;
+        double e = (double)pos.getZ() + this.getOutlineShape(state, world, pos, ShapeContext.absent()).getBoundingBox().getCenter().z;
         for (int i = 0; i < 3; ++i) {
             if (!random.nextBoolean()) continue;
             world.addParticle(ParticleTypes.SMOKE, d + random.nextDouble() / 5.0, (double)pos.getY() + (0.5 - random.nextDouble()), e + random.nextDouble() / 5.0, 0.0, 0.0, 0.0);
@@ -35,11 +33,7 @@ public class PoisonGrass extends FlowerBlock {
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        LivingEntity livingEntity;
-        if (world.isClient || world.getDifficulty() == Difficulty.PEACEFUL) {
-            return;
-        }
-        if (entity instanceof LivingEntity && !(livingEntity = (LivingEntity)entity).isInvulnerableTo(world.getDamageSources().wither())) {
+        if (world.getDifficulty() != Difficulty.PEACEFUL && entity instanceof LivingEntity livingEntity && !(livingEntity = (LivingEntity)entity).isInvulnerableTo(world.getDamageSources().wither())) {
             livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 40));
         }
     }

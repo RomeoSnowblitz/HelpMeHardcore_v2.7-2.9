@@ -21,9 +21,6 @@
               ],
               "count": 2.0,
               "add": false
-            },
-            {
-              "function": "minecraft:explosion_decay"
             }
           ],
           "name": "hmh2:raw_beef_slab"

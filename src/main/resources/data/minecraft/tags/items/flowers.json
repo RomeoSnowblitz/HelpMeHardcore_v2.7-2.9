@@ -1,6 +1,8 @@
 {
   "values": [
-    "#hmh2:mod_flowers",
+    "hmh2:rose",
+    "hmh2:blue_spider_lily",
+    "hmh2:wolfsbane",
     "#minecraft:small_flowers",
     "#minecraft:tall_flowers",
     "minecraft:flowering_azalea_leaves",

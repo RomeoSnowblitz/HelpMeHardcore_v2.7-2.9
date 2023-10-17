@@ -20,7 +20,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
-import net.romeosnowblitz.hmh2.entity.ModBlockEntities;
+import net.romeosnowblitz.hmh2.blotty.ModBlockEntities;
 
 import java.util.Iterator;
 import java.util.List;

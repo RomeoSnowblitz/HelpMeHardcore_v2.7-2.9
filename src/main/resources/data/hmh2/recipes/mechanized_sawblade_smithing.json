@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "hmh2:hellstone"
+  },
+  "base": {
+    "item": "hmh2:broken_sawblade"
+  },
+  "result": {
+    "item": "hmh2:mechanized_sawblade"
+  },
+  "template": {
+    "item": "hmh2:hellstone"
+  }
+}

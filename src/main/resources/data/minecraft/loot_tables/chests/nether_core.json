@@ -21,13 +21,18 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 150,
+          "name": "minecraft:golden_apple"
+        },
+        {
+          "type": "minecraft:item",
           "weight": 2,
           "name": "minecraft:enchanted_golden_apple"
         },
         {
           "type": "minecraft:item",
-          "weight": 2,
-          "name": "minecraft:music_disc_pigstep"
+          "weight": 15,
+          "name": "hmh2:blazestep_disc"
         },
         {
           "type": "minecraft:item",

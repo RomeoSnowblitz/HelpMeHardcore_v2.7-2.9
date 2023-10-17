@@ -63,22 +63,10 @@ public class HotPumiceStairs extends Block implements Waterloggable {
 
     private static VoxelShape composeShape(int i, VoxelShape base, VoxelShape northWest, VoxelShape northEast, VoxelShape southWest, VoxelShape southEast) {
         VoxelShape voxelShape = base;
-        if ((i & 1) != 0) {
-            voxelShape = VoxelShapes.union(base, northWest);
-        }
-
-        if ((i & 2) != 0) {
-            voxelShape = VoxelShapes.union(voxelShape, northEast);
-        }
-
-        if ((i & 4) != 0) {
-            voxelShape = VoxelShapes.union(voxelShape, southWest);
-        }
-
-        if ((i & 8) != 0) {
-            voxelShape = VoxelShapes.union(voxelShape, southEast);
-        }
-
+        if ((i & 1) != 0) {voxelShape = VoxelShapes.union(base, northWest);}
+        if ((i & 2) != 0) {voxelShape = VoxelShapes.union(voxelShape, northEast);}
+        if ((i & 4) != 0) {voxelShape = VoxelShapes.union(voxelShape, southWest);}
+        if ((i & 8) != 0) {voxelShape = VoxelShapes.union(voxelShape, southEast);}
         return voxelShape;
     }
 

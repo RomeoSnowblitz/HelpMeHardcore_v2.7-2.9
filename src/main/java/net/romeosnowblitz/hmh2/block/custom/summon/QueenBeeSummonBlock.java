@@ -18,9 +18,9 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
-import net.romeosnowblitz.hmh2.entity.MobEntities;
-import net.romeosnowblitz.hmh2.entity.mob.QueenBeeEntity;
-import net.romeosnowblitz.hmh2.entity.mob.SoldierBeeEntity;
+import net.romeosnowblitz.hmh2.entity.ModEntities;
+import net.romeosnowblitz.hmh2.entity.queen_bee.QueenBeeEntity;
+import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeEntity;
 
 import java.util.function.Predicate;
 
@@ -55,7 +55,7 @@ public class QueenBeeSummonBlock extends HorizontalFacingBlock {
                     world.setBlockState(cachedBlockPosition.getBlockPos(), Blocks.AIR.getDefaultState(), Block.NOTIFY_LISTENERS);
                     world.syncWorldEvent(WorldEvents.BLOCK_BROKEN, cachedBlockPosition.getBlockPos(), Block.getRawIdFromState(cachedBlockPosition.getBlockState()));
                 }
-                SoldierBeeEntity soldierBeeEntity = MobEntities.SOLDIER_BEE.create(world);
+                SoldierBeeEntity soldierBeeEntity = ModEntities.SOLDIER_BEE.create(world);
                 BlockPos blockPos = result.translate(0, 2, 0).getBlockPos();
                 soldierBeeEntity.refreshPositionAndAngles((double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.05, (double)blockPos.getZ() + 0.5, 0.0f, 0.0f);
                 world.spawnEntity(soldierBeeEntity);
@@ -79,7 +79,7 @@ public class QueenBeeSummonBlock extends HorizontalFacingBlock {
                 }
             }
             BlockPos blockPos2 = result.translate(1, 2, 0).getBlockPos();
-            QueenBeeEntity summoningEntity = MobEntities.QUEEN_BEE.create(world);
+            QueenBeeEntity summoningEntity = ModEntities.QUEEN_BEE.create(world);
             summoningEntity.refreshPositionAndAngles((double)blockPos2.getX() + 0.5, (double)blockPos2.getY() + 0.05, (double)blockPos2.getZ() + 0.5, 0.0f, 0.0f);
             world.spawnEntity(summoningEntity);
             for (ServerPlayerEntity serverPlayerEntity : world.getNonSpectatingEntities(ServerPlayerEntity.class, summoningEntity.getBoundingBox().expand(5.0))) {

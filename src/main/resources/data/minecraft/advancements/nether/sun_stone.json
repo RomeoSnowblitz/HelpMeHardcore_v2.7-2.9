@@ -1,0 +1,37 @@
+{
+  "display": {
+    "title": {
+      "text": "Let There Be Light"
+    },
+    "description": {
+      "text": "Time To Give Beds A Rest"
+    },
+    "icon": {
+      "item": "hmh2:sun_stone"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtain_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:sun_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_item"
+    ]
+  ],
+  "parent": "minecraft:nether/root"
+}

@@ -1,0 +1,48 @@
+{
+    "display": {
+        "title": {
+            "text": "A Soul In Semi-Animate Form"
+        },
+        "description": {
+            "text": "An Item Used To Craft Materials To Summon The Dead. Custom Craft With Ashes"
+        },
+        "icon": {
+            "item": "hmh2:soul_essence"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "obtain_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:soul_essence"
+                        ]
+                    }
+                ]
+            }
+        },
+        "class_effect": {
+            "trigger": "minecraft:effects_changed",
+            "conditions": {
+                "effects": {
+                    "hmh2:necromancer": {}
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "obtain_item"
+        ],
+        [
+            "class_effect"
+        ]
+    ],
+    "parent": "hmh2:necromancer/root"
+}

@@ -1,17 +1,10 @@
 package net.romeosnowblitz.hmh2.block.custom.farm;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.mob.RavagerEntity;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -23,76 +16,73 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 
-public class ModCropBlock extends CropBlock {
-    public static final int MAX_AGE = 7;
-    public static final IntProperty AGE = Properties.AGE_7;
-    private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]
-            {Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0),
-                    Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
-                    Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 6.0, 16.0),
-                    Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
-                    Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 10.0, 16.0),
-                    Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 12.0, 16.0),
-                    Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
-                    Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 16.0)};
+public class ModCropBlock extends PlantBlock implements Fertilizable {
 
     public ModCropBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(this.getAgeProperty(), 0));
+        setDefaultState(stateManager.getDefaultState().with(Properties.AGE_7, 0));
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return AGE_TO_SHAPE[state.get(this.getAgeProperty())];
+        return new VoxelShape[]{
+                Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0),
+                Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
+                Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 6.0, 16.0),
+                Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
+                Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 10.0, 16.0),
+                Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 12.0, 16.0),
+                Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
+                Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 16.0)}
+                [state.get(Properties.AGE_7)];
     }
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(ModBlocks.CRIMSON_FARMLAND) || floor.isOf(ModBlocks.WARPED_FARMLAND) || super.canPlantOnTop(floor, world, pos);
-    }
-
-    public IntProperty getAgeProperty() {
-        return AGE;
-    }
-
-    public int getMaxAge() {
-        return 7;
-    }
-
-    public int getAge(BlockState state) {
-        return state.get(this.getAgeProperty());
-    }
-
-    public BlockState withAge(int age) {
-        return this.getDefaultState().with(this.getAgeProperty(), age);
+        return floor.isOf(ModBlocks.CRIMSON_FARMLAND) || floor.isOf(ModBlocks.WARPED_FARMLAND);
     }
 
     @Override
     public boolean hasRandomTicks(BlockState state) {
-        return !this.isMature(state);
+        return !(state.get(Properties.AGE_7) >= 7);
     }
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        float f;
-        int i;
-        if (world.getBaseLightLevel(pos, 0) >= 9 && (i = this.getAge(state)) < this.getMaxAge() &&
-                random.nextInt((int)(25.0f / (f = CropBlock.getAvailableMoisture(this, world, pos))) + 1) == 0) {
-            world.setBlockState(pos, this.withAge(i + 1), Block.NOTIFY_LISTENERS);
+        if (world.getBaseLightLevel(pos, 0) >= 9 && state.get(Properties.AGE_7) < 7 &&
+                random.nextInt((int)(25.0f / (getAvailableMoisture(this, world, pos))) + 1) == 0) {
+            world.setBlockState(pos, getDefaultState().with(Properties.AGE_7, (state.get(Properties.AGE_7) + 1)), Block.NOTIFY_LISTENERS);
         }
     }
 
-    public void applyGrowth(World world, BlockPos pos, BlockState state) {
-        int j;
-        int i = this.getAge(state) + this.getGrowthAmount(world);
-        if (i > (j = this.getMaxAge())) {
-            i = j;
+    protected static float getAvailableMoisture(Block block, BlockView world, BlockPos pos) {
+        float f = 1.0F;
+        for(int i = -1; i <= 1; ++i) {
+            for(int j = -1; j <= 1; ++j) {
+                float g = 0.0F;
+                if (world.getBlockState(pos.down().add(i, 0, j)).isOf(ModBlocks.CRIMSON_FARMLAND) ||
+                        world.getBlockState(pos.down().add(i, 0, j)).isOf(ModBlocks.WARPED_FARMLAND)) {
+                    g = 1.0F;
+                    if (world.getBlockState(pos.down().add(i, 0, j)).get(Properties.MOISTURE) > 0) {
+                        g = 3.0F;
+                    }
+                }
+                if (i != 0 || j != 0) {
+                    g /= 4.0F;
+                }
+                f += g;
+            }
         }
-        world.setBlockState(pos, this.withAge(i), Block.NOTIFY_LISTENERS);
-    }
-
-    public int getGrowthAmount(World world) {
-        return MathHelper.nextInt(world.random, 2, 5);
+        if (world.getBlockState(pos.west()).isOf(block) || world.getBlockState(pos.east()).isOf(block) &&
+                world.getBlockState(pos.north()).isOf(block) || world.getBlockState(pos.south()).isOf(block)) {
+            f /= 2.0F;
+        } else {
+            if (world.getBlockState(pos.west().north()).isOf(block) || world.getBlockState(pos.east().north()).isOf(block) ||
+                    world.getBlockState(pos.east().south()).isOf(block) || world.getBlockState(pos.west().south()).isOf(block)) {
+                f /= 2.0F;
+            }
+        }
+        return f;
     }
 
     @Override
@@ -108,17 +98,8 @@ public class ModCropBlock extends CropBlock {
         super.onEntityCollision(state, world, pos, entity);
     }
 
-    protected ItemConvertible getSeedsItem() {
-        return Items.WHEAT_SEEDS;
-    }
-
-    @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(this.getSeedsItem());
-    }
-
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
-        return (Integer)state.get(AGE) < 3;
+        return state.get(Properties.AGE_7) < 3;
     }
 
     @Override
@@ -128,14 +109,15 @@ public class ModCropBlock extends CropBlock {
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        this.applyGrowth(world, pos, state);
+        int i = state.get(Properties.AGE_7) + MathHelper.nextInt(world.random, 2, 5);
+        if (i > 7) {
+            i = 7;
+        }
+        world.setBlockState(pos, getDefaultState().with(Properties.AGE_7, i), Block.NOTIFY_LISTENERS);
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(AGE);
+        builder.add(Properties.AGE_7);
     }
-
-
-
 }

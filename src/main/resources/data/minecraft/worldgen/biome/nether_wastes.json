@@ -101,6 +101,12 @@
         "weight": 1
       },
       {
+        "type": "hmh2:demon",
+        "maxCount": 4,
+        "minCount": 4,
+        "weight": 15
+      },
+      {
         "type": "minecraft:piglin",
         "maxCount": 4,
         "minCount": 4,

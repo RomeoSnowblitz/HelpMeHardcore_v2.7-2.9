@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:amber_ore",
+    "hmh2:citrine_ore",
+    "hmh2:hessonite_ore",
+    "hmh2:opal_ore",
+    "hmh2:smoky_quartz_ore",
+    "hmh2:spinel_ore",
+    "hmh2:tormaline_ore",
+    "hmh2:deepslate_amber_ore",
+    "hmh2:deepslate_citrine_ore",
+    "hmh2:deepslate_hessonite_ore",
+    "hmh2:deepslate_opal_ore",
+    "hmh2:deepslate_smoky_quartz_ore",
+    "hmh2:deepslate_spinel_ore",
+    "hmh2:deepslate_tormaline_ore",
+
+    "hmh2:garnet_ore",
+    "hmh2:ruby_ore",
+    "hmh2:spessarite_ore",
+    "hmh2:deepslate_garnet_ore",
+    "hmh2:deepslate_ruby_ore",
+    "hmh2:deepslate_spessarite_ore"
+  ]
+}

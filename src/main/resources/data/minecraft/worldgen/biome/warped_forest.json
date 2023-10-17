@@ -90,6 +90,12 @@
     "misc": [],
     "monster": [
       {
+        "type": "hmh2:warpmite",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 30
+      },
+      {
         "type": "minecraft:enderman",
         "maxCount": 4,
         "minCount": 4,

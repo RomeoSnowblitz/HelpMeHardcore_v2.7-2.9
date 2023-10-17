@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "hmh2:hellfork"
+  },
+  "addition": {
+    "item": "hmh2:infernal_diamond"
+  },
+  "result": {
+    "item": "hmh2:infernal_hellfork"
+  },
+  "template": {
+    "item": "hmh2:solar_fragment"
+  }
+}

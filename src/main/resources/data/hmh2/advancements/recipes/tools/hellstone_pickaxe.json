@@ -2,7 +2,11 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "hmh2:hellstone_pickaxe"
+      "hmh2:hellstone_sword",
+      "hmh2:hellstone_shovel",
+      "hmh2:hellstone_pickaxe",
+      "hmh2:hellstone_axe",
+      "hmh2:hellstone_hoe"
     ]
   },
   "criteria": {

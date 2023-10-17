@@ -41,7 +41,7 @@ public abstract class AbsorptionFluid extends FlowableFluid {
         }
 
         public int getLevel(FluidState state) {
-            return (Integer)state.get(LEVEL);
+            return state.get(LEVEL);
         }
 
         public boolean isStill(FluidState state) {

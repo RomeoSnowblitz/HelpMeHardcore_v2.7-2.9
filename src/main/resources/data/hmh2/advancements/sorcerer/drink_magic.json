@@ -1,0 +1,390 @@
+{
+    "display": {
+        "title": {
+            "text": "Magical Cocktail"
+        },
+        "description": {
+            "text": "Magic is Powerful, but not always meant for consumption"
+        },
+        "icon": {
+            "item": "minecraft:bucket"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "absorption": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:absorption_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "bad_luck": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:bad_luck_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "bad_omen": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:bad_omen_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "blindness": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:blindness_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "conduit_power": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:conduit_power_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "darkness": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:darkness_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "dolphins_grace": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:dolphins_grace_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "fire_immunity": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:fire_immunity_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },        "glowing": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:glowing_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },        "haste": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:haste_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },        "health_boost": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:health_boost_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },        "hunger": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:hunger_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },        "instant_damage": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:instant_damage_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },        "instant_health": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:instant_health_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "invisibility": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:invisibility_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },        "jump_boost": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:jump_boost_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },        "levitation": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:levitation_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "luck": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:luck_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "mining_fatigue": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:mining_fatigue_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "nausea": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:nausea_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "night_vision": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:night_vision_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "poison": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:poison_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "regeneration": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:regeneration_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "resistance": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:resistance_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "saturation": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:saturation_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "slow_falling": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:slow_falling_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "slowness": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:slowness_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "speed": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:speed_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "strength": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:strength_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "village_hero": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:village_hero_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "water_breathing": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:water_breathing_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "weakness": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:weakness_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "wither": {
+            "conditions": {
+                "item": {
+                    "items": [
+                        "hmh2:wither_fluid"
+                    ]
+                }
+            },
+            "trigger": "minecraft:consume_item"
+        },
+        "class_effect": {
+            "trigger": "minecraft:effects_changed",
+            "conditions": {
+                "effects": {
+                    "hmh2:sorcerer": {}
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "absorption",
+            "bad_luck",
+            "bad_omen",
+            "blindness",
+            "conduit_power",
+            "darkness",
+            "dolphins_grace",
+            "fire_immunity",
+            "glowing",
+            "haste",
+            "health_boost",
+            "hunger",
+            "instant_damage",
+            "instant_health",
+            "invisibility",
+            "jump_boost",
+            "levitation",
+            "luck",
+            "mining_fatigue",
+            "nausea",
+            "night_vision",
+            "poison",
+            "regeneration",
+            "resistance",
+            "saturation",
+            "slow_falling",
+            "slowness",
+            "speed",
+            "strength",
+            "village_hero",
+            "water_breathing",
+            "weakness",
+            "wither"
+        ],
+        [
+            "class_effect"
+        ]
+    ],
+    "parent": "hmh2:sorcerer/magic_mix"
+}

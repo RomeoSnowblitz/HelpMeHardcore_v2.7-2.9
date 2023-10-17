@@ -46,8 +46,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
-import net.romeosnowblitz.hmh2.entity.MobEntities;
-import net.romeosnowblitz.hmh2.entity.mob.CalEntity;
+import net.romeosnowblitz.hmh2.entity.ModEntities;
+import net.romeosnowblitz.hmh2.entity.cal.CalEntity;
 
 import java.util.function.Predicate;
 
@@ -61,7 +61,7 @@ public class CarvedMelonBlock
 
     public CarvedMelonBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
     }
 
     @Override
@@ -82,7 +82,7 @@ public class CarvedMelonBlock
                 world.setBlockState(cachedBlockPosition.getBlockPos(), Blocks.AIR.getDefaultState(), Block.NOTIFY_LISTENERS);
                 world.syncWorldEvent(WorldEvents.BLOCK_BROKEN, cachedBlockPosition.getBlockPos(), Block.getRawIdFromState(cachedBlockPosition.getBlockState()));
             }
-            CalEntity entity = MobEntities.CAL.create(world);
+            CalEntity entity = ModEntities.CAL.create(world);
             BlockPos blockPos = result.translate(0, 1, 0).getBlockPos();
             entity.refreshPositionAndAngles((double)blockPos.getX() + 0.5, (double)blockPos.getY() + 0.05, (double)blockPos.getZ() + 0.5, 0.0f, 0.0f);
             world.spawnEntity(entity);
@@ -98,7 +98,7 @@ public class CarvedMelonBlock
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override

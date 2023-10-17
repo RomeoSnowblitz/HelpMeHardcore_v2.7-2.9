@@ -42,17 +42,33 @@ extends ArmorItem {
             ItemStack chestPiece = player.getEquippedStack(EquipmentSlot.CHEST);
             ItemStack legPiece = player.getEquippedStack(EquipmentSlot.LEGS);
             ItemStack footPiece = player.getEquippedStack(EquipmentSlot.FEET);
-            if (headPiece.isOf(WarfareItems.LIFE_HELMET) || chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) || legPiece.isOf(WarfareItems.LIFE_LEGGINGS) || footPiece.isOf(WarfareItems.LIFE_BOOTS)) {
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 60, 0, false, false, true));
+            if (!player.hasStatusEffect(StatusEffects.ABSORPTION) && headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS)) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 1200, 3, false, false, true));
+                headPiece.damage(4, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
+                chestPiece.damage(4, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.CHEST));
+                legPiece.damage(4, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.LEGS));
+                footPiece.damage(4, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.FEET));
             }
-            if (headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) || headPiece.isOf(WarfareItems.LIFE_HELMET) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) || headPiece.isOf(WarfareItems.LIFE_HELMET) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) || chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS)) {
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 60, 1, false, false, true));
+            if (!player.hasStatusEffect(StatusEffects.ABSORPTION) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || !player.hasStatusEffect(StatusEffects.ABSORPTION) && headPiece.isOf(WarfareItems.LIFE_HELMET) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || !player.hasStatusEffect(StatusEffects.ABSORPTION) && headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || !player.hasStatusEffect(StatusEffects.ABSORPTION) && headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS)) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 900, 2, false, false, true));
+                headPiece.damage(3, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
+                chestPiece.damage(3, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.CHEST));
+                legPiece.damage(3, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.LEGS));
+                footPiece.damage(3, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.FEET));
             }
-            if (chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || headPiece.isOf(WarfareItems.LIFE_HELMET) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS)) {
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 60, 2, false, false, true));
+            if (!player.hasStatusEffect(StatusEffects.ABSORPTION) && headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) || !player.hasStatusEffect(StatusEffects.ABSORPTION) && headPiece.isOf(WarfareItems.LIFE_HELMET) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) ||  !player.hasStatusEffect(StatusEffects.ABSORPTION) && headPiece.isOf(WarfareItems.LIFE_HELMET) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || !player.hasStatusEffect(StatusEffects.ABSORPTION) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) || !player.hasStatusEffect(StatusEffects.ABSORPTION) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && footPiece.isOf(WarfareItems.LIFE_BOOTS) || !player.hasStatusEffect(StatusEffects.ABSORPTION) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS)) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 600, 1, false, false, true));
+                headPiece.damage(2, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
+                chestPiece.damage(2, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.CHEST));
+                legPiece.damage(2, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.LEGS));
+                footPiece.damage(2, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.FEET));
             }
-            if (headPiece.isOf(WarfareItems.LIFE_HELMET) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) && footPiece.isOf(WarfareItems.LIFE_BOOTS)) {
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 60, 3, false, false, true));
+            if (!player.hasStatusEffect(StatusEffects.ABSORPTION) && headPiece.isOf(WarfareItems.LIFE_HELMET) || !player.hasStatusEffect(StatusEffects.ABSORPTION) && chestPiece.isOf(WarfareItems.LIFE_CHESTPLATE) || !player.hasStatusEffect(StatusEffects.ABSORPTION) && legPiece.isOf(WarfareItems.LIFE_LEGGINGS) || !player.hasStatusEffect(StatusEffects.ABSORPTION) && footPiece.isOf(WarfareItems.LIFE_BOOTS)) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 300, 0, false, false, true));
+                headPiece.damage(1, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
+                chestPiece.damage(1, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.CHEST));
+                legPiece.damage(1, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.LEGS));
+                footPiece.damage(1, player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.FEET));
             }
         }
         super.inventoryTick(stack, world, entity, slot, selected);

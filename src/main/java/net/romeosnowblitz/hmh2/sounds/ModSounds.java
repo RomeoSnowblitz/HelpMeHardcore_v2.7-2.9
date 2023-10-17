@@ -16,6 +16,12 @@ public class ModSounds extends SoundEvents{
     public static SoundEvent VAPOR_MOAN = register("vapor_moan");
     public static SoundEvent CAL_SCREAM = register("cal_scream");
 
+    public static SoundEvent BLAZESTEP_DISC = register("blazestep_disc");
+    public static SoundEvent DARKNESS_DISC = register("darkness_disc");
+    public static SoundEvent FORTRESS_DISC = register("fortress_disc");
+    public static SoundEvent GAME_OVER_DISC = register("game_over_disc");
+    public static SoundEvent VOID_DISC = register("void_disc");
+
     public static final BlockSoundGroup ORE_SCREAM_SOUNDS = new BlockSoundGroup(1f,2f,
             ModSounds.CAL_SCREAM, ModSounds.VAPOR_MOAN, ModSounds.VAPOR_MOAN, SoundEvents.ENTITY_VILLAGER_HURT, SoundEvents.ENTITY_GOAT_SCREAMING_AMBIENT);
 

@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FluidDrainable;
 import net.minecraft.block.FluidFillable;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -31,6 +32,9 @@ import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
+import net.romeosnowblitz.hmh2.block.MagicBlocks;
+import net.romeosnowblitz.hmh2.effect.CustomEffects;
+import net.romeosnowblitz.hmh2.item.MagicItems;
 import org.jetbrains.annotations.Nullable;
 
 public class MagicBucket extends Item implements FluidModificationItem {
@@ -54,7 +58,7 @@ public class MagicBucket extends Item implements FluidModificationItem {
             stack.decrement(1);
         }
 
-        if (!world.isClient) {
+        if (!world.isClient && user.hasStatusEffect(CustomEffects.SORCERER) ) {
             user.addStatusEffect(new StatusEffectInstance(effect, 200, 0));
         }
 
@@ -177,4 +181,5 @@ public class MagicBucket extends Item implements FluidModificationItem {
         world.playSound(player, pos, soundEvent, SoundCategory.BLOCKS, 1.0F, 1.0F);
         world.emitGameEvent(player, GameEvent.FLUID_PLACE, pos);
     }
+
 }

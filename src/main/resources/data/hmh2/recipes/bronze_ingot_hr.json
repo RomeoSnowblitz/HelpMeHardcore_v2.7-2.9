@@ -1,15 +1,15 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "minecraft:copper_ingot"
-    },
-    {
-      "item": "hmh2:tin_ingot"
-    }
-  ],
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:copper_ingot"
+  },
+  "base": {
+    "item": "hmh2:tin_ingot"
+  },
   "result": {
-    "item": "hmh2:bronze_ingot",
-    "count": 1
+    "item": "hmh2:bronze_ingot"
+  },
+  "template": {
+    "item": "minecraft:iron_ingot"
   }
 }

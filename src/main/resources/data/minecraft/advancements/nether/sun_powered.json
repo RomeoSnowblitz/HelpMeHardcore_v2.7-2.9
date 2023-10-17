@@ -1,0 +1,45 @@
+{
+  "display": {
+    "title": {
+      "text": "Sun Powered"
+    },
+    "description": {
+      "text": "The Hottest Material"
+    },
+    "icon": {
+      "item": "hmh2:sumolterite_sword"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtain_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:sumolterite_helmet",
+              "hmh2:sumolterite_chestplate",
+              "hmh2:sumolterite_leggings",
+              "hmh2:sumolterite_boots",
+              "hmh2:sumolterite_sword",
+              "hmh2:sumolterite_shovel",
+              "hmh2:sumolterite_axe",
+              "hmh2:sumolterite_pickaxe",
+              "hmh2:sumolterite_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_item"
+    ]
+  ],
+  "parent": "minecraft:nether/sun_jewel"
+}

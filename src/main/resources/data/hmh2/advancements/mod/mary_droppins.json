@@ -1,0 +1,35 @@
+{
+  "display": {
+    "title": {
+      "text": "Mary Droppins"
+    },
+    "description": {
+      "text": "Fall with an Umbrella"
+    },
+    "icon": {
+      "item": "hmh2:umbrella"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "conditions": {
+        "item": {
+          "items": [
+            "hmh2:umbrella"
+          ]
+        }
+      },
+      "trigger": "minecraft:item_durability_changed"
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ],
+  "parent": "hmh2:mod/slippery_situation"
+}

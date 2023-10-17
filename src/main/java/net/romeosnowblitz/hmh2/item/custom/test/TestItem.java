@@ -1,12 +1,37 @@
 package net.romeosnowblitz.hmh2.item.custom.test;
 
+
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import org.spongepowered.include.com.google.common.collect.ImmutableMap;
+
+import java.util.Map;
+
 /*
 public class TestItem extends Item {
     protected static final ImmutableMap PATH_STATES;protected static final Map<Block, Block> STRIPPED_BLOCKS;private final Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
-    public TestItem(int attackDamage, float attackSpeed, int plusHealth,  Settings settings) {super(settings);ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
+
+    public TestItem(int attackDamage, float attackSpeed, int plusHealth,  Settings settings) {
+        super(settings);
+        ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
         builder.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", attackDamage, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", attackSpeed, EntityAttributeModifier.Operation.ADDITION));
         builder.put(EntityAttributes.GENERIC_MAX_HEALTH, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", plusHealth, EntityAttributeModifier.Operation.ADDITION));this.attributeModifiers = builder.build();}
+
+
+
     public boolean isEnchantable(ItemStack stack) {
         return stack.getCount() == 1;
     }public int getEnchantability() {
@@ -93,4 +118,5 @@ public class TestItem extends Item {
     static {PATH_STATES = (new ImmutableMap.Builder()).put(Blocks.DIAMOND_BLOCK, Blocks.EMERALD_BLOCK.getDefaultState()).put(Blocks.EMERALD_BLOCK, Blocks.DIAMOND_BLOCK.getDefaultState()).build();
         STRIPPED_BLOCKS = (new ImmutableMap.Builder()).put(Blocks.OAK_LOG, Blocks.BIRCH_LOG).put(Blocks.BIRCH_LOG, Blocks.OAK_LOG).build();}
 }
+
  */

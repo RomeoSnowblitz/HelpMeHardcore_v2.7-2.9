@@ -1,19 +1,16 @@
 package net.romeosnowblitz.hmh2.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.item.custom.magic.perks.*;
-import net.romeosnowblitz.hmh2.item.custom.magic.perks.single.FurPerk;
-import net.romeosnowblitz.hmh2.item.custom.magic.perks.single.HellstonePerk;
-import net.romeosnowblitz.hmh2.item.custom.magic.perks.single.QuaeritePerk;
-import net.romeosnowblitz.hmh2.item.custom.magic.perks.single.QueenBeePerk;
+import net.romeosnowblitz.hmh2.item.custom.magic.perks.single.*;
 import net.romeosnowblitz.hmh2.item.custom.magic.swords.*;
 import net.romeosnowblitz.hmh2.item.custom.tools.ModCarver;
+import net.romeosnowblitz.hmh2.item.custom.tools.NetherHoe;
 
 public class WarfareItems {
 
@@ -51,11 +48,17 @@ public class WarfareItems {
     public static final Item FUR_LEGGINGS = registerItem("fur_leggings", new FurPerk(ModArmorMaterial.FUR, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item FUR_BOOTS = registerItem("fur_boots", new FurPerk(ModArmorMaterial.FUR, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item HELLSTONE_HELMET = registerItem("hellstone_helmet", new HellstonePerk(ModArmorMaterial.HELLSTONE, ArmorItem.Type.HELMET, new FabricItemSettings()));
-    public static final Item HELLSTONE_CHESTPLATE = registerItem("hellstone_chestplate", new HellstonePerk(ModArmorMaterial.HELLSTONE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
-    public static final Item HELLSTONE_LEGGINGS = registerItem("hellstone_leggings", new HellstonePerk(ModArmorMaterial.HELLSTONE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
-    public static final Item HELLSTONE_BOOTS = registerItem("hellstone_boots", new HellstonePerk(ModArmorMaterial.HELLSTONE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
-    public static final Item HELLSTONE_PICKAXE = registerItem("hellstone_pickaxe", new PickaxeItem(ModToolMaterial.HELLSTONE,4,3, new FabricItemSettings()));
+    public static final Item GLASS_LEGGINGS = registerItem("glass_leggings", new ArmorItem(ModArmorMaterial.GLASS, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+
+    public static final Item HELLSTONE_HELMET = registerItem("hellstone_helmet", new HellstonePerk(ModArmorMaterial.HELLSTONE, ArmorItem.Type.HELMET, new FabricItemSettings().fireproof()));
+    public static final Item HELLSTONE_CHESTPLATE = registerItem("hellstone_chestplate", new HellstonePerk(ModArmorMaterial.HELLSTONE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings().fireproof()));
+    public static final Item HELLSTONE_LEGGINGS = registerItem("hellstone_leggings", new HellstonePerk(ModArmorMaterial.HELLSTONE, ArmorItem.Type.LEGGINGS, new FabricItemSettings().fireproof()));
+    public static final Item HELLSTONE_BOOTS = registerItem("hellstone_boots", new HellstonePerk(ModArmorMaterial.HELLSTONE, ArmorItem.Type.BOOTS, new FabricItemSettings().fireproof()));
+    public static final Item HELLSTONE_SWORD = registerItem("hellstone_sword", new SwordItem(ModToolMaterial.HELLSTONE,6,-2.4f, new FabricItemSettings().fireproof()));
+    public static final Item HELLSTONE_SHOVEL = registerItem("hellstone_shovel", new ShovelItem(ModToolMaterial.HELLSTONE,4.5f,-3, new FabricItemSettings().fireproof()));
+    public static final Item HELLSTONE_PICKAXE = registerItem("hellstone_pickaxe", new PickaxeItem(ModToolMaterial.HELLSTONE,4,-2.8f, new FabricItemSettings().fireproof()));
+    public static final Item HELLSTONE_AXE = registerItem("hellstone_axe", new AxeItem(ModToolMaterial.HELLSTONE,9,-3.1f, new FabricItemSettings().fireproof()));
+    public static final Item HELLSTONE_HOE = registerItem("hellstone_hoe", new NetherHoe(ModToolMaterial.HELLSTONE,1,-1, new FabricItemSettings().fireproof()));
 
     public static final Item LIFE_HELMET = registerItem("life_helmet", new HeartPerk(ModArmorMaterial.LIFE, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item LIFE_CHESTPLATE = registerItem("life_chestplate", new HeartPerk(ModArmorMaterial.LIFE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
@@ -72,11 +75,22 @@ public class WarfareItems {
     public static final Item QUAERITE_AXE = registerItem("quaerite_axe", new AxeItem(ModToolMaterial.QUAERITE, 5, -3f, new FabricItemSettings()));
     public static final Item QUAERITE_HOE = registerItem("quaerite_hoe", new HoeItem(ModToolMaterial.QUAERITE, -4, 0f, new FabricItemSettings()));
 
+    public static final Item SUMOLTERITE_HELMET = registerItem("sumolterite_helmet", new SumolteritePerk(ModArmorMaterial.SUMOLTERITE, ArmorItem.Type.HELMET, new FabricItemSettings().fireproof()));
+    public static final Item SUMOLTERITE_CHESTPLATE = registerItem("sumolterite_chestplate", new SumolteritePerk(ModArmorMaterial.SUMOLTERITE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings().fireproof()));
+    public static final Item SUMOLTERITE_LEGGINGS = registerItem("sumolterite_leggings", new SumolteritePerk(ModArmorMaterial.SUMOLTERITE, ArmorItem.Type.LEGGINGS, new FabricItemSettings().fireproof()));
+    public static final Item SUMOLTERITE_BOOTS = registerItem("sumolterite_boots", new SumolteritePerk(ModArmorMaterial.SUMOLTERITE, ArmorItem.Type.BOOTS, new FabricItemSettings().fireproof()));
+    public static final Item SUMOLTERITE_SWORD = registerItem("sumolterite_sword", new FireSword(ModToolMaterial.SUMOLTERITE, 3, -2.4f, new FabricItemSettings().fireproof()));
+    public static final Item SUMOLTERITE_SHOVEL = registerItem("sumolterite_shovel", new ShovelItem(ModToolMaterial.SUMOLTERITE, 1.5f, -3.0f, new FabricItemSettings().fireproof()));
+    public static final Item SUMOLTERITE_PICKAXE = registerItem("sumolterite_pickaxe", new PickaxeItem(ModToolMaterial.SUMOLTERITE, 1, -2.8f, new FabricItemSettings().fireproof()));
+    public static final Item SUMOLTERITE_AXE = registerItem("sumolterite_axe", new AxeItem(ModToolMaterial.SUMOLTERITE, 5, -3f, new FabricItemSettings().fireproof()));
+    public static final Item SUMOLTERITE_HOE = registerItem("sumolterite_hoe", new NetherHoe(ModToolMaterial.SUMOLTERITE, -4, 0f, new FabricItemSettings().fireproof()));
+
     //Extra Armor + Tools (2)
-    public static final Item BLAZE_CUTTER = registerItem("blaze_cutter", new PickaxeItem(ModToolMaterial.BLAZE, -1, -1.485f, new FabricItemSettings()));
+    public static final Item BLAZE_CUTTER = registerItem("blaze_cutter", new PickaxeItem(ModToolMaterial.BLAZE, -1, -1.5f, new FabricItemSettings()));
     public static final Item CLUB = registerItem("club", new SwordItem(ModToolMaterial.CLUB, 8, -3.5f, new FabricItemSettings()));
 
     //MELEE WEAPONS +39 Melee Weapons
+    public static final Item WEAPON = registerItem("weapon", new SwordItem(ModToolMaterial.MOD_IRON, 10, -1.0f, new FabricItemSettings()));
     public static final Item ANCHOR = registerItem("anchor", new AnchorItem(ModToolMaterial.MOD_IRON, 12, -3.0f, new FabricItemSettings()));
     public static final Item BATTLESTAFF = registerItem("battlestaff", new SwordItem(ModToolMaterial.STICK, 2, -0.5f, new FabricItemSettings()));
     public static final Item BATTLESTAFF_OF_TERROR = registerItem("battlestaff_of_terror", new SwordItem(ModToolMaterial.ENDER_INGOT, 8, -2.0f, new FabricItemSettings()));
@@ -85,7 +99,7 @@ public class WarfareItems {
     public static final Item BROADSWORD = registerItem("broadsword", new SwordItem(ModToolMaterial.MOD_IRON, 11, -3.25f, new FabricItemSettings()));
     public static final Item BROKEN_SAWBLADE = registerItem("broken_sawblade", new SwordItem(ModToolMaterial.BONE, 8, -3.0f, new FabricItemSettings()));
     public static final Item CHILL_GALE_KNIFE = registerItem("chill_gale_knife", new SwordItem(ModToolMaterial.MYSTERIOUS_DEBRIS, 8, -1.25f, new FabricItemSettings()));
-    public static final Item CLAYMORE = registerItem("claymore", new ClayHawk(ModToolMaterial.MOD_IRON, 7, -3.75f, new FabricItemSettings(),20));
+    public static final Item CLAYMORE = registerItem("claymore", new ClayHawk(ModToolMaterial.MOD_IRON, 7, -3.75f, new FabricItemSettings()));
     public static final Item CORAL_BLADE = registerItem("coral_blade", new SwordItem(ModToolMaterial.CORAL, 7, -1.70f, new FabricItemSettings()));
     public static final Item CUTLASS = registerItem("cutlass", new SwordItem(ModToolMaterial.MOD_IRON, 2, -0.25f, new FabricItemSettings()));
     public static final Item ENCRUSTED_ANCHOR = registerItem("encrusted_anchor", new AnchorItem(ModToolMaterial.MOD_GOLD, 14, -3.25f, new FabricItemSettings()));
@@ -96,7 +110,7 @@ public class WarfareItems {
     public static final Item GRAVE_BANE = registerItem("grave_bane", new SwordItem(ModToolMaterial.MOD_GOLD, 6, -1.25f, new FabricItemSettings()));
     public static final Item GREAT_AXEBLADE = registerItem("great_axeblade", new AxeItem(ModToolMaterial.MOD_IRON, 10, -3.15f, new FabricItemSettings()));
     public static final Item GROWING_STAFF = registerItem("growing_staff", new SwordItem(ModToolMaterial.STICK, 4, -0.75f, new FabricItemSettings()));
-    public static final Item HAWKBRAND = registerItem("hawkbrand", new HawkHeart(ModToolMaterial.MOD_IRON, 6, -1.50f, new FabricItemSettings(),20));
+    public static final Item HAWKBRAND = registerItem("hawkbrand", new HawkHeart(ModToolMaterial.MOD_IRON, 6, -1.50f, new FabricItemSettings()));
     public static final Item HEARTSTEALER = registerItem("heartstealer", new HeartStealerSword(ModToolMaterial.MOD_IRON, 9, -2.25f, new FabricItemSettings()));
     public static final Item HIGHLAND_AXE = registerItem("highland_axe", new AxeItem(ModToolMaterial.MOD_IRON, 5, -1.25f, new FabricItemSettings()));
     public static final Item MECHANIZED_SAWBLADE = registerItem("mechanized_sawblade", new SwordItem(ModToolMaterial.MOD_IRON, 10, -2.00f, new FabricItemSettings()));

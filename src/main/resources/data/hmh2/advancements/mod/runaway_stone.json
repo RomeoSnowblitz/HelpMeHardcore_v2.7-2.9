@@ -1,0 +1,35 @@
+{
+  "display": {
+    "title": {
+      "text": "Runaway Stone"
+    },
+    "description": {
+      "text": "Fast Travel To The Dimensions Center"
+    },
+    "icon": {
+      "item": "hmh2:null_passer"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "item": {
+      "conditions": {
+        "item": {
+          "items": [
+            "hmh2:null_passer"
+          ]
+        }
+      },
+      "trigger": "minecraft:item_durability_changed"
+    }
+  },
+  "requirements": [
+    [
+      "item"
+    ]
+  ],
+  "parent": "hmh2:mod/root"
+}

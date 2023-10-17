@@ -86,6 +86,12 @@
         "weight": 40
       },
       {
+        "type": "hmh2:ashmite",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 40
+      },
+      {
         "type": "minecraft:magma_cube",
         "maxCount": 5,
         "minCount": 2,

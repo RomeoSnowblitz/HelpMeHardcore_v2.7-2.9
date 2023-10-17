@@ -10,6 +10,7 @@ import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
+import net.romeosnowblitz.hmh2.effect.CustomEffects;
 
 
 public class MagicFluidBlock extends FluidBlock {
@@ -21,15 +22,10 @@ public class MagicFluidBlock extends FluidBlock {
         this.effect = effect;
     }
 
+    @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (!world.isClient && world.getDifficulty() != Difficulty.PEACEFUL) {
-            if (entity instanceof LivingEntity) {
-                LivingEntity livingEntity = (LivingEntity)entity;
-                if (!livingEntity.isInvulnerableTo(world.getDamageSources().wither())) {
-                    livingEntity.addStatusEffect(new StatusEffectInstance(effect, 60, 0));
-                }
-            }
-
+        if (!world.isClient && entity instanceof LivingEntity livingEntity && livingEntity.hasStatusEffect(CustomEffects.SORCERER)) {
+            livingEntity.addStatusEffect(new StatusEffectInstance(effect, 60, 4));
         }
     }
 

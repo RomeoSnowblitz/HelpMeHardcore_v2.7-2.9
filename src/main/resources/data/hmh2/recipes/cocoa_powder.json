@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:cocoa_beans"
+  },
+  "result": "hmh2:cocoa_powder",
+  "count": 1
+}

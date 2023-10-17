@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hmh2:ash_block"
+    }
+  ],
+  "result": {
+    "item": "hmh2:ashes",
+    "count": 9
+  }
+}

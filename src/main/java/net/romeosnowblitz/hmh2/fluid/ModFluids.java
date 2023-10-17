@@ -16,6 +16,8 @@ public class ModFluids {
     public static final FlowableFluid HONEY_FLOWING = register("honey_flowing", new HoneyFluid.Flowing());
     public static final FlowableFluid OIL_STILL = register("oil_still", new OilFluid.Still());
     public static final FlowableFluid OIL_FLOWING = register("oil_flowing", new OilFluid.Flowing());
+    public static final FlowableFluid QUICKSAND_STILL = register("quicksand_still", new QuickSandFluid.Still());
+    public static final FlowableFluid QUICKSAND_FLOWING = register("quicksand_flowing", new QuickSandFluid.Flowing());
 
     //Magic
     public static final FlowableFluid ABSORPTION_FLUID_STILL = register("absorption_still", new AbsorptionFluid.Still());

@@ -35,14 +35,10 @@ extends ArmorItem {
     }
 
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (!world.isClient && entity instanceof PlayerEntity) {
-            PlayerEntity player = (ServerPlayerEntity)entity;
-            ItemStack headPiece = player.getEquippedStack(EquipmentSlot.HEAD);
-            ItemStack chestPiece = player.getEquippedStack(EquipmentSlot.CHEST);
-            ItemStack legPiece = player.getEquippedStack(EquipmentSlot.LEGS);
-            ItemStack footPiece = player.getEquippedStack(EquipmentSlot.FEET);
-            if (headPiece.isOf(WarfareItems.HELLSTONE_HELMET) || chestPiece.isOf(WarfareItems.HELLSTONE_CHESTPLATE) || legPiece.isOf(WarfareItems.HELLSTONE_LEGGINGS) || footPiece.isOf(WarfareItems.HELLSTONE_BOOTS)) {
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 60, 0, false, false, true));
+        if (!world.isClient && entity instanceof PlayerEntity player) {
+            if (player.getEquippedStack(EquipmentSlot.HEAD).isOf(WarfareItems.HELLSTONE_HELMET) || player.getEquippedStack(EquipmentSlot.CHEST).isOf(WarfareItems.HELLSTONE_CHESTPLATE) ||
+                    player.getEquippedStack(EquipmentSlot.LEGS).isOf(WarfareItems.HELLSTONE_LEGGINGS) || player.getEquippedStack(EquipmentSlot.FEET).isOf(WarfareItems.HELLSTONE_BOOTS)) {
+                if(player.isOnFire()){player.setFireTicks(0);}
             }
         }
         super.inventoryTick(stack, world, entity, slot, selected);

@@ -6,7 +6,9 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
+import net.romeosnowblitz.hmh2.item.ModItems;
 
 public class EnderSkinEffect
         extends StatusEffect {
@@ -15,7 +17,7 @@ public class EnderSkinEffect
     }
 
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        if (this == CustomEffects.ENDER_SKIN && entity.isWet()) {
+        if (entity.isInsideWaterOrBubbleColumn() || entity.isWet() && !entity.getStackInHand(Hand.MAIN_HAND).isOf(ModItems.UMBRELLA) ) {
             entity.damage(entity.getDamageSources().drown(), 1.0f);
         }
         if (this == CustomEffects.ENDER_SKIN && entity.isSneaking()) {
@@ -36,13 +38,7 @@ public class EnderSkinEffect
     }
 
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
-        if (this == CustomEffects.ENDER_SKIN) {
-            int i = 10 >> amplifier;
-            if (i > 0) {
-                return duration % i == 0;
-            }
-            return true;
-        }
-        return false;
+        if (10 >> amplifier > 0) {return duration % 10 >> amplifier == 0;}
+        return true;
     }
 }

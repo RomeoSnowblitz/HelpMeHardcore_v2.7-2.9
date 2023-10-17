@@ -25,7 +25,7 @@
                   }
                 }
               ],
-              "name": "hmh2:deepslate_topaz_ore"
+              "name": "hmh2:deepslate_tormaline_ore"
             },
             {
               "type": "minecraft:item",
@@ -43,7 +43,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "hmh2:topaz"
+              "name": "hmh2:tormaline"
             }
           ]
         }

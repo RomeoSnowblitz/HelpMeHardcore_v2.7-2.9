@@ -1,0 +1,37 @@
+{
+  "display": {
+    "title": {
+      "text": "Sun Jewel"
+    },
+    "description": {
+      "text": "Brighter Than Diamonds"
+    },
+    "icon": {
+      "item": "hmh2:infernal_diamond"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtain_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:infernal_diamond"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_item"
+    ]
+  ],
+  "parent": "minecraft:nether/kill_blazing_inferno"
+}

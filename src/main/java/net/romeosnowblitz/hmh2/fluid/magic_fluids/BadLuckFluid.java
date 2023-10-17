@@ -75,7 +75,7 @@ public abstract class BadLuckFluid extends FlowableFluid {
     }
 
     public BlockState toBlockState(FluidState state) {
-        return (BlockState) MagicBlocks.BAD_LUCK_FLUID_BLOCK.getDefaultState().with(FluidBlock.LEVEL, getBlockStateLevel(state));
+        return MagicBlocks.BAD_LUCK_FLUID_BLOCK.getDefaultState().with(FluidBlock.LEVEL, getBlockStateLevel(state));
     }
 
     @Override
@@ -122,7 +122,7 @@ public abstract class BadLuckFluid extends FlowableFluid {
         }
 
         public int getLevel(FluidState state) {
-            return (Integer)state.get(LEVEL);
+            return state.get(LEVEL);
         }
 
         public boolean isStill(FluidState state) {

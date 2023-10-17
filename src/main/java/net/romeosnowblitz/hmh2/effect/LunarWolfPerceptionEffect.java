@@ -11,15 +11,14 @@ public class LunarWolfPerceptionEffect extends StatusEffect {
     }
 
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        if (this == CustomEffects.LUNAR_WOLF_PERCEPTION && entity.hasStatusEffect(StatusEffects.BLINDNESS)) {
+        if (entity.hasStatusEffect(StatusEffects.BLINDNESS) || entity.hasStatusEffect(StatusEffects.DARKNESS)) {
             entity.removeStatusEffect(StatusEffects.BLINDNESS);
-        }
-        if (this == CustomEffects.LUNAR_WOLF_PERCEPTION && entity.hasStatusEffect(StatusEffects.DARKNESS)) {
             entity.removeStatusEffect(StatusEffects.DARKNESS);
         }
     }
 
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
-        return this == CustomEffects.LUNAR_WOLF_PERCEPTION;
+        return true;
     }
+
 }

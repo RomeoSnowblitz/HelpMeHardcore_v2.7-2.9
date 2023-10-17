@@ -1,0 +1,41 @@
+{
+    "display": {
+        "title": {
+            "text": "New Music!"
+        },
+        "description": {
+            "text": "Give it a Listen!"
+        },
+        "icon": {
+            "item": "hmh2:game_over_disc"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "obtain_item": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:blazestep_disc",
+                            "hmh2:darkness_disc",
+                            "hmh2:fortress_disc",
+                            "hmh2:game_over_disc",
+                            "hmh2:void_disc"
+                        ]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+    "requirements": [
+        [
+            "obtain_item"
+        ]
+    ],
+    "parent": "hmh2:mod/runaway_stone"
+}

@@ -9,7 +9,7 @@ public class ModModelPredicateProvider {
     public static void registerModModels() {
 
         registerBambooBow(ModItems.BAMBOO_BOW);
-        registerBambooShield(ModItems.BAMBOO_SHIELD);
+        FabricModelPredicateProviderRegistry.register(ModItems.BAMBOO_SHIELD, new Identifier("blocking"), (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
     }
 
     private static void registerBambooBow(Item bow){
@@ -33,10 +33,6 @@ public class ModModelPredicateProvider {
     private static void registerSpear(Item spear) {
         FabricModelPredicateProviderRegistry.register(spear, new Identifier("throwing"), (stack, world, entity, seed) ->
                 entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
-    }
-
-    private static void registerBambooShield(Item shield) {
-        FabricModelPredicateProviderRegistry.register(shield, new Identifier("blocking"), (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
     }
 
 }

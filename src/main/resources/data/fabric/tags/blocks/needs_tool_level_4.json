@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:andalusite_ore",
+    "hmh2:aquamarine_ore",
+    "hmh2:diopside_ore",
+    "hmh2:malichite_ore",
+    "hmh2:moonstone_ore",
+    "hmh2:peridot_ore",
+    "hmh2:prehnite_ore",
+    "hmh2:sapphire_ore",
+    "hmh2:sphene_ore",
+    "hmh2:tanzanite_ore",
+    "hmh2:topaz_ore",
+    "hmh2:tsavorite_ore",
+    "hmh2:zircon_ore",
+    "hmh2:deepslate_andalusite_ore",
+    "hmh2:deepslate_aquamarine_ore",
+    "hmh2:deepslate_diopside_ore",
+    "hmh2:deepslate_malichite_ore",
+    "hmh2:deepslate_moonstone_ore",
+    "hmh2:deepslate_peridot_ore",
+    "hmh2:deepslate_prehnite_ore",
+    "hmh2:deepslate_sapphire_ore",
+    "hmh2:deepslate_sphene_ore",
+    "hmh2:deepslate_tanzanite_ore",
+    "hmh2:deepslate_topaz_ore",
+    "hmh2:deepslate_tsavorite_ore",
+    "hmh2:deepslate_zircon_ore"
+  ]
+}

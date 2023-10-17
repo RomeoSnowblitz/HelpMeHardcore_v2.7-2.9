@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "hmh2:ender_ingot"
+  },
+  "base": {
+    "item": "hmh2:growing_staff"
+  },
+  "result": {
+    "item": "hmh2:battlestaff_of_terror"
+  },
+  "template": {
+    "item": "hmh2:ender_ingot"
+  }
+}

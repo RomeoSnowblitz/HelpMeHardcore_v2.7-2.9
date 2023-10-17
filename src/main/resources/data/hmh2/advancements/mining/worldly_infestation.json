@@ -15,6 +15,48 @@
       },
       "trigger": "minecraft:player_killed_entity"
     },
+    "endermite": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:endermite"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "ashmite": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "hmh2:ashmite"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "bloodmite": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "hmh2:bloodmite"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
     "magmite": {
       "conditions": {
         "entity": [
@@ -56,27 +98,50 @@
         ]
       },
       "trigger": "minecraft:player_killed_entity"
+    },
+    "warpmite": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "hmh2:warpmite"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
     }
   },
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "Worldly Infestation"
+      "translate": "Kill All Types of Mites"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "minecraft:stone_sword",
+      "item": "hmh2:claymore",
       "nbt": "{Damage:0}"
     },
     "show_toast": true,
     "title": {
-      "translate": "Kill All Types of Mites"
+      "translate": "Worldly Infestation"
     }
   },
   "requirements": [
     [
       "silverfish"
+    ],
+    [
+      "endermite"
+    ],
+    [
+      "ashmite"
+    ],
+    [
+      "bloodmite"
     ],
     [
       "magmite"
@@ -86,6 +151,9 @@
     ],
     [
       "sculkmite"
+    ],
+    [
+      "warpmite"
     ]
   ],
   "rewards": {

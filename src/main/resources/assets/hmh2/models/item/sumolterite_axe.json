@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "hmh2:item/sumolterite_axe"
+  }
+}

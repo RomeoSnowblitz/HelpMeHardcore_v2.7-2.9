@@ -12,14 +12,11 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
-import net.romeosnowblitz.hmh2.item.ModItems;
 
 public class ConsumeLeaveBananaPeel extends Item {
     public ConsumeLeaveBananaPeel(Settings settings) {
         super(settings);
     }
-
-    private static final int MAX_USE_TIME = 40;
 
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {

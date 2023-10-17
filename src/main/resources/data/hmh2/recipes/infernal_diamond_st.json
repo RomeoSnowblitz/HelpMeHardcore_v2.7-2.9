@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "minecraft:diamond"
+  },
+  "addition": {
+    "item": "hmh2:solar_fragment"
+  },
+  "result": {
+    "item": "hmh2:infernal_diamond"
+  },
+  "template": {
+    "item": "hmh2:solar_fragment"
+  }
+}

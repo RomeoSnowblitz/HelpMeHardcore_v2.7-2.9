@@ -31,6 +31,20 @@
           ]
   	    }
   	  ]
-  	}
+  	},
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "hmh2:game_over_disc",
+          "conditions": [
+            {
+              "condition": "killed_by_player"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

@@ -4,20 +4,61 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.TexturedRenderLayers;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
+import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.romeosnowblitz.hmh2.block.ColoringBlocks;
 import net.romeosnowblitz.hmh2.block.MagicBlocks;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
-import net.romeosnowblitz.hmh2.entity.MobEntities;
-import net.romeosnowblitz.hmh2.entity.client.*;
+import net.romeosnowblitz.hmh2.blotty.ModBlockEntities;
+import net.romeosnowblitz.hmh2.entity.ModEntities;
+import net.romeosnowblitz.hmh2.entity.blazing_inferno.BlazingInfernoModel;
+import net.romeosnowblitz.hmh2.entity.blazing_inferno.BlazingInfernoRenderer;
+import net.romeosnowblitz.hmh2.entity.cal.CalModel;
+import net.romeosnowblitz.hmh2.entity.cal.CalRenderer;
+import net.romeosnowblitz.hmh2.entity.demon.DemonModel;
+import net.romeosnowblitz.hmh2.entity.demon.DemonRenderer;
+import net.romeosnowblitz.hmh2.entity.headless_horseman.HeadlessHorsemanModel;
+import net.romeosnowblitz.hmh2.entity.headless_horseman.HeadlessHorsemanRenderer;
+import net.romeosnowblitz.hmh2.entity.lost_soul.LostSoulModel;
+import net.romeosnowblitz.hmh2.entity.lost_soul.LostSoulRenderer;
+import net.romeosnowblitz.hmh2.entity.mites.ashmite.AshmiteModel;
+import net.romeosnowblitz.hmh2.entity.mites.ashmite.AshmiteRenderer;
+import net.romeosnowblitz.hmh2.entity.mites.bloodmite.BloodmiteModel;
+import net.romeosnowblitz.hmh2.entity.mites.bloodmite.BloodmiteRenderer;
+import net.romeosnowblitz.hmh2.entity.mites.hellmite.HellmiteModel;
+import net.romeosnowblitz.hmh2.entity.mites.hellmite.HellmiteRenderer;
+import net.romeosnowblitz.hmh2.entity.mites.magmite.MagmiteModel;
+import net.romeosnowblitz.hmh2.entity.mites.magmite.MagmiteRenderer;
+import net.romeosnowblitz.hmh2.entity.mites.warpmite.WarpmiteModel;
+import net.romeosnowblitz.hmh2.entity.mites.warpmite.WarpmiteRenderer;
+import net.romeosnowblitz.hmh2.entity.penguin.PenguinModel;
+import net.romeosnowblitz.hmh2.entity.penguin.PenguinRenderer;
+import net.romeosnowblitz.hmh2.entity.mites.sculkmite.SculkmiteModel;
+import net.romeosnowblitz.hmh2.entity.mites.sculkmite.SculkmiteRenderer;
+import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeModel;
+import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeRenderer;
+import net.romeosnowblitz.hmh2.entity.queen_bee.QueenBeeModel;
+import net.romeosnowblitz.hmh2.entity.queen_bee.QueenBeeRenderer;
+import net.romeosnowblitz.hmh2.entity.shadow_creature.ShadowCreatureModel;
+import net.romeosnowblitz.hmh2.entity.shadow_creature.ShadowCreatureRenderer;
+import net.romeosnowblitz.hmh2.entity.the_great_hunger.TheGreatHungerModel;
+import net.romeosnowblitz.hmh2.entity.the_great_hunger.TheGreatHungerRenderer;
+import net.romeosnowblitz.hmh2.entity.wisp.WispModel;
+import net.romeosnowblitz.hmh2.entity.wisp.WispRenderer;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
-import net.romeosnowblitz.hmh2.screen.ModScreenHandlers;
+import net.romeosnowblitz.hmh2.keys.KeyInputHandler;
 import net.romeosnowblitz.hmh2.util.ModModelPredicateProvider;
+import net.romeosnowblitz.hmh2.keys.ModNetworking;
+import net.romeosnowblitz.hmh2.util.ModWoodTypes;
 
 public class Hmh2ClientMod implements ClientModInitializer {
+
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BANANA_PEEL, RenderLayer.getCutout());
@@ -72,7 +113,6 @@ public class Hmh2ClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(MagicBlocks.IRON_DUST, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MagicBlocks.LAPIS_DUST, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.XRAY, RenderLayer.getCutout());
-
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MIDAS_TOUCH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ENDER_CORN_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROYAL_JELLY, RenderLayer.getTranslucent());
@@ -82,30 +122,39 @@ public class Hmh2ClientMod implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.BANANA_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.BANANA_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.BANANA_TRAPDOOR, RenderLayer.getCutout());
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.BANANA, TexturedRenderLayers.getSignTextureId(ModWoodTypes.BANANA));
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.CHERRY_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.CHERRY_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.CHERRY_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.CHERRY_TRAPDOOR, RenderLayer.getCutout());
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.CHERRY, TexturedRenderLayers.getSignTextureId(ModWoodTypes.CHERRY));
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.CORK_OAK_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.CORK_OAK_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.CORK_OAK_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.CORK_OAK_TRAPDOOR, RenderLayer.getCutout());
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.CORK_OAK, TexturedRenderLayers.getSignTextureId(ModWoodTypes.CORK_OAK));
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.JACARANDA_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.JACARANDA_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.JACARANDA_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.JACARANDA_TRAPDOOR, RenderLayer.getCutout());
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.JACARANDA, TexturedRenderLayers.getSignTextureId(ModWoodTypes.JACARANDA));
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.MAHOE_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.MAHOE_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.MAHOE_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.MAHOE_TRAPDOOR, RenderLayer.getCutout());
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.MAHOE, TexturedRenderLayers.getSignTextureId(ModWoodTypes.MAHOE));
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.MANGO_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.MANGO_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.MANGO_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.MANGO_TRAPDOOR, RenderLayer.getCutout());
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.MANGO, TexturedRenderLayers.getSignTextureId(ModWoodTypes.MANGO));
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.WILLOW_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.WILLOW_LEAVES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.WILLOW_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(WoodworkBlocks.WILLOW_TRAPDOOR, RenderLayer.getCutout());
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.WILLOW, TexturedRenderLayers.getSignTextureId(ModWoodTypes.WILLOW));
+        BlockEntityRendererFactories.register(ModBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignBlockEntityRenderer::new);
 
         ModModelPredicateProvider.registerModModels();
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.CHOCOLATE_MILK_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x976746));
@@ -116,7 +165,8 @@ public class Hmh2ClientMod implements ClientModInitializer {
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.HONEY_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xdd760f));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.OIL_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x423b2f));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.OIL_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x423b2f));
-
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.QUICKSAND_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xaa8b78));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.QUICKSAND_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0xaa8b78));
 
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.ABSORPTION_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x2551a3));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.ABSORPTION_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x2551a3));
@@ -185,22 +235,42 @@ public class Hmh2ClientMod implements ClientModInitializer {
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.WITHER_FLUID_STILL, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x342927));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.WITHER_FLUID_FLOWING, new SimpleFluidRenderHandler(SimpleFluidRenderHandler.WATER_STILL, SimpleFluidRenderHandler.WATER_FLOWING, SimpleFluidRenderHandler.WATER_OVERLAY, 0x342927));
 
-        EntityRendererRegistry.register(MobEntities.PENGUIN, PenguinRenderer::new);
-        EntityRendererRegistry.register(MobEntities.QUEEN_BEE, QueenBeeRenderer::new);
-        EntityRendererRegistry.register(MobEntities.SHADOW_CREATURE, ShadowCreatureRenderer::new);
-        EntityRendererRegistry.register(MobEntities.SOLDIER_BEE, SoldierBeeRenderer::new);
-        EntityRendererRegistry.register(MobEntities.THE_GREAT_HUNGER, TheGreatHungerRenderer::new);
-        EntityRendererRegistry.register(MobEntities.CAL, CalRenderer::new);
-        EntityRendererRegistry.register(MobEntities.HELLMITE, HellmiteRenderer::new);
-        EntityRendererRegistry.register(MobEntities.MAGMITE, MagmiteRenderer::new);
-        EntityRendererRegistry.register(MobEntities.SCULKMITE, SculkmiteRenderer::new);
-
-        /*
-        ScreenRegistry.register(ModScreenHandlers.BACKPACK_SCREEN_HANDLER, BackpackScreen::new);
-        ScreenRegistry.register(ModScreenHandlers.CHEESE_PRESS_SCREEN_HANDLER, CheesePressScreen::new);
-        ScreenRegistry.register(ModScreenHandlers.FREEZER_SCREEN_HANDLER, FreezerScreen::new);
-
-         */
+        EntityModelLayerRegistry.registerModelLayer(AshmiteModel.ASHMITE, AshmiteModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.ASHMITE, AshmiteRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(BlazingInfernoModel.BLAZING_INFERNO, BlazingInfernoModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.BLAZING_INFERNO, BlazingInfernoRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(BloodmiteModel.BLOODMITE, BloodmiteModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.BLOODMITE, BloodmiteRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(CalModel.CAL, CalModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.CAL, CalRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(DemonModel.DEMON, DemonModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.DEMON, DemonRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(HeadlessHorsemanModel.HEADLESS_HORSEMAN, HeadlessHorsemanModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.HEADLESS_HORSEMAN, HeadlessHorsemanRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(HellmiteModel.HELLMITE, HellmiteModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.HELLMITE, HellmiteRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(LostSoulModel.LOST_SOUL, LostSoulModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.LOST_SOUL, LostSoulRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MagmiteModel.MAGMITE, MagmiteModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.MAGMITE, MagmiteRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(PenguinModel.PENGUIN, PenguinModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.PENGUIN, PenguinRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(QueenBeeModel.QUEEN_BEE, QueenBeeModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.QUEEN_BEE, QueenBeeRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(SculkmiteModel.SCULKMITE, SculkmiteModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.SCULKMITE, SculkmiteRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ShadowCreatureModel.SHADOW_CREATURE, ShadowCreatureModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.SHADOW_CREATURE, ShadowCreatureRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(SoldierBeeModel.SOLDIER_BEE, SoldierBeeModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.SOLDIER_BEE, SoldierBeeRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(TheGreatHungerModel.THE_GREAT_HUNGER, TheGreatHungerModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.THE_GREAT_HUNGER, TheGreatHungerRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(WarpmiteModel.WARPMITE, WarpmiteModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.WARPMITE, WarpmiteRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(WispModel.WISP, WispModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.WISP, WispRenderer::new);
+        KeyInputHandler.register();
+        ModNetworking.registerS2CPackets();
 
     }
 }

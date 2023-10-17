@@ -1,0 +1,46 @@
+{
+    "display": {
+        "title": {
+            "text": "Magic Powder"
+        },
+        "description": {
+            "text": "Magic Powder Can Be Used in Brewing Stands. They Can Also Be Placed, Some are Waterloggable"
+        },
+        "icon": {
+            "item": "hmh2:hessonite_dust"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "minecraft:magic_dust"
+                    }
+                ]
+            }
+        },
+        "class_effect": {
+            "trigger": "minecraft:effects_changed",
+            "conditions": {
+                "effects": {
+                    "hmh2:sorcerer": {}
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "item"
+        ],
+        [
+            "class_effect"
+        ]
+    ],
+    "parent": "hmh2:sorcerer/root"
+}

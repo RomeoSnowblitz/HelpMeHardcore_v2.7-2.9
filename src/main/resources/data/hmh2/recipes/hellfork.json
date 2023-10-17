@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "hmh2:pitchfork"
+  },
+  "addition": {
+    "item": "hmh2:hellstone"
+  },
+  "result": {
+    "item": "hmh2:hellfork"
+  },
+  "template": {
+    "item": "hmh2:hellstone"
+  }
+}

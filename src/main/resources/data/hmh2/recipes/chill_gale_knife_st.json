@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "hmh2:tempest_knife"
+  },
+  "addition": {
+    "item": "hmh2:mysterious_cyan_debris"
+  },
+  "result": {
+    "item": "hmh2:chill_gale_knife"
+  },
+  "template": {
+    "item": "hmh2:mysterious_cyan_debris"
+  }
+}
+

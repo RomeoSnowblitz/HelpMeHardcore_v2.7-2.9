@@ -5,18 +5,36 @@ import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.VillagerProfession;
 import net.romeosnowblitz.hmh2.Hmh2;
+import net.romeosnowblitz.hmh2.block.ColoringBlocks;
+import net.romeosnowblitz.hmh2.block.DecorationBlocks;
+import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
-import net.romeosnowblitz.hmh2.entity.MobEntities;
-import net.romeosnowblitz.hmh2.entity.mob.*;
+import net.romeosnowblitz.hmh2.entity.ModEntities;
+import net.romeosnowblitz.hmh2.entity.blazing_inferno.BlazingInfernoEntity;
+import net.romeosnowblitz.hmh2.entity.cal.CalEntity;
+import net.romeosnowblitz.hmh2.entity.lost_soul.LostSoulEntity;
+import net.romeosnowblitz.hmh2.entity.mites.ashmite.AshmiteEntity;
+import net.romeosnowblitz.hmh2.entity.mites.bloodmite.BloodmiteEntity;
+import net.romeosnowblitz.hmh2.entity.mites.hellmite.HellmiteEntity;
+import net.romeosnowblitz.hmh2.entity.mites.magmite.MagmiteEntity;
+import net.romeosnowblitz.hmh2.entity.mites.warpmite.WarpmiteEntity;
+import net.romeosnowblitz.hmh2.entity.penguin.PenguinEntity;
+import net.romeosnowblitz.hmh2.entity.mites.sculkmite.SculkmiteEntity;
+import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeEntity;
+import net.romeosnowblitz.hmh2.entity.queen_bee.QueenBeeEntity;
+import net.romeosnowblitz.hmh2.entity.shadow_creature.ShadowCreatureEntity;
+import net.romeosnowblitz.hmh2.entity.the_great_hunger.TheGreatHungerEntity;
+import net.romeosnowblitz.hmh2.entity.wisp.WispEntity;
+import net.romeosnowblitz.hmh2.item.ModItems;
 import net.romeosnowblitz.hmh2.item.SustenanceItems;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
 import net.romeosnowblitz.hmh2.tag.ModItemTags;
-
 import static net.romeosnowblitz.hmh2.util.MysteriousAlchemistTrades.registerMysteriousAlchemistTrades;
 
 public class ModRegistries {
@@ -28,6 +46,7 @@ public class ModRegistries {
         registerCustomTrades();
         registerAttributes();
         registerMysteriousAlchemistTrades();
+        registerModCompostables();
     }
 
     public static void registerModFuels() {
@@ -119,18 +138,80 @@ public class ModRegistries {
                             8, 4, 0.0f)));
     }
 
-
     private static void registerAttributes() {
-        FabricDefaultAttributeRegistry.register(MobEntities.PENGUIN, PenguinEntity.setAttributes());
-        FabricDefaultAttributeRegistry.register(MobEntities.QUEEN_BEE, QueenBeeEntity.setAttributes());
-        FabricDefaultAttributeRegistry.register(MobEntities.SHADOW_CREATURE, ShadowCreatureEntity.setAttributes());
-        FabricDefaultAttributeRegistry.register(MobEntities.SOLDIER_BEE, SoldierBeeEntity.setAttributes());
-        FabricDefaultAttributeRegistry.register(MobEntities.THE_GREAT_HUNGER, TheGreatHungerEntity.setAttributes());
-        FabricDefaultAttributeRegistry.register(MobEntities.CAL, CalEntity.setAttributes());
-        FabricDefaultAttributeRegistry.register(MobEntities.HELLMITE, HellmiteEntity.setAttributes());
-        FabricDefaultAttributeRegistry.register(MobEntities.MAGMITE, MagmiteEntity.setAttributes());
-        FabricDefaultAttributeRegistry.register(MobEntities.SCULKMITE, SculkmiteEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.ASHMITE, AshmiteEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.BLAZING_INFERNO, BlazingInfernoEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.BLOODMITE, BloodmiteEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.CAL, CalEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.DEMON, CalEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.HEADLESS_HORSEMAN, HellmiteEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.HELLMITE, HellmiteEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.LOST_SOUL, LostSoulEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.MAGMITE, MagmiteEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.PENGUIN, PenguinEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.QUEEN_BEE, QueenBeeEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.SCULKMITE, SculkmiteEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.SHADOW_CREATURE, ShadowCreatureEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.SOLDIER_BEE, SoldierBeeEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.THE_GREAT_HUNGER, TheGreatHungerEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.WARPMITE, WarpmiteEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.WISP, WispEntity.setAttributes());
     }
 
-
+    private static void registerModCompostables(){
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.ASHES, 0.1f);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.BURNT_EGGSHELL, 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.BURNT_TOAST, 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.HOOF_POWDER, 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.CHEESE_SLICE, 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.RENNET, 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.FLOUR, 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.BUTTER, 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.ENDER_CORN_SEEDS, 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.SLICED_BREAD, 0.5F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.LIGHT_TOAST, 0.5F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.CORK, 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.BANANAS, 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.BLUEBERRIES, 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.CHEESE, 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.CHERRIES, 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.CONE, 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.TOAST, 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.MANGO, 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.ORANGE, 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.STRAWBERRIES, 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.CHOCOLATE_ICE_CREAM, 0.85F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.BLUEBERRY_JAM, 0.85F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.STRAWBERRY_JAM, 0.85F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(SustenanceItems.BUTTERED_TOAST, 0.85F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WarfareItems.BANANA_HELMET, 1.0F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WarfareItems.BANANA_CHESTPLATE, 1.0F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WarfareItems.BANANA_LEGGINGS, 1.0F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WarfareItems.BANANA_BOOTS, 1.0F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WarfareItems.BANANA_HORSE_ARMOR, 1.0F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WarfareItems.BANANA_PICKAXE, 1.0F);
+        //Blocks can not be Composter???
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.BANANA_SAPLING.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.CHERRY_SAPLING.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.CORK_OAK_SAPLING.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.JACARANDA_SAPLING.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.MAHOE_SAPLING.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.MANGO_SAPLING.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.WILLOW_SAPLING.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.BANANA_LEAVES.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.CHERRY_LEAVES.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.CORK_OAK_LEAVES.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.JACARANDA_LEAVES.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.MAHOE_LEAVES.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.MANGO_LEAVES.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(WoodworkBlocks.WILLOW_LEAVES.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.POISON_GRASS.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.BANANA_PEEL.asItem(), 0.5F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ColoringBlocks.BLUE_SPIDER_LILY.asItem(), 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ColoringBlocks.ROSE.asItem(), 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ColoringBlocks.WOLFSBANE.asItem(), 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.CARVED_MELON.asItem(), 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.PEAT.asItem(), 1.0F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(DecorationBlocks.CORK_BLOCK.asItem(), 1.0F);
+    }
 }

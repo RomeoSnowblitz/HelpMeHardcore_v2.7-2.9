@@ -46,7 +46,7 @@
             "predicate": {
                 "blocking": 1
             },
-            "model": "hmh3:item/bamboo_shield_blocking"
+            "model": "hmh2:item/bamboo_shield_blocking"
         }
     ]
 }

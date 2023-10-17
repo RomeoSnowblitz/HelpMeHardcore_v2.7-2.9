@@ -1,0 +1,46 @@
+{
+    "display": {
+        "title": {
+            "text": "A Pro From A Con"
+        },
+        "description": {
+            "text": "So you'll notice that some charms just give you bad effects, so what do you do with them? They are used for something much more powerful, having a 'bad amulet' can unlock a Charm recipe which prevents you from getting an effect"
+        },
+        "icon": {
+            "item": "hmh2:sight_charm"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "O Amulet": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "hmh2:charms"
+                    }
+                ]
+            }
+        },
+        "class_effect": {
+            "trigger": "minecraft:effects_changed",
+            "conditions": {
+                "effects": {
+                    "hmh2:sorcerer": {}
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "O Amulet"
+        ],
+        [
+            "class_effect"
+        ]
+    ],
+    "parent": "hmh2:sorcerer/amulet"
+}

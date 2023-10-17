@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "hmh2:block/banana_peel",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "hmh2:block/banana_peel",
+      "y": 180
+    },
+    "facing=south": {
       "model": "hmh2:block/banana_peel"
+    },
+    "facing=west": {
+      "model": "hmh2:block/banana_peel",
+      "y": 90
     }
   }
 }

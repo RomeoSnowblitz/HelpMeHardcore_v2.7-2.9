@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "hmh2:solar_fragment"
+  },
+  "base": {
+    "item": "hmh2:hellstone_chestplate"
+  },
+  "addition": {
+    "item": "hmh2:infernal_diamond"
+  },
+  "result": {
+    "item": "hmh2:sumolterite_chestplate"
+  }
+}

@@ -14,6 +14,28 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
+                    "items": [
+                      "hmh2:hellstone_pickaxe"
+                    ],
+                    "enchantments": [
+                      {
+                        "enchantment": "minecraft:silk_touch",
+                        "levels": {
+                          "min": 1
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "name": "hmh2:beef_ore"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
                     "enchantments": [
                       {
                         "enchantment": "minecraft:silk_touch",
@@ -26,6 +48,20 @@
                 }
               ],
               "name": "hmh2:raw_beef_ore"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": [
+                      "hmh2:hellstone_pickaxe"
+                    ]
+                  }
+                }
+              ],
+              "name": "minecraft:cooked_beef"
             },
             {
               "type": "minecraft:item",

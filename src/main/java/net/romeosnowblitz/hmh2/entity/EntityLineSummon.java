@@ -9,16 +9,13 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
-import net.romeosnowblitz.hmh2.entity.mob.SoldierBeeEntity;
+import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.UUID;
 
 public class EntityLineSummon extends Entity {
-    public static final int field_30662 = 20;
-    public static final int field_30663 = 2;
-    public static final int field_30664 = 14;
     private int warmup;
     private boolean startedAttack;
     private int ticksLeft = 22;
@@ -33,7 +30,7 @@ public class EntityLineSummon extends Entity {
     }
 
     public EntityLineSummon(World world, double x, double y, double z, float yaw, int warmup, LivingEntity owner) {
-        this(MobEntities.SOLDIER_BEE, world);
+        this(ModEntities.SOLDIER_BEE, world);
         this.warmup = warmup;
         this.setOwner(owner);
         this.setYaw(yaw * 57.295776f);

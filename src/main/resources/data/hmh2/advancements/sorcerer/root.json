@@ -1,0 +1,41 @@
+{
+    "display": {
+        "title": {
+            "text": "Class of the Sorcerer"
+        },
+        "description": {
+            "text": "You Can Now Wield Magic Free At Hand, But Some Effects Can Damage You Too"
+        },
+        "icon": {
+            "item": "hmh2:knight_charm"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false,
+        "background": "hmh2:textures/block/deepslate_opal_ore.png"
+    },
+
+    "criteria": {
+        "class_effect": {
+            "conditions": {
+                "effects": {
+                    "hmh2:sorcerer": {}
+                }
+            },
+            "trigger": "minecraft:effects_changed"
+        }
+    },
+
+    "requirements": [
+        [
+            "class_effect"
+        ]
+    ],
+    "rewards": {
+        "loot": [
+            "hmh2:chests/totem_reward"
+        ],
+        "experience": 100
+    }
+}
