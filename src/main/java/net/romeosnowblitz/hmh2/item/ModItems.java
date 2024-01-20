@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import net.minecraft.util.math.Direction;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
@@ -16,7 +17,9 @@ import net.romeosnowblitz.hmh2.entity.ModEntities;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.item.custom.dyes.*;
 import net.romeosnowblitz.hmh2.item.custom.food.*;
-import net.romeosnowblitz.hmh2.item.custom.test.*;
+import net.romeosnowblitz.hmh2.item.custom.test.ClassResetter;
+import net.romeosnowblitz.hmh2.item.custom.test.PurpleTorch;
+import net.romeosnowblitz.hmh2.item.custom.test.TravelersDream;
 import net.romeosnowblitz.hmh2.item.custom.tools.*;
 import net.romeosnowblitz.hmh2.sounds.ModSounds;
 
@@ -24,27 +27,36 @@ import static net.minecraft.item.Items.BUCKET;
 
 public class ModItems {
 
+    public static final Item PURPLE_TORCH_ITEM = registerItem("purple_torch_item", new PurpleTorch(ModBlocks.PURPLE_TORCH, ModBlocks.WALL_PURPLE_TORCH, new Item.Settings(), Direction.DOWN));
+    public static final Item LAMP_TORCH_ITEM = registerItem("lamp_torch_item", new VerticallyAttachableBlockItem(ModBlocks.LAMP_TORCH, ModBlocks.LAMP_WALL_TORCH, new Item.Settings(), Direction.DOWN));
+    public static final Item ROSE_BED_ITEM = registerItem("rose_bed_item", new BedItem(ModBlocks.ROSE_BED, (new Item.Settings()).maxCount(1)));
+    public static final Item TRAVELERS_DREAM = registerItem("travelers_dream", new TravelersDream(new FabricItemSettings()));
+    public static final Item LIFE_ESSENCE = registerItem("life_essence", new LifeEssence(new FabricItemSettings().food(new FoodComponent.Builder().hunger(0).saturationModifier(-1f).alwaysEdible().snack().build())));
+    public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));
+
     //あなたの名前
     /*/ModEvents
     public static final Item TEST_ITEM = registerItem("test_item", new TestItem(10, 1, 10, new Item.Settings().maxDamage(1000)));
      */
 
     public static final Item SERVER_KEY = registerItem("server_key", new Item(new FabricItemSettings()));
-    public static final Item NEW_ITEM = registerItem("new_item", new PlusOne(new FabricItemSettings()));
+    //public static final Item NEW_ITEM = registerItem("new_item", new PlusOne(new FabricItemSettings()));
 
     public static final Item UMBRELLA = registerItem("umbrella", new Umbrella(new FabricItemSettings().maxDamage(100)));
     public static final Item WAXED_CLOTH = registerItem("waxed_cloth", new Item(new FabricItemSettings()));
     public static final Item WARPED_WART = registerItem("warped_wart", new Item(new FabricItemSettings()));
     public static final Item PITCHFORK = registerItem("pitchfork", new SwordItem(ToolMaterials.IRON, 4, -2.9f, new FabricItemSettings()));
-    public static final Item HELLFORK = registerItem("hellfork", new SwordItem(ModToolMaterial.HELLSTONE, 9, -2.9f, new FabricItemSettings()));
+    public static final Item HELLFORK = registerItem("hellfork", new SwordItem(ModToolMaterials.HELLSTONE, 9, -2.9f, new FabricItemSettings()));
     public static final Item INFERNAL_DIAMOND = registerItem("infernal_diamond", new Item(new FabricItemSettings().fireproof()));
-    public static final Item INFERNAL_HELLFORK = registerItem("infernal_hellfork", new Infernal_Hellfork(ModToolMaterial.HELLSTONE, 11, -2.9f, new FabricItemSettings().fireproof()));
+    public static final Item INFERNAL_HELLFORK = registerItem("infernal_hellfork", new Infernal_Hellfork(ModToolMaterials.HELLSTONE, 11, -2.9f, new FabricItemSettings().fireproof()));
     public static final Item SOLAR_FRAGMENT = registerItem("solar_fragment", new Item(new FabricItemSettings().fireproof()));
 
     //New Items
-    public static final Item FORTRESS_SEEKER = registerItem("fortress_seeker", new FortressSeeker(new FabricItemSettings()));
+    public static final Item SUN_SEEKER = registerItem("sun_seeker", new SunSeeker(new FabricItemSettings()));
     public static final Item SUN_STONE = registerItem("sun_stone", new SunStone(new FabricItemSettings()));
-    public static final Item REVIVAL_STONE = registerItem("revival_stone", new RevivalStone(new FabricItemSettings().maxDamage(1)));
+    public static final Item REVIVAL_INGOT = registerItem("revival_ingot", new Item(new FabricItemSettings().maxCount(1)));
+    public static final Item REVIVAL_STONE = registerItem("revival_stone", new RevivalStone(new FabricItemSettings().maxCount(1)));
+    public static final Item UNIVERSAL_REVIVAL_STONE = registerItem("universal_revival_stone", new UniversalRevivalStone(new FabricItemSettings().maxCount(1)));
     public static final Item GLUE = registerItem("glue", new Item(new FabricItemSettings()));
     public static final Item FLOUR = registerItem("flour", new Item(new FabricItemSettings()));
     public static final Item DISC_FRAGMENT = registerItem("disc_fragment", new Disc_Fragment(new FabricItemSettings()));
@@ -135,7 +147,7 @@ public class ModItems {
     public static final Item ENDER_DUST = registerItem("ender_dust", new Item(new FabricItemSettings()));
     public static final Item ENDER_INGOT = registerItem("ender_ingot", new Item(new FabricItemSettings()));
     public static final Item FROZEN_MILK = registerItem("frozen_milk", new Item(new FabricItemSettings()));
-    public static final Item ITEM = registerItem("item", new Item(new FabricItemSettings()));
+    public static final Item ITEM = registerItem("item", new ClassResetter(new FabricItemSettings().rarity(Rarity.EPIC)));
     public static final Item OIL_BALL = registerItem("oil_ball", new Item(new FabricItemSettings()));
     public static final Item PENCIL = registerItem("pencil", new Item(new FabricItemSettings()));
     public static final Item SILK = registerItem("silk", new Item(new FabricItemSettings()));
@@ -149,6 +161,7 @@ public class ModItems {
     public static final Item NEW_GREEN_DYE = registerItem("new_green_dye", new SheepDyeItem(DyeColor.GREEN, new FabricItemSettings()));
     public static final Item SPRING_GREEN_DYE = registerItem("spring_green_dye", new SheepDyeItem(DyeColor.CYAN, new FabricItemSettings()));
     public static final Item VIOLET_DYE = registerItem("violet_dye", new SheepDyeItem(DyeColor.PURPLE, new FabricItemSettings()));
+
     //Seeds
     public static final Item MIDAS_SEEDS = registerItem("midas_seeds", new AliasedBlockItem((ModBlocks.MIDAS_TOUCH), new FabricItemSettings()));
     public static final Item ENDER_CORN_SEEDS = registerItem("ender_corn_seeds", new AliasedBlockItem((ModBlocks.ENDER_CORN_BLOCK), new FabricItemSettings()));
@@ -203,10 +216,10 @@ public class ModItems {
     public static final Item VOID_DISC = registerItem("void_disc", new MusicDiscItem(5, ModSounds.VOID_DISC, new FabricItemSettings().maxCount(1), 144));
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register (Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), item);
     }
 
     public static void registerModItems() {
-        Hmh2.LOGGER.info("Registering Mod Items for " + Hmh2.MOD_ID);
+
     }
 }

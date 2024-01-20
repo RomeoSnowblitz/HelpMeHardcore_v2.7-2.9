@@ -1,12 +1,13 @@
 package net.romeosnowblitz.hmh2;
 
 import net.fabricmc.api.ModInitializer;
-import net.romeosnowblitz.hmh2.block.*;
 import net.romeosnowblitz.hmh2.effect.CustomEffects;
+import net.romeosnowblitz.hmh2.enchantment.ModEnchantments;
 import net.romeosnowblitz.hmh2.entity.ModEntities;
 import net.romeosnowblitz.hmh2.blotty.ModBlockEntities;
 import net.romeosnowblitz.hmh2.item.*;
 import net.romeosnowblitz.hmh2.painting.ModPaintings;
+import net.romeosnowblitz.hmh2.particle.ModParticleTypes;
 import net.romeosnowblitz.hmh2.potion.ModPotions;
 import net.romeosnowblitz.hmh2.sounds.ModSounds;
 import net.romeosnowblitz.hmh2.util.ModEvents;
@@ -41,5 +42,7 @@ public class Hmh2 implements ModInitializer {
 		ModStats.registerCustomStats();
 		ModEntities.addSpawns();
 		ModNetworking.registerC2SPackets();
+		ModParticleTypes.registerParticles();
+		ModEnchantments.registerModEnchantments();
 	}
 }

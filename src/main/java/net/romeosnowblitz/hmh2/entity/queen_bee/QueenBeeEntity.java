@@ -38,10 +38,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import net.romeosnowblitz.hmh2.entity.ModDamageTypes;
 import net.romeosnowblitz.hmh2.entity.ModEntities;
 import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeEntity;
 import net.romeosnowblitz.hmh2.item.ModItems;
+import net.romeosnowblitz.hmh2.util.ModRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
@@ -94,6 +96,10 @@ public class QueenBeeEntity extends SpellcastingIllagerEntity {
         this.setNoGravity(true);
         if(this.getWorld().isClient()){
             this.setupAnimationStates();
+        }
+        if (this.hasStatusEffect(CustomEffects.ANCHORED)) {
+            removeStatusEffect(CustomEffects.ANCHORED);
+            setVelocity(0, 0, 0);
         }
     }
 
@@ -301,6 +307,7 @@ class ChargeTargetGoal
 
     @Override
     protected void mobTick() {
+        ModRegistries.antiBossFarm(0, this);
         int i;
         super.mobTick();
         for (i = 1; i < 3; ++i)

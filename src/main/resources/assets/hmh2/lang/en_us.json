@@ -1,7 +1,15 @@
 {
+  "block.hmh2.purple_torch": "Purple Torch",
+  "block.hmh2.lamp_torch": "Lamp Torch",
+  "item.hmh2.travelers_dream": "Traveler's Dream",
+  "item.hmh2.life_essence": "Life Essence",
+  "item.hmh2.wither_bone": "Wither Bone",
+
   "item.hmh2.disc_fragment": "Disc Fragment",
+  "item.hmh2.revival_ingot": "Revival Ingot",
   "item.hmh2.revival_stone": "Revival Stone",
-  "item.hmh2.fortress_seeker": "Eye of the Heart",
+  "item.hmh2.universal_revival_stone": "Universal Revival Stone",
+  "item.hmh2.sun_seeker": "Sun Seeker",
   "item.hmh2.granny_lotion": "Granny Lotion",
   "item.hmh2.glue": "Glue",
   "item.hmh2.flour": "Flour",
@@ -160,6 +168,16 @@
   "item.hmh2.bone_shovel": "Bone Shovel",
   "item.hmh2.bone_sword": "Bone Sword",
 
+  "item.hmh2.dramageon_helmet": "Dramageon Helmet",
+  "item.hmh2.dramageon_chestplate": "Dramageon Chestplate",
+  "item.hmh2.dramageon_leggings": "Dramageon Leggings",
+  "item.hmh2.dramageon_boots": "Dramageon Boots",
+  "item.hmh2.dramageon_axe": "Dramageon Axe",
+  "item.hmh2.dramageon_hoe": "Dramageon Hoe",
+  "item.hmh2.dramageon_pickaxe": "Dramageon Pickaxe",
+  "item.hmh2.dramageon_shovel": "Dramageon Shovel",
+  "item.hmh2.dramageon_sword": "Dramageon Sword",
+
   "item.hmh2.emerald_helmet": "Emerald Helmet",
   "item.hmh2.emerald_chestplate": "Emerald Chestplate",
   "item.hmh2.emerald_leggings": "Emerald Leggings",
@@ -192,6 +210,11 @@
   "item.hmh2.quaerite_pickaxe": "Quaerite Pickaxe",
   "item.hmh2.quaerite_shovel": "Quaerite Shovel",
   "item.hmh2.quaerite_sword": "Quaerite Sword",
+
+  "item.hmh2.wither_bone_helmet": "Wither Bone Helmet",
+  "item.hmh2.wither_bone_chestplate": "Wither Bone Chestplate",
+  "item.hmh2.wither_bone_leggings": "Wither Bone Leggings",
+  "item.hmh2.wither_bone_boots": "Wither Bone Boots",
 
   "item.hmh2.blaze_cutter": "Blaze Cutter",
   "item.hmh2.bread_knife": "Bread Knife",
@@ -265,8 +288,8 @@
   "item.hmh2.haste_fluid": "Haste Fluid",
   "item.hmh2.health_boost_fluid": "Health Boost Fluid",
   "item.hmh2.hunger_fluid": "Hunger Fluid",
-  "item.hmh2.instant_damage_fluid": "Instant Damage Fluid",
-  "item.hmh2.instant_health_fluid": "Instant Health Fluid",
+  "item.hmh2.instant_damage_fluid": "Spider Fluid",
+  "item.hmh2.instant_health_fluid": "Blood Fever Fluid",
   "item.hmh2.invisibility_fluid": "Invisibility Fluid",
   "item.hmh2.jump_boost_fluid": "Jump Boost Fluid",
   "item.hmh2.levitation_fluid": "Levitation Fluid",
@@ -568,8 +591,20 @@
   "item.minecraft.splash_potion.effect.strong_darkness_potion": "Splash Potion of Darkness",
   "item.minecraft.lingering_potion.effect.strong_darkness_potion": "Lingering Potion of Darkness",
   "item.minecraft.tipped_arrow.effect.strong_darkness_potion": "Arrow of Darkness",
+  "item.minecraft.potion.effect.quantum_lock_potion": "Quantum Lock Potion",
+  "item.minecraft.splash_potion.effect.quantum_lock_potion": "Splash Potion of Quantum Lock",
+  "item.minecraft.lingering_potion.effect.quantum_lock_potion": "Lingering Potion of Quantum Lock",
+  "item.minecraft.tipped_arrow.effect.quantum_lock_potion": "Arrow of Quantum Lock",
+  "item.minecraft.potion.effect.long_quantum_lock_potion": "Quantum Lock Potion",
+  "item.minecraft.splash_potion.effect.long_quantum_lock_potion": "Splash Potion of Quantum Lock",
+  "item.minecraft.lingering_potion.effect.long_quantum_lock_potion": "Lingering Potion of Quantum Lock",
+  "item.minecraft.tipped_arrow.effect.long_quantum_lock_potion": "Arrow of Quantum Lock",
+  "item.minecraft.potion.effect.strong_quantum_lock_potion": "Quantum Lock Potion",
+  "item.minecraft.splash_potion.effect.strong_quantum_lock_potion": "Splash Potion of Quantum Lock",
+  "item.minecraft.lingering_potion.effect.strong_quantum_lock_potion": "Lingering Potion of Quantum Lock",
+  "item.minecraft.tipped_arrow.effect.strong_quantum_lock_potion": "Arrow of Quantum Lock",
 
-
+  "death.attack.armor_damage": "%1$s Needs To Get Good",
   "item.hmh2.ashmite_spawn_egg": "Ashmite Spawn Egg",
   "entity.hmh2.ashmite": "Ashmite",
   "death.attack.ashmite": "%1$s had obtained something blacker than black lung",
@@ -587,6 +622,7 @@
   "entity.hmh2.demon": "Demon",
   "death.attack.demon": "%1$s has been killed by Demon",
   "death.attack.demons_curse": "%1$s has been killed by The Demon's Curse",
+  "death.attack.demons_curse.player": "%1$s has been killed by The Demon's Curse",
   "item.hmh2.headless_horseman_spawn_egg": "Headless Horseman Spawn Egg",
   "entity.hmh2.headless_horseman": "Headless Horseman",
   "death.attack.headless_horseman": "%1$s has been killed by Headless Horseman",
@@ -1062,20 +1098,30 @@
   "effect.hmh2.sightlessness": "Sightlessness",
   "effect.hmh2.slime_lung": "Slime Lung",
   "effect.hmh2.spider_effect": "Spider Effect",
+  "effect.hmh2.tipsy": "Tipsy",
+  "effect.hmh2.wither_immunity": "Wither Immunity",
   "effect.hmh2.normie": "Normie",
   "effect.hmh2.necromancer": "Necromancer",
   "effect.hmh2.sorcerer": "Sorcerer",
   "death.attack.sorcerer": "%1$s had a little too much \"magic\" in there system",
 
-
-
-
-
-
   "stat.hmh2.class_id": "Class ID",
-  "stat.hmh2.null_saved_x": "Null Saved X",
-  "stat.hmh2.null_saved_y": "Null Saved Y",
-  "stat.hmh2.null_saved_z": "Null Saved Z",
+  "stat.hmh2.blessed": "Blessed",
+  "stat.hmh2.number_of_blessings": "Number of Blessings",
+  "stat.hmh2.revival_cost": "Revival Cost",
+  "stat.hmh2.revival_discount": "Revival Discount",
+  "stat.hmh2.revival_total": "Revival Total",
+  "stat.hmh2.season_score": "Season Score",
+  "stat.hmh2.null_saved_overworld_x": "Null Saved Overworld X",
+  "stat.hmh2.null_saved_overworld_y": "Null Saved Overworld Y",
+  "stat.hmh2.null_saved_overworld_z": "Null Saved Overworld Z",
+  "stat.hmh2.null_saved_nether_x": "Null Saved Nether X",
+  "stat.hmh2.null_saved_nether_y": "Null Saved Nether Y",
+  "stat.hmh2.null_saved_nether_z": "Null Saved Nether Z",
+  "stat.hmh2.null_saved_end_x": "Null Saved End X",
+  "stat.hmh2.null_saved_end_y": "Null Saved End Y",
+  "stat.hmh2.null_saved_end_z": "Null Saved End Z",
+
   "item.hmh2.blazestep_disc": "Blazestep Disc",
   "item.hmh2.blazestep_disc.desc": "Nameless Guy - Blazestep",
   "item.hmh2.darkness_disc": "Darkness Disc",
@@ -1112,10 +1158,12 @@
   "item.hmh2.sumolterite_pickaxe": "Sumolterite Pickaxe",
   "item.hmh2.sumolterite_shovel": "Sumolterite Shovel",
   "item.hmh2.sumolterite_sword": "Sumolterite Sword",
+  "item.hmh2.class_resetter": "Class Resetter",
 
   "death.attack.necromancer_0xp": "%1$s has run out of experience",
 
   "key.category.hmh2.test": "Test Keys",
-  "key.hmh2.magic_action": "Magic Action"
+  "key.hmh2.magic_action": "Magic Action",
+  "enchantment.hmh2.magic_protection": "Magic Protection"
 
 }

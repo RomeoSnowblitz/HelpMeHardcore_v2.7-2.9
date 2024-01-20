@@ -16,6 +16,12 @@ import net.romeosnowblitz.hmh2.item.ModItems;
 import net.romeosnowblitz.hmh2.item.SustenanceItems;
 
 public class ModPotions {
+    public static Potion QUANTUM_LOCK_POTION = Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, "quantum_lock_potion"), new Potion(new StatusEffectInstance(CustomEffects.QUANTUM_LOCK, 5120, 0)));
+    public static Potion LONG_QUANTUM_LOCK_POTION = Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, "long_quantum_lock_potion"), new Potion(new StatusEffectInstance(CustomEffects.QUANTUM_LOCK, 10240, 0)));
+    public static Potion STRONG_QUANTUM_LOCK_POTION = Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, "strong_quantum_lock_potion"), new Potion(new StatusEffectInstance(CustomEffects.QUANTUM_LOCK, 2560, 1)));
+    public static Potion ENDER_SKIN_POTION = Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, "ender_skin_potion"), new Potion(new StatusEffectInstance(CustomEffects.ENDER_SKIN, 5120, 0)));
+    public static Potion LONG_ENDER_SKIN_POTION = Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, "long_ender_skin_potion"), new Potion(new StatusEffectInstance(CustomEffects.ENDER_SKIN, 10240, 0)));
+    public static Potion STRONG_ENDER_SKIN_POTION = Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, "strong_ender_skin_potion"), new Potion(new StatusEffectInstance(CustomEffects.ENDER_SKIN, 2560, 1)));
     public static Potion SILK_POTION = Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, "silk_potion"), new Potion(new StatusEffectInstance(CustomEffects.SPIDER_EFFECT, 5120, 0)));
     public static Potion LONG_SILK_POTION = Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, "long_silk_potion"), new Potion(new StatusEffectInstance(CustomEffects.SPIDER_EFFECT, 10240, 0)));
     public static Potion STRONG_SILK_POTION = Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, "strong_silk_potion"), new Potion(new StatusEffectInstance(CustomEffects.SPIDER_EFFECT, 2560, 1)));
@@ -79,6 +85,12 @@ public class ModPotions {
     public static Potion STRONG_DARKNESS_POTION = Registry.register(Registries.POTION, new Identifier(Hmh2.MOD_ID, "strong_darkness_potion"), new Potion(new StatusEffectInstance(StatusEffects.DARKNESS, 2560, 1)));
 
     public static void registerPotionRecipes() {
+        BrewingRecipeRegistry.registerPotionRecipe(ModPotions.ENDER_SKIN_POTION, Items.FERMENTED_SPIDER_EYE, ModPotions.QUANTUM_LOCK_POTION);
+        BrewingRecipeRegistry.registerPotionRecipe(ModPotions.QUANTUM_LOCK_POTION, Items.REDSTONE, ModPotions.LONG_QUANTUM_LOCK_POTION);
+        BrewingRecipeRegistry.registerPotionRecipe(ModPotions.QUANTUM_LOCK_POTION, Items.GLOWSTONE_DUST, ModPotions.STRONG_QUANTUM_LOCK_POTION);
+        BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, ModItems.ENDER_CORN, ModPotions.ENDER_SKIN_POTION);
+        BrewingRecipeRegistry.registerPotionRecipe(ModPotions.ENDER_SKIN_POTION, Items.REDSTONE, ModPotions.LONG_ENDER_SKIN_POTION);
+        BrewingRecipeRegistry.registerPotionRecipe(ModPotions.ENDER_SKIN_POTION, Items.GLOWSTONE_DUST, ModPotions.STRONG_ENDER_SKIN_POTION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, ModItems.SILK, ModPotions.SILK_POTION);
         BrewingRecipeRegistry.registerPotionRecipe(ModPotions.SILK_POTION, Items.REDSTONE, ModPotions.LONG_SILK_POTION);
         BrewingRecipeRegistry.registerPotionRecipe(ModPotions.SILK_POTION, Items.GLOWSTONE_DUST, ModPotions.STRONG_SILK_POTION);
@@ -144,7 +156,7 @@ public class ModPotions {
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.AQUAMARINE_DUST.asItem(), ModPotions.DOLPHINS_GRACE_POTION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.CITRINE_DUST.asItem(), ModPotions.HEALTH_BOOST_POTION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.DIOPSIDE_DUST.asItem(), ModPotions.BAD_OMEN_POTION);
-        BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.GARNET_DUST.asItem(), Potions.HARMING);
+        BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.GARNET_DUST.asItem(), ModPotions.SILK_POTION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.HESSONITE_DUST.asItem(), Potions.STRENGTH);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.MALICHITE_DUST.asItem(), ModPotions.HUNGER_POTION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.MOONSTONE_DUST.asItem(), Potions.SLOWNESS);
@@ -154,7 +166,7 @@ public class ModPotions {
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.RUBY_DUST.asItem(), ModPotions.SATURATION_POTION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.SAPPHIRE_DUST.asItem(), Potions.NIGHT_VISION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.SMOKY_QUARTZ_DUST.asItem(), ModPotions.WITHER_POTION);
-        BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.SPESSARITE_DUST.asItem(), Potions.HEALING);
+        BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.SPESSARITE_DUST.asItem(), ModPotions.SILK_POTION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.SPHENE_DUST.asItem(), ModPotions.LUCK_POTION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.SPINEL_DUST.asItem(), ModPotions.RESISTANCE_POTION);
         BrewingRecipeRegistry.registerPotionRecipe(Potions.AWKWARD, MagicBlocks.TANZANITE_DUST.asItem(), Potions.WATER_BREATHING);

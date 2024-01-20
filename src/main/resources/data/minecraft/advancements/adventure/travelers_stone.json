@@ -1,0 +1,37 @@
+{
+  "display": {
+    "title": {
+      "text": "I Have Yet To See It All . . ."
+    },
+    "description": {
+      "text": "This will teleport you randomly in whatever dimension, use at your own risk"
+    },
+    "icon": {
+      "item": "hmh2:travelers_dream"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtain_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:travelers_dream"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_item"
+    ]
+  ],
+  "parent": "minecraft:adventure/adventuring_time"
+}

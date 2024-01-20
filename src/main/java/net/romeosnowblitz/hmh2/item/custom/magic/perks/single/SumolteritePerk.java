@@ -28,9 +28,10 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
+import net.romeosnowblitz.hmh2.item.custom.armor.NetherSightArmorItem;
 
 public class SumolteritePerk
-extends ArmorItem {
+extends NetherSightArmorItem {
     public SumolteritePerk(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
     }

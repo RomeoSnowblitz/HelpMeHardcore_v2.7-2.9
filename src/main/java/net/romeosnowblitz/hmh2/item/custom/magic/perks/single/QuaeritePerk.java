@@ -28,9 +28,11 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
+import net.romeosnowblitz.hmh2.item.custom.armor.AquaticCharismaArmorItem;
+import net.romeosnowblitz.hmh2.item.custom.armor.VoidSightArmorItem;
 
 public class QuaeritePerk
-extends ArmorItem {
+extends VoidSightArmorItem {
     public QuaeritePerk(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
     }

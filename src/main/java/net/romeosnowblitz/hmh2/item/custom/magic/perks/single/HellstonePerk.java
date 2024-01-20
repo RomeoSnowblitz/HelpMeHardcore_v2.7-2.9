@@ -27,9 +27,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
+import net.romeosnowblitz.hmh2.item.custom.armor.NetherHealthArmorItem;
+import net.romeosnowblitz.hmh2.item.custom.armor.NetherSightArmorItem;
 
 public class HellstonePerk
-extends ArmorItem {
+extends NetherSightArmorItem {
     public HellstonePerk(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
     }

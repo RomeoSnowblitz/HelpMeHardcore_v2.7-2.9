@@ -25,7 +25,7 @@
                   }
                 }
               ],
-              "name": "hmh2:deepslate_garnet_ore"
+              "name": "hmh2:deepslate_hessonite_ore"
             },
             {
               "type": "minecraft:item",
@@ -39,11 +39,11 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "hmh2:garnet"
+              "name": "hmh2:hessonite"
             },
             {
               "type": "minecraft:item",
-              "name": "hmh2:garnet"
+              "name": "hmh2:hessonite"
             }
           ]
         }

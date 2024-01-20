@@ -34,10 +34,6 @@ import java.util.Map;
 
 public class ModPistonBlock extends FacingBlock {
     public static final BooleanProperty EXTENDED = Properties.EXTENDED;
-    public static final int field_31373 = 0;
-    public static final int field_31374 = 1;
-    public static final int field_31375 = 2;
-    public static final float field_31376 = 4.0f;
     protected static final VoxelShape EXTENDED_EAST_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 12.0, 16.0, 16.0);
     protected static final VoxelShape EXTENDED_WEST_SHAPE = Block.createCuboidShape(4.0, 0.0, 0.0, 16.0, 16.0, 16.0);
     protected static final VoxelShape EXTENDED_SOUTH_SHAPE = Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 12.0);
@@ -48,7 +44,7 @@ public class ModPistonBlock extends FacingBlock {
 
     public ModPistonBlock(boolean gluey, Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(EXTENDED, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(EXTENDED, false));
         this.gluey = gluey;
     }
 
@@ -104,7 +100,7 @@ public class ModPistonBlock extends FacingBlock {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)((BlockState)this.getDefaultState().with(FACING, ctx.getPlayerLookDirection().getOpposite())).with(EXTENDED, false);
+        return this.getDefaultState().with(FACING, ctx.getPlayerLookDirection().getOpposite()).with(EXTENDED, false);
     }
 
     private void tryMove(World world, BlockPos pos, BlockState state) {
@@ -153,7 +149,7 @@ public class ModPistonBlock extends FacingBlock {
         if (!world.isClient) {
             boolean bl = this.shouldExtend(world, pos, direction);
             if (bl && (type == 1 || type == 2)) {
-                world.setBlockState(pos, (BlockState)state.with(EXTENDED, true), Block.NOTIFY_LISTENERS);
+                world.setBlockState(pos, state.with(EXTENDED, true), Block.NOTIFY_LISTENERS);
                 return false;
             }
             if (!bl && type == 0) {
@@ -162,7 +158,7 @@ public class ModPistonBlock extends FacingBlock {
         }
         if (type == 0) {
             if (!this.move(world, pos, direction, true)) return false;
-            world.setBlockState(pos, (BlockState)state.with(EXTENDED, true), Block.NOTIFY_ALL | Block.MOVED);
+            world.setBlockState(pos, state.with(EXTENDED, true), Block.NOTIFY_ALL | Block.MOVED);
             world.playSound(null, pos, SoundEvents.BLOCK_PISTON_EXTEND, SoundCategory.BLOCKS, 0.5f, world.random.nextFloat() * 0.25f + 0.6f);
             world.emitGameEvent(null, GameEvent.BLOCK_ACTIVATE, pos);
             return true;

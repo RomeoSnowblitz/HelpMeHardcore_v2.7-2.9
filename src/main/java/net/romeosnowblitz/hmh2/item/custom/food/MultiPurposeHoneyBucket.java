@@ -72,11 +72,17 @@ public class MultiPurposeHoneyBucket extends Item
             user.removeStatusEffect(StatusEffects.LEVITATION);
 
             user.removeStatusEffect(CustomEffects.ANCHORED);
+            user.removeStatusEffect(CustomEffects.ASH_LUNG);
+            user.removeStatusEffect(CustomEffects.BLOOD_FEVER);
             user.removeStatusEffect(CustomEffects.CONDUIT_FAILURE);
             user.removeStatusEffect(CustomEffects.DOLPHINS_CURSE);
+            user.removeStatusEffect(CustomEffects.ENDER_SKIN);
             user.removeStatusEffect(CustomEffects.HEALTH_SHRINKAGE);
+            user.removeStatusEffect(CustomEffects.HELL_BOUND);
             user.removeStatusEffect(CustomEffects.KINDLING);
+            user.removeStatusEffect(CustomEffects.QUANTUM_LOCK);
             user.removeStatusEffect(CustomEffects.SIGHTLESSSNESS);
+            user.removeStatusEffect(CustomEffects.TIPSY);
         }
         if (stack.isEmpty()) {
             return new ItemStack(Items.BUCKET);

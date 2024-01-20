@@ -1,0 +1,54 @@
+{
+  "display": {
+    "title": {
+      "text": "If Something Happen To Me... Use This"
+    },
+    "description": {
+      "text": "Can be used by any player, but at a cost"
+    },
+    "icon": {
+      "item": "hmh2:universal_revival_stone"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hmh2:universal_revival_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "class_effect": {
+    "trigger": "minecraft:effects_changed",
+    "conditions": {
+      "effects": {
+        "hmh2:necromancer": {}
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_item"
+    ],
+    [
+      "class_effect"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "hmh2:chests/totem_reward"
+    ],
+    "experience": 1000
+  },
+  "parent": "hmh2:necromancer/revival_stone"
+}

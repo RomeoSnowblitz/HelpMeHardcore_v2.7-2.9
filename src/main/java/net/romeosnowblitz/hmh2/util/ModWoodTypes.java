@@ -2,7 +2,9 @@ package net.romeosnowblitz.hmh2.util;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeRegistry;
 import net.minecraft.block.BlockSetType;
+import net.minecraft.block.MapColor;
 import net.minecraft.block.WoodType;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 

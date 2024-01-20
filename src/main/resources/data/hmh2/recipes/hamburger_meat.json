@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:cooked_beef"
+  },
+  "result": "hmh2:hamburger_meat",
+  "count": 1
+}

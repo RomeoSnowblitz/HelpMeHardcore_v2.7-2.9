@@ -3,12 +3,18 @@ package net.romeosnowblitz.hmh2.block;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.BedPart;
+import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.state.property.Properties;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
@@ -22,14 +28,33 @@ import net.romeosnowblitz.hmh2.block.custom.piston.ModPistonHeadBlock;
 import net.romeosnowblitz.hmh2.block.custom.summon.*;
 import net.romeosnowblitz.hmh2.block.custom.block.BananaPeel;
 import net.romeosnowblitz.hmh2.block.custom.summon.InfestedBlock;
+import net.romeosnowblitz.hmh2.block.custom.test.LampTorch;
+import net.romeosnowblitz.hmh2.block.custom.test.NewBedBlock;
+import net.romeosnowblitz.hmh2.block.custom.test.WallLampTorch;
 import net.romeosnowblitz.hmh2.entity.ModEntities;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.item.ModItems;
+import net.romeosnowblitz.hmh2.item.custom.dyes.ModDyeColor;
+import net.romeosnowblitz.hmh2.particle.ModParticleTypes;
 import net.romeosnowblitz.hmh2.sounds.ModSounds;
+
+import java.util.function.ToIntFunction;
 
 public class ModBlocks {
 
-    //public static final Block TEST_BLOCK = registerBlock("test_block", new TestBlock(AbstractBlock.Settings.of(Material.SNOW_LAYER).strength(0.0000000001f).hardness(0.0000000001f).resistance(0.0000000001f).ticksRandomly().postProcess(ModBlocks::always), UndergroundConfiguredFeatures.AMETHYST_GEODE), true);
+
+    public static final Block ROSE_BED = registerBlock("rose_bed", new NewBedBlock(ModDyeColor.ROSE, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOD).strength(0.2F).nonOpaque().burnable().pistonBehavior(PistonBehavior.DESTROY)), true);
+
+    public static final Block PURPLE_TORCH = registerBlock("purple_torch", new TorchBlock(
+            AbstractBlock.Settings.create().noCollision().breakInstantly().luminance((state) -> 14).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ModParticleTypes.PURPLE_FLAME), false);
+    public static final Block WALL_PURPLE_TORCH = registerBlock("wall_purple_torch", new WallTorchBlock(
+            AbstractBlock.Settings.create().noCollision().breakInstantly().luminance((state) -> 14).sounds(BlockSoundGroup.WOOD).dropsLike(PURPLE_TORCH).pistonBehavior(PistonBehavior.DESTROY), ModParticleTypes.PURPLE_FLAME), false);
+
+    public static final Block LAMP_TORCH = registerBlock("lamp_torch", new LampTorch(AbstractBlock.Settings.create()
+            .noCollision().breakInstantly().luminance(createLightLevelFromLitBlockState(15)).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)), false);
+    public static final Block LAMP_WALL_TORCH = registerBlock("lamp_wall_torch", new WallLampTorch(AbstractBlock.Settings.create()
+            .noCollision().breakInstantly().luminance(createLightLevelFromLitBlockState(15)).sounds(BlockSoundGroup.WOOD).dropsLike(LAMP_TORCH).pistonBehavior(PistonBehavior.DESTROY)), false);
+
     public static final Block NEW_BLOCk = registerBlock("new_block", new ExperienceDroppingBlock(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)), true);
     public static final Block ASH_BLOCK = registerBlock("ash_block", new Block(FabricBlockSettings.copy(Blocks.SAND)), true);
 
@@ -50,7 +75,7 @@ public class ModBlocks {
     public static final Block BLUEBERRY_BUSH = registerBlock("blueberry_bush", new HarvestableBushBlock(AbstractBlock.Settings.create().ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH)), true);
     public static final Block STRAWBERRY_BUSH = registerBlock("strawberry_bush", new HarvestableBushBlock(AbstractBlock.Settings.create().ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH)), true);
     public static final Block CRIMSON_FARMLAND = registerBlock("crimson_farmland", new NetherFarmlandBlock(AbstractBlock.Settings.create().ticksRandomly().strength(0.6f).sounds(BlockSoundGroup.GRAVEL), Blocks.CRIMSON_NYLIUM), true);
-    public static final Block MIDAS_TOUCH = registerBlock(("midas_touch"), new ModCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque().noCollision()), true);
+    public static final Block MIDAS_TOUCH = registerBlock("midas_touch", new ModCropBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque().noCollision()), true);
     public static final Block WARPED_FARMLAND = registerBlock("warped_farmland", new NetherFarmlandBlock(AbstractBlock.Settings.create().ticksRandomly().strength(0.6f).sounds(BlockSoundGroup.GRAVEL), Blocks.WARPED_NYLIUM), true);
     public static final Block ENDER_CORN_BLOCK = registerBlock("ender_corn_block", new CropBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque().noCollision()){public ItemConvertible getSeedsItem() {return ModItems.ENDER_CORN_SEEDS;}}, true);
     public static final Block CARVED_MELON = ModBlocks.registerBlock("carved_melon", new CarvedMelonBlock(FabricBlockSettings.create().strength(0.5f)), true);
@@ -109,6 +134,10 @@ public class ModBlocks {
     public static final Block MOD_MOVING_PISTON = registerBlock("mod_moving_piston", new ModPistonExtensionBlock(AbstractBlock.Settings.create()
             .strength(-1.0f).dynamicBounds().dropsNothing().nonOpaque().solidBlock(ModBlocks::never).suffocates(ModBlocks::never).blockVision(ModBlocks::never)), true);
 
+    private static Boolean always(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) {
+        return true;
+    }
+
     private static boolean always(BlockState state, BlockView world, BlockPos pos) {
         return true;
     }
@@ -117,13 +146,19 @@ public class ModBlocks {
         return false;
     }
 
+    private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
+        return (state) -> {
+            return (Boolean)state.get(Properties.LIT) ? litLevel : 0;
+        };
+    }
+
     private static ModPistonBlock createPistonBlock() {
         AbstractBlock.ContextPredicate contextPredicate = (state, world, pos) -> !state.get(ModPistonBlock.EXTENDED);
         return new ModPistonBlock(true, AbstractBlock.Settings.create().strength(1.5f).suffocates(contextPredicate).blockVision(contextPredicate));
     }
 
     private static Block registerBlock(String name, Block block, boolean item) {
-        if(item){Registry.register((Registries.ITEM), new Identifier(Hmh2.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));}
+        if(item){Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));}
         return Registry.register(Registries.BLOCK, new Identifier(Hmh2.MOD_ID, name), block);
     }
 

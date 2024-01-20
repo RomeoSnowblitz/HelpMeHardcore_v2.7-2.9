@@ -18,6 +18,7 @@ package net.romeosnowblitz.hmh2.item.custom.magic.perks;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -27,9 +28,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
+import net.romeosnowblitz.hmh2.item.custom.armor.UndergroundCharismaArmorItem;
 
 public class EmeraldPerk
-        extends ArmorItem {
+        extends UndergroundCharismaArmorItem {
     public EmeraldPerk(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
     }

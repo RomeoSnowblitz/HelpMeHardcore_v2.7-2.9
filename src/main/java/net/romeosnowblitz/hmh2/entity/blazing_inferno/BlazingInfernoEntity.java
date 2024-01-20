@@ -31,6 +31,7 @@ import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import net.romeosnowblitz.hmh2.entity.ModDamageTypes;
+import net.romeosnowblitz.hmh2.util.ModRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
@@ -169,6 +170,7 @@ public class BlazingInfernoEntity extends HostileEntity {
     }
 
     protected void mobTick() {
+        ModRegistries.antiBossFarm(0, this);
         LivingEntity livingEntity = this.getTarget();
         if (livingEntity != null && livingEntity.getEyeY() > this.getEyeY() + (double)0.5f && this.canTarget(livingEntity)) {
             Vec3d vec3d = this.getVelocity();

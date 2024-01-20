@@ -9,9 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -20,7 +18,6 @@ import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import net.romeosnowblitz.hmh2.entity.ModEntities;
 import net.romeosnowblitz.hmh2.entity.lost_soul.LostSoulEntity;
 import net.romeosnowblitz.hmh2.item.ModItems;
-import net.romeosnowblitz.hmh2.item.WarfareItems;
 
 import java.util.Random;
 
@@ -47,7 +44,6 @@ public class PurplePaste extends Item {
         }
         if(!world.isClient() && player.hasStatusEffect(CustomEffects.NECROMANCER)){
             int x = player.experienceLevel;
-            player.sendMessage(Text.literal(String.valueOf(x)));
             if(player.experienceLevel >= 0 && player.experienceLevel <= 9){
                 Random random = new Random();int a = random.nextInt(6);
                 if(a==1){EntityType.ENDERMITE.spawn((ServerWorld) world, pos.up(), SpawnReason.TRIGGERED);summoningCost(player);}

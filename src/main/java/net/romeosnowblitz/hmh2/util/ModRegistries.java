@@ -6,8 +6,14 @@ import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.ComposterBlock;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.VillagerProfession;
 import net.romeosnowblitz.hmh2.Hmh2;
@@ -35,6 +41,9 @@ import net.romeosnowblitz.hmh2.item.ModItems;
 import net.romeosnowblitz.hmh2.item.SustenanceItems;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
 import net.romeosnowblitz.hmh2.tag.ModItemTags;
+
+import java.util.Random;
+
 import static net.romeosnowblitz.hmh2.util.MysteriousAlchemistTrades.registerMysteriousAlchemistTrades;
 
 public class ModRegistries {
@@ -52,7 +61,6 @@ public class ModRegistries {
     public static void registerModFuels() {
         System.out.println("Now registering Fuels for " + Hmh2.MOD_ID);
         FuelRegistry registry = FuelRegistry.INSTANCE;
-
         registry.add(ModItemTags.FUEL_ONE_HUNDRED, 100);
         registry.add(ModItemTags.FUEL_THREE_HUNDRED, 300);
         registry.add(ModItemTags.FUEL_SIXTEEN_THOUSAND, 16000);
@@ -79,7 +87,6 @@ public class ModRegistries {
 
     private static void registerFlammableBlock() {
         FlammableBlockRegistry instance = FlammableBlockRegistry.getDefaultInstance();
-
         //FlattenableBlockRegistry.register(Blocks.STONE, Blocks.DIRT_PATH.getDefaultState());
         //OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.BEEF_BLOCK, ModBlocks.CHICKEN_BLOCK);
         //OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.ANDESITE_BRICKS, ModBlocks.DIORITE_BRICKS);
@@ -156,6 +163,30 @@ public class ModRegistries {
         FabricDefaultAttributeRegistry.register(ModEntities.THE_GREAT_HUNGER, TheGreatHungerEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.WARPMITE, WarpmiteEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.WISP, WispEntity.setAttributes());
+    }
+
+    public static void antiBossFarm (int x, LivingEntity entity) {
+        x++; Random random = new Random(); int r = 5;
+        DamageSource source = entity.getRecentDamageSource();
+        if(source != null){
+            if(source.isOf(DamageTypes.IN_WALL) || source.isOf(DamageTypes.CRAMMING) || source.isOf(DamageTypes.HOT_FLOOR) ||
+                    source.isOf(DamageTypes.FREEZE) || source.isOf(DamageTypes.DROWN)){
+                entity.teleport((random.nextInt(r*2)-r)+entity.getX(), entity.getY()+0.5, (random.nextInt(r*2)-r)+entity.getZ());
+                entity.heal(2);
+            }
+            if(source.isOf(DamageTypes.MOB_PROJECTILE) || source.isOf(DamageTypes.MOB_ATTACK_NO_AGGRO) ||
+                    source.isOf(DamageTypes.CACTUS) || source.isOf(DamageTypes.MOB_ATTACK)) {
+                entity.heal(10);
+            }
+            if(source.isOf(DamageTypes.STALAGMITE) || source.isOf(DamageTypes.SONIC_BOOM) || source.isOf(DamageTypes.EXPLOSION) ||
+                    source.isOf(DamageTypes.MAGIC) || source.isOf(DamageTypes.LIGHTNING_BOLT) || source.isOf(DamageTypes.INDIRECT_MAGIC) ||
+                    source.isOf(DamageTypes.FALLING_ANVIL) || source.isOf(DamageTypes.DRAGON_BREATH) || source.isOf(DamageTypes.BAD_RESPAWN_POINT)){
+                entity.heal(40);
+            }
+        }
+        if(entity.getHealth() % 100 == 0 && x % 20 == 0 && entity.getHealth() != entity.getMaxHealth()){x=0;
+            entity.teleport((random.nextInt(r*2)-r)+entity.getX(), entity.getY()+0.5, (random.nextInt(r*2)-r)+entity.getZ());
+        }
     }
 
     private static void registerModCompostables(){

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:bone_helmet",
+    "hmh2:bone_chestplate",
+    "hmh2:bone_leggings",
+    "hmh2:bone_boots"
+  ]
+}

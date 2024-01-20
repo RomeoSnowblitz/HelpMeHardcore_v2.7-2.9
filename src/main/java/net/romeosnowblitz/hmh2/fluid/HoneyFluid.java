@@ -55,7 +55,6 @@ public abstract class HoneyFluid extends FlowableFluid {
                     (double)pos.getZ() + random.nextDouble(),
                     0.0D, 0.0D, 0.0D);
         }
-
     }
 
 
@@ -119,7 +118,7 @@ public abstract class HoneyFluid extends FlowableFluid {
         }
 
         public int getLevel(FluidState state) {
-            return (Integer)state.get(LEVEL);
+            return state.get(LEVEL);
         }
 
         public boolean isStill(FluidState state) {
@@ -128,7 +127,6 @@ public abstract class HoneyFluid extends FlowableFluid {
     }
 
     public static class Still extends HoneyFluid {
-
         @Override
         protected boolean isInfinite(World world) {
             return false;

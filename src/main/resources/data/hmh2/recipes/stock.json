@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bone_meal"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "hmh2:fat"
+    },
+    {
+      "item": "hmh2:herb"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "hmh2:salt"
+    }
+  ],
+  "result": {
+    "item": "hmh2:stock",
+    "count": 1
+  }
+}

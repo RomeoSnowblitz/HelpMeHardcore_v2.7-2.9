@@ -11,9 +11,10 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
+import net.romeosnowblitz.hmh2.item.custom.armor.UndergroundSightArmorItem;
 
 public class FurPerk
-extends ArmorItem {
+extends UndergroundSightArmorItem {
     public FurPerk(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);
     }

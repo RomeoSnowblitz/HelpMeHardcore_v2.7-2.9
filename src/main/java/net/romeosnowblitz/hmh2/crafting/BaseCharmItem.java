@@ -17,17 +17,21 @@ import net.romeosnowblitz.hmh2.item.MagicItems;
 
 
 public class BaseCharmItem extends Item {
+
     private final StatusEffect effect1;
     private final StatusEffect effect2;
+
     public BaseCharmItem(StatusEffect effect1, StatusEffect effect2, Settings settings) {
-        super(settings);this.effect1 = effect1;this.effect2 = effect2;
+        super(settings);
+        this.effect1 = effect1;
+        this.effect2 = effect2;
     }
 
     public static Boolean customCraft (PlayerEntity player){return player.isSneaking() && player.hasStatusEffect(CustomEffects.SORCERER);}
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if(entity instanceof PlayerEntity player){
+        if(entity instanceof PlayerEntity player && !world.isClient()){
             ItemStack offhand = player.getStackInHand(Hand.OFF_HAND);ItemStack mainhand = player.getStackInHand(Hand.MAIN_HAND);
             if(mainhand.isOf(MagicItems.LIGHT_CHARM) && offhand.isOf(MagicItems.SIGHT_CHARM) && customCraft(player)){
                 mainhand.decrement(1);offhand.decrement(1);player.giveItemStack(MagicItems.ALIGHT_CHARM.getDefaultStack());}
@@ -53,23 +57,9 @@ public class BaseCharmItem extends Item {
                 mainhand.decrement(1);offhand.decrement(1);player.giveItemStack(MagicItems.SLIGHT_CHARM.getDefaultStack());}
             if(mainhand.isOf(MagicItems.FIGHT_CHARM) && offhand.isOf(MagicItems.LIGHT_CHARM) && customCraft(player)){
                 mainhand.decrement(1);offhand.decrement(1);player.giveItemStack(MagicItems.SLIGHT_CHARM.getDefaultStack());}
+            player.removeStatusEffect(effect1);player.removeStatusEffect(effect2);
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.LUCK,1200,2));
         } super.inventoryTick(stack, world, entity, slot, selected);
     }
 
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if(!world.isClient()){user.removeStatusEffect(effect1);user.removeStatusEffect(effect2);
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.LUCK,1200,2));
-            user.getMainHandStack().damage(5, user, p -> p.sendToolBreakStatus(hand));
-        } return super.use(world, user, hand);
-    }
-
-    @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        attacker.removeStatusEffect(effect1);attacker.removeStatusEffect(effect2);
-        target.removeStatusEffect(effect1);target.removeStatusEffect(effect2);
-        attacker.addStatusEffect(new StatusEffectInstance(StatusEffects.LUCK, 1200, 2));
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.LUCK, 1200, 2));
-        stack.damage(10, attacker, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
-        return super.postHit(stack, target, attacker);
-    }
 }

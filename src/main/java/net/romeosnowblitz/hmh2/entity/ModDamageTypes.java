@@ -7,6 +7,7 @@ import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 
 public class ModDamageTypes {
+    public static final RegistryKey<DamageType> KILLED_BY_ARMOR_WEAKNESS = registerDamageType("armor_weakness");
     public static final RegistryKey<DamageType> KILLED_BY_ASHLUNG = registerDamageType("ashlung");
     public static final RegistryKey<DamageType> KILLED_BY_ASHMITE = registerDamageType("ashmite");
     public static final RegistryKey<DamageType> KILLED_BY_BLAZING_INFERNO = registerDamageType("blazing_inferno");
@@ -31,5 +32,4 @@ public class ModDamageTypes {
     private static RegistryKey<DamageType> registerDamageType(String name) {
         return RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier(Hmh2.MOD_ID, name));
     }
-
 }

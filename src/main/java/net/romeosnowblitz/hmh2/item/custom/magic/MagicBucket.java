@@ -53,13 +53,17 @@ public class MagicBucket extends Item implements FluidModificationItem {
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
         }
-
         if (user instanceof PlayerEntity && !((PlayerEntity)user).getAbilities().creativeMode) {
             stack.decrement(1);
         }
-
-        if (!world.isClient && user.hasStatusEffect(CustomEffects.SORCERER) ) {
-            user.addStatusEffect(new StatusEffectInstance(effect, 200, 0));
+        if (!world.isClient && user.hasStatusEffect(CustomEffects.SORCERER) && user.hasStatusEffect(effect)) {
+            user.addStatusEffect(new StatusEffectInstance(effect, user.getStatusEffect(effect).getDuration()+1200, 1));
+        }
+        if (!world.isClient && !user.hasStatusEffect(CustomEffects.SORCERER) && user.hasStatusEffect(effect)) {
+            user.addStatusEffect(new StatusEffectInstance(effect, user.getStatusEffect(effect).getDuration()+600, 0));
+        }
+        if(!world.isClient() && !user.hasStatusEffect(effect)){
+            user.addStatusEffect(new StatusEffectInstance(effect, 300, 0));
         }
 
         return stack.isEmpty() ? new ItemStack(Items.BUCKET) : stack;

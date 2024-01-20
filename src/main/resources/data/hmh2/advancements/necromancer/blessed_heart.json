@@ -1,0 +1,48 @@
+{
+    "display": {
+        "title": {
+            "text": "Blessed Heart"
+        },
+        "description": {
+            "text": "Custom Craft & Consume Life Essence To Prevent Life Decrease On Death"
+        },
+        "icon": {
+            "item": "hmh2:life_essence"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "obtain_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "hmh2:life_essence"
+                        ]
+                    }
+                ]
+            }
+        },
+        "class_effect": {
+            "trigger": "minecraft:effects_changed",
+            "conditions": {
+                "effects": {
+                    "hmh2:necromancer": {}
+                }
+            }
+        }
+    },
+    "requirements": [
+        [
+            "obtain_item"
+        ],
+        [
+            "class_effect"
+        ]
+    ],
+    "parent": "hmh2:necromancer/soul_powder"
+}

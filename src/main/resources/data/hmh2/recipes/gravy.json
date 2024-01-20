@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hmh2:fat"
+    },
+    {
+      "item": "hmh2:flour"
+    },
+    {
+      "item": "hmh2:stock"
+    }
+  ],
+  "result": {
+    "item": "hmh2:gravy",
+    "count": 1
+  }
+}

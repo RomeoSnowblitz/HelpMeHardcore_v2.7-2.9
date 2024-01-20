@@ -5,6 +5,8 @@
   "mixins": [
     "BlazeMixin",
     "ClassMilkMixin",
+    "PlayerEntityMixin",
+    "WitherMixin",
     "WitherSkeletonMixin"
   ],
   "injectors": {

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:hellstone_helmet",
+    "hmh2:hellstone_chestplate",
+    "hmh2:hellstone_leggings",
+    "hmh2:hellstone_boots",
+    "hmh2:sumolterite_helmet",
+    "hmh2:sumolterite_chestplate",
+    "hmh2:sumolterite_leggings",
+    "hmh2:sumolterite_boots"
+  ]
+}

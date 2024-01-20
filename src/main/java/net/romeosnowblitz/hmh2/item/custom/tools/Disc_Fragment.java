@@ -66,11 +66,6 @@ public class Disc_Fragment extends Item {
         return ActionResult.PASS;
     }
 
-    /**
-     * {@return a tilling action that sets a block state}
-     *
-     * @param result the tilled block state
-     */
     public static Consumer<ItemUsageContext> createTillAction(BlockState result) {
         return context -> {
             context.getWorld().setBlockState(context.getBlockPos(), result, Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
@@ -78,10 +73,6 @@ public class Disc_Fragment extends Item {
         };
     }
 
-    /**
-     * {@return whether the used block can be tilled into farmland}
-     * This method is used as the tilling predicate for most vanilla blocks except rooted dirt.
-     */
     public static boolean canTillFarmland(ItemUsageContext context) {
         return context.getSide() != Direction.DOWN && context.getWorld().getBlockState(context.getBlockPos().up()).isAir();
     }

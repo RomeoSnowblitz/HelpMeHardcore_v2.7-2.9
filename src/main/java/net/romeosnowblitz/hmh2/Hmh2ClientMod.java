@@ -2,6 +2,7 @@ package net.romeosnowblitz.hmh2;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -41,6 +42,8 @@ import net.romeosnowblitz.hmh2.entity.penguin.PenguinModel;
 import net.romeosnowblitz.hmh2.entity.penguin.PenguinRenderer;
 import net.romeosnowblitz.hmh2.entity.mites.sculkmite.SculkmiteModel;
 import net.romeosnowblitz.hmh2.entity.mites.sculkmite.SculkmiteRenderer;
+import net.romeosnowblitz.hmh2.entity.projectile.ModProjectileModel;
+import net.romeosnowblitz.hmh2.entity.projectile.ModProjectileRenderer;
 import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeModel;
 import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeRenderer;
 import net.romeosnowblitz.hmh2.entity.queen_bee.QueenBeeModel;
@@ -53,6 +56,8 @@ import net.romeosnowblitz.hmh2.entity.wisp.WispModel;
 import net.romeosnowblitz.hmh2.entity.wisp.WispRenderer;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.keys.KeyInputHandler;
+import net.romeosnowblitz.hmh2.particle.ModParticleTypes;
+import net.romeosnowblitz.hmh2.particle.PurpleFlame;
 import net.romeosnowblitz.hmh2.util.ModModelPredicateProvider;
 import net.romeosnowblitz.hmh2.keys.ModNetworking;
 import net.romeosnowblitz.hmh2.util.ModWoodTypes;
@@ -61,6 +66,10 @@ public class Hmh2ClientMod implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PURPLE_TORCH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WALL_PURPLE_TORCH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LAMP_TORCH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LAMP_WALL_TORCH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BANANA_PEEL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ColoringBlocks.BLUE_SPIDER_LILY, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ColoringBlocks.ULTRAMARINE_STAINED_GLASS, RenderLayer.getTranslucent());
@@ -269,8 +278,16 @@ public class Hmh2ClientMod implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.WARPMITE, WarpmiteRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(WispModel.WISP, WispModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.WISP, WispRenderer::new);
+
+        EntityModelLayerRegistry.registerModelLayer(ModProjectileModel.MOD_PROJECTILE, ModProjectileModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.MOD_PROJECTILE, ModProjectileRenderer::new);
+
+
+
+
         KeyInputHandler.register();
         ModNetworking.registerS2CPackets();
 
+        ParticleFactoryRegistry.getInstance().register(ModParticleTypes.PURPLE_FLAME, PurpleFlame.Factory::new);
     }
 }

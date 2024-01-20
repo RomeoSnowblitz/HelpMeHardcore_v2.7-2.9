@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "hmh2:glass_leggings",
     "hmh2:banana_helmet",
     "hmh2:banana_chestplate",
     "hmh2:banana_leggings",
@@ -9,6 +10,10 @@
     "hmh2:bone_chestplate",
     "hmh2:bone_leggings",
     "hmh2:bone_boots",
+    "hmh2:dramageon_helmet",
+    "hmh2:dramageon_chestplate",
+    "hmh2:dramageon_leggings",
+    "hmh2:dramageon_boots",
     "hmh2:emerald_helmet",
     "hmh2:emerald_chestplate",
     "hmh2:emerald_leggings",
@@ -28,6 +33,18 @@
     "hmh2:quaerite_helmet",
     "hmh2:quaerite_chestplate",
     "hmh2:quaerite_leggings",
-    "hmh2:quaerite_boots"
+    "hmh2:quaerite_boots",
+    "hmh2:queen_bee_helmet",
+    "hmh2:queen_bee_chestplate",
+    "hmh2:queen_bee_leggings",
+    "hmh2:queen_bee_boots",
+    "hmh2:sumolterite_helmet",
+    "hmh2:sumolterite_chestplate",
+    "hmh2:sumolterite_leggings",
+    "hmh2:sumolterite_boots",
+    "hmh2:wither_bone_helmet",
+    "hmh2:wither_bone_chestplate",
+    "hmh2:wither_bone_leggings",
+    "hmh2:wither_bone_boots"
   ]
 }

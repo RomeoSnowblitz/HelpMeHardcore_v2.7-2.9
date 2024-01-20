@@ -22,11 +22,14 @@ public class CustomEffects {
     public static StatusEffect KINDLING = registerKindlingStatusEffect("kindling");
     public static StatusEffect LUNAR_WOLF_PERCEPTION = registerLunarWolfPerceptionStatusEffect("lunar_wolf_perception");
     public static StatusEffect POISON_IMMUNITY = registerPoisonImmunityStatusEffect("poison_immunity");
+    public static StatusEffect QUANTUM_LOCK = registerQuantumLockStatusEffect("quantum_lock");
     public static StatusEffect SAVING_GRACE = registerSavingGraceStatusEffect("saving_grace");
     public static StatusEffect SIGHTLESSSNESS = registerSightlessnessStatusEffect("sightlessness");
     public static StatusEffect SLIME_LUNG = registerSlimeLungEffect("slime_lung");
     public static StatusEffect SPIDER_EFFECT = registerSpiderEffect("spider_effect");
     public static StatusEffect INSUSCEPTIBILITY = registerInsusceptibilityStatusEffect("insusceptibility");
+    public static StatusEffect TIPSY = registerTipsyStatusEffect("tipsy");
+    public static StatusEffect WITHER_IMMUNITY = registerWitherImmunityStatusEffect("wither_immunity");
 
     public static StatusEffect NORMIE = registerNormieClass("normie");
     public static StatusEffect NECROMANCER = registerNecromancerClass("necromancer");
@@ -91,6 +94,12 @@ public class CustomEffects {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
                 new EffectPreventer(StatusEffects.POISON, StatusEffectCategory.BENEFICIAL, 11184810));
     }
+
+    public static StatusEffect registerQuantumLockStatusEffect(String name) {
+        return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
+                new ModEffect(StatusEffectCategory.NEUTRAL, 1121057));
+    }
+
     public static StatusEffect registerSavingGraceStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
                 new ModEffect(StatusEffectCategory.BENEFICIAL, 1121057));
@@ -106,6 +115,15 @@ public class CustomEffects {
     public static StatusEffect registerSpiderEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
                 new SpiderEffect(StatusEffectCategory.BENEFICIAL, 4011053));
+    }
+    public static StatusEffect registerTipsyStatusEffect(String name) {
+        return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
+                new TipsyEffect(StatusEffectCategory.HARMFUL, 11184810));
+    }
+
+    public static StatusEffect registerWitherImmunityStatusEffect(String name) {
+        return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
+                new EffectPreventer(StatusEffects.WITHER, StatusEffectCategory.BENEFICIAL, 11184810));
     }
 
     public static StatusEffect registerNormieClass(String name) {

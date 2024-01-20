@@ -2,35 +2,23 @@ package net.romeosnowblitz.hmh2.effect;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageSources;
-import net.minecraft.entity.damage.DamageType;
-import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
-import net.romeosnowblitz.hmh2.block.MagicBlocks;
-import net.romeosnowblitz.hmh2.block.custom.magic.MagicDust;
 import net.romeosnowblitz.hmh2.entity.ModDamageTypes;
 import net.romeosnowblitz.hmh2.item.MagicItems;
 import net.romeosnowblitz.hmh2.item.ModItems;
+import net.romeosnowblitz.hmh2.item.SustenanceItems;
 import net.romeosnowblitz.hmh2.util.ModStats;
-
-import javax.swing.*;
 
 public class NecromancerEffect extends StatusEffect {
     public NecromancerEffect(StatusEffectCategory statusEffectCategory, int color) {
@@ -45,8 +33,11 @@ public class NecromancerEffect extends StatusEffect {
         }
         entity.addStatusEffect(new StatusEffectInstance(CustomEffects.NECROMANCER,  -1,  0, false, false, true));
         entity.removeStatusEffect(CustomEffects.ASH_LUNG);
+        entity.removeStatusEffect(CustomEffects.BLOOD_FEVER);
+        entity.removeStatusEffect(CustomEffects.HEALTH_SHRINKAGE);
+
         //Sorcerer Class Preventer
-        if(numberOfEffects(entity) >= 17  && entity instanceof PlayerEntity player){
+        if(numberOfEffects(entity) >= 30  && entity instanceof PlayerEntity player){
             player.damage(player.getWorld().getDamageSources().create(ModDamageTypes.KILLED_BY_SORCERER_ATTEMPT), 200.0F);
         }
 
@@ -93,6 +84,25 @@ public class NecromancerEffect extends StatusEffect {
                     player.getOffHandStack().isOf(MagicItems.SUMMONING_POWDER) && player.getMainHandStack().isOf(Items.NETHER_WART) && player.isSneaking()){
                 player.getMainHandStack().decrement(1);player.getOffHandStack().decrement(1);
                 player.giveItemStack(MagicItems.PURPLE_MAGIC_PASTE.getDefaultStack());
+            }
+            if(player.getMainHandStack().isOf(MagicItems.SOUL_ESSENCE) && player.getOffHandStack().isOf(SustenanceItems.HEART) && player.isSneaking() ||
+                    player.getOffHandStack().isOf(MagicItems.SOUL_ESSENCE) && player.getMainHandStack().isOf(SustenanceItems.HEART) && player.isSneaking()){
+                player.getMainHandStack().decrement(1);player.getOffHandStack().decrement(1);
+                player.giveItemStack(ModItems.LIFE_ESSENCE.getDefaultStack());
+            }
+            if(player.getMainHandStack().isOf(ModItems.ENDER_INGOT) && player.getOffHandStack().isOf(Items.NETHERITE_INGOT) && player.isSneaking() ||
+                    player.getOffHandStack().isOf(ModItems.ENDER_INGOT) && player.getMainHandStack().isOf(Items.NETHERITE_INGOT) && player.isSneaking()){
+                player.getMainHandStack().decrement(1);player.getOffHandStack().decrement(1);
+                player.giveItemStack(ModItems.REVIVAL_INGOT.getDefaultStack());
+            }
+            if(player.getMainHandStack().isOf(ModItems.REVIVAL_INGOT) && player.getOffHandStack().isOf(Items.NETHER_STAR) && player.isSneaking() ||
+                    player.getOffHandStack().isOf(ModItems.REVIVAL_INGOT) && player.getMainHandStack().isOf(Items.NETHER_STAR) && player.isSneaking()){
+                player.getMainHandStack().decrement(1);player.getOffHandStack().decrement(1);
+                player.giveItemStack(ModItems.REVIVAL_STONE.getDefaultStack());
+            }
+            if(player.getMainHandStack().isOf(ModItems.REVIVAL_STONE) && player.getOffHandStack().isOf(ModItems.REVIVAL_STONE)  && player.isSneaking()){
+                player.getMainHandStack().decrement(1);player.getOffHandStack().decrement(1);
+                player.giveItemStack(ModItems.UNIVERSAL_REVIVAL_STONE.getDefaultStack());
             }
         }
         super.applyUpdateEffect(entity, amplifier);

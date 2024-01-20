@@ -10,10 +10,7 @@ import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.crafting.ClasslessCrafting;
-import net.romeosnowblitz.hmh2.item.custom.food.ConsumeLeaveBananaPeel;
-import net.romeosnowblitz.hmh2.item.custom.food.ConsumeLeaveBottle;
-import net.romeosnowblitz.hmh2.item.custom.food.ConsumeLeaveSheetPan;
-import net.romeosnowblitz.hmh2.item.custom.food.EnderSkinConsumableLong;
+import net.romeosnowblitz.hmh2.item.custom.food.*;
 
 import static net.minecraft.item.Items.BUCKET;
 import static net.minecraft.item.Items.GLASS_BOTTLE;
@@ -40,7 +37,7 @@ public class SustenanceItems {
     public static final Item DOUGH = SustenanceItems.registerItem("dough", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.2f).build())));
     public static final Item ENDCHILADA = SustenanceItems.registerItem("endchilada", new EnderSkinConsumableLong(new FabricItemSettings().food(new FoodComponent.Builder().hunger(20).saturationModifier(2.0f).build())));
     public static final Item GOLDEN_SALMON = registerItem("golden_salmon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(1.2f).build())));
-    public static final Item HEART = registerItem("heart", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(1.0f).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 60, 0), 1F).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION,60,0), 1F).alwaysEdible().snack().build())));
+    public static final Item HEART = registerItem("heart", new Heart(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(1.0f).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 60, 0), 1F).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION,60,0), 1F).alwaysEdible().snack().build())));
     public static final Item LIGHT_TOAST = registerItem("light_toast", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.8f).build())));
     public static final Item MANGO = registerItem("mango", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3f).build())));
     public static final Item ORANGE = registerItem("orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3f).build())));

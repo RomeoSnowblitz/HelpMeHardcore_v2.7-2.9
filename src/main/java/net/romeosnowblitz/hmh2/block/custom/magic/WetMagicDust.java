@@ -11,7 +11,6 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -20,7 +19,7 @@ import net.minecraft.world.WorldAccess;
 
 import java.util.Optional;
 
-public class WetMagicDust extends MagicDust implements Waterloggable {
+public class WetMagicDust extends MagicGoodDust implements Waterloggable {
     public WetMagicDust(StatusEffect effect, AbstractBlock.Settings settings) {
         super(effect, settings);
         this.setDefaultState(this.getDefaultState().with(Properties.WATERLOGGED, false));

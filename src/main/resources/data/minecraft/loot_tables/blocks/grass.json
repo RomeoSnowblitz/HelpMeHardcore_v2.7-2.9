@@ -50,6 +50,16 @@
               "conditions": [
                 {
                   "condition": "minecraft:random_chance",
+                  "chance": 0.01
+                }
+              ],
+              "name": "hmh2:herb"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:random_chance",
                   "chance": 0.0014
                 }
               ],

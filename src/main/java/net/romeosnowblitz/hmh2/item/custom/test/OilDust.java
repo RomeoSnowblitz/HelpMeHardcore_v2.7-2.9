@@ -2,16 +2,20 @@ package net.romeosnowblitz.hmh2.item.custom.test;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
-import net.romeosnowblitz.hmh2.block.custom.magic.MagicDust;
+import net.romeosnowblitz.hmh2.block.custom.magic.MagicBadDust;
+import net.romeosnowblitz.hmh2.effect.CustomEffects;
 
-public class OilDust extends MagicDust {
+public class OilDust extends MagicBadDust {
     private static final Direction[] field_43257 = Direction.values();
 
     public OilDust(StatusEffect effect, Settings settings) {

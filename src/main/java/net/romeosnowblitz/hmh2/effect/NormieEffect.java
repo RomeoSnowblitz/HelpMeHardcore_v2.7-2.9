@@ -8,6 +8,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerAbilities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFrameItem;
@@ -34,21 +35,12 @@ public class NormieEffect extends StatusEffect {
         super(statusEffectCategory, color);
     }
 
-    public static int t = 0;
-
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         if(entity instanceof ServerPlayerEntity player){
             int stat = player.getStatHandler().getStat(Stats.CUSTOM.getOrCreateStat(ModStats.CLASS_ID));
             if(stat == 1){player.addStatusEffect(new StatusEffectInstance(CustomEffects.NECROMANCER, 20));}
             if(stat == 2){player.addStatusEffect(new StatusEffectInstance(CustomEffects.SORCERER, 20));}
         }
-
-
-        if (entity instanceof PlayerEntity player){
-            if(player.getWorld().getBiome(player.getBlockPos()).isIn(ModBiomeTags.IS_BASALT_DELTAS)){++t;} else {t = 0;}
-            if (t>600 && t % 200 == 0) {player.addStatusEffect(new StatusEffectInstance(CustomEffects.ASH_LUNG, 600));}
-        }
-
         if (entity.hasStatusEffect(CustomEffects.NECROMANCER) || entity.hasStatusEffect(CustomEffects.SORCERER)) {
             entity.removeStatusEffect(CustomEffects.NORMIE);
         } else {
@@ -60,20 +52,13 @@ public class NormieEffect extends StatusEffect {
                 entity.hasStatusEffect(StatusEffects.JUMP_BOOST)&& entity.hasStatusEffect(StatusEffects.LEVITATION)&& entity.hasStatusEffect(StatusEffects.MINING_FATIGUE)&& entity.hasStatusEffect(StatusEffects.NAUSEA)&&
                 entity.hasStatusEffect(StatusEffects.NIGHT_VISION)&& entity.hasStatusEffect(StatusEffects.POISON)&& entity.hasStatusEffect(StatusEffects.REGENERATION)&& entity.hasStatusEffect(StatusEffects.RESISTANCE)&&
                 entity.hasStatusEffect(StatusEffects.SLOW_FALLING)&& entity.hasStatusEffect(StatusEffects.SLOWNESS)&& entity.hasStatusEffect(StatusEffects.SPEED)&& entity.hasStatusEffect(StatusEffects.STRENGTH)&&
-                entity.hasStatusEffect(StatusEffects.WATER_BREATHING)&& entity.hasStatusEffect(StatusEffects.WEAKNESS)&& entity.hasStatusEffect(StatusEffects.WITHER)&& entity.hasStatusEffect(CustomEffects.NORMIE)){
+                entity.hasStatusEffect(StatusEffects.WATER_BREATHING)&& entity.hasStatusEffect(StatusEffects.WEAKNESS)&& entity.hasStatusEffect(StatusEffects.WITHER)&&
+                entity.hasStatusEffect(CustomEffects.NORMIE) &&
+                entity.hasStatusEffect(CustomEffects.ANCHORED)&& entity.hasStatusEffect(CustomEffects.ASH_LUNG)
+                && entity.hasStatusEffect(CustomEffects.BLOOD_FEVER) && entity.hasStatusEffect(CustomEffects.ENDER_SKIN) &&
+                entity.hasStatusEffect(CustomEffects.HELL_BOUND) && entity.hasStatusEffect(CustomEffects.KINDLING)
+                 && entity.hasStatusEffect(CustomEffects.SLIME_LUNG) && entity.hasStatusEffect(CustomEffects.SPIDER_EFFECT)){
             entity.addStatusEffect(new StatusEffectInstance(CustomEffects.SORCERER,  -1,  0, false, false, true));
-        }
-        //Custom Crafting
-        if(entity instanceof PlayerEntity player){
-            //add Invisible Item Frames Custom Crafting
-            if(player.getMainHandStack().isOf(Item.fromBlock(ModBlocks.XRAY)) && player.getOffHandStack().isOf(Items.ITEM_FRAME) && player.isSneaking() ||
-                    player.getOffHandStack().isOf(Item.fromBlock(ModBlocks.XRAY)) && player.getMainHandStack().isOf(Items.ITEM_FRAME) && player.isSneaking()){
-                player.getMainHandStack().decrement(1);player.getOffHandStack().decrement(1);
-                /*
-                player.giveItemStack(Items.ITEM_FRAME.getDefaultStack().setNbt());
-                nbt.putBoolean("Invisible", this.isInvisible());
-                 */
-            }
         }
     }
 

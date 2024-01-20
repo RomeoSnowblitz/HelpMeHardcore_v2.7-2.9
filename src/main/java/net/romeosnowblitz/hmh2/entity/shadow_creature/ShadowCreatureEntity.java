@@ -70,7 +70,7 @@ public class ShadowCreatureEntity extends HostileEntity {
                 i += getTarget().getStatusEffect(CustomEffects.HEALTH_SHRINKAGE).getAmplifier();
                 getTarget().removeStatusEffectInternal(CustomEffects.HEALTH_SHRINKAGE);
             } else {--i;}i = MathHelper.clamp(i, 0, 20);
-            getTarget().addStatusEffect(new StatusEffectInstance(CustomEffects.HEALTH_SHRINKAGE, 72000, i, false, false, true));
+            getTarget().addStatusEffect(new StatusEffectInstance(CustomEffects.HEALTH_SHRINKAGE, -1, i, false, false, true));
         }
         return target.damage(getDamageSources().create(ModDamageTypes.KILLED_BY_SHADOW_CREATURE, this), (float) this.getAttributeBaseValue(EntityAttributes.GENERIC_ATTACK_DAMAGE));
     }

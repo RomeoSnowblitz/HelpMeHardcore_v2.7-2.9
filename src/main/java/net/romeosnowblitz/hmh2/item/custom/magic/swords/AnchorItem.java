@@ -75,17 +75,13 @@ extends ToolItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         target.addStatusEffect(new StatusEffectInstance(CustomEffects.ANCHORED, 1200, 0));
-        stack.damage(1, attacker, (e) -> {
-            e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
-        });
+        stack.damage(1, attacker, (e) -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         return true;
     }
 
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         if (state.getHardness(world, pos) != 0.0F) {
-            stack.damage(2, miner, (e) -> {
-                e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
-            });
+            stack.damage(2, miner, (e) -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         }
 
         return true;

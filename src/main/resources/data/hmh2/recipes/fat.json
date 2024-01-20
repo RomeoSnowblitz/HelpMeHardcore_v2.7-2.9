@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "hmh2:bacon"
+  },
+  "result": "hmh2:fat",
+  "count": 1
+}

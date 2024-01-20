@@ -23,7 +23,7 @@ public class SheepDyeItem extends Item {
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
         if(user.getWorld().isClient) {
             if (entity.getType() == EntityType.SHEEP){
-                SheepEntity sheep = (SheepEntity) entity;
+                    SheepEntity sheep = (SheepEntity) entity;
                 sheep.setColor(COLOR);
                 if(!user.isCreative()){
                     user.getStackInHand(hand).decrement(1);

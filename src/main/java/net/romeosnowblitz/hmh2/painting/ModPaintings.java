@@ -24,6 +24,21 @@ public class ModPaintings {
     public static final PaintingVariant CUED_FURRY = Registry.register(Registries.PAINTING_VARIANT, new Identifier(Hmh2.MOD_ID, "cued_furry"), new PaintingVariant(48, 16));
     public static final PaintingVariant MOB_VOTE = registerPainting("mob_vote", new PaintingVariant(16, 16));
     public static final PaintingVariant STEVE = registerPainting("steve", new PaintingVariant(16, 16));
+    public static final PaintingVariant MAXWEll = registerPainting("maxwell", new PaintingVariant(32, 32));
+    public static final PaintingVariant CAT_BURRITO = registerPainting("cat_burrito", new PaintingVariant(16, 16));
+    public static final PaintingVariant SHRIMP_FRIED_RICE = registerPainting("shrimp_fried_rice", new PaintingVariant(32, 48));
+    public static final PaintingVariant SLEEP_CYCLES = registerPainting("sleep_cycles", new PaintingVariant(48, 32));
+    public static final PaintingVariant UWU_SPLASH = registerPainting("uwu_splash", new PaintingVariant(48, 16));
+    public static final PaintingVariant HAVE_A_GLASS = registerPainting("have_a_glass", new PaintingVariant(48, 32));
+    public static final PaintingVariant COME_HERE= registerPainting("come_here", new PaintingVariant(48, 32));
+    public static final PaintingVariant JAPANESE_CURSIVE = registerPainting("japanese_cursive", new PaintingVariant(32, 48));
+    public static final PaintingVariant QUIT_TOO_SOON = registerPainting("quit_too_soon", new PaintingVariant(48, 32));
+    public static final PaintingVariant GOLIATH_STATUE = registerPainting("goliath_statue", new PaintingVariant(32, 32));
+    public static final PaintingVariant OLD_JAPANESE_LETTER = registerPainting("old_japanese_letter", new PaintingVariant(16, 16));
+    public static final PaintingVariant QUESTION_9 = registerPainting("question_9", new PaintingVariant(16, 16));
+    public static final PaintingVariant SCREENSHOT_CHAT = registerPainting("screenshot_chat", new PaintingVariant(48, 32));
+    public static final PaintingVariant BOY_MILK_OREOS = registerPainting("boy_milk_oreos", new PaintingVariant(16, 16));
+
     private static PaintingVariant registerPainting(String name, PaintingVariant paintingVariant) {
         return Registry.register(Registries.PAINTING_VARIANT, new Identifier(Hmh2.MOD_ID, name), paintingVariant);
     }

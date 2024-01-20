@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "hmh2:wither_bone_helmet",
+    "hmh2:wither_bone_chestplate",
+    "hmh2:wither_bone_leggings",
+    "hmh2:wither_bone_boots"
+  ]
+}

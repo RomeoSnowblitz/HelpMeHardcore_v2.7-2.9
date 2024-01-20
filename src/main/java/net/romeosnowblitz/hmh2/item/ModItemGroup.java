@@ -30,9 +30,13 @@ public class ModItemGroup {
                 .icon(() -> new ItemStack(ModItems.ITEM)).entries((context, entries) -> {
                     entries.add(ModItems.NULL_PASSER);
                     entries.add(ModItems.DISC_FRAGMENT);
-                    entries.add(ModItems.FORTRESS_SEEKER);
+                    entries.add(ModItems.SUN_SEEKER);
                     entries.add(ModItems.SUN_STONE);
+                    entries.add(ModItems.SOLAR_FRAGMENT);
+                    entries.add(ModItems.REVIVAL_INGOT);
                     entries.add(ModItems.REVIVAL_STONE);
+                    entries.add(ModItems.UNIVERSAL_REVIVAL_STONE);
+                    entries.add(ModItems.WITHER_BONE);
                     entries.add(ModItems.GLUE);
                     entries.add(ModItems.FLOUR);
                     entries.add(ModItems.CORK);
@@ -45,8 +49,9 @@ public class ModItemGroup {
                     entries.add(ModItems.RAW_TIN);
                     entries.add(ModItems.RAW_TITANIUM);
                     entries.add(ModItems.SALT);
-                    entries.add(ModItems.ASHES);
                     entries.add(ModItems.BURNT_EGGSHELL);
+                    entries.add(ModItems.ASHES);
+                    entries.add(ModItems.ASH_CREAM);
                     entries.add(ModItems.HEAVY_CREAM);
                     entries.add(ModItems.PLASTIC);
                     entries.add(ModItems.RESIN);
@@ -111,6 +116,11 @@ public class ModItemGroup {
                     entries.add(ModItems.THE_GREAT_HUNGER_SPAWN_EGG);
                     entries.add(ModItems.WARPMITE_SPAWN_EGG);
                     entries.add(ModItems.WISP_SPAWN_EGG);
+                    entries.add(ModItems.BLAZESTEP_DISC);
+                    entries.add(ModItems.DARKNESS_DISC);
+                    entries.add(ModItems.FORTRESS_DISC);
+                    entries.add(ModItems.GAME_OVER_DISC);
+                    entries.add(ModItems.VOID_DISC);
                 }).build());
 
 
@@ -129,6 +139,7 @@ public class ModItemGroup {
                     entries.add(ModBlocks.WARPED_FARMLAND);
                     entries.add(ModBlocks.CARVED_MELON);
                     entries.add(ModBlocks.POISON_GRASS);
+                    entries.add(ModBlocks.ASH_BLOCK);
                     entries.add(ModBlocks.BEEF_ORE);
                     entries.add(ModBlocks.CHICKEN_NUGGET_ORE);
                     entries.add(ModBlocks.DEEPSLATE_SILVER_ORE);
@@ -277,8 +288,6 @@ public class ModItemGroup {
                     entries.add(MagicItems.HASTE_FLUID);
                     entries.add(MagicItems.HEALTH_BOOST_FLUID);
                     entries.add(MagicItems.HUNGER_FLUID);
-                    entries.add(MagicItems.INSTANT_DAMAGE_FLUID);
-                    entries.add(MagicItems.INSTANT_HEALTH_FLUID);
                     entries.add(MagicItems.INVISIBILITY_FLUID);
                     entries.add(MagicItems.JUMP_BOOST_FLUID);
                     entries.add(MagicItems.LEVITATION_FLUID);
@@ -304,7 +313,6 @@ public class ModItemGroup {
                     entries.add(MagicItems.LEVITATION_AMULET);
                     entries.add(MagicItems.MINING_FATIGUE_AMULET);
                     entries.add(MagicItems.UNLUCK_AMULET);
-                    entries.add(MagicItems.INSTANT_DAMAGE_AMULET);
                     entries.add(MagicItems.NAUSEA_AMULET);
                     entries.add(MagicItems.WATER_BREATHING_AMULET);
                     entries.add(MagicItems.INVISIBILITY_AMULET);
@@ -326,7 +334,6 @@ public class ModItemGroup {
                     entries.add(MagicItems.SATURATION_AMULET);
                     entries.add(MagicItems.DOLPHINS_GRACE_AMULET);
                     entries.add(MagicItems.BAD_OMEN_AMULET);
-                    entries.add(MagicItems.INSTANT_HEALTH_AMULET);
                     entries.add(MagicItems.DARKNESS_AMULET);
                     entries.add(MagicItems.RESISTANCE_AMULET);
                     entries.add(MagicItems.POISON_AMULET);
@@ -344,6 +351,11 @@ public class ModItemGroup {
                     entries.add(MagicItems.BRIGHT_CHARM);
                     entries.add(MagicItems.FRIGHT_CHARM);
                     entries.add(MagicItems.KNIGHT_CHARM);
+                    entries.add(ModItems.WARPED_WART);
+                    entries.add(MagicItems.SOUL_ESSENCE);
+                    entries.add(MagicItems.SUMMONING_POWDER);
+                    entries.add(MagicItems.BLUE_MAGIC_PASTE);
+                    entries.add(MagicItems.PURPLE_MAGIC_PASTE);
                 }).build());
 
         Registry.register(Registries.ITEM_GROUP, WARFARE, FabricItemGroup.builder().displayName(Text.translatable("Warfare"))
@@ -368,6 +380,15 @@ public class ModItemGroup {
                     entries.add(WarfareItems.BONE_AXE);
                     entries.add(WarfareItems.BONE_SHOVEL);
                     entries.add(WarfareItems.BONE_HOE);
+                    entries.add(WarfareItems.DRAMAGEON_HELMET);
+                    entries.add(WarfareItems.DRAMAGEON_CHESTPLATE);
+                    entries.add(WarfareItems.DRAMAGEON_LEGGINGS);
+                    entries.add(WarfareItems.DRAMAGEON_BOOTS);
+                    entries.add(WarfareItems.DRAMAGEON_SWORD);
+                    entries.add(WarfareItems.DRAMAGEON_PICKAXE);
+                    entries.add(WarfareItems.DRAMAGEON_AXE);
+                    entries.add(WarfareItems.DRAMAGEON_SHOVEL);
+                    entries.add(WarfareItems.DRAMAGEON_HOE);
                     entries.add(WarfareItems.EMERALD_HELMET);
                     entries.add(WarfareItems.EMERALD_CHESTPLATE);
                     entries.add(WarfareItems.EMERALD_LEGGINGS);
@@ -381,7 +402,28 @@ public class ModItemGroup {
                     entries.add(WarfareItems.HELLSTONE_CHESTPLATE);
                     entries.add(WarfareItems.HELLSTONE_LEGGINGS);
                     entries.add(WarfareItems.HELLSTONE_BOOTS);
+                    entries.add(WarfareItems.SUMOLTERITE_HELMET);
+                    entries.add(WarfareItems.SUMOLTERITE_CHESTPLATE);
+                    entries.add(WarfareItems.SUMOLTERITE_LEGGINGS);
+                    entries.add(WarfareItems.SUMOLTERITE_BOOTS);
+                    entries.add(WarfareItems.SUMOLTERITE_SWORD);
+                    entries.add(WarfareItems.SUMOLTERITE_PICKAXE);
+                    entries.add(WarfareItems.SUMOLTERITE_AXE);
+                    entries.add(WarfareItems.SUMOLTERITE_HOE);
+                    entries.add(WarfareItems.SUMOLTERITE_SHOVEL);
+                    entries.add(WarfareItems.HELLSTONE_AXE);
+                    entries.add(WarfareItems.HELLSTONE_HOE);
+                    entries.add(WarfareItems.HELLSTONE_SHOVEL);
+                    entries.add(WarfareItems.HELLSTONE_SWORD);
                     entries.add(WarfareItems.HELLSTONE_PICKAXE);
+                    entries.add(WarfareItems.WITHER_BONE_HELMET);
+                    entries.add(WarfareItems.WITHER_BONE_CHESTPLATE);
+                    entries.add(WarfareItems.WITHER_BONE_LEGGINGS);
+                    entries.add(WarfareItems.WITHER_BONE_BOOTS);
+                    entries.add(ModItems.PITCHFORK);
+                    entries.add(ModItems.HELLFORK);
+                    entries.add(ModItems.INFERNAL_DIAMOND);
+                    entries.add(ModItems.INFERNAL_HELLFORK);
                     entries.add(WarfareItems.LIFE_HELMET);
                     entries.add(WarfareItems.LIFE_CHESTPLATE);
                     entries.add(WarfareItems.LIFE_LEGGINGS);
@@ -660,6 +702,7 @@ public class ModItemGroup {
 
         Registry.register(Registries.ITEM_GROUP, DECORATION, FabricItemGroup.builder().displayName(Text.translatable("Decoration"))
                 .icon(() -> new ItemStack(DecorationBlocks.MARBLE_BRICKS)).entries((context, entries) -> {
+                    entries.add(ModItems.LAMP_TORCH_ITEM);
                     entries.add(DecorationBlocks.CORK_BLOCK);
                     entries.add(DecorationBlocks.CORK_STAIRS);
                     entries.add(DecorationBlocks.CORK_SLAB);
@@ -767,36 +810,13 @@ public class ModItemGroup {
 
         Registry.register(Registries.ITEM_GROUP, TESTING, FabricItemGroup.builder().displayName(Text.translatable("Update/Testing"))
                 .icon(() -> new ItemStack(Blocks.BARRIER)).entries((context, entries) -> {
-                    entries.add(ModItems.WARPED_WART);
-                    entries.add(MagicItems.SOUL_ESSENCE);
-                    entries.add(MagicItems.SUMMONING_POWDER);
-                    entries.add(MagicItems.BLUE_MAGIC_PASTE);
-                    entries.add(MagicItems.PURPLE_MAGIC_PASTE);
-                    entries.add(ModItems.PITCHFORK);
-                    entries.add(ModItems.HELLFORK);
-                    entries.add(ModItems.INFERNAL_DIAMOND);
-                    entries.add(ModItems.INFERNAL_HELLFORK);
-                    entries.add(ModItems.SOLAR_FRAGMENT);
-                    entries.add(WarfareItems.SUMOLTERITE_HELMET);
-                    entries.add(WarfareItems.SUMOLTERITE_CHESTPLATE);
-                    entries.add(WarfareItems.SUMOLTERITE_LEGGINGS);
-                    entries.add(WarfareItems.SUMOLTERITE_BOOTS);
-                    entries.add(WarfareItems.SUMOLTERITE_SWORD);
-                    entries.add(WarfareItems.SUMOLTERITE_PICKAXE);
-                    entries.add(WarfareItems.SUMOLTERITE_AXE);
-                    entries.add(WarfareItems.SUMOLTERITE_HOE);
-                    entries.add(WarfareItems.SUMOLTERITE_SHOVEL);
-                    entries.add(WarfareItems.HELLSTONE_AXE);
-                    entries.add(WarfareItems.HELLSTONE_HOE);
-                    entries.add(WarfareItems.HELLSTONE_SHOVEL);
-                    entries.add(WarfareItems.HELLSTONE_SWORD);
-                    entries.add(ModItems.BLAZESTEP_DISC);
-                    entries.add(ModItems.DARKNESS_DISC);
-                    entries.add(ModItems.FORTRESS_DISC);
-                    entries.add(ModItems.GAME_OVER_DISC);
-                    entries.add(ModItems.VOID_DISC);
-                    entries.add(ModBlocks.ASH_BLOCK);
-                    entries.add(ModItems.ASH_CREAM);
+                    entries.add(ModItems.PURPLE_TORCH_ITEM);
+                    entries.add(ModItems.TRAVELERS_DREAM);
+                    entries.add(ModItems.LIFE_ESSENCE);
+                    entries.add(MagicItems.INSTANT_DAMAGE_FLUID);
+                    entries.add(MagicItems.INSTANT_HEALTH_FLUID);
+                    entries.add(MagicItems.INSTANT_DAMAGE_AMULET);
+                    entries.add(MagicItems.INSTANT_HEALTH_AMULET);
                 }).build());
 
     }

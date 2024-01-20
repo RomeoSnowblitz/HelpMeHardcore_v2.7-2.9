@@ -27,7 +27,7 @@ public class WoodworkBlocks {
     //Trees (16)
     public static final Block BANANA_SAPLING = registerBlock("banana_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
-            new Identifier(Hmh2.MOD_ID, "tree_banana"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS)), true);
+            new Identifier(Hmh2.MOD_ID, "tree_banana"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block BANANA_LOG = registerBlock("banana_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
     public static final Block BANANA_LEAVES = registerBlock("banana_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), true);
     public static final Block BANANA_PLANKS = registerBlock("banana_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), true);
@@ -54,7 +54,7 @@ public class WoodworkBlocks {
 
     public static final Block CHERRY_SAPLING = registerBlock ("cherry_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
-            new Identifier(Hmh2.MOD_ID, "tree_cherry"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS)), true);
+            new Identifier(Hmh2.MOD_ID, "tree_cherry"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block CHERRY_LOG = registerBlock("cherry_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
     public static final Block CHERRY_LEAVES = registerBlock("cherry_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), true);
     public static final Block CHERRY_PLANKS = registerBlock("cherry_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), true);
@@ -80,7 +80,7 @@ public class WoodworkBlocks {
 
     public static final Block CORK_OAK_SAPLING = registerBlock("cork_oak_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
-            new Identifier(Hmh2.MOD_ID, "tree_cork_oak"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS)), true);
+            new Identifier(Hmh2.MOD_ID, "tree_cork_oak"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block CORK_OAK_LOG = registerBlock("cork_oak_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
     public static final Block CORK_OAK_LEAVES = registerBlock("cork_oak_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), true);
     public static final Block CORK_OAK_PLANKS = registerBlock("cork_oak_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), true);
@@ -106,7 +106,7 @@ public class WoodworkBlocks {
 
     public static final Block JACARANDA_SAPLING = registerBlock("jacaranda_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
-            new Identifier(Hmh2.MOD_ID, "tree_jacaranda"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS)), true);
+            new Identifier(Hmh2.MOD_ID, "tree_jacaranda"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block JACARANDA_LOG = registerBlock("jacaranda_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
     public static final Block JACARANDA_LEAVES = registerBlock("jacaranda_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), true);
     public static final Block JACARANDA_PLANKS = registerBlock("jacaranda_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), true);
@@ -132,7 +132,7 @@ public class WoodworkBlocks {
 
     public static final Block MANGO_SAPLING = registerBlock("mango_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
-            new Identifier(Hmh2.MOD_ID, "tree_mango"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS)), true);
+            new Identifier(Hmh2.MOD_ID, "tree_mango"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block MANGO_LOG = registerBlock("mango_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
     public static final Block MANGO_LEAVES = registerBlock("mango_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), true);
     public static final Block MANGO_PLANKS = registerBlock("mango_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), true);
@@ -158,7 +158,7 @@ public class WoodworkBlocks {
 
     public static final Block MAHOE_SAPLING = registerBlock("mahoe_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
-            new Identifier(Hmh2.MOD_ID, "tree_mahoe"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS)), true);
+            new Identifier(Hmh2.MOD_ID, "tree_mahoe"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block MAHOE_LOG = registerBlock("mahoe_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
     public static final Block MAHOE_LEAVES = registerBlock("mahoe_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), true);
     public static final Block MAHOE_PLANKS = registerBlock("mahoe_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), true);
@@ -184,7 +184,7 @@ public class WoodworkBlocks {
 
     public static final Block WILLOW_SAPLING = registerBlock("willow_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
-            new Identifier(Hmh2.MOD_ID, "tree_willow"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS)), true);
+            new Identifier(Hmh2.MOD_ID, "tree_willow"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block WILLOW_LOG = registerBlock("willow_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
     public static final Block WILLOW_LEAVES = registerBlock("willow_leaves", new LeavesBlock(FabricBlockSettings.copy(Blocks.OAK_LEAVES).suffocates(WoodworkBlocks::never).blockVision(WoodworkBlocks::never)), true);
     public static final Block WILLOW_PLANKS = registerBlock("willow_planks", new Block(FabricBlockSettings.copy(Blocks.OAK_PLANKS)), true);

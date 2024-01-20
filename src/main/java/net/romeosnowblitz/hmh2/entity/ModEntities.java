@@ -29,6 +29,7 @@ import net.romeosnowblitz.hmh2.entity.mites.magmite.MagmiteEntity;
 import net.romeosnowblitz.hmh2.entity.mites.warpmite.WarpmiteEntity;
 import net.romeosnowblitz.hmh2.entity.penguin.PenguinEntity;
 import net.romeosnowblitz.hmh2.entity.mites.sculkmite.SculkmiteEntity;
+import net.romeosnowblitz.hmh2.entity.projectile.ModProjectileEntity;
 import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeEntity;
 import net.romeosnowblitz.hmh2.entity.queen_bee.QueenBeeEntity;
 import net.romeosnowblitz.hmh2.entity.shadow_creature.ShadowCreatureEntity;
@@ -103,7 +104,7 @@ public class ModEntities {
             Registries.ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "shadow_creature"),
             FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ShadowCreatureEntity::new)
                     .specificSpawnBlocks(Blocks.GRASS, Blocks.STONE, Blocks.DEEPSLATE, Blocks.SAND)
-                    .dimensions(EntityDimensions.fixed(0.99f, 0.1f)).build());
+                    .dimensions(EntityDimensions.fixed(0.85f, 0.15f)).build());
 
     public static final EntityType<SoldierBeeEntity> SOLDIER_BEE = Registry.register(
             Registries.ENTITY_TYPE, new Identifier(Hmh2.MOD_ID, "soldier_bee"),
@@ -126,15 +127,21 @@ public class ModEntities {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, WispEntity::new)
                     .dimensions(EntityDimensions.fixed(0.6f, 0.6f)).build());
 
+    public static final EntityType<ModProjectileEntity> MOD_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
+            new Identifier(Hmh2.MOD_ID, "mod_projectile"),
+            FabricEntityTypeBuilder.<ModProjectileEntity>create(SpawnGroup.MISC, ModProjectileEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.5f, 0.5f)).build());
+
     public static void addSpawns(){
         SpawnRestriction.register(ModEntities.ASHMITE, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.WORLD_SURFACE, HostileEntity::canSpawnIgnoreLightLevel);
         SpawnRestriction.register(ModEntities.BLOODMITE, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.WORLD_SURFACE, HostileEntity::canSpawnIgnoreLightLevel);
+        SpawnRestriction.register(ModEntities.DEMON, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.WORLD_SURFACE, HostileEntity::canSpawnIgnoreLightLevel);
         SpawnRestriction.register(ModEntities.LOST_SOUL, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.WORLD_SURFACE, HostileEntity::canSpawnIgnoreLightLevel);
         SpawnRestriction.register(ModEntities.SHADOW_CREATURE, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.WORLD_SURFACE, HostileEntity::canMobSpawn);
         SpawnRestriction.register(ModEntities.WARPMITE, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.WORLD_SURFACE, HostileEntity::canSpawnIgnoreLightLevel);
     }
 
     public static void registerModEntities() {
-        Hmh2.LOGGER.info("Registering Mod Entities for " + Hmh2.MOD_ID);
+
     }
 }
