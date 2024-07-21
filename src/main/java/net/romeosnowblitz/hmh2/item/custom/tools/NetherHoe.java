@@ -25,8 +25,8 @@ import static net.minecraft.item.HoeItem.createTillAndDropAction;
 public class NetherHoe extends MiningToolItem {
     protected static final Map<Block, Pair<Predicate<ItemUsageContext>, Consumer<ItemUsageContext>>> TILLING_ACTIONS;
 
-    public NetherHoe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-        super((float)attackDamage, attackSpeed, material, BlockTags.HOE_MINEABLE, settings);
+    public NetherHoe(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+        super(attackDamage, attackSpeed, material, BlockTags.HOE_MINEABLE, settings);
     }
 
     public ActionResult useOnBlock(ItemUsageContext context) {

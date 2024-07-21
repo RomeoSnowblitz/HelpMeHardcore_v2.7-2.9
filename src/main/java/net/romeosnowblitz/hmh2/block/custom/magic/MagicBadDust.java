@@ -24,8 +24,10 @@ public class MagicBadDust extends MultifaceGrowthBlock {
         if (!world.isClient && entity instanceof LivingEntity livingEntity) {
             if(livingEntity.hasStatusEffect(CustomEffects.SORCERER)){
                 livingEntity.addStatusEffect(new StatusEffectInstance(effect, 60, 0));
+                world.setBlockState(pos, Blocks.AIR.getDefaultState());
             } else  {
                 livingEntity.addStatusEffect(new StatusEffectInstance(effect, 60, 1));
+                world.setBlockState(pos, Blocks.AIR.getDefaultState());
             }
         }
     }

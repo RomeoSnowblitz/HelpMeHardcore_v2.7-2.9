@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S"
+  ],
+  "key": {
+    "S": {
+      "item": "hmh2:cork_brick_slab"
+    }
+  },
+  "result": {
+    "item": "hmh2:cork_bricks",
+    "count": 1
+  }
+}

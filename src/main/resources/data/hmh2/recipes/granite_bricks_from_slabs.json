@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S"
+  ],
+  "key": {
+    "S": {
+      "item": "hmh2:granite_brick_slab"
+    }
+  },
+  "result": {
+    "item": "hmh2:granite_bricks",
+    "count": 1
+  }
+}

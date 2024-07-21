@@ -100,7 +100,14 @@
     ],
     "underground_water_creature": [],
     "water_ambient": [],
-    "water_creature": []
+    "water_creature": [
+      {
+        "type": "hmh2:test",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 1
+      }
+    ]
   },
   "temperature": 2.0
 }

@@ -75,12 +75,6 @@ public class MagmiteEntity extends HostileEntity {
 
     public MagmiteEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.setCustomName(Text.empty());
-    }
-
-    @Override
-    public float getNameLabelHeight() {
-        return 0.2f;
     }
 
     private void setupAnimationStates(){

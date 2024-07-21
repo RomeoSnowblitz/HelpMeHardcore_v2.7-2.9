@@ -14,9 +14,7 @@ public class LifeEssence extends Heart {
     }
 
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        super.finishUsing(stack, world, user);
-        if (user instanceof ServerPlayerEntity) {
-            ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity)user;
+        if (user instanceof ServerPlayerEntity serverPlayerEntity) {
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
         }
@@ -31,8 +29,7 @@ public class LifeEssence extends Heart {
                 serverPlayer.incrementStat(Stats.CUSTOM.getOrCreateStat(ModStats.REVIVAL_DISCOUNT));
             }
         }
-
-        return stack;
+        return super.finishUsing(stack, world, user);
     }
 
 }

@@ -21,14 +21,11 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
-import net.romeosnowblitz.hmh2.item.custom.armor.AquaticCharismaArmorItem;
 import net.romeosnowblitz.hmh2.item.custom.armor.VoidSightArmorItem;
 
 public class QuaeritePerk

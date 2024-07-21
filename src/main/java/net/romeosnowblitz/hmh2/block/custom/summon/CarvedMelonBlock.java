@@ -47,7 +47,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.entity.ModEntities;
-import net.romeosnowblitz.hmh2.entity.cal.CalEntity;
+import net.romeosnowblitz.hmh2.entity.passive.cal.CalEntity;
 
 import java.util.function.Predicate;
 

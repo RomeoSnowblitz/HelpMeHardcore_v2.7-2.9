@@ -9,7 +9,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
-import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeEntity;
+import net.romeosnowblitz.hmh2.entity.boss.soldier_bee.SoldierBeeEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

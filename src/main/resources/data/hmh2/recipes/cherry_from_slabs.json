@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S"
+  ],
+  "key": {
+    "S": {
+      "item": "hmh2:cherry_slab"
+    }
+  },
+  "result": {
+    "item": "hmh2:cherry_planks",
+    "count": 1
+  }
+}

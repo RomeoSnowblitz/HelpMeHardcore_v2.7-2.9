@@ -1,6 +1,33 @@
 {
-  "parent": "item/handheld",
+  "credit": "Made by Bottetoundra719",
+  "parent": "minecraft:item/handheld",
   "textures": {
     "layer0": "hmh2:item/boneclub"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [-126.98, -88.7, -77.07],
+      "translation": [0, 15.75, 0],
+      "scale": [2, 2, 2]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [-126.98, -88.7, -77.07],
+      "translation": [0, 15.75, 0],
+      "scale": [2, 2, 2]
+    },
+    "firstperson_righthand": {
+      "rotation": [-180, -73.25, 175],
+      "translation": [0, -2.75, 0],
+      "scale": [2, 2, 2]
+    },
+    "firstperson_lefthand": {
+      "rotation": [-180, -73.25, 175],
+      "translation": [0, -5.5, 0],
+      "scale": [2, 2, 2]
+    },
+    "ground": {
+      "translation": [0, 7.25, 0],
+      "scale": [1.5, 1.5, 1.5]
+    }
   }
 }

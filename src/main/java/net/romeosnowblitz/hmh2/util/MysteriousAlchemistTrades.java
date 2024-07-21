@@ -39,22 +39,6 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(Items.DEAD_BUSH, 1),
                             64,1,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.SPONGE, 1),
-                            new ItemStack(ModItems.MYSTERIOUS_WHITE_DEBRIS, 1),
-                            64,1,0.0f));
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.MYSTERIOUS_WHITE_DEBRIS, 1),
-                            new ItemStack(Items.SPONGE, 1),
-                            64,1,0.0f));
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.WET_SPONGE, 1),
-                            new ItemStack(ModItems.MYSTERIOUS_WHITE_DEBRIS, 1),
-                            64,1,0.0f));
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.MYSTERIOUS_WHITE_DEBRIS, 1),
-                            new ItemStack(Items.WET_SPONGE, 1),
-                            64,1,0.0f));
-                    factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.SPORE_BLOSSOM, 1),
                             new ItemStack(ModItems.MYSTERIOUS_WHITE_DEBRIS, 1),
                             64,1,0.0f));
@@ -1180,12 +1164,12 @@ public class MysteriousAlchemistTrades extends ModRegistries{
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,1,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.MOJANG_BANNER_PATTERN, 1),
+                            new ItemStack(Items.ENCHANTED_GOLDEN_APPLE, 1),
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
                             64,1,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.MYSTERIOUS_MAGENTA_DEBRIS, 1),
-                            new ItemStack(Items.MOJANG_BANNER_PATTERN, 1),
+                            new ItemStack(Items.ENCHANTED_GOLDEN_APPLE, 1),
                             64,1,0.0f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.DEBUG_STICK, 1),

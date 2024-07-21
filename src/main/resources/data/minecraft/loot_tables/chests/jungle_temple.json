@@ -2,22 +2,6 @@
   "type": "minecraft:chest",
   "pools": [
     {
-      "type": "minecraft:item",
-      "weight": 1,
-      "functions": [
-        {
-          "function": "minecraft:set_count",
-          "count": {
-            "type": "minecraft:uniform",
-            "min": 1.0,
-            "max": 4.0
-          },
-          "add": false
-        }
-      ],
-      "name": "hmh2:midas_seeds"
-    },
-    {
       "bonus_rolls": 0.0,
       "entries": [
         {
@@ -35,6 +19,22 @@
           ],
           "name": "minecraft:diamond",
           "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1.0,
+                "max": 4.0
+              },
+              "add": false
+            }
+          ],
+          "name": "hmh2:midas_seeds"
         },
         {
           "type": "minecraft:item",

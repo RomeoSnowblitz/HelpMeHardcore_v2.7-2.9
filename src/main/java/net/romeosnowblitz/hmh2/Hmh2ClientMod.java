@@ -18,16 +18,22 @@ import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
 import net.romeosnowblitz.hmh2.blotty.ModBlockEntities;
 import net.romeosnowblitz.hmh2.entity.ModEntities;
-import net.romeosnowblitz.hmh2.entity.blazing_inferno.BlazingInfernoModel;
-import net.romeosnowblitz.hmh2.entity.blazing_inferno.BlazingInfernoRenderer;
-import net.romeosnowblitz.hmh2.entity.cal.CalModel;
-import net.romeosnowblitz.hmh2.entity.cal.CalRenderer;
-import net.romeosnowblitz.hmh2.entity.demon.DemonModel;
-import net.romeosnowblitz.hmh2.entity.demon.DemonRenderer;
-import net.romeosnowblitz.hmh2.entity.headless_horseman.HeadlessHorsemanModel;
-import net.romeosnowblitz.hmh2.entity.headless_horseman.HeadlessHorsemanRenderer;
-import net.romeosnowblitz.hmh2.entity.lost_soul.LostSoulModel;
-import net.romeosnowblitz.hmh2.entity.lost_soul.LostSoulRenderer;
+import net.romeosnowblitz.hmh2.entity.boss.blazing_inferno.BlazingInfernoModel;
+import net.romeosnowblitz.hmh2.entity.boss.blazing_inferno.BlazingInfernoRenderer;
+import net.romeosnowblitz.hmh2.entity.boss.kraken.KrakenModel;
+import net.romeosnowblitz.hmh2.entity.boss.kraken.KrakenRenderer;
+import net.romeosnowblitz.hmh2.entity.fish.lava.LavaFishModel;
+import net.romeosnowblitz.hmh2.entity.fish.lava.LavaFishRenderer;
+import net.romeosnowblitz.hmh2.entity.passive.cal.CalModel;
+import net.romeosnowblitz.hmh2.entity.passive.cal.CalRenderer;
+import net.romeosnowblitz.hmh2.entity.monster.demon.DemonModel;
+import net.romeosnowblitz.hmh2.entity.monster.demon.DemonRenderer;
+import net.romeosnowblitz.hmh2.entity.fish.water.PiranhaModel;
+import net.romeosnowblitz.hmh2.entity.fish.water.PiranhaRenderer;
+import net.romeosnowblitz.hmh2.entity.boss.headless_horseman.HeadlessHorsemanModel;
+import net.romeosnowblitz.hmh2.entity.boss.headless_horseman.HeadlessHorsemanRenderer;
+import net.romeosnowblitz.hmh2.entity.monster.lost_soul.LostSoulModel;
+import net.romeosnowblitz.hmh2.entity.monster.lost_soul.LostSoulRenderer;
 import net.romeosnowblitz.hmh2.entity.mites.ashmite.AshmiteModel;
 import net.romeosnowblitz.hmh2.entity.mites.ashmite.AshmiteRenderer;
 import net.romeosnowblitz.hmh2.entity.mites.bloodmite.BloodmiteModel;
@@ -38,22 +44,24 @@ import net.romeosnowblitz.hmh2.entity.mites.magmite.MagmiteModel;
 import net.romeosnowblitz.hmh2.entity.mites.magmite.MagmiteRenderer;
 import net.romeosnowblitz.hmh2.entity.mites.warpmite.WarpmiteModel;
 import net.romeosnowblitz.hmh2.entity.mites.warpmite.WarpmiteRenderer;
-import net.romeosnowblitz.hmh2.entity.penguin.PenguinModel;
-import net.romeosnowblitz.hmh2.entity.penguin.PenguinRenderer;
+import net.romeosnowblitz.hmh2.entity.passive.penguin.PenguinModel;
+import net.romeosnowblitz.hmh2.entity.passive.penguin.PenguinRenderer;
 import net.romeosnowblitz.hmh2.entity.mites.sculkmite.SculkmiteModel;
 import net.romeosnowblitz.hmh2.entity.mites.sculkmite.SculkmiteRenderer;
-import net.romeosnowblitz.hmh2.entity.projectile.ModProjectileModel;
-import net.romeosnowblitz.hmh2.entity.projectile.ModProjectileRenderer;
-import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeModel;
-import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeRenderer;
-import net.romeosnowblitz.hmh2.entity.queen_bee.QueenBeeModel;
-import net.romeosnowblitz.hmh2.entity.queen_bee.QueenBeeRenderer;
-import net.romeosnowblitz.hmh2.entity.shadow_creature.ShadowCreatureModel;
-import net.romeosnowblitz.hmh2.entity.shadow_creature.ShadowCreatureRenderer;
-import net.romeosnowblitz.hmh2.entity.the_great_hunger.TheGreatHungerModel;
-import net.romeosnowblitz.hmh2.entity.the_great_hunger.TheGreatHungerRenderer;
-import net.romeosnowblitz.hmh2.entity.wisp.WispModel;
-import net.romeosnowblitz.hmh2.entity.wisp.WispRenderer;
+import net.romeosnowblitz.hmh2.entity.projectiles.magicflame.MagicFlameProjectileModel;
+import net.romeosnowblitz.hmh2.entity.projectiles.magicflame.MagicFlameProjectileRenderer;
+import net.romeosnowblitz.hmh2.entity.boss.soldier_bee.SoldierBeeModel;
+import net.romeosnowblitz.hmh2.entity.boss.soldier_bee.SoldierBeeRenderer;
+import net.romeosnowblitz.hmh2.entity.boss.queen_bee.QueenBeeModel;
+import net.romeosnowblitz.hmh2.entity.boss.queen_bee.QueenBeeRenderer;
+import net.romeosnowblitz.hmh2.entity.monster.shadow_creature.ShadowCreatureModel;
+import net.romeosnowblitz.hmh2.entity.monster.shadow_creature.ShadowCreatureRenderer;
+import net.romeosnowblitz.hmh2.entity.monster.the_great_hunger.TheGreatHungerModel;
+import net.romeosnowblitz.hmh2.entity.monster.the_great_hunger.TheGreatHungerRenderer;
+import net.romeosnowblitz.hmh2.entity.passive.wisp.WispModel;
+import net.romeosnowblitz.hmh2.entity.passive.wisp.WispRenderer;
+import net.romeosnowblitz.hmh2.entity.test.TestModel;
+import net.romeosnowblitz.hmh2.entity.test.TestRenderer;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.keys.KeyInputHandler;
 import net.romeosnowblitz.hmh2.particle.ModParticleTypes;
@@ -64,7 +72,6 @@ import net.romeosnowblitz.hmh2.util.ModWoodTypes;
 
 public class Hmh2ClientMod implements ClientModInitializer {
 
-    @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PURPLE_TORCH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WALL_PURPLE_TORCH, RenderLayer.getCutout());
@@ -279,11 +286,16 @@ public class Hmh2ClientMod implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(WispModel.WISP, WispModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.WISP, WispRenderer::new);
 
-        EntityModelLayerRegistry.registerModelLayer(ModProjectileModel.MOD_PROJECTILE, ModProjectileModel::getTexturedModelData);
-        EntityRendererRegistry.register(ModEntities.MOD_PROJECTILE, ModProjectileRenderer::new);
-
-
-
+        EntityModelLayerRegistry.registerModelLayer(TestModel.TEST, TestModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.TEST, TestRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(LavaFishModel.LAVA_FISH, LavaFishModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.LAVA_FISH, LavaFishRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(PiranhaModel.PIRANHA, PiranhaModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.PIRANHA, PiranhaRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(KrakenModel.KRAKEN, KrakenModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.KRAKEN, KrakenRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(MagicFlameProjectileModel.MOD_PROJECTILE, MagicFlameProjectileModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.MOD_PROJECTILE, MagicFlameProjectileRenderer::new);
 
         KeyInputHandler.register();
         ModNetworking.registerS2CPackets();

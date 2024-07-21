@@ -11,6 +11,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.custom.block.pumice.*;
+import net.romeosnowblitz.hmh2.block.custom.test.ModBlockItem;
 
 public class DecorationBlocks {
     public static final Block CORK_BLOCK = registerBlock("cork_block", new Block(FabricBlockSettings.create().strength(1.0f)));
@@ -134,7 +135,7 @@ public class DecorationBlocks {
     public static final Block SNOW_BRICK_WALL = registerBlock("snow_brick_wall", new WallBlock(FabricBlockSettings.create().strength(0.5f).requiresTool()));
 
     private static Block registerBlock(String name, Block block) {
-        Registry.register((Registries.ITEM), new Identifier(Hmh2.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
+        Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), new ModBlockItem(block, new FabricItemSettings(), name));
         return Registry.register(Registries.BLOCK, new Identifier(Hmh2.MOD_ID, name), block);
     }
 }

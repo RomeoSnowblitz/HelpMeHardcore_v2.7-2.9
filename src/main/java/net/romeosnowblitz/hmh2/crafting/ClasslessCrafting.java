@@ -18,16 +18,14 @@ public class ClasslessCrafting extends Item {
         this.result = result;
     }
 
-    public static Boolean customCraft (PlayerEntity player){return player.isSneaking() && player.hasStatusEffect(CustomEffects.NORMIE);}
-
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if(entity instanceof PlayerEntity player){
             ItemStack offhand = player.getStackInHand(Hand.OFF_HAND);ItemStack mainhand = player.getStackInHand(Hand.MAIN_HAND);
-            if(mainhand.isOf(this) && offhand.isOf(ingredient) && customCraft(player)){
+            if(mainhand.isOf(this) && offhand.isOf(ingredient) && player.isSneaking()){
                 mainhand.decrement(1);offhand.decrement(1);player.giveItemStack(result.getDefaultStack());
             }
-            if(offhand.isOf(this) && mainhand.isOf(ingredient) && customCraft(player)){
+            if(offhand.isOf(this) && mainhand.isOf(ingredient) && player.isSneaking()){
                 mainhand.decrement(1);offhand.decrement(1);player.giveItemStack(result.getDefaultStack());
             }
         }

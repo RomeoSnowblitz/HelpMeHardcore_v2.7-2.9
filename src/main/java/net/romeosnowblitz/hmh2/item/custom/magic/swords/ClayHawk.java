@@ -3,6 +3,7 @@ package net.romeosnowblitz.hmh2.item.custom.magic.swords;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -16,8 +17,10 @@ public class ClayHawk extends SwordItem {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if(attacker.getMainHandStack().isOf(this) && stack.getDamage()==this.getMaxDamage()-2){
-            attacker.setStackInHand(attacker.getActiveHand(), WarfareItems.HAWKBRAND.getDefaultStack());
+        if(attacker.getMainHandStack().isOf(this) && stack.getDamage() == this.getMaxDamage()-2){
+            attacker.dropItem(WarfareItems.HAWKBRAND);
+            attacker.getMainHandStack().decrement(1);
+            //attacker.playSound(SoundEvents.Break);
         }
         return super.postHit(stack, target, attacker);
     }

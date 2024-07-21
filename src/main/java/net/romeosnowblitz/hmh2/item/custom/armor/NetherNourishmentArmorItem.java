@@ -23,7 +23,7 @@ public class NetherNourishmentArmorItem extends ArmorItem {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (entity instanceof PlayerEntity player) {
             LivingEntity attackingEntity = player.getLastAttacker();
-            if (numberOfArmorPieces(player)>0 && attackingEntity != null && attackingEntity != player) {t++;
+            if (numberOfArmorPieces(player)>0 && attackingEntity != null) {t++;
                 if (attackingEntity.getMainHandStack().isIn(ModItemTags.ARIAL_CHARISMA_ITEM)) {
                     armorStrengthHeal(player, 4);
                 }

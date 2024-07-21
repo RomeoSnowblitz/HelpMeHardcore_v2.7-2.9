@@ -26,13 +26,13 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    }
-  },
-  "class_effect": {
-    "trigger": "minecraft:effects_changed",
-    "conditions": {
-      "effects": {
-        "hmh2:necromancer": {}
+    },
+    "class_effect": {
+      "trigger": "minecraft:effects_changed",
+      "conditions": {
+        "effects": {
+          "hmh2:necromancer": {}
+        }
       }
     }
   },

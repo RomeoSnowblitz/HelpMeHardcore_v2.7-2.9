@@ -19,8 +19,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.entity.ModEntities;
-import net.romeosnowblitz.hmh2.entity.queen_bee.QueenBeeEntity;
-import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeEntity;
+import net.romeosnowblitz.hmh2.entity.boss.queen_bee.QueenBeeEntity;
+import net.romeosnowblitz.hmh2.entity.boss.soldier_bee.SoldierBeeEntity;
 
 import java.util.function.Predicate;
 

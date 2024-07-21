@@ -19,6 +19,7 @@ public class AshmiteModel<T extends AshmiteEntity> extends SinglePartEntityModel
         this.ashmite = root.getChild("ashmite");
         this.head = ashmite.getChild("head");
     }
+
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();

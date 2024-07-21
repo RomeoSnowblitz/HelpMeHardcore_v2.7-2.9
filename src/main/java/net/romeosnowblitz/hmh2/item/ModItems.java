@@ -6,9 +6,11 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.Direction;
 import net.romeosnowblitz.hmh2.Hmh2;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
@@ -17,15 +19,27 @@ import net.romeosnowblitz.hmh2.entity.ModEntities;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.item.custom.dyes.*;
 import net.romeosnowblitz.hmh2.item.custom.food.*;
-import net.romeosnowblitz.hmh2.item.custom.test.ClassResetter;
-import net.romeosnowblitz.hmh2.item.custom.test.PurpleTorch;
-import net.romeosnowblitz.hmh2.item.custom.test.TravelersDream;
+import net.romeosnowblitz.hmh2.item.custom.test.*;
 import net.romeosnowblitz.hmh2.item.custom.tools.*;
+import net.romeosnowblitz.hmh2.potion.EndPortalBottle;
+import net.romeosnowblitz.hmh2.potion.NetherPortalBottle;
 import net.romeosnowblitz.hmh2.sounds.ModSounds;
 
-import static net.minecraft.item.Items.BUCKET;
+import static net.minecraft.item.Items.*;
 
 public class ModItems {
+
+    public static final Item SAMPLE = registerItem("sample", new SampleItem(new FabricItemSettings().maxCount(1)));
+    public static final Item HEART_OF_THE_KRAKEN = registerItem("heart_of_the_kraken", new KrakenHeart(new FabricItemSettings().food(new FoodComponent.Builder().hunger(0).build())));
+    public static final Item BLOOD_COMPASS = registerItem("blood_compass", new BloodCompass(new FabricItemSettings().maxCount(1)));
+    public static final Item FLOWER_CROWN = registerItem("flower_crown", new FlowerCrown(ModArmorMaterials.FLOWER, ArmorItem.Type.HELMET, new FabricItemSettings().maxDamage(1)));
+
+    public static final Item NETHER_PORTAL_BOTTLE = registerItem("nether_portal_bottle", new NetherPortalBottle(40, SoundEvents.ITEM_HONEY_BOTTLE_DRINK, Items.GLASS_BOTTLE.getDefaultStack(), new FabricItemSettings().maxCount(1).food(new FoodComponent.Builder().build())));
+    public static final Item END_PORTAL_BOTTLE = registerItem("end_portal_bottle", new EndPortalBottle(40, SoundEvents.ITEM_HONEY_BOTTLE_DRINK, Items.GLASS_BOTTLE.getDefaultStack(), new FabricItemSettings().maxCount(1).food(new FoodComponent.Builder().build())));
+    public static final Item LURED_ROD = registerItem("lured_rod", new FishingRodItem(new FabricItemSettings()));
+
+    //NewItem
+    public static final Item TEST = registerItem("test", new LootBox(new FabricItemSettings()));
 
     public static final Item PURPLE_TORCH_ITEM = registerItem("purple_torch_item", new PurpleTorch(ModBlocks.PURPLE_TORCH, ModBlocks.WALL_PURPLE_TORCH, new Item.Settings(), Direction.DOWN));
     public static final Item LAMP_TORCH_ITEM = registerItem("lamp_torch_item", new VerticallyAttachableBlockItem(ModBlocks.LAMP_TORCH, ModBlocks.LAMP_WALL_TORCH, new Item.Settings(), Direction.DOWN));
@@ -34,15 +48,10 @@ public class ModItems {
     public static final Item LIFE_ESSENCE = registerItem("life_essence", new LifeEssence(new FabricItemSettings().food(new FoodComponent.Builder().hunger(0).saturationModifier(-1f).alwaysEdible().snack().build())));
     public static final Item WITHER_BONE = registerItem("wither_bone", new Item(new FabricItemSettings()));
 
-    //あなたの名前
-    /*/ModEvents
-    public static final Item TEST_ITEM = registerItem("test_item", new TestItem(10, 1, 10, new Item.Settings().maxDamage(1000)));
-     */
-
     public static final Item SERVER_KEY = registerItem("server_key", new Item(new FabricItemSettings()));
     //public static final Item NEW_ITEM = registerItem("new_item", new PlusOne(new FabricItemSettings()));
 
-    public static final Item UMBRELLA = registerItem("umbrella", new Umbrella(new FabricItemSettings().maxDamage(100)));
+    public static final Item UMBRELLA = registerItem("umbrella", new Umbrella(ModToolMaterials.MOD_IRON, 1, 1, new FabricItemSettings().maxDamage(100)));
     public static final Item WAXED_CLOTH = registerItem("waxed_cloth", new Item(new FabricItemSettings()));
     public static final Item WARPED_WART = registerItem("warped_wart", new Item(new FabricItemSettings()));
     public static final Item PITCHFORK = registerItem("pitchfork", new SwordItem(ToolMaterials.IRON, 4, -2.9f, new FabricItemSettings()));
@@ -52,15 +61,15 @@ public class ModItems {
     public static final Item SOLAR_FRAGMENT = registerItem("solar_fragment", new Item(new FabricItemSettings().fireproof()));
 
     //New Items
-    public static final Item SUN_SEEKER = registerItem("sun_seeker", new SunSeeker(new FabricItemSettings()));
-    public static final Item SUN_STONE = registerItem("sun_stone", new SunStone(new FabricItemSettings()));
-    public static final Item REVIVAL_INGOT = registerItem("revival_ingot", new Item(new FabricItemSettings().maxCount(1)));
-    public static final Item REVIVAL_STONE = registerItem("revival_stone", new RevivalStone(new FabricItemSettings().maxCount(1)));
-    public static final Item UNIVERSAL_REVIVAL_STONE = registerItem("universal_revival_stone", new UniversalRevivalStone(new FabricItemSettings().maxCount(1)));
+    public static final Item SUN_SEEKER = registerItem("sun_seeker", new SunSeeker(new FabricItemSettings().fireproof()));
+    public static final Item SUN_STONE = registerItem("sun_stone", new SunStone(new FabricItemSettings().fireproof()));
+    public static final Item REVIVAL_INGOT = registerItem("revival_ingot", new Item(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item REVIVAL_STONE = registerItem("revival_stone", new RevivalStone(new FabricItemSettings().maxCount(1).fireproof()));
+    public static final Item UNIVERSAL_REVIVAL_STONE = registerItem("universal_revival_stone", new UniversalRevivalStone(new FabricItemSettings().maxCount(1).fireproof()));
     public static final Item GLUE = registerItem("glue", new Item(new FabricItemSettings()));
     public static final Item FLOUR = registerItem("flour", new Item(new FabricItemSettings()));
-    public static final Item DISC_FRAGMENT = registerItem("disc_fragment", new Disc_Fragment(new FabricItemSettings()));
-    public static final Item NULL_PASSER = registerItem("null_passer", new NullPasser(new FabricItemSettings().maxDamage(16)));
+    public static final Item DISC_FRAGMENT = registerItem("disc_fragment", new Disc_Fragment(new FabricItemSettings().fireproof()));
+    public static final Item NULL_PASSER = registerItem("null_passer", new NullPasser(new FabricItemSettings().maxDamage(16).fireproof()));
 
     //Bows
     public static final Item BAMBOO_BOW = registerItem("bamboo_bow", new BowItem(new FabricItemSettings().maxDamage(192)));
@@ -82,6 +91,7 @@ public class ModItems {
     //Obtained from Smelting (3)
     public static final Item ASHES = registerItem("ashes", new Item(new FabricItemSettings()));
     public static final Item BURNT_EGGSHELL = registerItem("burnt_eggshell", new Item(new FabricItemSettings()));
+    public static final Item GALLIUM_INGOT = registerItem("gallium_ingot", new Item(new FabricItemSettings()));
     public static final Item HEAVY_CREAM = registerItem("heavy_cream", new Item(new FabricItemSettings()));
     public static final Item PLASTIC = registerItem("plastic", new Item(new FabricItemSettings()));
     public static final Item PLATINUM_INGOT = registerItem("platinum_ingot", new Item(new FabricItemSettings()));
@@ -219,6 +229,41 @@ public class ModItems {
         return Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), item);
     }
 
+    public static final Item ASDFG =
+            Registry.register(
+                    Registries.ITEM,
+                    new Identifier(Hmh2.MOD_ID, "asdfg"),
+                    new DecreasingItem(new FabricItemSettings()) {public String getTranslationKey() {return "Asdfg";}}
+            );
+
+    public static final Item ASDF = registerNewItem("asdf", new Item(new FabricItemSettings()));
+
+    private static Item registerNewItem(String name, Item item) {
+        String x = "asdf";
+        if(item.getTranslationKey()==null){
+            String b = Util.createTranslationKey(langName(name), new Identifier(Hmh2.MOD_ID));
+            //x = langName(b);
+        }
+        return Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, x), item);
+    }
+
+    public static String langName(String lang) {
+        StringBuilder result = new StringBuilder();
+        boolean capitalize = true;
+        for (char character : lang.toCharArray()) {
+            if (character == '_') {
+                result.append(' ');
+                capitalize = true;
+            } else if (capitalize) {
+                result.append(Character.toUpperCase(character));
+                capitalize = false;
+            } else {
+                result.append(character);
+            }
+        }
+        return result.toString();
+    }
+    
     public static void registerModItems() {
 
     }

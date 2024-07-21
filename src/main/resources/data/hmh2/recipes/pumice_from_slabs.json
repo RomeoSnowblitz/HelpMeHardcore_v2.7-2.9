@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S"
+  ],
+  "key": {
+    "S": {
+      "item": "hmh2:pumice_slab"
+    }
+  },
+  "result": {
+    "item": "hmh2:pumice",
+    "count": 1
+  }
+}

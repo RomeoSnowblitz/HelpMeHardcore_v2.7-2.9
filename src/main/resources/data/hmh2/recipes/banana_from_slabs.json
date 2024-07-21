@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S"
+  ],
+  "key": {
+    "S": {
+      "item": "hmh2:banana_slab"
+    }
+  },
+  "result": {
+    "item": "hmh2:banana_planks",
+    "count": 1
+  }
+}

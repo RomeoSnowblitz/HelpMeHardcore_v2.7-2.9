@@ -25,7 +25,7 @@ public class NetherSightArmorItem extends ArmorItem {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (entity instanceof PlayerEntity player) {
             LivingEntity attackingEntity = player.getLastAttacker();
-            if (numberOfArmorPieces(player)>0 && attackingEntity != null && attackingEntity != player) {t++;
+            if (numberOfArmorPieces(player)>0 && attackingEntity != null) {t++;
                 if (attackingEntity.getMainHandStack().isIn(ModItemTags.ARIAL_NOURISHMENT_ITEM)) {
                     armorStrengthHeal(player, 4);
                 }
@@ -60,14 +60,14 @@ public class NetherSightArmorItem extends ArmorItem {
     }
 
     public void armorStrengthHeal(PlayerEntity player, int heal){
-        player.sendMessage(Text.literal(String.valueOf(t)).formatted(Formatting.RED));
         if(t*numberOfArmorPieces(player) >= 192){t=0;
             player.heal(heal);
         }
     }
 
     public void armorWeaknessAttack(World world, PlayerEntity player, int damage) {
-        if (player.getLastAttacker() != null) {
+        Entity entity = player.getLastAttacker();
+        if (entity != null) {
             if(player.getEquippedStack(EquipmentSlot.HEAD).isOf(this)){
                 player.getEquippedStack(EquipmentSlot.HEAD).damage(numberOfArmorPieces(player), player,  (p) -> p.sendEquipmentBreakStatus(EquipmentSlot.HEAD));}
             if(player.getEquippedStack(EquipmentSlot.CHEST).isOf(this)){
@@ -79,9 +79,9 @@ public class NetherSightArmorItem extends ArmorItem {
         }
         if(numberOfArmorPieces(player)==4){
             player.damage(world.getDamageSources().create(ModDamageTypes.KILLED_BY_ARMOR_WEAKNESS, player), damage*2);
-            player.damage(world.getDamageSources().create(ModDamageTypes.KILLED_BY_ARMOR_WEAKNESS, player.getLastAttacker()), damage*2);
+            player.damage(world.getDamageSources().create(ModDamageTypes.KILLED_BY_ARMOR_WEAKNESS, entity), damage*2);
         } else {
-            player.damage(world.getDamageSources().create(ModDamageTypes.KILLED_BY_ARMOR_WEAKNESS, player), damage*numberOfArmorPieces(player));
+            player.damage(world.getDamageSources().create(ModDamageTypes.KILLED_BY_ARMOR_WEAKNESS, entity), damage*numberOfArmorPieces(player));
         }
     }
 

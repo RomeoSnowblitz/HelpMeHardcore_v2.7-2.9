@@ -17,15 +17,21 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.romeosnowblitz.hmh2.Hmh2;
+import net.romeosnowblitz.hmh2.block.custom.test.ModBlockItem;
 import net.romeosnowblitz.hmh2.blotty.ModHangingSignBlockEntity;
 import net.romeosnowblitz.hmh2.blotty.ModSignBlockEntity;
 import net.romeosnowblitz.hmh2.util.ModWoodTypes;
-import org.jetbrains.annotations.Nullable;
 
 public class WoodworkBlocks {
 
+    //cannot convert .json
+    public static final Block JAIZ_SAPLING = registerBlock("jaiz_sapling", new SaplingBlock(new SaplingGenerator() {
+        @Override protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
+            return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, new Identifier(Hmh2.MOD_ID, "jaiz_config"));}},
+            FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
+
     //Trees (16)
-    public static final Block BANANA_SAPLING = registerBlock("banana_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
+    public static final Block BANANA_SAPLING = registerBlock("banana_sapling", new SaplingBlock(new SaplingGenerator() {@Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
             new Identifier(Hmh2.MOD_ID, "tree_banana"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block BANANA_LOG = registerBlock("banana_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
@@ -52,7 +58,7 @@ public class WoodworkBlocks {
     {public BlockEntity createBlockEntity(BlockPos pos, BlockState state){return new ModHangingSignBlockEntity(pos, state);}}, false);
 
 
-    public static final Block CHERRY_SAPLING = registerBlock ("cherry_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
+    public static final Block CHERRY_SAPLING = registerBlock ("cherry_sapling", new SaplingBlock(new SaplingGenerator() {@Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
             new Identifier(Hmh2.MOD_ID, "tree_cherry"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block CHERRY_LOG = registerBlock("cherry_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
@@ -78,7 +84,7 @@ public class WoodworkBlocks {
     public static final Block CHERRY_HANGING_WALL_SIGN = registerBlock("cherry_hanging_wall_sign", new WallHangingSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.CHERRY)
     {public BlockEntity createBlockEntity(BlockPos pos, BlockState state){return new ModHangingSignBlockEntity(pos, state);}}, false);
 
-    public static final Block CORK_OAK_SAPLING = registerBlock("cork_oak_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
+    public static final Block CORK_OAK_SAPLING = registerBlock("cork_oak_sapling", new SaplingBlock(new SaplingGenerator() {@Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
             new Identifier(Hmh2.MOD_ID, "tree_cork_oak"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block CORK_OAK_LOG = registerBlock("cork_oak_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
@@ -104,7 +110,7 @@ public class WoodworkBlocks {
     public static final Block CORK_OAK_HANGING_WALL_SIGN = registerBlock("cork_oak_hanging_wall_sign", new WallHangingSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.CORK_OAK)
     {public BlockEntity createBlockEntity(BlockPos pos, BlockState state){return new ModHangingSignBlockEntity(pos, state);}}, false);
 
-    public static final Block JACARANDA_SAPLING = registerBlock("jacaranda_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
+    public static final Block JACARANDA_SAPLING = registerBlock("jacaranda_sapling", new SaplingBlock(new SaplingGenerator() {@Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
             new Identifier(Hmh2.MOD_ID, "tree_jacaranda"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block JACARANDA_LOG = registerBlock("jacaranda_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
@@ -130,7 +136,7 @@ public class WoodworkBlocks {
     public static final Block JACARANDA_HANGING_WALL_SIGN = registerBlock("jacaranda_hanging_wall_sign", new WallHangingSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.JACARANDA)
     {public BlockEntity createBlockEntity(BlockPos pos, BlockState state){return new ModSignBlockEntity(pos, state);}}, false);
 
-    public static final Block MANGO_SAPLING = registerBlock("mango_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
+    public static final Block MANGO_SAPLING = registerBlock("mango_sapling", new SaplingBlock(new SaplingGenerator() {@Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
             new Identifier(Hmh2.MOD_ID, "tree_mango"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block MANGO_LOG = registerBlock("mango_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
@@ -156,7 +162,7 @@ public class WoodworkBlocks {
     public static final Block MANGO_HANGING_WALL_SIGN = registerBlock("mango_hanging_wall_sign", new WallHangingSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.MANGO)
     {public BlockEntity createBlockEntity(BlockPos pos, BlockState state){return new ModSignBlockEntity(pos, state);}}, false);
 
-    public static final Block MAHOE_SAPLING = registerBlock("mahoe_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
+    public static final Block MAHOE_SAPLING = registerBlock("mahoe_sapling", new SaplingBlock(new SaplingGenerator() {@Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
             new Identifier(Hmh2.MOD_ID, "tree_mahoe"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block MAHOE_LOG = registerBlock("mahoe_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
@@ -182,7 +188,7 @@ public class WoodworkBlocks {
     public static final Block MAHOE_HANGING_WALL_SIGN = registerBlock("mahoe_hanging_wall_sign", new WallHangingSignBlock(FabricBlockSettings.copy(Blocks.OAK_WALL_HANGING_SIGN), ModWoodTypes.MAHOE)
     {public BlockEntity createBlockEntity(BlockPos pos, BlockState state){return new ModSignBlockEntity(pos, state);}}, false);
 
-    public static final Block WILLOW_SAPLING = registerBlock("willow_sapling", new SaplingBlock(new SaplingGenerator() {@Nullable @Override
+    public static final Block WILLOW_SAPLING = registerBlock("willow_sapling", new SaplingBlock(new SaplingGenerator() {@Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE,
             new Identifier(Hmh2.MOD_ID, "tree_willow"));}}, FabricBlockSettings.create().ticksRandomly().sounds(BlockSoundGroup.GRASS).noCollision()), true);
     public static final Block WILLOW_LOG = registerBlock("willow_log", new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), true);
@@ -216,7 +222,7 @@ public class WoodworkBlocks {
     }
 
     private static Block registerBlock(String name, Block block, boolean item) {
-        if(item){Registry.register((Registries.ITEM), new Identifier(Hmh2.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));}
+        if(item){Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), new ModBlockItem(block, new FabricItemSettings(), name));}
         return Registry.register(Registries.BLOCK, new Identifier(Hmh2.MOD_ID, name), block);
     }
 

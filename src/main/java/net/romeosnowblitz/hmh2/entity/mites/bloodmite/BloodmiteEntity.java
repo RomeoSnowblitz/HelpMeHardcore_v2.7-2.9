@@ -67,12 +67,6 @@ public class BloodmiteEntity extends HostileEntity {
     private int idleAnimationTimeout = 0;
     public BloodmiteEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.setCustomName(Text.empty());
-    }
-
-    @Override
-    public float getNameLabelHeight() {
-        return 0.2f;
     }
 
     private void setupAnimationStates(){

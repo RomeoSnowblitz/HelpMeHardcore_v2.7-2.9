@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.romeosnowblitz.hmh2.Hmh2;
+import net.romeosnowblitz.hmh2.block.custom.test.ModBlockItem;
 
 public class ColoringBlocks {
     public static final Block BLUE_SPIDER_LILY = registerBlock("blue_spider_lily", new FlowerBlock(StatusEffects.LUCK, 12, FabricBlockSettings.copy(Blocks.DANDELION).breakInstantly().nonOpaque()));
@@ -68,7 +69,7 @@ public class ColoringBlocks {
     }
 
     private static Block registerBlock(String name, Block block) {
-        Registry.register((Registries.ITEM), new Identifier(Hmh2.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
+        Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), new ModBlockItem(block, new FabricItemSettings(), name));
         return Registry.register(Registries.BLOCK, new Identifier(Hmh2.MOD_ID, name), block);
     }
 }

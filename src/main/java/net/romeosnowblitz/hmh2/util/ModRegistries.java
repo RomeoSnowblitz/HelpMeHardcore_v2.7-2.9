@@ -8,12 +8,9 @@ import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTypes;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.text.Text;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.VillagerProfession;
 import net.romeosnowblitz.hmh2.Hmh2;
@@ -22,21 +19,25 @@ import net.romeosnowblitz.hmh2.block.DecorationBlocks;
 import net.romeosnowblitz.hmh2.block.ModBlocks;
 import net.romeosnowblitz.hmh2.block.WoodworkBlocks;
 import net.romeosnowblitz.hmh2.entity.ModEntities;
-import net.romeosnowblitz.hmh2.entity.blazing_inferno.BlazingInfernoEntity;
-import net.romeosnowblitz.hmh2.entity.cal.CalEntity;
-import net.romeosnowblitz.hmh2.entity.lost_soul.LostSoulEntity;
+import net.romeosnowblitz.hmh2.entity.boss.blazing_inferno.BlazingInfernoEntity;
+import net.romeosnowblitz.hmh2.entity.boss.kraken.KrakenEntity;
+import net.romeosnowblitz.hmh2.entity.fish.lava.LavaFishEntity;
+import net.romeosnowblitz.hmh2.entity.passive.cal.CalEntity;
+import net.romeosnowblitz.hmh2.entity.fish.water.PiranhaEntity;
+import net.romeosnowblitz.hmh2.entity.monster.lost_soul.LostSoulEntity;
 import net.romeosnowblitz.hmh2.entity.mites.ashmite.AshmiteEntity;
 import net.romeosnowblitz.hmh2.entity.mites.bloodmite.BloodmiteEntity;
 import net.romeosnowblitz.hmh2.entity.mites.hellmite.HellmiteEntity;
 import net.romeosnowblitz.hmh2.entity.mites.magmite.MagmiteEntity;
 import net.romeosnowblitz.hmh2.entity.mites.warpmite.WarpmiteEntity;
-import net.romeosnowblitz.hmh2.entity.penguin.PenguinEntity;
+import net.romeosnowblitz.hmh2.entity.passive.penguin.PenguinEntity;
 import net.romeosnowblitz.hmh2.entity.mites.sculkmite.SculkmiteEntity;
-import net.romeosnowblitz.hmh2.entity.soldier_bee.SoldierBeeEntity;
-import net.romeosnowblitz.hmh2.entity.queen_bee.QueenBeeEntity;
-import net.romeosnowblitz.hmh2.entity.shadow_creature.ShadowCreatureEntity;
-import net.romeosnowblitz.hmh2.entity.the_great_hunger.TheGreatHungerEntity;
-import net.romeosnowblitz.hmh2.entity.wisp.WispEntity;
+import net.romeosnowblitz.hmh2.entity.boss.soldier_bee.SoldierBeeEntity;
+import net.romeosnowblitz.hmh2.entity.boss.queen_bee.QueenBeeEntity;
+import net.romeosnowblitz.hmh2.entity.monster.shadow_creature.ShadowCreatureEntity;
+import net.romeosnowblitz.hmh2.entity.monster.the_great_hunger.TheGreatHungerEntity;
+import net.romeosnowblitz.hmh2.entity.passive.wisp.WispEntity;
+import net.romeosnowblitz.hmh2.entity.test.TestEntity;
 import net.romeosnowblitz.hmh2.item.ModItems;
 import net.romeosnowblitz.hmh2.item.SustenanceItems;
 import net.romeosnowblitz.hmh2.item.WarfareItems;
@@ -65,8 +66,6 @@ public class ModRegistries {
         registry.add(ModItemTags.FUEL_THREE_HUNDRED, 300);
         registry.add(ModItemTags.FUEL_SIXTEEN_THOUSAND, 16000);
     }
-
-
 
     public static void registerStrippables(){
         StrippableBlockRegistry.register(WoodworkBlocks.BANANA_LOG, WoodworkBlocks.STRIPPED_BANANA_LOG);
@@ -163,29 +162,43 @@ public class ModRegistries {
         FabricDefaultAttributeRegistry.register(ModEntities.THE_GREAT_HUNGER, TheGreatHungerEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.WARPMITE, WarpmiteEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.WISP, WispEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.TEST, TestEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.LAVA_FISH, LavaFishEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.PIRANHA, PiranhaEntity.setAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.KRAKEN, KrakenEntity.setAttributes());
     }
 
-    public static void antiBossFarm (int x, LivingEntity entity) {
-        x++; Random random = new Random(); int r = 5;
-        DamageSource source = entity.getRecentDamageSource();
-        if(source != null){
-            if(source.isOf(DamageTypes.IN_WALL) || source.isOf(DamageTypes.CRAMMING) || source.isOf(DamageTypes.HOT_FLOOR) ||
-                    source.isOf(DamageTypes.FREEZE) || source.isOf(DamageTypes.DROWN)){
+    public static boolean teleported = false;
+
+    public static void antiBossFarm (LivingEntity entity) {
+        Random random = new Random(); int r = 7;
+        if(entity.getHealth() > entity.getMaxHealth()-entity.getMaxHealth()/4 && !teleported){
+            teleported=true;
+            entity.teleport((random.nextInt(r*2)-r)+entity.getX(), entity.getY()+0.5, (random.nextInt(r*2)-r)+entity.getZ());
+        }
+        if (entity.getHealth() < entity.getMaxHealth()/2){
+            teleported=false;
+        }
+        if(!entity.getWorld().getBlockState(entity.getBlockPos().up()).isAir() && entity.getWorld().getTimeOfDay() % 20 == 0){
+            entity.teleport((random.nextInt(r*2)-r)+entity.getX(), entity.getY()+0.5, (random.nextInt(r*2)-r)+entity.getZ());
+            entity.heal(2);
+        }
+        Entity vehicle = entity.getVehicle();if(entity.hasVehicle()){vehicle.kill();}
+        if(entity.getRecentDamageSource() != null && entity.getWorld().getTimeOfDay() % 20 == 0){
+            if(entity.getRecentDamageSource().isOf(DamageTypes.IN_WALL) || entity.getRecentDamageSource().isOf(DamageTypes.CRAMMING) || entity.getRecentDamageSource().isOf(DamageTypes.HOT_FLOOR) ||
+                    entity.getRecentDamageSource().isOf(DamageTypes.FREEZE) || entity.getRecentDamageSource().isOf(DamageTypes.DROWN)){
                 entity.teleport((random.nextInt(r*2)-r)+entity.getX(), entity.getY()+0.5, (random.nextInt(r*2)-r)+entity.getZ());
                 entity.heal(2);
             }
-            if(source.isOf(DamageTypes.MOB_PROJECTILE) || source.isOf(DamageTypes.MOB_ATTACK_NO_AGGRO) ||
-                    source.isOf(DamageTypes.CACTUS) || source.isOf(DamageTypes.MOB_ATTACK)) {
+            if(entity.getRecentDamageSource().isOf(DamageTypes.MOB_PROJECTILE) || entity.getRecentDamageSource().isOf(DamageTypes.MOB_ATTACK_NO_AGGRO) ||
+                    entity.getRecentDamageSource().isOf(DamageTypes.CACTUS) || entity.getRecentDamageSource().isOf(DamageTypes.MOB_ATTACK)) {
                 entity.heal(10);
             }
-            if(source.isOf(DamageTypes.STALAGMITE) || source.isOf(DamageTypes.SONIC_BOOM) || source.isOf(DamageTypes.EXPLOSION) ||
-                    source.isOf(DamageTypes.MAGIC) || source.isOf(DamageTypes.LIGHTNING_BOLT) || source.isOf(DamageTypes.INDIRECT_MAGIC) ||
-                    source.isOf(DamageTypes.FALLING_ANVIL) || source.isOf(DamageTypes.DRAGON_BREATH) || source.isOf(DamageTypes.BAD_RESPAWN_POINT)){
+            if(entity.getRecentDamageSource().isOf(DamageTypes.STALAGMITE) || entity.getRecentDamageSource().isOf(DamageTypes.SONIC_BOOM) || entity.getRecentDamageSource().isOf(DamageTypes.EXPLOSION) ||
+                    entity.getRecentDamageSource().isOf(DamageTypes.MAGIC) || entity.getRecentDamageSource().isOf(DamageTypes.LIGHTNING_BOLT) || entity.getRecentDamageSource().isOf(DamageTypes.INDIRECT_MAGIC) ||
+                    entity.getRecentDamageSource().isOf(DamageTypes.FALLING_ANVIL) || entity.getRecentDamageSource().isOf(DamageTypes.DRAGON_BREATH) || entity.getRecentDamageSource().isOf(DamageTypes.BAD_RESPAWN_POINT)){
                 entity.heal(40);
             }
-        }
-        if(entity.getHealth() % 100 == 0 && x % 20 == 0 && entity.getHealth() != entity.getMaxHealth()){x=0;
-            entity.teleport((random.nextInt(r*2)-r)+entity.getX(), entity.getY()+0.5, (random.nextInt(r*2)-r)+entity.getZ());
         }
     }
 

@@ -3,20 +3,14 @@
     "criteria": {
         "gold_on": {
             "conditions": {
-                "item": {
-                    "items": [
-                        "hmh2:midas_seeds"
-                    ]
-                },
-                "location": {
-                    "block": {
-                        "blocks": [
-                            "hmh2:crimson_farmland"
-                        ]
+                "location": [
+                    {
+                        "block": "hmh2:midas_touch",
+                        "condition": "minecraft:block_state_property"
                     }
-                }
+                ]
             },
-            "trigger": "minecraft:item_used_on_block"
+            "trigger": "minecraft:placed_block"
         }
     },
     "display": {

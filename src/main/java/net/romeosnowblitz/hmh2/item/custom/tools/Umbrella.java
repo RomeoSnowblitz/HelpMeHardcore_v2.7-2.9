@@ -8,15 +8,16 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
-import net.romeosnowblitz.hmh2.entity.cal.CalEntity;
 
 import java.util.Random;
 
-public class Umbrella extends Item {
-    public Umbrella(Settings settings) {
-        super(settings);
+public class Umbrella extends SwordItem {
+    public Umbrella(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+        super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
     @Override

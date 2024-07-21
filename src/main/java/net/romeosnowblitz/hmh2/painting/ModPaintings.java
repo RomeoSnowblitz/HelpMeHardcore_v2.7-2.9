@@ -21,7 +21,7 @@ public class ModPaintings {
     public static final PaintingVariant DERNEVS_IS_OP = registerPainting("dernevs_is_op", new PaintingVariant(32, 16));
     public static final PaintingVariant GAMBLING_CONVO = registerPainting("gambling_convo", new PaintingVariant(16, 16));
     public static final PaintingVariant FANCY_LLAMA = registerPainting("fancy_llama", new PaintingVariant(16, 32));
-    public static final PaintingVariant CUED_FURRY = Registry.register(Registries.PAINTING_VARIANT, new Identifier(Hmh2.MOD_ID, "cued_furry"), new PaintingVariant(48, 16));
+    public static final PaintingVariant CUED_FURRY = registerPainting( "cued_furry", new PaintingVariant(48, 16));
     public static final PaintingVariant MOB_VOTE = registerPainting("mob_vote", new PaintingVariant(16, 16));
     public static final PaintingVariant STEVE = registerPainting("steve", new PaintingVariant(16, 16));
     public static final PaintingVariant MAXWEll = registerPainting("maxwell", new PaintingVariant(32, 32));

@@ -23,7 +23,6 @@ public class RandomBlock extends Block {
 
     static Random random = new Random();
     static Block y = randomBlocks();
-
     public static Block randomBlocks() {
         int i = random.nextInt(8 + 1);
         if (i==1){y = Blocks.IRON_BLOCK;}
@@ -40,30 +39,24 @@ public class RandomBlock extends Block {
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         if(!world.isClient){
             randomBlocks();
-            RandomBlock.setToRandom(state, world, pos);
+            setToRandom(state, world, pos);
         }
     }
 
     public static void setToRandom(BlockState state, World world, BlockPos pos) {
-        world.setBlockState(pos, RandomBlock.pushEntitiesUpBeforeBlockChange(state, y.getDefaultState(), world, pos));
+        world.setBlockState(pos, pushEntitiesUpBeforeBlockChange(state, y.getDefaultState(), world, pos));
     }
 
     public static BlockState pushEntitiesUpBeforeBlockChange(BlockState from, BlockState to, WorldAccess world, BlockPos pos) {
         VoxelShape voxelShape = VoxelShapes.combine(from.getCollisionShape(world, pos), to.getCollisionShape(world, pos), BooleanBiFunction.ONLY_SECOND).offset((double)pos.getX(), (double)pos.getY(), (double)pos.getZ());
-        if (voxelShape.isEmpty()) {
-            return to;
-        } else {
-            List<Entity> list = world.getOtherEntities((Entity)null, voxelShape.getBoundingBox());
-            Iterator var6 = list.iterator();
-
-            while(var6.hasNext()) {
-                Entity entity = (Entity)var6.next();
+        if (!voxelShape.isEmpty()) {
+            List<Entity> list = world.getOtherEntities(null, voxelShape.getBoundingBox());
+            for (Entity entity : list) {
                 double d = VoxelShapes.calculateMaxOffset(Direction.Axis.Y, entity.getBoundingBox().offset(0.0D, 1.0D, 0.0D), List.of(voxelShape), -1.0D);
                 entity.requestTeleportOffset(0.0D, 1.0D + d, 0.0D);
             }
-
-            return to;
         }
+        return to;
     }
 
 }

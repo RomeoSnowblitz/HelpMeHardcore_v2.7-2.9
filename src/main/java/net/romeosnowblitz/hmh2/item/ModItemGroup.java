@@ -124,7 +124,6 @@ public class ModItemGroup {
                 }).build());
 
 
-
         Registry.register(Registries.ITEM_GROUP, MOD, FabricItemGroup.builder().displayName(Text.translatable("Mod"))
                 .icon(() -> new ItemStack(ModBlocks.BLOCK)).entries((context, entries) -> {
                     entries.add(ModBlocks.SAND_SCULK);
@@ -243,6 +242,29 @@ public class ModItemGroup {
                     entries.add(MagicItems.TORMALINE);
                     entries.add(MagicItems.TSAVORITE);
                     entries.add(MagicItems.ZIRCON);
+                    entries.add(MagicBlocks.AMBER_BLOCK);
+                    entries.add(MagicBlocks.ANDALUSITE_BLOCK);
+                    entries.add(MagicBlocks.AQUAMARINE_BLOCK);
+                    entries.add(MagicBlocks.CITRINE_BLOCK);
+                    entries.add(MagicBlocks.DIOPSIDE_BLOCK);
+                    entries.add(MagicBlocks.GARNET_BLOCK);
+                    entries.add(MagicBlocks.HESSONITE_BLOCK);
+                    entries.add(MagicBlocks.MALICHITE_BLOCK);
+                    entries.add(MagicBlocks.MOONSTONE_BLOCK);
+                    entries.add(MagicBlocks.OPAL_BLOCK);
+                    entries.add(MagicBlocks.PERIDOT_BLOCK);
+                    entries.add(MagicBlocks.PREHNITE_BLOCK);
+                    entries.add(MagicBlocks.RUBY_BLOCK);
+                    entries.add(MagicBlocks.SAPPHIRE_BLOCK);
+                    entries.add(MagicBlocks.SMOKY_QUARTZ_BLOCK);
+                    entries.add(MagicBlocks.SPESSARITE_BLOCK);
+                    entries.add(MagicBlocks.SPHENE_BLOCK);
+                    entries.add(MagicBlocks.SPINEL_BLOCK);
+                    entries.add(MagicBlocks.TANZANITE_BLOCK);
+                    entries.add(MagicBlocks.TOPAZ_BLOCK);
+                    entries.add(MagicBlocks.TORMALINE_BLOCK);
+                    entries.add(MagicBlocks.TSAVORITE_BLOCK);
+                    entries.add(MagicBlocks.ZIRCON_BLOCK);
                     entries.add(MagicBlocks.AMBER_DUST);
                     entries.add(MagicBlocks.ANDALUSITE_DUST);
                     entries.add(MagicBlocks.AQUAMARINE_DUST);
@@ -380,6 +402,10 @@ public class ModItemGroup {
                     entries.add(WarfareItems.BONE_AXE);
                     entries.add(WarfareItems.BONE_SHOVEL);
                     entries.add(WarfareItems.BONE_HOE);
+                    entries.add(WarfareItems.CLOTH_HELMET);
+                    entries.add(WarfareItems.CLOTH_CHESTPLATE);
+                    entries.add(WarfareItems.CLOTH_LEGGINGS);
+                    entries.add(WarfareItems.CLOTH_BOOTS);
                     entries.add(WarfareItems.DRAMAGEON_HELMET);
                     entries.add(WarfareItems.DRAMAGEON_CHESTPLATE);
                     entries.add(WarfareItems.DRAMAGEON_LEGGINGS);
@@ -402,6 +428,11 @@ public class ModItemGroup {
                     entries.add(WarfareItems.HELLSTONE_CHESTPLATE);
                     entries.add(WarfareItems.HELLSTONE_LEGGINGS);
                     entries.add(WarfareItems.HELLSTONE_BOOTS);
+                    entries.add(WarfareItems.HELLSTONE_AXE);
+                    entries.add(WarfareItems.HELLSTONE_HOE);
+                    entries.add(WarfareItems.HELLSTONE_SHOVEL);
+                    entries.add(WarfareItems.HELLSTONE_SWORD);
+                    entries.add(WarfareItems.HELLSTONE_PICKAXE);
                     entries.add(WarfareItems.SUMOLTERITE_HELMET);
                     entries.add(WarfareItems.SUMOLTERITE_CHESTPLATE);
                     entries.add(WarfareItems.SUMOLTERITE_LEGGINGS);
@@ -411,15 +442,14 @@ public class ModItemGroup {
                     entries.add(WarfareItems.SUMOLTERITE_AXE);
                     entries.add(WarfareItems.SUMOLTERITE_HOE);
                     entries.add(WarfareItems.SUMOLTERITE_SHOVEL);
-                    entries.add(WarfareItems.HELLSTONE_AXE);
-                    entries.add(WarfareItems.HELLSTONE_HOE);
-                    entries.add(WarfareItems.HELLSTONE_SHOVEL);
-                    entries.add(WarfareItems.HELLSTONE_SWORD);
-                    entries.add(WarfareItems.HELLSTONE_PICKAXE);
                     entries.add(WarfareItems.WITHER_BONE_HELMET);
                     entries.add(WarfareItems.WITHER_BONE_CHESTPLATE);
                     entries.add(WarfareItems.WITHER_BONE_LEGGINGS);
                     entries.add(WarfareItems.WITHER_BONE_BOOTS);
+                    entries.add(WarfareItems.WOODEN_HELMET);
+                    entries.add(WarfareItems.WOODEN_CHESTPLATE);
+                    entries.add(WarfareItems.WOODEN_LEGGINGS);
+                    entries.add(WarfareItems.WOODEN_BOOTS);
                     entries.add(ModItems.PITCHFORK);
                     entries.add(ModItems.HELLFORK);
                     entries.add(ModItems.INFERNAL_DIAMOND);
@@ -810,6 +840,9 @@ public class ModItemGroup {
 
         Registry.register(Registries.ITEM_GROUP, TESTING, FabricItemGroup.builder().displayName(Text.translatable("Update/Testing"))
                 .icon(() -> new ItemStack(Blocks.BARRIER)).entries((context, entries) -> {
+                    entries.add(ModItems.NETHER_PORTAL_BOTTLE);
+                    entries.add(ModItems.END_PORTAL_BOTTLE);
+                    entries.add(ModItems.TEST);
                     entries.add(ModItems.PURPLE_TORCH_ITEM);
                     entries.add(ModItems.TRAVELERS_DREAM);
                     entries.add(ModItems.LIFE_ESSENCE);

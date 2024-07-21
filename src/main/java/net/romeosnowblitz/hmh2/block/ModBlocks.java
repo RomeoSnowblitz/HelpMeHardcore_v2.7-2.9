@@ -3,18 +3,14 @@ package net.romeosnowblitz.hmh2.block;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.BedPart;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
@@ -28,9 +24,7 @@ import net.romeosnowblitz.hmh2.block.custom.piston.ModPistonHeadBlock;
 import net.romeosnowblitz.hmh2.block.custom.summon.*;
 import net.romeosnowblitz.hmh2.block.custom.block.BananaPeel;
 import net.romeosnowblitz.hmh2.block.custom.summon.InfestedBlock;
-import net.romeosnowblitz.hmh2.block.custom.test.LampTorch;
-import net.romeosnowblitz.hmh2.block.custom.test.NewBedBlock;
-import net.romeosnowblitz.hmh2.block.custom.test.WallLampTorch;
+import net.romeosnowblitz.hmh2.block.custom.test.*;
 import net.romeosnowblitz.hmh2.entity.ModEntities;
 import net.romeosnowblitz.hmh2.fluid.ModFluids;
 import net.romeosnowblitz.hmh2.item.ModItems;
@@ -43,18 +37,23 @@ import java.util.function.ToIntFunction;
 public class ModBlocks {
 
 
-    public static final Block ROSE_BED = registerBlock("rose_bed", new NewBedBlock(ModDyeColor.ROSE, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOD).strength(0.2F).nonOpaque().burnable().pistonBehavior(PistonBehavior.DESTROY)), true);
+    public static final Block SPAWN_BLOCK = registerBlock("spawn_block", new SpawnBlock(AbstractBlock.Settings.create()), true);
+    public static final Block EGG_SHELL = registerBlock("egg_shell", new EggShell(100, AbstractBlock.Settings.create()), true);
 
+    public static final Block AA = registerBlock("aa", new AA(AbstractBlock.Settings.create()), true);
+    public static final Block JAIZ_BLOCK = registerBlock("jaiz_block", new JaizFlower(AbstractBlock.Settings.create().noCollision()), true);
+
+    public static final Block TEMPORARY_LIGHT = registerBlock("temporary_light", new TemporaryLight(FabricBlockSettings.copy(Blocks.LIGHT).ticksRandomly()), true);
+
+    public static final Block ROSE_BED = registerBlock("rose_bed", new NewBedBlock(ModDyeColor.ROSE, AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOD).strength(0.2F).nonOpaque().burnable().pistonBehavior(PistonBehavior.DESTROY)), true);
     public static final Block PURPLE_TORCH = registerBlock("purple_torch", new TorchBlock(
             AbstractBlock.Settings.create().noCollision().breakInstantly().luminance((state) -> 14).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ModParticleTypes.PURPLE_FLAME), false);
     public static final Block WALL_PURPLE_TORCH = registerBlock("wall_purple_torch", new WallTorchBlock(
             AbstractBlock.Settings.create().noCollision().breakInstantly().luminance((state) -> 14).sounds(BlockSoundGroup.WOOD).dropsLike(PURPLE_TORCH).pistonBehavior(PistonBehavior.DESTROY), ModParticleTypes.PURPLE_FLAME), false);
-
     public static final Block LAMP_TORCH = registerBlock("lamp_torch", new LampTorch(AbstractBlock.Settings.create()
             .noCollision().breakInstantly().luminance(createLightLevelFromLitBlockState(15)).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)), false);
     public static final Block LAMP_WALL_TORCH = registerBlock("lamp_wall_torch", new WallLampTorch(AbstractBlock.Settings.create()
             .noCollision().breakInstantly().luminance(createLightLevelFromLitBlockState(15)).sounds(BlockSoundGroup.WOOD).dropsLike(LAMP_TORCH).pistonBehavior(PistonBehavior.DESTROY)), false);
-
     public static final Block NEW_BLOCk = registerBlock("new_block", new ExperienceDroppingBlock(FabricBlockSettings.copy(Blocks.GOLD_BLOCK)), true);
     public static final Block ASH_BLOCK = registerBlock("ash_block", new Block(FabricBlockSettings.copy(Blocks.SAND)), true);
 
@@ -66,7 +65,7 @@ public class ModBlocks {
     public static final Block ICED_BUCKET = registerBlock("iced_bucket", new Block(AbstractBlock.Settings.create().nonOpaque().strength(1.0f).sounds(BlockSoundGroup.GLASS)), true);
 
     //Obtained from Crafting (8)
-    public static final Block BLOCK = registerBlock("block", new Block(FabricBlockSettings.create().strength(0.5f)), true);
+    public static final Block BLOCK = registerBlock("block", new Block(FabricBlockSettings.copyOf(Blocks.DIRT)), true);
     public static final Block END_CRYSTAL_BLOCK = registerBlock("end_crystal_block", new EnderCrystalBlock(FabricBlockSettings.create().strength(1.0f)), true);
     public static final Block LUCKY_ITEM = registerBlock("lucky_item", new Block(FabricBlockSettings.create().strength(0.5f).requiresTool()), true);
     public static final Block LUCKY_BLOCK = registerBlock("lucky_block", new Block(FabricBlockSettings.create().strength(0.5f).requiresTool()), true);
@@ -89,8 +88,8 @@ public class ModBlocks {
     public static final Block DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore", new Block(FabricBlockSettings.create().sounds(BlockSoundGroup.DEEPSLATE).strength(3.0f, 3.0f).requiresTool()), true);
     public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore", new Block(FabricBlockSettings.create().sounds(BlockSoundGroup.DEEPSLATE).strength(3.0f, 3.0f).requiresTool()), true);
     public static final Block GRAPHITE_BLOCK = registerBlock("graphite_block", new Block(FabricBlockSettings.create().strength(1.0f).requiresTool()), true);
+    public static final Block GALLIUM_ORE = registerBlock("gallium_ore", new Block(FabricBlockSettings.create().strength(1.0f).requiresTool()), true);
     public static final Block LIFE_ORE = registerBlock("life_ore", new Block(FabricBlockSettings.create().strength(1.0f).requiresTool().sounds(ModSounds.ORE_SCREAM_SOUNDS)), true);
-    public static final Block LUCKY_ORE = registerBlock("lucky_ore", new Block(FabricBlockSettings.create().strength(1.0f).requiresTool()), true);
     public static final Block HELLSTONE_BLOCK = registerBlock("hellstone_block", new Block(FabricBlockSettings.create().strength(1.0f).requiresTool()), true);
     public static final Block RAW_PLATINUM_BLOCK = registerBlock("raw_platinum_block", new Block(FabricBlockSettings.create().strength(3.0f, 3.0f).requiresTool()), true);
     public static final Block QUAERITE = registerBlock("quaerite", new Block(FabricBlockSettings.create().strength(4.0f).requiresTool()), true);
@@ -147,9 +146,7 @@ public class ModBlocks {
     }
 
     private static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
-        return (state) -> {
-            return (Boolean)state.get(Properties.LIT) ? litLevel : 0;
-        };
+        return (state) -> (Boolean)state.get(Properties.LIT) ? litLevel : 0;
     }
 
     private static ModPistonBlock createPistonBlock() {
@@ -158,8 +155,9 @@ public class ModBlocks {
     }
 
     private static Block registerBlock(String name, Block block, boolean item) {
-        if(item){Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));}
+        if(item){Registry.register(Registries.ITEM, new Identifier(Hmh2.MOD_ID, name), new ModBlockItem(block, new FabricItemSettings(), name));}
         return Registry.register(Registries.BLOCK, new Identifier(Hmh2.MOD_ID, name), block);
     }
+
 
 }

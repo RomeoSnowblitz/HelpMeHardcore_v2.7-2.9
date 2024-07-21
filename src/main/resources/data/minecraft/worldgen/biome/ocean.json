@@ -193,6 +193,12 @@
         "maxCount": 6,
         "minCount": 3,
         "weight": 10
+      },
+      {
+        "type": "hmh2:piranha",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 1
       }
     ],
     "water_creature": [

@@ -67,12 +67,6 @@ public class WarpmiteEntity extends HostileEntity {
     private int idleAnimationTimeout = 0;
     public WarpmiteEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
-        this.setCustomName(Text.empty());
-    }
-
-    @Override
-    public float getNameLabelHeight() {
-        return 0.2f;
     }
 
     private void setupAnimationStates(){

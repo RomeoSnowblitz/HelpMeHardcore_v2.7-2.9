@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.romeosnowblitz.hmh2.effect.CustomEffects;
 import net.romeosnowblitz.hmh2.entity.ModEntities;
-import net.romeosnowblitz.hmh2.entity.lost_soul.LostSoulEntity;
+import net.romeosnowblitz.hmh2.entity.monster.lost_soul.LostSoulEntity;
 import net.romeosnowblitz.hmh2.item.ModItems;
 
 import java.util.Random;

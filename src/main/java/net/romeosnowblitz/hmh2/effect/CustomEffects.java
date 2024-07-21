@@ -9,6 +9,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
+import net.romeosnowblitz.hmh2.effect.effect_class.*;
 
 public class CustomEffects {
     public static StatusEffect ANCHORED = registerAnchoredStatusEffect("anchored");
@@ -33,7 +34,10 @@ public class CustomEffects {
 
     public static StatusEffect NORMIE = registerNormieClass("normie");
     public static StatusEffect NECROMANCER = registerNecromancerClass("necromancer");
+    public static StatusEffect PACIFIST = registerPacifistClass("pacifist");
     public static StatusEffect SORCERER = registerSorcererClass("sorcerer");
+    public static StatusEffect ENVIRONMENTALIST = registerEnvironmentalistClass("environmentalist");
+    public static StatusEffect BLOOD_WITCH = registerBloodWitchClass("blood_witch");
 
     public static StatusEffect START = registerStatusEffect("start", new ModEffect(StatusEffectCategory.NEUTRAL,11184810));
     public static StatusEffect COMPLETE = registerStatusEffect("complete", new ModEffect(StatusEffectCategory.NEUTRAL,11184810));
@@ -57,11 +61,11 @@ public class CustomEffects {
     }
     public static StatusEffect registerConduitFailureStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new EffectPreventer(StatusEffects.CONDUIT_POWER, StatusEffectCategory.HARMFUL, 11184810));
+                new EffectPreventer(StatusEffectCategory.HARMFUL, 11184810));
     }
     public static StatusEffect registerDolphinsCurseStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new EffectPreventer(StatusEffects.DOLPHINS_GRACE, StatusEffectCategory.HARMFUL, 11184810));
+                new EffectPreventer(StatusEffectCategory.HARMFUL, 11184810));
     }
     public static StatusEffect registerEnderSkinStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
@@ -80,7 +84,7 @@ public class CustomEffects {
     }
     public static StatusEffect registerInsusceptibilityStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new EffectPreventer(StatusEffects.NAUSEA, StatusEffectCategory.BENEFICIAL, 11184810));
+                new EffectPreventer(StatusEffectCategory.BENEFICIAL, 11184810));
     }
     public static StatusEffect registerKindlingStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
@@ -92,7 +96,7 @@ public class CustomEffects {
     }
     public static StatusEffect registerPoisonImmunityStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new EffectPreventer(StatusEffects.POISON, StatusEffectCategory.BENEFICIAL, 11184810));
+                new EffectPreventer(StatusEffectCategory.BENEFICIAL, 11184810));
     }
 
     public static StatusEffect registerQuantumLockStatusEffect(String name) {
@@ -106,7 +110,7 @@ public class CustomEffects {
     }
     public static StatusEffect registerSightlessnessStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new EffectPreventer(StatusEffects.NIGHT_VISION, StatusEffectCategory.HARMFUL, 11184810));
+                new EffectPreventer(StatusEffectCategory.HARMFUL, 11184810));
     }
     public static StatusEffect registerSlimeLungEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
@@ -123,20 +127,32 @@ public class CustomEffects {
 
     public static StatusEffect registerWitherImmunityStatusEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new EffectPreventer(StatusEffects.WITHER, StatusEffectCategory.BENEFICIAL, 11184810));
+                new EffectPreventer(StatusEffectCategory.BENEFICIAL, 11184810));
     }
 
     public static StatusEffect registerNormieClass(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new NormieEffect(StatusEffectCategory.BENEFICIAL, 148537));
+                new NormieClass(StatusEffectCategory.BENEFICIAL, 148537));
     }
     public static StatusEffect registerNecromancerClass(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new NecromancerEffect(StatusEffectCategory.BENEFICIAL, 148537));
+                new NecromancerClass(StatusEffectCategory.BENEFICIAL, 148537));
+    }
+    public static StatusEffect registerPacifistClass(String name) {
+        return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
+                new PacifistClass(StatusEffectCategory.BENEFICIAL, 148537));
     }
     public static StatusEffect registerSorcererClass(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
-                new SorcererEffect(StatusEffectCategory.BENEFICIAL, 148537));
+                new SorcererClass(StatusEffectCategory.BENEFICIAL, 148537));
+    }
+    public static StatusEffect registerEnvironmentalistClass(String name) {
+        return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
+                new EnvironmentalistClass(StatusEffectCategory.BENEFICIAL, 0));
+    }
+    public static StatusEffect registerBloodWitchClass(String name) {
+        return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name),
+                new BloodWitchClass(StatusEffectCategory.BENEFICIAL, 0));
     }
     public static StatusEffect registerStatusEffect(String name, StatusEffect effect) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Hmh2.MOD_ID, name), effect);

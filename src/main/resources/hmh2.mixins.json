@@ -5,11 +5,18 @@
   "mixins": [
     "BlazeMixin",
     "ClassMilkMixin",
-    "PlayerEntityMixin",
+    "CompassMixin",
+    "FeatureMixin",
+    "GlassBottleMixin",
+    "ServerPlayerEntityMixin",
+    "TreeDecoratorTypeMixin",
     "WitherMixin",
     "WitherSkeletonMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  },
+  "client": [
+    "BackgroundRendererMixin"
+  ]
 }

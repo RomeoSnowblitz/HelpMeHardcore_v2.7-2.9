@@ -1,14 +1,12 @@
 package net.romeosnowblitz.hmh2.mixin;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.SkeletonEntity;
 import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -27,6 +25,9 @@ public class WitherSkeletonMixin{
 
     @Inject(method = "tryAttack", at = @At("HEAD"))
     public void tryAttack(Entity target, CallbackInfoReturnable<Boolean> cir) {
+        if(target instanceof SkeletonEntity skeleton){
+            skeleton.convertTo(EntityType.WITHER_SKELETON, true);
+        }
         if (target instanceof PlayerEntity player) {
             int i = 1;
             if (player.getStatusEffect(StatusEffects.WITHER) != null) {

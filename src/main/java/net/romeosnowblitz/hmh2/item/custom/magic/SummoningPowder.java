@@ -43,16 +43,4 @@ public class SummoningPowder extends Item {
     //phantom ghast skulker, slime magma_cube, hoglin
 
 
-
-    @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        PlayerEntity player = context.getPlayer();World world = context.getWorld();BlockPos pos = context.getBlockPos();
-        if(!world.isClient() && world.getBiome(pos).isIn(BiomeTags.IS_BADLANDS)){
-            EntityType.LIGHTNING_BOLT.spawn((ServerWorld) world, pos, SpawnReason.TRIGGERED);
-        }
-        player.addExperienceLevels(-10);
-        context.getStack().decrement(1);
-        return super.useOnBlock(context);
-    }
-
 }

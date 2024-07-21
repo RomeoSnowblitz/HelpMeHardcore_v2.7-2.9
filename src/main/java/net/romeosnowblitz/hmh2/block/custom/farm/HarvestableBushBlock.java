@@ -67,7 +67,6 @@ public class HarvestableBushBlock extends PlantBlock implements Fertilizable {
                     entity.damage(world.getDamageSources().sweetBerryBush(), 1.0F);
                 }
             }
-
         }
     }
 

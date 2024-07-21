@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:glowstone",
+    "minecraft:glow_lichen",
+    "minecraft:glow_berries",
+    "minecraft:glow_item_frame",
+    "minecraft:glow_ink_sac",
+    "minecraft:glowstone_dust",
+    "minecraft:glow_squid_spawn_egg",
+    "hmh2:glowing_fluid",
+    "minecraft:torch"
+  ]
+}

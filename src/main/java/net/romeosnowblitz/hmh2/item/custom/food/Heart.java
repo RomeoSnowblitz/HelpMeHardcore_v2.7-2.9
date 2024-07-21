@@ -20,7 +20,6 @@ public class Heart extends Item {
     }
 
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        super.finishUsing(stack, world, user);
         if (user instanceof ServerPlayerEntity) {
             ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity)user;
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
@@ -38,6 +37,6 @@ public class Heart extends Item {
                 serverPlayer.incrementStat(Stats.CUSTOM.getOrCreateStat(ModStats.REVIVAL_DISCOUNT));
             }
         }
-        return stack;
+        return super.finishUsing(stack, world, user);
     }
 }

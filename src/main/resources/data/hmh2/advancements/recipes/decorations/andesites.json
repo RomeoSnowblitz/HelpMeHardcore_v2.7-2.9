@@ -15,23 +15,16 @@
         "items": [
           {
             "items": [
-              "hmh2:andesite"
+              "minecraft:andesite"
             ]
           }
         ]
-      }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "hmh2:andesites"
       }
     }
   },
   "requirements": [
     [
-      "has_item",
-      "has_the_recipe"
+      "has_item"
     ]
   ]
 }

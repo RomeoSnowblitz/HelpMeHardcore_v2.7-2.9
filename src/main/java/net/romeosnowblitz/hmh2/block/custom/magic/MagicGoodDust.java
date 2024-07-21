@@ -1,6 +1,7 @@
 package net.romeosnowblitz.hmh2.block.custom.magic;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.LichenGrower;
 import net.minecraft.block.MultifaceGrowthBlock;
 import net.minecraft.entity.Entity;
@@ -25,8 +26,10 @@ public class MagicGoodDust extends MultifaceGrowthBlock {
         if (!world.isClient && entity instanceof LivingEntity livingEntity) {
             if(livingEntity.hasStatusEffect(CustomEffects.SORCERER)){
                 livingEntity.addStatusEffect(new StatusEffectInstance(effect, 60, 1));
+                world.setBlockState(pos, Blocks.AIR.getDefaultState());
             } else {
                 livingEntity.addStatusEffect(new StatusEffectInstance(effect, 60, 0));
+                world.setBlockState(pos, Blocks.AIR.getDefaultState());
             }
         }
     }

@@ -19,6 +19,7 @@ public class ClassMilkMixin extends Item {
 
     @Inject(method = "finishUsing", at = @At("HEAD"), cancellable = true)
     public void finishUsing(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir) {
+
         if (user instanceof ServerPlayerEntity serverPlayerEntity) {
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));

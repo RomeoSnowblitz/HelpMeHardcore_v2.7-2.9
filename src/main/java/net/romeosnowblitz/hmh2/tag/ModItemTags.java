@@ -12,6 +12,7 @@ public class ModItemTags {
 
 
     public static final TagKey<Item> DCC_TEST = of("dcc_test");
+    public static final TagKey<Item> LIGHTS = of("lights");
 
 
     public static final TagKey<Item> AQUATIC_CHARISMA_ARMOR = of("aquatic_charisma_armor");

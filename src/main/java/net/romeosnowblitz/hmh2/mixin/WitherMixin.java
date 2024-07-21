@@ -21,7 +21,7 @@ public abstract class WitherMixin extends HostileEntity {
 
     @Inject(method = "mobTick", at = @At("HEAD"))
     private void newMobTick(CallbackInfo ci) {
-        ModRegistries.antiBossFarm(0, this);
+        ModRegistries.antiBossFarm( this);
         Entity entity = this.getLastAttacker();
         if(entity != null && entity.isPlayer()) {int i = random.nextInt(300);
             if (i == 0){EntityType.WITHER_SKELETON.spawn((ServerWorld) this.getWorld(), this.getBlockPos(), SpawnReason.MOB_SUMMONED);}

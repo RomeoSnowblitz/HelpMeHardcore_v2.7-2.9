@@ -2,10 +2,11 @@ package net.romeosnowblitz.hmh2.entity.mites.bloodmite;
 
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
+import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.Hmh2;
 
-public class BloodmiteRenderer extends LivingEntityRenderer<BloodmiteEntity, BloodmiteModel<BloodmiteEntity>> {
+public class BloodmiteRenderer extends MobEntityRenderer<BloodmiteEntity, BloodmiteModel<BloodmiteEntity>> {
     public BloodmiteRenderer(EntityRendererFactory.Context ctx) {
         super(ctx, new BloodmiteModel<>(ctx.getPart(BloodmiteModel.BLOODMITE)), 0.6f);
     }

@@ -20,7 +20,7 @@ import net.minecraft.world.WorldAccess;
 import java.util.Optional;
 
 public class WetMagicDust extends MagicGoodDust implements Waterloggable {
-    public WetMagicDust(StatusEffect effect, AbstractBlock.Settings settings) {
+    public WetMagicDust(StatusEffect effect, Settings settings) {
         super(effect, settings);
         this.setDefaultState(this.getDefaultState().with(Properties.WATERLOGGED, false));
     }

@@ -6,6 +6,7 @@ import net.minecraft.entity.passive.SheepEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
@@ -26,7 +27,7 @@ public class SheepDyeItem extends Item {
                     SheepEntity sheep = (SheepEntity) entity;
                 sheep.setColor(COLOR);
                 if(!user.isCreative()){
-                    user.getStackInHand(hand).decrement(1);
+                    user.getInventory().remove(p -> p.isOf(this), 1, user.getInventory());
                 }
             }
         }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "amulet",
+  "ingredients": [
+    {
+      "item": "hmh2:rose"
+    },
+    {
+      "item": "hmh2:blue_spider_lily"
+    },
+    {
+      "item": "hmh2:wolfsbane"
+    }
+  ],
+  "result": {
+    "item": "hmh2:flower_crown",
+    "count": 1
+  }
+}

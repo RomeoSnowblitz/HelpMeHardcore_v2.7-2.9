@@ -5,6 +5,8 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Lazy;
@@ -28,6 +30,10 @@ public enum ModArmorMaterials implements ArmorMaterial {
         map.put(ArmorItem.Type.BOOTS, 2);map.put(ArmorItem.Type.LEGGINGS, 5);map.put(ArmorItem.Type.CHESTPLATE, 6);map.put(ArmorItem.Type.HELMET, 2);
     }), 15, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F, 0.0F, () -> Ingredient.ofItems(Items.BONE)),
 
+    CLOTH("cloth", 5, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 1);map.put(ArmorItem.Type.LEGGINGS, 2);map.put(ArmorItem.Type.CHESTPLATE, 3);map.put(ArmorItem.Type.HELMET, 1);
+    }), 30, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> Ingredient.ofItems(ModItems.CLOTH)),
+
     DRAMAGEON("dramageon", 64, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
         map.put(ArmorItem.Type.BOOTS, 3);map.put(ArmorItem.Type.LEGGINGS, 6);map.put(ArmorItem.Type.CHESTPLATE, 8);map.put(ArmorItem.Type.HELMET, 3);
     }), 15, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> Ingredient.ofItems(ModItems.ENDER_INGOT)),
@@ -35,9 +41,15 @@ public enum ModArmorMaterials implements ArmorMaterial {
     COPPER("copper", 35, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
         map.put(ArmorItem.Type.BOOTS, 3);map.put(ArmorItem.Type.LEGGINGS, 6);map.put(ArmorItem.Type.CHESTPLATE, 8);map.put(ArmorItem.Type.HELMET, 3);
     }), 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> Ingredient.ofItems(Items.EMERALD)),
+
     EMERALD("emerald", 35, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
         map.put(ArmorItem.Type.BOOTS, 3);map.put(ArmorItem.Type.LEGGINGS, 6);map.put(ArmorItem.Type.CHESTPLATE, 8);map.put(ArmorItem.Type.HELMET, 3);
     }), 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> Ingredient.ofItems(Items.EMERALD)),
+
+    FLOWER("flower", 5, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 1);map.put(ArmorItem.Type.LEGGINGS, 2);map.put(ArmorItem.Type.CHESTPLATE, 3);map.put(ArmorItem.Type.HELMET, 1);
+    }), 30, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> Ingredient.ofItems(ModItems.FLOWER_CROWN)),
+
 
     FUR("fur", 5, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
         map.put(ArmorItem.Type.BOOTS, 1);map.put(ArmorItem.Type.LEGGINGS, 2);map.put(ArmorItem.Type.CHESTPLATE, 3);map.put(ArmorItem.Type.HELMET, 1);
@@ -65,11 +77,16 @@ public enum ModArmorMaterials implements ArmorMaterial {
 
     WITHER_BONE("wither_bone", 48, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
         map.put(ArmorItem.Type.BOOTS, 3);map.put(ArmorItem.Type.LEGGINGS, 6);map.put(ArmorItem.Type.CHESTPLATE, 8);map.put(ArmorItem.Type.HELMET, 3);
-    }), 35, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0.0F, 0.0F, () -> Ingredient.ofItems(ModItems.WITHER_BONE));
+    }), 35, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 0.0F, 0.0F, () -> Ingredient.ofItems(ModItems.WITHER_BONE)),
+
+    WOODEN("wooden", 5, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 1);map.put(ArmorItem.Type.LEGGINGS, 2);map.put(ArmorItem.Type.CHESTPLATE, 3);map.put(ArmorItem.Type.HELMET, 1);
+    }), 30, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> Ingredient.fromTag(ItemTags.LOGS));
 
     private static final EnumMap BASE_DURABILITY = Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
         map.put(ArmorItem.Type.BOOTS, 13);map.put(ArmorItem.Type.LEGGINGS, 15);map.put(ArmorItem.Type.CHESTPLATE, 16);map.put(ArmorItem.Type.HELMET, 11);
     });
+
     private final String name;
     private final int durabilityMultiplier;
     private final EnumMap<ArmorItem.Type, Integer> protectionAmounts;

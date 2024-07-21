@@ -1,15 +1,17 @@
 package net.romeosnowblitz.hmh2.util;
 
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
+import net.minecraft.client.item.CompassAnglePredicateProvider;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.romeosnowblitz.hmh2.item.ModItems;
+import net.romeosnowblitz.hmh2.item.custom.test.BloodCompass;
 
 public class ModModelPredicateProvider {
     public static void registerModModels() {
 
         registerBambooBow(ModItems.BAMBOO_BOW);
-        FabricModelPredicateProviderRegistry.register(ModItems.BAMBOO_SHIELD, new Identifier("blocking"), (stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
+        registerBloodCompass(ModItems.BLOOD_COMPASS);
     }
 
     private static void registerBambooBow(Item bow){
@@ -29,10 +31,10 @@ public class ModModelPredicateProvider {
                         && entity.getActiveItem() == stack ? 1.0f : 0.0f);
 
     }
-
-    private static void registerSpear(Item spear) {
-        FabricModelPredicateProviderRegistry.register(spear, new Identifier("throwing"), (stack, world, entity, seed) ->
-                entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0F : 0.0F);
+    private static void registerBloodCompass(Item item){
+        FabricModelPredicateProviderRegistry.register(item, new Identifier("angle"),
+                new CompassAnglePredicateProvider((world, stack, entity) -> stack.hasNbt() ? BloodCompass.createVictimPos(world, stack.getOrCreateNbt()) : null));
     }
+
 
 }

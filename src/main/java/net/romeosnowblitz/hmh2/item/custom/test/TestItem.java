@@ -45,8 +45,7 @@ public class TestItem extends Item {
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {if (entity instanceof Saddleable saddleable && entity.isAlive()) {if (!saddleable.isSaddled() && saddleable.canBeSaddled()) {
         if (!user.world.isClient) {saddleable.saddle(SoundCategory.NEUTRAL);entity.world.emitGameEvent(entity, GameEvent.EQUIP, entity.getPos());stack.decrement(1);}return ActionResult.success(user.world.isClient);}}
         if (stack.hasCustomName() && !(entity instanceof PlayerEntity)) {if (!user.world.isClient && entity.isAlive()) {entity.setCustomName(stack.getName());
-            if (entity instanceof MobEntity) {((MobEntity)entity).setPersistent();}stack.decrement(1);}return ActionResult.success(user.world.isClient);} else {return ActionResult.PASS;}}
-    public ActionResult useOnBlock(ItemUsageContext context) {createParticles(context.getWorld(), context.getBlockPos(), 100);
+            if (entity instanceof MobEntity) {((MobEntity)entity).setPersistent();}stack.decrement(1);}return ActionResult.success(user.world.isClient);} else {return ActionResult.PASS;}}public ActionResult useOnBlock(ItemUsageContext context) {createParticles(context.getWorld(), context.getBlockPos(), 100);
         if (context.getPlayer().getStackInHand(Hand.OFF_HAND).isOf(Items.RAW_COPPER)) {World world = context.getWorld();BlockPos blockPos = context.getBlockPos();BlockState blockState = world.getBlockState(blockPos);
             if (blockState.isIn(BlockTags.FENCES)) {PlayerEntity playerEntity = context.getPlayer();if (!world.isClient && playerEntity != null) {playerEntity.addStatusEffect(
                     new StatusEffectInstance(StatusEffects.HERO_OF_THE_VILLAGE, 100, 100));}return ActionResult.success(world.isClient);} else {return ActionResult.PASS;}}
@@ -59,8 +58,7 @@ public class TestItem extends Item {
                     PillarBlock.AXIS, blockState.get(PillarBlock.AXIS)));Optional<BlockState> optional2 = Oxidizable.getDecreasedOxidationState(blockState);Optional<BlockState> optional3 =
                     Optional.ofNullable((Block)((BiMap)HoneycombItem.WAXED_TO_UNWAXED_BLOCKS.get()).get(blockState.getBlock())).map((block) -> block.getStateWithProperties(blockState));
             ItemStack itemStack = context.getStack();Optional<BlockState> optional4 = Optional.empty();if (optional.isPresent()) {world.playSound(playerEntity, blockPos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                optional4 = optional;} else if (optional2.isPresent()) {world.playSound(playerEntity, blockPos, SoundEvents.ITEM_AXE_SCRAPE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                world.syncWorldEvent(playerEntity, 3005, blockPos, 0);optional4 = optional2;} else if (optional3.isPresent()) {
+                optional4 = optional;} else if (optional2.isPresent()) {world.playSound(playerEntity, blockPos, SoundEvents.ITEM_AXE_SCRAPE, SoundCategory.BLOCKS, 1.0F, 1.0F);world.syncWorldEvent(playerEntity, 3005, blockPos, 0);optional4 = optional2;} else if (optional3.isPresent()) {
                 world.playSound(playerEntity, blockPos, SoundEvents.ITEM_AXE_WAX_OFF, SoundCategory.BLOCKS, 1.0F, 1.0F);world.syncWorldEvent(playerEntity, 3004, blockPos, 0);optional4 = optional3;}
             if (optional4.isPresent()) {if (playerEntity instanceof ServerPlayerEntity) {Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)playerEntity, blockPos, itemStack);}
                 world.setBlockState(blockPos, optional4.get(), 11);world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, optional4.get()));
